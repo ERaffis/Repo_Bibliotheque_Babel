@@ -37,12 +37,21 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void GetAxies(){
+
+        // Mouvement sans délais
+        // moveHorizontal = player.GetAxisRaw("Move Horizontal");
+        // moveVertical = player.GetAxisRaw("Move Vertical");
+
+        
+        // Movement avec un petit délais qui pourrait être ajusté
         moveHorizontal = player.GetAxis("Move Horizontal");
         moveVertical = player.GetAxis("Move Vertical");
+        
     }
 
     private void MovePlayer(){
+
         Vector2 moveDirection = new Vector2(moveHorizontal,moveVertical);
-        rb.AddForce(moveDirection * speed);
+        rb.velocity = moveDirection * speed;
     }
 }
