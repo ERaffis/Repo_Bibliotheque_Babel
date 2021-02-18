@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Rewired;
 
-[RequireComponent(typeof(Rigidbody2D))]
+
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Rewired Attributes")]
@@ -13,9 +13,16 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Player Components")]
     public PlayerScript playerScript;
-    public Rigidbody2D rb;
 
+    [Space]
     public float comboModifier;
+
+    [Header("Dash Values")]
+    public float dashForce = 10;
+    public float dashDuration = 0.1f;
+    public float dashCooldown = 3.5f;
+    public bool canDash = true;
+    public bool isDashing = false;
 
     private float moveHorizontal;
     private float moveVertical ;
@@ -27,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
         player = ReInput.players.GetPlayer(playerID);
         playerScript = GetComponent<PlayerScript>();
 
-        rb.gravityScale = 0;
+        playerScript.rb.gravityScale = 0;
     }
     
     private void Update() {
@@ -43,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
         FindAngle();
 
         MovePlayer();
+
+        
     }
 
     private void GetAxies() {
@@ -70,80 +79,122 @@ public class PlayerMovement : MonoBehaviour
             //Move Right
             if (moveAngle >= -25 & moveAngle <= 25)
             {
-                rb.velocity = Vector2.right * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = Vector2.right;
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 1);
                 playerScript.spriteRenderer.flipX = false;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[0];
             }
 
             //Move Up_Right
             if (moveAngle > 25 & moveAngle < 65) 
             {
-                rb.velocity = new Vector2(.75f, .75f) * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = new Vector2(.75f, .75f);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = false;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
+
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[1];
             }
 
             //Move Up
             if (moveAngle >= 65 & moveAngle <= 115) 
             {
-                rb.velocity = Vector2.up * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = Vector2.up;
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = false;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
+
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[2];
             }
 
             //Move Up_Left
             if (moveAngle > 115 & moveAngle < 155) 
             {
-                rb.velocity = new Vector2(-.75f, .75f) * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = new Vector2(-.75f, .75f);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = true;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[3];
             }
 
             //Move Left
             if (moveAngle >= 155 || moveAngle <= -155) 
             {
-                rb.velocity = Vector2.left * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = Vector2.left;
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 1);
                 playerScript.spriteRenderer.flipX = true;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[4];
             }
 
             //Move Down_Left
             if (moveAngle > -155 & moveAngle < -115) 
             {
-                rb.velocity = new Vector2(-.75f, -.75f) * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = new Vector2(-.75f, -.75f);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 5);
                 playerScript.spriteRenderer.flipX = true;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[5];
             }
 
             //Move Down
             if (moveAngle >= -115 & moveAngle <= -65) 
             {
-                rb.velocity = Vector2.down * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = Vector2.down;
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 4);
                 playerScript.spriteRenderer.flipX = false;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[6];
             }
 
             //Move Down_Right
             if (moveAngle > -65 & moveAngle < -25) 
             {
-                rb.velocity = new Vector2(.75f, -.75f) * playerScript.moveSpeed * comboModifier;
+                Vector2 dir = new Vector2(.75f, -.75f);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 5);
                 playerScript.spriteRenderer.flipX = false;
-                
+
+                if (player.GetButton("Dash") && canDash)
+                {
+                    PlayerDash(dir);
+                }
                 //playerScript.spriteRenderer.sprite = playerScript.spritesList[7];
             }
 
@@ -151,7 +202,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (moveDirection == Vector2.zero)
         {
-            rb.velocity = Vector2.zero;
+            playerScript.rb.velocity = Vector2.zero;
             playerScript.animator.SetInteger("Index", 0);
             playerScript.spriteRenderer.flipX = false;
             
@@ -169,5 +220,27 @@ public class PlayerMovement : MonoBehaviour
         {
             moveAngle *= -1;
         }  
+    }
+
+    private void PlayerDash(Vector2 direction)
+    {
+        playerScript.rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
+        StartCoroutine(WaitForDash());
+        print("Dash");
+    }
+
+    private IEnumerator WaitForDash()
+    {
+        isDashing = true;
+        playerScript.animator.SetBool("IsDashing", isDashing);
+
+        yield return new WaitForSeconds(dashDuration);
+
+        isDashing = false;
+        playerScript.animator.SetBool("IsDashing", isDashing);
+
+        canDash = false;
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
