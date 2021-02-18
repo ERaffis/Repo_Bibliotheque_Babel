@@ -7,10 +7,12 @@ public class Entities : MonoBehaviour
     [Header("Basic Info")]
     public string entityName;
     public int health;
-    [Space]
+    public float moveSpeed;
+    public int animationIndex;
+
+    [Header("Components")]
     public SpriteRenderer spriteRenderer;
-    public Sprite activeSprite;
-    public Sprite[] spritesList;
+    public Animator animator;
     
 
     [Header("Type of entity")]
