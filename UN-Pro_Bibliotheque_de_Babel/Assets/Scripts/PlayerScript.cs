@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerScript : Entities
 {
+
+    public uiManager uiManager;
+
     // Start is called before the first frame update
     void Start()
     {

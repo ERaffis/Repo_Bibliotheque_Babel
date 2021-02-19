@@ -225,6 +225,7 @@ public class PlayerMovement : MonoBehaviour
     private void PlayerDash(Vector2 direction)
     {
         playerScript.rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
+        StartCoroutine(playerScript.uiManager.UpdateDash(dashCooldown));
         StartCoroutine(WaitForDash());
         print("Dash");
     }
