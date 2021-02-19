@@ -7,9 +7,7 @@ using Rewired;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("Rewired Attributes")]
-    [SerializeField] private int playerID = 0;
-    private Player player;
+    
 
     [Header("Player Components")]
     public PlayerScript playerScript;
@@ -31,10 +29,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start() {
 
-        player = ReInput.players.GetPlayer(playerID);
+        
         playerScript = GetComponent<PlayerScript>();
 
         playerScript.rb.gravityScale = 0;
+
+        comboModifier = 1f;
     }
     
     private void Update() {
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate() {
 
-        comboModifier = 1f;
+        
         
         GetAxies();
 
@@ -57,14 +57,14 @@ public class PlayerMovement : MonoBehaviour
     private void GetAxies() {
 
         // Mouvement sans délais
-        moveHorizontal = player.GetAxisRaw("Move Horizontal");
-        moveVertical = player.GetAxisRaw("Move Vertical");
+        moveHorizontal = playerScript.playerInputs.GetAxisRaw("Move Horizontal");
+        moveVertical = playerScript.playerInputs.GetAxisRaw("Move Vertical");
         
     }
 
     private void MovePlayer(){
         
-        if(player.GetButton("Combo"))
+        if(GetComponent<RuneCasting>().isComboing)
         {   
             //Vitesse Reduite
             comboModifier = .5f;
@@ -72,7 +72,11 @@ public class PlayerMovement : MonoBehaviour
             //Vitesse Nulle
             //comboModifier = 0f;
             
+        } else
+        {
+            comboModifier = 1f;
         }
+
 
 
         if(moveDirection != Vector2.zero) {
@@ -84,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 1);
                 playerScript.spriteRenderer.flipX = false;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }
@@ -99,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = false;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }
@@ -115,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = false;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }
@@ -131,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = true;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }
@@ -146,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 1);
                 playerScript.spriteRenderer.flipX = true;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }
@@ -161,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 5);
                 playerScript.spriteRenderer.flipX = true;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }
@@ -176,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 4);
                 playerScript.spriteRenderer.flipX = false;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }
@@ -191,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.animator.SetInteger("Index", 5);
                 playerScript.spriteRenderer.flipX = false;
 
-                if (player.GetButton("Dash") && canDash)
+                if (playerScript.playerInputs.GetButton("Dash") && canDash)
                 {
                     PlayerDash(dir);
                 }

@@ -444,6 +444,42 @@ MonoBehaviour:
       _behaviorId: 0
       _userAssignable: 1
       _categoryId: 1
+    - _id: 4
+      _name: Rune 1
+      _type: 1
+      _descriptiveName: First Rune
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 2
+    - _id: 7
+      _name: Rune 4
+      _type: 1
+      _descriptiveName: Fourth Rune
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 2
+    - _id: 6
+      _name: Rune 3
+      _type: 1
+      _descriptiveName: Third Rune
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 2
+    - _id: 5
+      _name: Rune 2
+      _type: 1
+      _descriptiveName: Second Rune
+      _positiveDescriptiveName: 
+      _negativeDescriptiveName: 
+      _behaviorId: 0
+      _userAssignable: 1
+      _categoryId: 2
     actionCategories:
     - _name: Default
       _descriptiveName: Default
@@ -467,7 +503,7 @@ MonoBehaviour:
       - categoryId: 1
         actionIds: 000000000100000003000000
       - categoryId: 2
-        actionIds: 02000000
+        actionIds: 0200000004000000050000000600000007000000
     inputBehaviors:
     - _id: 0
       _name: Default
@@ -568,6 +604,50 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 4
+        _elementType: 1
+        _elementIdentifierId: 4
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: 7
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 6
+        _elementType: 1
+        _elementIdentifierId: 5
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 7
+        _elementType: 1
+        _elementIdentifierId: 8
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 0
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     keyboardMaps:
     - id: 0
       categoryId: 0
@@ -642,13 +722,57 @@ MonoBehaviour:
         _modifierKey1: 0
         _modifierKey2: 0
         _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 4
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 49
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 5
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 50
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 6
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 51
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
+      - _actionCategoryId: 0
+        _actionId: 7
+        _elementType: 1
+        _elementIdentifierId: -1
+        _axisRange: 0
+        _invert: 0
+        _axisContribution: 0
+        _keyboardKeyCode: 52
+        _modifierKey1: 0
+        _modifierKey2: 0
+        _modifierKey3: 0
     mouseMaps: []
     customControllerMaps: []
     customControllers: []
     controllerMapLayoutManagerRuleSets: []
     controllerMapEnablerRuleSets: []
     playerIdCounter: 2
-    actionIdCounter: 4
+    actionIdCounter: 8
     actionCategoryIdCounter: 3
     inputBehaviorIdCounter: 1
     mapCategoryIdCounter: 1
@@ -1034,6 +1158,7 @@ GameObject:
   - component: {fileID: 1321847566}
   - component: {fileID: 1321847570}
   - component: {fileID: 1321847572}
+  - component: {fileID: 1321847573}
   - component: {fileID: 1321847571}
   m_Layer: 0
   m_Name: PH_Player_1
@@ -1054,7 +1179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21942b7672a982f48bbc916bfb3a6103, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerID: 0
   playerScript: {fileID: 1321847570}
   comboModifier: 0
   dashForce: 10
@@ -1169,6 +1293,7 @@ MonoBehaviour:
   rb: {fileID: 1321847567}
   entityType: Player
   uiManager: {fileID: 1321847572}
+  playerID: 0
 --- !u!95 &1321847571
 Animator:
   serializedVersion: 3
@@ -1202,6 +1327,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 1265573012}
   dashIcon: {fileID: 339283142}
+--- !u!114 &1321847573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321847565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8c95473d87cb54eae1f51a498c43fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1321847570}
+  availableRunes: []
+  equippedRune_1: {fileID: 0}
+  equippedRune_2: {fileID: 0}
+  equippedRune_3: {fileID: 0}
+  equippedRune_4: {fileID: 0}
+  availableBracelets: []
+  equippedBracelet: {fileID: 0}
+  isComboing: 0
 --- !u!1 &1679961543
 GameObject:
   m_ObjectHideFlags: 0
