@@ -9,12 +9,12 @@ public class RuneCasting : MonoBehaviour
     public PlayerScript player;
 
     [Header("Runes")]
-    public Runes[] availableRunes;
-    public Runes equippedRune_1, equippedRune_2, equippedRune_3, equippedRune_4;
+    public GameObject[] availableRunes;
+    public GameObject equippedRune_1, equippedRune_2, equippedRune_3, equippedRune_4;
 
     [Header("Bracelets")]
-    public Bracelet[] availableBracelets;
-    public Bracelet equippedBracelet;
+    public GameObject[] availableBracelets;
+    public GameObject equippedBracelet;
 
     [Header("Combos")]
     public bool isComboing;
@@ -39,44 +39,124 @@ public class RuneCasting : MonoBehaviour
             isComboing = true;
         }
 
-        if (player.playerInputs.GetButtonDown("Rune 1") && !isComboing)
+        if(!isComboing)
         {
-            print("Pressed X");
+            if (player.playerInputs.GetButtonDown("Rune 1"))
+            {
+                if(equippedRune_1 !=null)
+                {
+                    print("Pressed Rune 1");
+                    Instantiate(equippedRune_1,gameObject.transform);
+                }
+
+                if(equippedRune_1 == null)
+                {
+                    print("Rune 1 not set");
+                }
+
+            }
+
+            if (player.playerInputs.GetButtonDown("Rune 2"))
+            {
+                if (equippedRune_2 != null)
+                {
+                    print("Pressed Rune 2");
+                    Instantiate(equippedRune_2);
+                }
+
+                if (equippedRune_2 == null)
+                {
+                    print("Rune 2 not set");
+                }
+            }
+
+            if (player.playerInputs.GetButtonDown("Rune 3"))
+            {
+                if (equippedRune_3 != null)
+                {
+                    print("Pressed Rune 3");
+                    Instantiate(equippedRune_3, gameObject.transform);
+                }
+
+                if (equippedRune_3 == null)
+                {
+                    print("Rune 3 not set");
+                }
+            }
+
+            if (player.playerInputs.GetButtonDown("Rune 4"))
+            {
+                if (equippedRune_4 != null)
+                {
+                    print("Pressed Rune 4");
+                    Instantiate(equippedRune_4, gameObject.transform);
+                }
+
+                if (equippedRune_4 == null)
+                {
+                    print("Rune 4 not set");
+                }
+            }
         }
 
-        if (player.playerInputs.GetButtonDown("Rune 1") && isComboing)
+        if (isComboing)
         {
-            print("Pressed X for combo");
-        }
+            if (player.playerInputs.GetButtonDown("Rune 1"))
+            {
+                if (equippedRune_1 != null)
+                {
+                    print("Pressed Rune 1 for combo");
+                    Instantiate(equippedRune_1);
+                }
 
-        if (player.playerInputs.GetButtonDown("Rune 2") && !isComboing)
-        {
-            print("Pressed Square");
-        }
+                if (equippedRune_1 == null)
+                {
+                    print("Rune 1 not set");
+                }
 
-        if (player.playerInputs.GetButtonDown("Rune 2") && isComboing)
-        {
-            print("Pressed Square for combo");
-        }
+            }
 
-        if (player.playerInputs.GetButtonDown("Rune 3") && !isComboing)
-        {
-            print("Pressed Circle");
-        }
+            if (player.playerInputs.GetButtonDown("Rune 2"))
+            {
+                if (equippedRune_2 != null)
+                {
+                    print("Pressed Rune 2 for combo");
+                    Instantiate(equippedRune_2);
+                }
 
-        if (player.playerInputs.GetButtonDown("Rune 3") && isComboing)
-        {
-            print("Pressed Circle for combo");
-        }
+                if (equippedRune_2 == null)
+                {
+                    print("Rune 2 not set");
+                }
+            }
 
-        if (player.playerInputs.GetButtonDown("Rune 4") && !isComboing)
-        {
-            print("Pressed Triangle");
-        }
+            if (player.playerInputs.GetButtonDown("Rune 3"))
+            {
+                if (equippedRune_3 != null)
+                {
+                    print("Pressed Rune 3 for combo");
+                    Instantiate(equippedRune_3);
+                }
 
-        if (player.playerInputs.GetButtonDown("Rune 4") && isComboing)
-        {
-            print("Pressed Triangle for combo");
+                if (equippedRune_3 == null)
+                {
+                    print("Rune 3 not set");
+                }
+            }
+
+            if (player.playerInputs.GetButtonDown("Rune 4"))
+            {
+                if (equippedRune_4 != null)
+                {
+                    print("Pressed Rune 4 for combo");
+                    Instantiate(equippedRune_4);
+                }
+
+                if (equippedRune_4 == null)
+                {
+                    print("Rune 4 not set");
+                }
+            }
         }
 
         if (player.playerInputs.GetButtonUp("Combo"))
