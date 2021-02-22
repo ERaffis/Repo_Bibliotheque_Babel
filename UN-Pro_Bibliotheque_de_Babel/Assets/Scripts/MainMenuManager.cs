@@ -4,13 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MainMenuManager : MonoBehaviour
 {
-    private void NouvellePartie()
+    public void NouvellePartie()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("HUB_Principal");
     }
 
-    private void QuitterJeu()
+    public void QuitterJeu()
     {
         Application.Quit();
+        Debug.Log("Quit Successful");
     }
 }
