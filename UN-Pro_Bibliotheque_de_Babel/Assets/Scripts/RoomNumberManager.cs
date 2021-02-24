@@ -53,6 +53,7 @@ public class RoomNumberManager : MonoBehaviour
         for (int i = 0; i < number.Length; i++)
         {
             roomNumberText.text += number[i];
+            SoundManager.PlaySound(SoundManager.Sound.TypeWriter);
             yield return new WaitForSeconds(0.25f) ;
         }
 
