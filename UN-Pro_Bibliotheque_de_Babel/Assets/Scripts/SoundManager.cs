@@ -24,6 +24,18 @@ public static class SoundManager
         soundTimerDictionnary[Sound.PlayerMove] = 0f;
     }
 
+    public static void PlaySound(Sound sound, Vector3 position)
+    {
+        if (CanPlaySound(sound))
+        {
+            GameObject soundGameObject = new GameObject("Sound");
+            soundGameObject.transform.position = position;
+            AudioSource audioSource = soundGameObject.AddComponent<AudioSource>();
+            audioSource.clip = GetAudioClip(sound);
+            audioSource.Play();
+        }
+    }
+
     public static void PlaySound(Sound sound)
     {
         if(CanPlaySound(sound))
