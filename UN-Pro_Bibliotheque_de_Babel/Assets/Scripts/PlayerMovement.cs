@@ -80,6 +80,9 @@ public class PlayerMovement : MonoBehaviour
 
 
         if(moveDirection != Vector2.zero) {
+
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
+
             //Move Right
             if (moveAngle >= -25 & moveAngle <= 25)
             {
@@ -92,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     PlayerDash(dir);
                 }
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[0];
+                SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
             }
 
             //Move Up_Right
@@ -232,6 +235,11 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(playerScript.uiManager.UpdateDash(dashCooldown));
         StartCoroutine(WaitForDash());
         print("Dash");
+    }
+
+    public Vector3 GetPosition()
+    {
+        return this.gameObject.transform.position;
     }
 
     private IEnumerator WaitForDash()

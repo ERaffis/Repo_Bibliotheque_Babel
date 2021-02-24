@@ -57,7 +57,7 @@ public static class SoundManager
                 if (soundTimerDictionnary.ContainsKey(sound))
                 {
                     float lastTimePlayed = soundTimerDictionnary[sound];
-                    float playerMoveTimerMax = 0.05f;
+                    float playerMoveTimerMax = 1f;
                     if(lastTimePlayed + playerMoveTimerMax < Time.time)
                     {
                         soundTimerDictionnary[sound] = Time.time;
