@@ -14,12 +14,13 @@ public class RoomNumberManager : MonoBehaviour
 
     private void Start()
     {
+        DontDestroyOnLoad(this.gameObject);
         GenerateNumbers();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P)) StartCoroutine(WriteNumber(levelNumber + roomNumber));
+        
         if (Input.GetKeyDown(KeyCode.O)) PlusLevelNumber();
         if (Input.GetKeyDown(KeyCode.L)) PlusRoomNumber();
     }
@@ -49,6 +50,7 @@ public class RoomNumberManager : MonoBehaviour
     {
         roomNumberText.gameObject.SetActive(true);
         roomNumberText.text = null;
+        yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < number.Length; i++)
         {
@@ -57,7 +59,7 @@ public class RoomNumberManager : MonoBehaviour
             yield return new WaitForSeconds(0.25f) ;
         }
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(.5f);
         roomNumberText.text = null;
         roomNumberText.gameObject.SetActive(false);
         
