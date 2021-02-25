@@ -12,6 +12,14 @@ public class PlayerScript : Entities
     [SerializeField] private int playerID = 0;
     public Player playerInputs;
 
+    [Header("Status")]
+    public bool canMove = true;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +30,13 @@ public class PlayerScript : Entities
     void Update()
     {
         
+    }
+
+    public IEnumerator BlockMove()
+    {
+        rb.velocity = Vector2.zero;
+        canMove = false;
+        yield return new WaitForSeconds(5f);
+        canMove = true;
     }
 }

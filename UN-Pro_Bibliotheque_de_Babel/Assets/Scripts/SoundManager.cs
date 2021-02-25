@@ -4,10 +4,10 @@ using UnityEngine;
 
 public static class SoundManager
 {
-   
     public enum Sound
     {
         TypeWriter,
+        TypeWriterEnd,
         PlayerMove,
         PlayerAttack,
         EnemyHit,

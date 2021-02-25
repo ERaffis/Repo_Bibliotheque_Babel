@@ -5,7 +5,9 @@ public class LevelManager : MonoBehaviour
 {
     public Animator animator;
 
+    [Header("Class Relations")]
     public RoomNumberManager numberManager;
+    public PlayerScript playerScript;
 
     private int levelToLoad;
 
@@ -16,17 +18,13 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
-            if (levelToLoad == 0) FadeToLevel(3);
-            if (levelToLoad == 3) FadeToLevel(2);
-            if (levelToLoad == 2) FadeToLevel(3);
-        }
+        
     }
 
     public void FadeToLevel(int levelIndex)
     {
+        StartCoroutine(playerScript.BlockMove());
+        StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
         animator.SetTrigger("FadeOut");
         levelToLoad = levelIndex;
     }
@@ -34,5 +32,6 @@ public class LevelManager : MonoBehaviour
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(levelToLoad);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

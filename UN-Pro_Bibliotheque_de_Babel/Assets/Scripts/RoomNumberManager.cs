@@ -12,9 +12,13 @@ public class RoomNumberManager : MonoBehaviour
     public string levelNumber;
     public int levelNumberINT;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         GenerateNumbers();
     }
 
@@ -56,8 +60,12 @@ public class RoomNumberManager : MonoBehaviour
         {
             roomNumberText.text += number[i];
             SoundManager.PlaySound(SoundManager.Sound.TypeWriter);
-            yield return new WaitForSeconds(0.25f) ;
+            yield return new WaitForSeconds(0.20f) ;
         }
+
+        yield return new WaitForSeconds(.25f);
+
+        SoundManager.PlaySound(SoundManager.Sound.TypeWriterEnd);
 
         yield return new WaitForSeconds(.5f);
         roomNumberText.text = null;

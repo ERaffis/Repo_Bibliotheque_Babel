@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private int moveAngle;
 
+
     private void Start() {
 
         
@@ -48,8 +49,7 @@ public class PlayerMovement : MonoBehaviour
         GetAxies();
 
         FindAngle();
-
-        MovePlayer();
+        if(playerScript.canMove) MovePlayer();
 
         
     }
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(moveDirection != Vector2.zero) {
 
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
+            //SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
 
             //Move Right
             if (moveAngle >= -25 & moveAngle <= 25)
@@ -95,7 +95,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     PlayerDash(dir);
                 }
-                SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
             }
 
             //Move Up_Right
