@@ -109,7 +109,15 @@ public class LevelManager : MonoBehaviour
                         shouldHub += 0.05f;
                         shouldBoss += 0.075f;
                         shouldBiome += 0.05f;
-                        return "Piece_Biome_1";
+                        if (Random.Range(0.01f, 1f) > 0.1f)
+                        {
+                            return "Piece_Biome_1";
+                        }
+                        else
+                        {
+                            return "Puzzle_Biome_1";
+                        }
+                        
                     }
                 case 1:
                     if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f)
@@ -126,7 +134,14 @@ public class LevelManager : MonoBehaviour
                         shouldHub += 0.05f;
                         shouldBoss += 0.075f;
                         shouldBiome += 0.05f;
-                        return "Piece_Biome_2";
+                        if (Random.Range(0.01f, 1f) > 0.1f)
+                        {
+                            return "Piece_Biome_2";
+                        }
+                        else
+                        {
+                            return "Puzzle_Biome_2";
+                        }
                     }
                 case 2:
                     if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f )
@@ -143,7 +158,14 @@ public class LevelManager : MonoBehaviour
                         shouldHub += 0.05f;
                         shouldBoss += 0.075f;
                         shouldBiome += 0.05f;
-                        return "Piece_Biome_3";
+                        if (Random.Range(0.01f, 1f) > 0.1f)
+                        {
+                            return "Piece_Biome_3";
+                        }
+                        else
+                        {
+                            return "Puzzle_Biome_3";
+                        }
                     }
             }
         }
