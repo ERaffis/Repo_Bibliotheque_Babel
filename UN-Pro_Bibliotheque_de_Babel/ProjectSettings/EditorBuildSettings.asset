@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 1b08d1acf3b0eb44b8a5fb2050e67df8
@@ -18,6 +15,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Edouard.unity
     guid: 4dee4050641c991409431de356fa2217
   - enabled: 1
-    path: Assets/Scenes/Edouard_2.unity
-    guid: c691ae47134a909409838fec8bb6c024
+    path: Assets/Scenes/Biome_1/Piece_Biome_1.unity
+    guid: f05d70bffb3b6f042a5a96a226ef1b91
+  - enabled: 1
+    path: Assets/Scenes/Biome_1/Boss_Biome_1.unity
+    guid: 519536b2e27d58a48adbacc9ea2fa906
+  - enabled: 1
+    path: Assets/Scenes/Biome_2/Piece_Biome_2.unity
+    guid: ee45828f6f82459488678c71d7ce039a
+  - enabled: 1
+    path: Assets/Scenes/Biome_2/Boss_Biome_2.unity
+    guid: 24ec9cf1c5e3bba4296b8dc21b3065c5
+  - enabled: 1
+    path: Assets/Scenes/Biome_3/Piece_Biome_3.unity
+    guid: e371ec0cc4e18d14cb62b568d39b1199
+  - enabled: 1
+    path: Assets/Scenes/Biome_3/Boss_Biome_3.unity
+    guid: f16d22d078ba5fe4db19cfc126fec8d0
+  - enabled: 1
+    path: Assets/Scenes/Hubs/Hub_Secondaire.unity
+    guid: c547dc881038efe4393f6c0a46f69e2d
   m_configObjects: {}

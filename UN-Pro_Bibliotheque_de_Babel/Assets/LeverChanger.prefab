@@ -89,6 +89,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2782057178430787763}
   numberManager: {fileID: 2782057178430787761}
+  playerScript: {fileID: 0}
+  shouldBiome: 0
+  shouldBoss: 0
+  shouldHub: 0
+  currentBiome: 0
+  shouldExterior: 0
 --- !u!1 &2782057178599917295
 GameObject:
   m_ObjectHideFlags: 0

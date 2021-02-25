@@ -1628,7 +1628,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 500
   m_TargetDisplay: 0
 --- !u!224 &1265573013
 RectTransform:
@@ -2331,5 +2331,25 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1987508394}
+    - target: {fileID: 2782057180190608816, guid: ae4ede5244d5b684f863c8347a60b166, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782057180190608816, guid: ae4ede5244d5b684f863c8347a60b166, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782057180190608816, guid: ae4ede5244d5b684f863c8347a60b166, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782057180190608816, guid: ae4ede5244d5b684f863c8347a60b166, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2782057180190608816, guid: ae4ede5244d5b684f863c8347a60b166, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae4ede5244d5b684f863c8347a60b166, type: 3}
