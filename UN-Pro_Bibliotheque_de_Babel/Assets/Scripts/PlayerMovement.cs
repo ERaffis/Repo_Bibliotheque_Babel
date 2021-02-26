@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private float moveVertical ;
     private Vector2 moveDirection;
     private int moveAngle;
+    
 
     private void Start() {
 
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         playerScript.rb.gravityScale = 0;
 
         comboModifier = 1f;
+
     }
     
     private void Update() {
@@ -226,7 +228,7 @@ public class PlayerMovement : MonoBehaviour
         }  
     }
 
-    private void PlayerDash(Vector2 direction)
+    public void PlayerDash(Vector2 direction)
     {
         playerScript.rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
         StartCoroutine(playerScript.uiManager.UpdateDash(dashCooldown));

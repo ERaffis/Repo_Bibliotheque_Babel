@@ -106,7 +106,7 @@ public class RuneCasting : MonoBehaviour
                 if (equippedRune_1 != null)
                 {
                     print("Pressed Rune 1 for combo");
-                    Instantiate(equippedRune_1);
+                    equippedRune_1.GetComponent<Expulsion>().RuneMaitresse();
                 }
 
                 if (equippedRune_1 == null)
@@ -163,6 +163,7 @@ public class RuneCasting : MonoBehaviour
         {
             print("Combo Launched");
             isComboing = false;
+            //liste à faire avant si la liste est pas vide ça balance les actions. 
         }
     }
 }
