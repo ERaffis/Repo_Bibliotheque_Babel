@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = Vector2.up;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 3);
+                playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = false;
 
                 if (playerScript.playerInputs.GetButton("Dash") && canDash)
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = new Vector2(-.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 5);
+                playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = true;
 
                 if (playerScript.playerInputs.GetButton("Dash") && canDash)
@@ -179,7 +179,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = Vector2.down;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 4);
+                playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = false;
 
                 if (playerScript.playerInputs.GetButton("Dash") && canDash)
@@ -194,7 +194,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = new Vector2(.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 5);
+                playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = false;
 
                 if (playerScript.playerInputs.GetButton("Dash") && canDash)
