@@ -32,6 +32,13 @@ public class PlayerScript : Entities
         
     }
 
+    public IEnumerator SetSpawn()
+    {
+        yield return new WaitForSeconds(.1f);
+        GameObject spawnPoint = GameObject.Find("SpawnPoint");
+        this.transform.position = spawnPoint.transform.position;
+    }
+
     public IEnumerator BlockMove()
     {
         rb.velocity = Vector2.zero;

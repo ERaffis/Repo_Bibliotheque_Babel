@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
+    public GameObject mainCam;
+    public GameObject eventSystem;
+
 
     private void Awake()
     {
         SoundManager.Initialize();
+        mainCam = GameObject.Find("Main Camera");
+        eventSystem = GameObject.Find("EventSystem");
+
+        DontDestroyOnLoad(mainCam);
+        DontDestroyOnLoad(eventSystem);
     }
     // Start is called before the first frame update
     void Start()

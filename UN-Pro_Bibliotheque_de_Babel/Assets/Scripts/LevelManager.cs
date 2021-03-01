@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
     {
         
         SceneManager.LoadScene(roomName);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        StartCoroutine(playerScript.SetSpawn());
     }
 
     public string GenerateRoom()
