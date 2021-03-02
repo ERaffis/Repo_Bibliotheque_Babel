@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(moveDirection != Vector2.zero) {
 
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
+            //SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
 
             //Move Right
             if (moveAngle >= -25 & moveAngle <= 25)
