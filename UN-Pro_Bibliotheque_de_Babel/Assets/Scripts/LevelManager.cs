@@ -31,32 +31,62 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete)) FadeToLevel();
     }
 
-    public void FadeToLevel(int levelIndex)
-    {
-        StartCoroutine(playerScript.BlockMove());
-        StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
-        animator.SetTrigger("FadeOut");
-        levelToLoad = levelIndex;
-    }
 
+    // Change scene with random generation -- GenerateRoom()
     public void FadeToLevel()
     {
-        roomName = GenerateRoom();
+        this.roomName = GenerateRoom();
 
-        if (roomName == "HUB_Principal")
+        switch (roomName)
         {
-            animator.SetTrigger("FadeOut");
-        } else
-        {
-            //StartCoroutine(playerScript.BlockMove());
-            StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
-            animator.SetTrigger("FadeOut");
+            case "HUB_Principal":
+                animator.SetTrigger("FadeOut");
+                break;
+            default:
+                StartCoroutine(playerScript.BlockMove());
+                StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
+                animator.SetTrigger("FadeOut");
+                break;
         }
-
-        
     }
 
+    // Change scene with name
+    public void FadeToLevel(string roomName)
+    {
+        this.roomName = roomName;
 
+        switch (roomName)
+        {
+            case "HUB_Principal":
+                animator.SetTrigger("FadeOut");
+                break;
+            default:
+                StartCoroutine(playerScript.BlockMove());
+                StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
+                animator.SetTrigger("FadeOut");
+                break;
+        }
+    }
+
+    // Change scene with build index
+    public void FadeToLevel(int levelIndex)
+    {
+        this.roomName = SceneManager.GetSceneByBuildIndex(levelIndex).name;
+
+        switch (roomName)
+        {
+            case "HUB_Principal":
+                animator.SetTrigger("FadeOut");
+                break;
+            default:
+                StartCoroutine(playerScript.BlockMove());
+                StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
+                animator.SetTrigger("FadeOut");
+                break;
+        }
+    }
+
+    // Changes the scene when the fade is complete
     public void OnFadeComplete()
     {
         
@@ -64,6 +94,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(playerScript.SetSpawn());
     }
 
+    // Generate a room name based on parameters
     public string GenerateRoom()
     {
         float spawnHub = Random.Range(0f, 1f);
@@ -173,6 +204,7 @@ public class LevelManager : MonoBehaviour
         return null;  
     }
 
+    // Changes the current biome for the next room
     public void ChangeBiome()
     {
         if (Random.Range(0.01f, 1f) * shouldBiome > 0.8f)

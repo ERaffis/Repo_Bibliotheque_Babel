@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(moveDirection != Vector2.zero) {
 
-            //SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
 
             //Move Right
             if (moveAngle >= -25 & moveAngle <= 25)
@@ -90,11 +90,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 1);
                 playerScript.spriteRenderer.flipX = false;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
             }
 
             //Move Up_Right
@@ -104,13 +99,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = false;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
-
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[1];
             }
 
             //Move Up
@@ -120,13 +108,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = false;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
-
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[2];
             }
 
             //Move Up_Left
@@ -136,12 +117,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 2);
                 playerScript.spriteRenderer.flipX = true;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[3];
             }
 
             //Move Left
@@ -151,12 +126,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 1);
                 playerScript.spriteRenderer.flipX = true;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[4];
             }
 
             //Move Down_Left
@@ -166,12 +135,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = true;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[5];
             }
 
             //Move Down
@@ -181,12 +144,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = false;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[6];
             }
 
             //Move Down_Right
@@ -196,12 +153,6 @@ public class PlayerMovement : MonoBehaviour
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript.spriteRenderer.flipX = false;
-
-                if (playerScript.playerInputs.GetButton("Dash") && canDash)
-                {
-                    PlayerDash(dir);
-                }
-                //playerScript.spriteRenderer.sprite = playerScript.spritesList[7];
             }
 
         }
@@ -211,11 +162,7 @@ public class PlayerMovement : MonoBehaviour
             playerScript.rb.velocity = Vector2.zero;
             playerScript.animator.SetInteger("Index", 0);
             playerScript.spriteRenderer.flipX = false;
-            
         }
-        
- 
-        
     }
 
     private void FindAngle(){
@@ -228,31 +175,31 @@ public class PlayerMovement : MonoBehaviour
         }  
     }
 
-    private void PlayerDash(Vector2 direction)
-    {
-        playerScript.rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
-        StartCoroutine(playerScript.uiManager.UpdateDash(dashCooldown));
-        StartCoroutine(WaitForDash());
-        print("Dash");
-    }
-
     public Vector3 GetPosition()
     {
         return this.gameObject.transform.position;
     }
 
-    private IEnumerator WaitForDash()
-    {
-        isDashing = true;
-        playerScript.animator.SetBool("IsDashing", isDashing);
+    //private void Playerdash(Vector2 direction)
+    //{
+    //    playerScript.rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
+    //    StartCoroutine(playerScript._GameHandler.uiManager.UpdateDash(dashCooldown));
+    //    StartCoroutine(WaitForDash());
+    //    print("dash");
+    //}
 
-        yield return new WaitForSeconds(dashDuration);
+    //private IEnumerator WaitForDash()
+    //{
+    //    isDashing = true;
+    //    playerScript.animator.SetBool("IsDashing", isDashing);
 
-        isDashing = false;
-        playerScript.animator.SetBool("IsDashing", isDashing);
+    //    yield return new WaitForSeconds(dashDuration);
 
-        canDash = false;
-        yield return new WaitForSeconds(dashCooldown);
-        canDash = true;
-    }
+    //    isDashing = false;
+    //    playerScript.animator.SetBool("IsDashing", isDashing);
+
+    //    canDash = false;
+    //    yield return new WaitForSeconds(dashCooldown);
+    //    canDash = true;
+    //}
 }

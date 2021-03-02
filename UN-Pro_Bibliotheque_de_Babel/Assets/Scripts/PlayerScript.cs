@@ -6,19 +6,19 @@ using Rewired;
 public class PlayerScript : Entities
 {
 
-    public uiManager uiManager;
+    [Header("Game Handler")]
+    public GameHandler _GameHandler;
 
     [Header("Rewired Attributes")]
     [SerializeField] private int playerID = 0;
     public Player playerInputs;
 
+    [Header("Run Counter")]
+    public int nmbRun;
+
     [Header("Status")]
     public bool canMove = true;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
 
     // Start is called before the first frame update
     void Start()

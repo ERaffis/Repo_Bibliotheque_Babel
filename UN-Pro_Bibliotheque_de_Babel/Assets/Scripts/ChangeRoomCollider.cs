@@ -29,7 +29,7 @@ public class ChangeRoomCollider : MonoBehaviour
             if(roomCleared)
             {
                 roomCleared = false;
-                lvlManager.FadeToLevel(3);
+                lvlManager.FadeToLevel();
             } else
             {
                 Debug.LogWarning("Roomed Not Cleared");
