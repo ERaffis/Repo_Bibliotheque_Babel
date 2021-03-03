@@ -217,22 +217,47 @@ public class LevelManager : MonoBehaviour
                 case 0:
                     print("1");
                     shouldBiome = 0;
-                    if (Random.Range(0f, 1f) > 0.5f) currentBiome = 1;
-                    else currentBiome = 2;
+                    if (Random.Range(0f, 1f) > 0.5f)
+                    {
+                        currentBiome = 1;
+                        playerScript._GameHandler.biomeName = "L'Incendie";
+                    }
+                    else
+                    {
+                        currentBiome = 2;
+                        playerScript._GameHandler.biomeName = "La Ruine";
+                    }
                     break;
 
                 case 1:
                     print("2");
                     shouldBiome = 0;
-                    if (Random.Range(0f, 1f) > 0.5f) currentBiome = 2;
-                    else currentBiome = 0;
+                    if (Random.Range(0f, 1f) > 0.5f)
+                    {
+                        currentBiome = 2;
+                        playerScript._GameHandler.biomeName = "La Ruine";
+                    }
+                    else 
+                    {
+                        currentBiome = 0;
+                        playerScript._GameHandler.biomeName = "La Preservation";
+                    }
+                    
                     break;
 
                 case 2:
                     print("3");
                     shouldBiome = 0;
-                    if (Random.Range(0f, 1f) > 0.5f) currentBiome = 0;
-                    else currentBiome = 1;
+                    if (Random.Range(0f, 1f) > 0.5f)
+                    {
+                        currentBiome = 0;
+                        playerScript._GameHandler.biomeName = "La Preservation";
+                    }
+                    else
+                    {
+                        currentBiome = 1;
+                        playerScript._GameHandler.biomeName = "L'Incendie";
+                    }
                     break;
 
             }

@@ -7,6 +7,9 @@ TagManager:
   - ExitTrigger
   - SpawnPoint
   - GameHandler
+  - MainUI
+  - Player1
+  - HealthBar
   layers:
   - Default
   - TransparentFX

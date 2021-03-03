@@ -15,11 +15,12 @@ public class GameHandler : MonoBehaviour
     public LevelManager lvlManager;
     public uiManager uiManager;
 
-    public float gameDifficulty;
+    public int gameDifficulty;
     public int nmbToSpawns;
     public int nmbSpawned;
     public int nmbRemaining;
 
+    public string biomeName;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public class GameHandler : MonoBehaviour
         DontDestroyOnLoad(eventSystem);
         DontDestroyOnLoad(player1);
 
-        gameDifficulty = 0.25f;
+        gameDifficulty = 1;
     }
     // Start is called before the first frame update
     void Start()
@@ -63,14 +64,14 @@ public class GameHandler : MonoBehaviour
         // if the player reached the outside during the run
         if(var == true)
         {
-            gameDifficulty *= 1.25f;
+            gameDifficulty += 1;
             //lvlManager.FadeToLevel("HUB_Principal");
             // print(gameDifficulty);
         }
         // if the player died during the run
         if (var != true)
         {
-            gameDifficulty *= 1.15f;
+            gameDifficulty += 2;
             lvlManager.FadeToLevel("HUB_Principal");
             // print(gameDifficulty);
         }

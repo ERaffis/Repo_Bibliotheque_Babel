@@ -33,7 +33,7 @@ public class EnnemySpawner : MonoBehaviour
 
     void SpawnEnnemies()
     {
-        _GameHandler.nmbToSpawns =  5 * (int) _GameHandler.gameDifficulty;
+        _GameHandler.nmbToSpawns =  2 * (int) _GameHandler.gameDifficulty;
 
         // Spawn le nombre d'enemies en fonction de la difficulé et du biome. 
         switch (_GameHandler.lvlManager.currentBiome)
