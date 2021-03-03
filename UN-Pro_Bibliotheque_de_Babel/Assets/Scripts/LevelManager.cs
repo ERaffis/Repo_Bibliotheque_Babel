@@ -40,6 +40,7 @@ public class LevelManager : MonoBehaviour
         switch (roomName)
         {
             case "HUB_Principal":
+                playerScript._GameHandler.RunEnded(true);
                 animator.SetTrigger("FadeOut");
                 break;
             default:
@@ -58,6 +59,7 @@ public class LevelManager : MonoBehaviour
         switch (roomName)
         {
             case "HUB_Principal":
+                playerScript._GameHandler.RunEnded(true);
                 animator.SetTrigger("FadeOut");
                 break;
             default:
@@ -76,6 +78,7 @@ public class LevelManager : MonoBehaviour
         switch (roomName)
         {
             case "HUB_Principal":
+                playerScript._GameHandler.RunEnded(true);
                 animator.SetTrigger("FadeOut");
                 break;
             default:

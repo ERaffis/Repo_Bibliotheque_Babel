@@ -35,7 +35,7 @@ public class PlayerScript : Entities
     public IEnumerator SetSpawn()
     {
         yield return new WaitForSeconds(.1f);
-        GameObject spawnPoint = GameObject.Find("SpawnPoint");
+        GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
         this.transform.position = spawnPoint.transform.position;
     }
 
@@ -45,5 +45,10 @@ public class PlayerScript : Entities
         canMove = false;
         yield return new WaitForSeconds(5f);
         canMove = true;
+    }
+
+    public void PlayerDied()
+    {
+        _GameHandler.RunEnded(false);
     }
 }

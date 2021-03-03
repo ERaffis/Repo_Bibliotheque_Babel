@@ -22,6 +22,11 @@ public class ChangeRoomCollider : MonoBehaviour
         }
     }
 
+    public void CheckForRoomClear()
+    {
+        if (lvlManager.playerScript._GameHandler.nmbRemaining <= 0) roomCleared = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "ExitTrigger")

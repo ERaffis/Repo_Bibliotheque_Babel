@@ -13,12 +13,10 @@ public class EnnemySpawner : MonoBehaviour
     public GameObject[] ennemiesBiome2;
     public GameObject[] ennemiesBiome3;
 
-    public float nmbToSpawns;
-    public float nmbSpawned;
 
     private void Awake()
     {
-        _GameHandler = GameObject.Find("GameHandler").GetComponent<GameHandler>();
+        _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
     }
 
     // Start is called before the first frame update
@@ -35,7 +33,7 @@ public class EnnemySpawner : MonoBehaviour
 
     void SpawnEnnemies()
     {
-        nmbToSpawns =  5 * _GameHandler.gameDifficulty;
+        _GameHandler.nmbToSpawns =  5 * (int) _GameHandler.gameDifficulty;
 
         // Spawn le nombre d'enemies en fonction de la difficulé et du biome. 
         switch (_GameHandler.lvlManager.currentBiome)
@@ -43,9 +41,9 @@ public class EnnemySpawner : MonoBehaviour
             case 0:
                 foreach (GameObject spawnLocation in spawnLocationArray)
                 {
-                    if(nmbSpawned <= nmbToSpawns)
+                    if(_GameHandler.nmbSpawned <= _GameHandler.nmbToSpawns)
                     {
-                        nmbSpawned++;
+                        _GameHandler.nmbSpawned++;
                         
                         spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
@@ -66,9 +64,9 @@ public class EnnemySpawner : MonoBehaviour
             case 1:
                 foreach (GameObject spawnLocation in spawnLocationArray)
                 {
-                    if (nmbSpawned <= nmbToSpawns)
+                    if (_GameHandler.nmbSpawned <= _GameHandler.nmbToSpawns)
                     {
-                        nmbSpawned++;
+                        _GameHandler.nmbSpawned++;
 
                         spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
@@ -89,9 +87,9 @@ public class EnnemySpawner : MonoBehaviour
             case 2:
                 foreach (GameObject spawnLocation in spawnLocationArray)
                 {
-                    if (nmbSpawned <= nmbToSpawns)
+                    if (_GameHandler.nmbSpawned <= _GameHandler.nmbToSpawns)
                     {
-                        nmbSpawned++;
+                        _GameHandler.nmbSpawned++;
 
                         spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
@@ -121,7 +119,7 @@ public class EnnemySpawner : MonoBehaviour
     {
         foreach (GameObject item in spawnLocationArray)
         {
-            nmbSpawned = 0f;
+            _GameHandler.nmbSpawned = 0;
             item.GetComponent<SpriteRenderer>().color = Color.white;
             item.GetComponent<SpriteRenderer>().enabled = false;
             SpawnEnnemies();

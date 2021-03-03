@@ -16,7 +16,9 @@ public class GameHandler : MonoBehaviour
     public uiManager uiManager;
 
     public float gameDifficulty;
-
+    public int nmbToSpawns;
+    public int nmbSpawned;
+    public int nmbRemaining;
 
 
     private void Awake()
@@ -62,7 +64,7 @@ public class GameHandler : MonoBehaviour
         if(var == true)
         {
             gameDifficulty *= 1.25f;
-            lvlManager.FadeToLevel("HUB_Principal");
+            //lvlManager.FadeToLevel("HUB_Principal");
             // print(gameDifficulty);
         }
         // if the player died during the run
