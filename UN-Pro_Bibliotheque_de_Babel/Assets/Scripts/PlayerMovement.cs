@@ -89,6 +89,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = Vector2.right;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 1);
+                playerScript._GameHandler.ChangeRuneDir(0);
             }
 
             //Move Left
@@ -97,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = Vector2.left;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 2);
+                playerScript._GameHandler.ChangeRuneDir(4);
             }
 
             //Move Up
@@ -105,6 +107,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = Vector2.up;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
+                playerScript._GameHandler.ChangeRuneDir(2);
             }
 
             //Move Up_Right
@@ -113,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = new Vector2(.75f, .75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
+                playerScript._GameHandler.ChangeRuneDir(1);
             }
 
             //Move Up_Left
@@ -121,6 +125,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = new Vector2(-.75f, .75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
+                playerScript._GameHandler.ChangeRuneDir(3);
             }
 
             //Move Down
@@ -129,6 +134,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = Vector2.down;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 4);
+                playerScript._GameHandler.ChangeRuneDir(6);
             }
 
             //Move Down_Left
@@ -137,6 +143,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = new Vector2(-.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 4);
+                playerScript._GameHandler.ChangeRuneDir(5);
             }
 
             //Move Down_Right
@@ -145,6 +152,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = new Vector2(.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 4);
+                playerScript._GameHandler.ChangeRuneDir(7);
             }
 
         }
@@ -153,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerScript.rb.velocity = Vector2.zero;
             playerScript.animator.SetInteger("Index", 0);
-            playerScript.spriteRenderer.flipX = false;
+            playerScript._GameHandler.ChangeRuneDir(0);
         }
     }
 

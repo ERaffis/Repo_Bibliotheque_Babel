@@ -8,6 +8,9 @@ public class GameHandler : MonoBehaviour
     public GameObject eventSystem;
     public GameObject player1;
 
+    public GameObject[] instDir;
+    public GameObject activeInstDir;
+
     [Header("Managers")]
     public LevelManager lvlManager;
     public uiManager uiManager;
@@ -29,12 +32,16 @@ public class GameHandler : MonoBehaviour
         DontDestroyOnLoad(_Cameras);
         DontDestroyOnLoad(eventSystem);
         DontDestroyOnLoad(player1);
+
+        gameDifficulty = 0.25f;
     }
     // Start is called before the first frame update
     void Start()
     {
-        gameDifficulty = 0.1f;
+        
         print(gameDifficulty);
+
+        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -67,4 +74,11 @@ public class GameHandler : MonoBehaviour
         }
     }
 
+
+    public void ChangeRuneDir(int i)
+    {
+        activeInstDir.GetComponent<SpriteRenderer>().enabled = false;
+        activeInstDir = instDir[i];
+        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
+    }
 }
