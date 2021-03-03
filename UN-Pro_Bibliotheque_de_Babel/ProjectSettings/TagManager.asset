@@ -10,6 +10,7 @@ TagManager:
   - MainUI
   - Player1
   - HealthBar
+  - LevelManager
   layers:
   - Default
   - TransparentFX

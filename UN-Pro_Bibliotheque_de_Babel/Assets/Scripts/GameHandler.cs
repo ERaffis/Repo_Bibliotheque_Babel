@@ -12,7 +12,7 @@ public class GameHandler : MonoBehaviour
     public GameObject activeInstDir;
 
     [Header("Managers")]
-    public LevelManager lvlManager;
+    public GameObject lvlManager;
     public uiManager uiManager;
 
     public int gameDifficulty;
@@ -28,6 +28,7 @@ public class GameHandler : MonoBehaviour
         _Cameras = GameObject.Find("_Camera");
         eventSystem = GameObject.Find("EventSystem");
         player1 = GameObject.Find("Player_1");
+        lvlManager = GameObject.FindGameObjectWithTag("LevelManager");
 
 
         //List of objects not to destroy when switching scene
@@ -35,6 +36,7 @@ public class GameHandler : MonoBehaviour
         DontDestroyOnLoad(_Cameras);
         DontDestroyOnLoad(eventSystem);
         DontDestroyOnLoad(player1);
+        DontDestroyOnLoad(lvlManager);
 
         gameDifficulty = 1;
     }
@@ -72,7 +74,7 @@ public class GameHandler : MonoBehaviour
         if (var != true)
         {
             gameDifficulty += 2;
-            lvlManager.FadeToLevel("HUB_Principal");
+            lvlManager.GetComponent<LevelManager>().FadeToLevel("HUB_Principal");
             // print(gameDifficulty);
         }
     }
