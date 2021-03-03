@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-    public GameObject mainCam;
+    public GameObject _Cameras;
     public GameObject eventSystem;
     public GameObject player1;
 
@@ -19,14 +19,14 @@ public class GameHandler : MonoBehaviour
     private void Awake()
     {
         SoundManager.Initialize();
-        mainCam = GameObject.Find("Main Camera");
+        _Cameras = GameObject.Find("_Camera");
         eventSystem = GameObject.Find("EventSystem");
         player1 = GameObject.Find("Player_1");
 
 
         //List of objects not to destroy when switching scene
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(mainCam);
+        DontDestroyOnLoad(_Cameras);
         DontDestroyOnLoad(eventSystem);
         DontDestroyOnLoad(player1);
     }

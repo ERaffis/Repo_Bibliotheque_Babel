@@ -89,7 +89,22 @@ public class PlayerMovement : MonoBehaviour
                 Vector2 dir = Vector2.right;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 1);
-                playerScript.spriteRenderer.flipX = false;
+            }
+
+            //Move Left
+            if (moveAngle >= 155 || moveAngle <= -155)
+            {
+                Vector2 dir = Vector2.left;
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
+                playerScript.animator.SetInteger("Index", 2);
+            }
+
+            //Move Up
+            if (moveAngle >= 65 & moveAngle <= 115)
+            {
+                Vector2 dir = Vector2.up;
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
+                playerScript.animator.SetInteger("Index", 3);
             }
 
             //Move Up_Right
@@ -97,17 +112,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = new Vector2(.75f, .75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 2);
-                playerScript.spriteRenderer.flipX = false;
-            }
-
-            //Move Up
-            if (moveAngle >= 65 & moveAngle <= 115) 
-            {
-                Vector2 dir = Vector2.up;
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 2);
-                playerScript.spriteRenderer.flipX = false;
+                playerScript.animator.SetInteger("Index", 3);
             }
 
             //Move Up_Left
@@ -115,17 +120,15 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = new Vector2(-.75f, .75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 2);
-                playerScript.spriteRenderer.flipX = true;
+                playerScript.animator.SetInteger("Index", 3);
             }
 
-            //Move Left
-            if (moveAngle >= 155 || moveAngle <= -155) 
+            //Move Down
+            if (moveAngle >= -115 & moveAngle <= -65)
             {
-                Vector2 dir = Vector2.left;
+                Vector2 dir = Vector2.down;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 1);
-                playerScript.spriteRenderer.flipX = true;
+                playerScript.animator.SetInteger("Index", 4);
             }
 
             //Move Down_Left
@@ -133,17 +136,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = new Vector2(-.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 3);
-                playerScript.spriteRenderer.flipX = true;
-            }
-
-            //Move Down
-            if (moveAngle >= -115 & moveAngle <= -65) 
-            {
-                Vector2 dir = Vector2.down;
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 3);
-                playerScript.spriteRenderer.flipX = false;
+                playerScript.animator.SetInteger("Index", 4);
             }
 
             //Move Down_Right
@@ -151,8 +144,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = new Vector2(.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 3);
-                playerScript.spriteRenderer.flipX = false;
+                playerScript.animator.SetInteger("Index", 4);
             }
 
         }
