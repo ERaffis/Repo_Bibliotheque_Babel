@@ -11,6 +11,7 @@ TagManager:
   - Player1
   - HealthBar
   - LevelManager
+  - InventoryManager
   layers:
   - Default
   - TransparentFX
