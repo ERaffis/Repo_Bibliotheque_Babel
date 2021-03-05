@@ -29,7 +29,7 @@ public class ApplyRune : MonoBehaviour
             runeSlot.DropItem();
 
             Instantiate(inventory.slots[slot.i].transform.GetChild(0), inventory.activeRune.transform, false);
-            inventory.activeRune = null;
+            inventory.ResetUI();
         }
     }
 }

@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RuneSlot : MonoBehaviour
 {
 
     private Inventory inventory;
     public int i;
+
+    public Sprite unSelected, selected;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,7 @@ public class RuneSlot : MonoBehaviour
 
     private void Update()
     {
-       
+        
     }
     public void DropItem()
     {
@@ -26,5 +29,18 @@ public class RuneSlot : MonoBehaviour
         }
     }
 
-    
+    public void ChangeThisRune()
+    {
+        if(inventory.isChangingRune == false)
+        {
+            this.gameObject.GetComponent<Image>().sprite = selected;
+
+            inventory.activeRune = inventory.equippedRunes[i];
+            
+            inventory.isChangingRune = true;
+        }
+        
+    }
+
+
 }

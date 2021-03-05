@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using Rewired;
+
 
 public class Inventory : MonoBehaviour
 {
@@ -19,6 +22,11 @@ public class Inventory : MonoBehaviour
     public GameObject[] equippedRunes;
     public GameObject activeRune;
 
+    public bool isChangingRune;
+
+
+    public GameObject openFirstButton;
+
     private void Awake()
     {
         if (instance == null)
@@ -35,18 +43,23 @@ public class Inventory : MonoBehaviour
     void Start()
     {
         menuState = false;
+        isChangingRune = false;
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         OpenCloseMenu();
+
+        if (player.playerInputs.GetButtonDown("UICancel")) ResetUI();
     }
 
 
     void OpenCloseMenu()
     {
-        if (player.playerInputs.GetButtonDown("Menu"))
+        if (player.playerInputs.GetButtonDown("UIMenu"))
         {
 
             if (Time.timeScale == 1)
@@ -54,6 +67,9 @@ public class Inventory : MonoBehaviour
                 Time.timeScale = 0;
                 player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Game");
                 player.playerInputs.controllers.maps.SetMapsEnabled(true, "In Menu");
+
+                StartCoroutine(SelectFirstButton());
+
             }
             else 
             {
@@ -64,6 +80,23 @@ public class Inventory : MonoBehaviour
             
             menuState = !menuState;
             inventoryCanvas.SetActive(menuState);
+        }
+    }
+
+    IEnumerator SelectFirstButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(openFirstButton);
+    }
+
+    public void ResetUI()
+    {
+        activeRune = null;
+        isChangingRune = false;
+        foreach (GameObject rune in equippedRunes)
+        {
+            rune.gameObject.GetComponent<Image>().sprite = rune.gameObject.GetComponent<RuneSlot>().unSelected;
         }
     }
     

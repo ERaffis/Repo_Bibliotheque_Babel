@@ -26,7 +26,7 @@ public class GameHandler : MonoBehaviour
     {
         SoundManager.Initialize();
         _Cameras = GameObject.Find("_Camera");
-        eventSystem = GameObject.Find("EventSystem");
+        eventSystem = GameObject.Find("Rewired Event System");
         player1 = GameObject.Find("Player_1");
         lvlManager = GameObject.FindGameObjectWithTag("LevelManager");
 
