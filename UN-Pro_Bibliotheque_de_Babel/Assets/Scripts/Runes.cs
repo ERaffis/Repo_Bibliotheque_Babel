@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Runes : MonoBehaviour
 {
-    public float damage;
+    public int damage;
     public float knockback;
     public float projectileSpeed;
     public float attackTimer;

@@ -43,8 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3789d0fe28ee42b4ca752a9cef457b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 10
   knockback: 0
-  projectileSpeed: 0
+  projectileSpeed: 100
   attackTimer: 0
   playerScript: {fileID: 0}
+  firepointGameHandler: {fileID: 0}
+  projectile: {fileID: 3837785196029444533, guid: 18b1f987529a2814e8dbe3892c447ea9, type: 3}
+  numberOfTick: 5

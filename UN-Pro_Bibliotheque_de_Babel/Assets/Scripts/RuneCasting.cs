@@ -18,11 +18,20 @@ public class RuneCasting : MonoBehaviour
 
     [Header("Combos")]
     public bool isComboing;
+    public bool rune1, rune2, rune3, rune4;
+
+    public List<GameObject> comboRune;
 
     // Start is called before the first frame update
     void Start()
     {
         isComboing = false;
+        rune1 = true;
+        rune2 = true;
+        rune3 = true;
+        rune4 = true;
+
+        if (comboRune == null) comboRune = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -46,7 +55,7 @@ public class RuneCasting : MonoBehaviour
                 if(equippedRune_1 !=null)
                 {
                     print("Pressed Rune 1");
-                    Instantiate(equippedRune_1,gameObject.transform);
+                    equippedRune_1.GetComponent<Embrasement>().RuneMaitresse();
                 }
 
                 if(equippedRune_1 == null)
@@ -61,7 +70,7 @@ public class RuneCasting : MonoBehaviour
                 if (equippedRune_2 != null)
                 {
                     print("Pressed Rune 2");
-                    Instantiate(equippedRune_2);
+                    equippedRune_2.GetComponent<Expulsion>().RuneMaitresse();
                 }
 
                 if (equippedRune_2 == null)
@@ -101,12 +110,13 @@ public class RuneCasting : MonoBehaviour
 
         if (isComboing)
         {
-            if (player.playerInputs.GetButtonDown("Rune 1"))
+            if (player.playerInputs.GetButtonDown("Rune 1") && rune1)
             {
                 if (equippedRune_1 != null)
                 {
                     print("Pressed Rune 1 for combo");
-                    equippedRune_1.GetComponent<Expulsion>().RuneMaitresse();
+                    comboRune.Add(equippedRune_1);
+                    rune1 = false;
                 }
 
                 if (equippedRune_1 == null)
@@ -116,12 +126,13 @@ public class RuneCasting : MonoBehaviour
 
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 2"))
+            if (player.playerInputs.GetButtonDown("Rune 2") && rune2)
             {
                 if (equippedRune_2 != null)
                 {
                     print("Pressed Rune 2 for combo");
-                    Instantiate(equippedRune_2);
+                    comboRune.Add(equippedRune_2);
+                    rune2 = false;
                 }
 
                 if (equippedRune_2 == null)
@@ -130,12 +141,13 @@ public class RuneCasting : MonoBehaviour
                 }
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 3"))
+            if (player.playerInputs.GetButtonDown("Rune 3") && rune3)
             {
                 if (equippedRune_3 != null)
                 {
                     print("Pressed Rune 3 for combo");
-                    Instantiate(equippedRune_3);
+                    comboRune.Add(equippedRune_3);
+                    rune3 = false;
                 }
 
                 if (equippedRune_3 == null)
@@ -144,12 +156,13 @@ public class RuneCasting : MonoBehaviour
                 }
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 4"))
+            if (player.playerInputs.GetButtonDown("Rune 4") && rune4)
             {
                 if (equippedRune_4 != null)
                 {
                     print("Pressed Rune 4 for combo");
-                    Instantiate(equippedRune_4);
+                    comboRune.Add(equippedRune_4);
+                    rune4 = false;
                 }
 
                 if (equippedRune_4 == null)
@@ -161,9 +174,21 @@ public class RuneCasting : MonoBehaviour
 
         if (player.playerInputs.GetButtonUp("Combo"))
         {
+            rune1 = true;
+            rune2 = true;
+            rune3 = true;
+            rune4 = true;
+
             print("Combo Launched");
+             
+            if (comboRune.Count == 2) comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1]);
+            if (comboRune.Count == 3) comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1], comboRune[2]);
+            if (comboRune.Count == 4) comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1], comboRune[2], comboRune[3]);
+            
+
             isComboing = false;
-            //liste à faire avant si la liste est pas vide ça balance les actions. 
+            comboRune.Clear();
+            
         }
     }
 }

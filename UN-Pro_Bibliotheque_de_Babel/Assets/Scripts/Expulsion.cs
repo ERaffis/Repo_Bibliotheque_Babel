@@ -11,6 +11,7 @@ public class Expulsion : Runes
     public float dashCooldown = 3.5f;
     public PlayerMovement playerMovement;
     public Rigidbody2D rb;
+    public GameHandler firepointGameHandler;
 
     // Start is called before the first frame update
     void Start()
@@ -21,26 +22,80 @@ public class Expulsion : Runes
      
     }
 
+    //Rune en solo
     public void RuneMaitresse()
     {
-        damage = damage * 1;
-        knockback = knockback * 0.5f;
+        GameObject firepoint = firepointGameHandler.GetComponent<GameHandler>().activeInstDir;
 
-       // playerMovement.PlayerDash(rb.)
-        //StartCoroutine(playerScript.uiManager.UpdateDash(dashCooldown));
-        print("Dash");
+        playerScript.rb.AddForce( firepoint.transform.right * dashForce, ForceMode2D.Impulse);
 
+        print("Expulsion");
     }
-    public void RuneSupport()
+
+    //Rune en combo avec 1 rune support
+    public void RuneMaitresse(GameObject rune2)
     {
-        damage = damage * 0.1f;
-        knockback = knockback * 1;
+        switch (rune2.name)
+        {
+            case "Embrasement":
 
+                print("Expulsion | Embrasement");
+                break;
+
+            case "Empalement":
+
+                print("Expulsion | Empalement");
+                break;
+
+            default:
+                break;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    //Rune en combo avec 2 rune support
+    public void RuneMaitresse(GameObject rune2, GameObject rune3)
     {
-        
+        switch (rune2.name)
+        {
+            case "Embrasement":
+
+                switch (rune3.name)
+                {
+                    case "Empalement":
+                        print("Expulsion | Embrasement | Empalement");
+
+                        break;
+
+                    default:
+                        break;
+                }
+
+                break;
+
+            case "Empalement":
+
+                switch (rune3.name)
+                {
+                    case "Embrassement":
+                        print("Expulsion | Empalement | Embrassement");
+
+                        break;
+
+                    default:
+                        break;
+                }
+                break;
+
+            default:
+                break;
+        }
     }
+
+    //Rune en combo avec 3 rune support
+    public void RuneMaitresse(GameObject rune2, GameObject rune3, GameObject rune4)
+    {
+
+    }
+
+
 }

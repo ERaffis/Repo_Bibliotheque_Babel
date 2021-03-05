@@ -16,6 +16,7 @@ public class Entities : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
 
+    //public bool canMove;
 
     [Header("Type of entity")]
     public string entityType;
