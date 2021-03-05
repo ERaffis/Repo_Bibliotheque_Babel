@@ -95,13 +95,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8685f97ef83ce4496ae443b04ef89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runeame: 
   damage: 0
-  knockback: 0
-  projectileSpeed: 0
-  attackTimer: 0
   playerScript: {fileID: 0}
+  playerRb: {fileID: 0}
+  _GameHandler: {fileID: 0}
   dashForce: 1000
   dashDuration: 0.1
   dashCooldown: 3.5
-  playerMovement: {fileID: 0}
-  rb: {fileID: 0}

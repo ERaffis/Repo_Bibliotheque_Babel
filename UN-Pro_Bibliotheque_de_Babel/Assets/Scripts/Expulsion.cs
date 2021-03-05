@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,30 +6,24 @@ public class Expulsion : Runes
 {
 
 
-    public float dashForce = 10;
+    public float dashForce = 1000;
     public float dashDuration = 0.1f;
     public float dashCooldown = 3.5f;
-    public PlayerMovement playerMovement;
-    public Rigidbody2D rb;
-    public GameHandler firepointGameHandler;
 
     // Start is called before the first frame update
     void Start()
     {
-        damage = 100;
-        knockback = 1;
-        attackTimer = 0.3f;
-     
+
     }
 
-    //Rune en solo
+    //Rune utilisée seule
     public void RuneMaitresse()
     {
-        GameObject firepoint = firepointGameHandler.GetComponent<GameHandler>().activeInstDir;
+        //Dash du joueur
+        GameObject firepoint = _GameHandler.GetComponent<GameHandler>().activeInstDir;
+        playerRb.AddForce( firepoint.transform.right * dashForce, ForceMode2D.Impulse);
+        print("dash");
 
-        playerScript.rb.AddForce( firepoint.transform.right * dashForce, ForceMode2D.Impulse);
-
-        print("Expulsion");
     }
 
     //Rune en combo avec 1 rune support
@@ -37,14 +31,14 @@ public class Expulsion : Runes
     {
         switch (rune2.name)
         {
+            //Expulsion → Embrasement
             case "Embrasement":
 
-                print("Expulsion | Embrasement");
                 break;
 
+            //Expulsion → Empalement
             case "Empalement":
 
-                print("Expulsion | Empalement");
                 break;
 
             default:
@@ -57,12 +51,13 @@ public class Expulsion : Runes
     {
         switch (rune2.name)
         {
+            //Expulsion → Embrasement
             case "Embrasement":
 
                 switch (rune3.name)
                 {
+                    //Expulsion → Embrasement → Empalement
                     case "Empalement":
-                        print("Expulsion | Embrasement | Empalement");
 
                         break;
 
@@ -72,12 +67,13 @@ public class Expulsion : Runes
 
                 break;
 
+            //Expulsion → Empalement
             case "Empalement":
 
                 switch (rune3.name)
                 {
+                    //Expulsion → Empalement → Embrasement 
                     case "Embrassement":
-                        print("Expulsion | Empalement | Embrassement");
 
                         break;
 

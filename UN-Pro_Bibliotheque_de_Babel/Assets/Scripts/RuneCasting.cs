@@ -55,7 +55,22 @@ public class RuneCasting : MonoBehaviour
                 if(equippedRune_1 !=null)
                 {
                     print("Pressed Rune 1");
-                    equippedRune_1.GetComponent<Embrasement>().RuneMaitresse();
+
+                    if (equippedRune_1.TryGetComponent(out Embrasement a))
+                    {
+                        equippedRune_1.GetComponent<Embrasement>().RuneMaitresse();
+                    }
+                    if (equippedRune_1.TryGetComponent(out Empalement b))
+                    {
+                        equippedRune_1.GetComponent<Empalement>().RuneMaitresse();
+                    }
+                    if (equippedRune_1.TryGetComponent(out Expulsion c))
+                    {
+                        equippedRune_1.GetComponent<Expulsion>().RuneMaitresse();
+                    }
+
+
+
                 }
 
                 if(equippedRune_1 == null)
@@ -70,7 +85,18 @@ public class RuneCasting : MonoBehaviour
                 if (equippedRune_2 != null)
                 {
                     print("Pressed Rune 2");
-                    equippedRune_2.GetComponent<Expulsion>().RuneMaitresse();
+                    if (equippedRune_2.TryGetComponent(out Embrasement a))
+                    {
+                        equippedRune_2.GetComponent<Embrasement>().RuneMaitresse();
+                    }
+                    if (equippedRune_2.TryGetComponent(out Empalement b))
+                    {
+                        equippedRune_2.GetComponent<Empalement>().RuneMaitresse();
+                    }
+                    if (equippedRune_2.TryGetComponent(out Expulsion c))
+                    {
+                        equippedRune_2.GetComponent<Expulsion>().RuneMaitresse();
+                    }
                 }
 
                 if (equippedRune_2 == null)
@@ -84,7 +110,18 @@ public class RuneCasting : MonoBehaviour
                 if (equippedRune_3 != null)
                 {
                     print("Pressed Rune 3");
-                    Instantiate(equippedRune_3, gameObject.transform);
+                    if (equippedRune_3.TryGetComponent(out Embrasement a))
+                    {
+                        equippedRune_3.GetComponent<Embrasement>().RuneMaitresse();
+                    }
+                    if (equippedRune_3.TryGetComponent(out Empalement b))
+                    {
+                        equippedRune_3.GetComponent<Empalement>().RuneMaitresse();
+                    }
+                    if (equippedRune_3.TryGetComponent(out Expulsion c))
+                    {
+                        equippedRune_3.GetComponent<Expulsion>().RuneMaitresse();
+                    }
                 }
 
                 if (equippedRune_3 == null)
@@ -98,7 +135,18 @@ public class RuneCasting : MonoBehaviour
                 if (equippedRune_4 != null)
                 {
                     print("Pressed Rune 4");
-                    Instantiate(equippedRune_4, gameObject.transform);
+                    if (equippedRune_4.TryGetComponent(out Embrasement a))
+                    {
+                        equippedRune_4.GetComponent<Embrasement>().RuneMaitresse();
+                    }
+                    if (equippedRune_4.TryGetComponent(out Empalement b))
+                    {
+                        equippedRune_4.GetComponent<Empalement>().RuneMaitresse();
+                    }
+                    if (equippedRune_4.TryGetComponent(out Expulsion c))
+                    {
+                        equippedRune_4.GetComponent<Expulsion>().RuneMaitresse();
+                    }
                 }
 
                 if (equippedRune_4 == null)
@@ -180,11 +228,57 @@ public class RuneCasting : MonoBehaviour
             rune4 = true;
 
             print("Combo Launched");
-             
-            if (comboRune.Count == 2) comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1]);
-            if (comboRune.Count == 3) comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1], comboRune[2]);
-            if (comboRune.Count == 4) comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1], comboRune[2], comboRune[3]);
-            
+
+            if (comboRune.Count == 2)
+            {
+
+                if (comboRune[0].TryGetComponent(out Embrasement a))
+                {
+                    comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1]);
+                }
+                if (comboRune[0].TryGetComponent(out Empalement b))
+                {
+                    comboRune[0].GetComponent<Empalement>().RuneMaitresse(comboRune[1]);
+                }
+                if (comboRune[0].TryGetComponent(out Expulsion c))
+                {
+                    comboRune[0].GetComponent<Expulsion>().RuneMaitresse(comboRune[1]);
+                }
+                
+            }
+            if (comboRune.Count == 3) 
+            {
+                if (comboRune[0].TryGetComponent(out Embrasement a))
+                {
+                    comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1], comboRune[2]);
+                }
+                if (comboRune[0].TryGetComponent(out Empalement b))
+                {
+                    comboRune[0].GetComponent<Empalement>().RuneMaitresse(comboRune[1], comboRune[2]);
+                }
+                if (comboRune[0].TryGetComponent(out Expulsion c))
+                {
+                    comboRune[0].GetComponent<Expulsion>().RuneMaitresse(comboRune[1], comboRune[2]);
+                }
+            }
+
+            if (comboRune.Count == 4) 
+            {
+                if (comboRune[0].TryGetComponent(out Embrasement a))
+                {
+                    comboRune[0].GetComponent<Embrasement>().RuneMaitresse(comboRune[1], comboRune[2], comboRune[3]);
+                }
+                if (comboRune[0].TryGetComponent(out Empalement b))
+                {
+                    comboRune[0].GetComponent<Empalement>().RuneMaitresse(comboRune[1], comboRune[2], comboRune[3]);
+                }
+                if (comboRune[0].TryGetComponent(out Expulsion c))
+                {
+                    comboRune[0].GetComponent<Expulsion>().RuneMaitresse(comboRune[1], comboRune[2], comboRune[3]);
+                }
+            }
+
+
 
             isComboing = false;
             comboRune.Clear();

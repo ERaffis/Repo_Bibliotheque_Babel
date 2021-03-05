@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 1254482564753501564}
   - component: {fileID: 1254482564753501541}
   - component: {fileID: 1254482564753501561}
-  - component: {fileID: 1254482564753501566}
   - component: {fileID: 1254482564753501565}
   - component: {fileID: 161625625904053921}
   - component: {fileID: 2797574608533365792}
@@ -346,32 +345,6 @@ MonoBehaviour:
   playerID: 0
   nmbRun: 0
   canMove: 1
---- !u!114 &1254482564753501566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254482564753501542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe8c95473d87cb54eae1f51a498c43fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1254482564753501561}
-  availableRunes: []
-  equippedRune_1: {fileID: 0}
-  equippedRune_2: {fileID: 0}
-  equippedRune_3: {fileID: 0}
-  equippedRune_4: {fileID: 0}
-  availableBracelets: []
-  equippedBracelet: {fileID: 0}
-  isComboing: 0
-  rune1: 0
-  rune2: 0
-  rune3: 0
-  rune4: 0
-  comboRune: []
 --- !u!114 &1254482564753501565
 MonoBehaviour:
   m_ObjectHideFlags: 0
