@@ -6,11 +6,11 @@ public class EnnemyFollow : MonoBehaviour
 {
 
     public float speed;
-    private Transform target;
+    public Transform target;
     
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        target = GameObject.FindGameObjectWithTag("Player1").GetComponent<Transform>();
         speed = 2f;    
     }
 
