@@ -28,7 +28,7 @@ public class Embrasement : Runes
     public void RuneMaitresse()
     {
         //Création du projetile
-        GameObject firepoint = _GameHandler.activeInstDir;
+        GameObject firepoint = _GameHandler.GetComponent<GameHandler>().activeInstDir;
         GameObject bullet = Instantiate(projectile, firepoint.transform);
 
         //Changement de couleur du projectile
@@ -243,7 +243,7 @@ public class Embrasement : Runes
     {
         for (int i = 0; i <= numberOfTick; i++)
         {
-            col.GetComponent<Entities>().health -= damage;
+            col.GetComponent<Entities>().currentHealth -= damage;
             col.GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSeconds(.75f);
             col.GetComponent<SpriteRenderer>().color = Color.white;

@@ -47,6 +47,8 @@ public class LevelManager : MonoBehaviour
                 StartCoroutine(playerScript.BlockMove());
                 StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
                 animator.SetTrigger("FadeOut");
+
+                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
                 break;
         }
     }
@@ -66,6 +68,8 @@ public class LevelManager : MonoBehaviour
                 StartCoroutine(playerScript.BlockMove());
                 StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
                 animator.SetTrigger("FadeOut");
+
+                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
                 break;
         }
     }
@@ -85,6 +89,8 @@ public class LevelManager : MonoBehaviour
                 StartCoroutine(playerScript.BlockMove());
                 StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
                 animator.SetTrigger("FadeOut");
+
+                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
                 break;
         }
     }
@@ -95,6 +101,8 @@ public class LevelManager : MonoBehaviour
         
         SceneManager.LoadScene(roomName);
         StartCoroutine(playerScript.SetSpawn());
+        playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+        playerScript._GameHandler.uiManager.GetComponent<uiManager>().SetRoomInfo();
     }
 
     // Generate a room name based on parameters

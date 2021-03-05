@@ -7,7 +7,8 @@ public class Entities : MonoBehaviour
 {
     [Header("Basic Info")]
     public string entityName;
-    public int health;
+    public int maxHealth;
+    public int currentHealth;
     public float moveSpeed;
     public int animationIndex;
 
@@ -30,6 +31,11 @@ public class Entities : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Alpha5)) SetHealth();
+    }
+
+    public void SetHealth()
+    {
+        currentHealth --;
     }
 }

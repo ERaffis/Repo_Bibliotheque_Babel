@@ -13,7 +13,7 @@ public class GameHandler : MonoBehaviour
 
     [Header("Managers")]
     public GameObject lvlManager;
-    public uiManager uiManager;
+    public GameObject uiManager;
 
     public int gameDifficulty;
     public int nmbToSpawns;
@@ -29,6 +29,7 @@ public class GameHandler : MonoBehaviour
         eventSystem = GameObject.Find("Rewired Event System");
         player1 = GameObject.Find("Player_1");
         lvlManager = GameObject.FindGameObjectWithTag("LevelManager");
+        uiManager = GameObject.FindGameObjectWithTag("UIManager");
 
 
         //List of objects not to destroy when switching scene
@@ -37,6 +38,7 @@ public class GameHandler : MonoBehaviour
         DontDestroyOnLoad(eventSystem);
         DontDestroyOnLoad(player1);
         DontDestroyOnLoad(lvlManager);
+        DontDestroyOnLoad(uiManager);
 
         gameDifficulty = 1;
     }

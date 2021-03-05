@@ -10,7 +10,7 @@ public class Slot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<Inventory>();
+        inventory = GameObject.FindGameObjectWithTag("UIManager").GetComponent<Inventory>();
     }
 
 

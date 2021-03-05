@@ -29,7 +29,7 @@ public class PlayerScript : Entities
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.K)) SetHealth();
     }
 
     public IEnumerator SetSpawn()

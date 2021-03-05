@@ -22,6 +22,11 @@ public class RuneCasting : MonoBehaviour
 
     public List<GameObject> comboRune;
 
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
     // Start is called before the first frame update
     void Start()
     {

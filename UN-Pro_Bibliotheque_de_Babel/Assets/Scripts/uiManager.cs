@@ -28,8 +28,7 @@ public class uiManager : MonoBehaviour
     private void Start()
     {
         SetMaxHealth();
-
-        roomInfo.text = _GameHandler.GetComponent<RoomNumberManager>().levelNumber + _GameHandler.GetComponent<RoomNumberManager>().roomNumber + "\n<size=16>" + _GameHandler.GetComponent<GameHandler>().biomeName;
+        SetRoomInfo();
     }
 
     private void Update()
@@ -39,25 +38,24 @@ public class uiManager : MonoBehaviour
 
     public void SetMaxHealth()
     {
-        hb.maxValue = player1.GetComponent<PlayerScript>().health;
-        hb.value = player1.GetComponent<PlayerScript>().health;
+        hb.maxValue = player1.GetComponent<PlayerScript>().maxHealth;
+        hb.value = player1.GetComponent<PlayerScript>().currentHealth;
     }
 
     public void SetHealth()
     {
-        hb.value = player1.GetComponent<PlayerScript>().health;
+        hb.value = player1.GetComponent<PlayerScript>().currentHealth;
     }
 
-
-    public IEnumerator UpdateDash(float duration)
+    public void SetRoomInfo()
     {
-        dashIcon.color = new Color(dashIcon.color.r, dashIcon.color.g, dashIcon.color.b, 0);
-        float alpha = dashIcon.color.a;
-        for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / duration)
-        {
-            Color newColor = new Color(dashIcon.color.r, dashIcon.color.g, dashIcon.color.b, Mathf.Lerp(alpha, 1, t));
-            dashIcon.color = newColor;
-            yield return null;
-        }
+        roomInfo.text = _GameHandler.GetComponent<RoomNumberManager>().levelNumber + _GameHandler.GetComponent<RoomNumberManager>().roomNumber + "\n<size=16>" + _GameHandler.GetComponent<GameHandler>().biomeName;
     }
+
+    public void HideUI()
+    {
+        mainUI.gameObject.SetActive(!mainUI.gameObject.activeSelf);
+        underLayUI.gameObject.SetActive(!underLayUI.gameObject.activeSelf);
+    }
+
 }

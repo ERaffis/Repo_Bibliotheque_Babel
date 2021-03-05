@@ -12,6 +12,7 @@ TagManager:
   - HealthBar
   - LevelManager
   - InventoryManager
+  - UIManager
   layers:
   - Default
   - TransparentFX
