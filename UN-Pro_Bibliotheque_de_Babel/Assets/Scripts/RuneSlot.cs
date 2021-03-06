@@ -8,6 +8,7 @@ public class RuneSlot : MonoBehaviour
 
     private Inventory inventory;
     public int i;
+    public GameObject uiRune;
 
     public Sprite unSelected, selected;
     // Start is called before the first frame update
@@ -36,6 +37,8 @@ public class RuneSlot : MonoBehaviour
             this.gameObject.GetComponent<Image>().sprite = selected;
 
             inventory.activeRune = inventory.equippedRunes[i];
+            inventory.activeIndex = i;
+            inventory.activeRuneUI = uiRune;
             
             inventory.isChangingRune = true;
         }

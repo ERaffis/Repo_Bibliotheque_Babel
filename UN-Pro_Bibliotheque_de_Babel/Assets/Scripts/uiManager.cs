@@ -17,12 +17,16 @@ public class uiManager : MonoBehaviour
     public Image dashIcon;
     public Slider hb;
 
+    [Header("Relations")]
+    public GameObject runeManager;
+
     private void Awake()
     {
         player1 = GameObject.FindGameObjectWithTag("Player1");
         hb = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Slider>();
         mainUI = GameObject.FindGameObjectWithTag("MainUI").GetComponent<Canvas>();
         _GameHandler = GameObject.FindGameObjectWithTag("GameHandler");
+        runeManager = GameObject.FindGameObjectWithTag("RuneManager");
     }
 
     private void Start()
