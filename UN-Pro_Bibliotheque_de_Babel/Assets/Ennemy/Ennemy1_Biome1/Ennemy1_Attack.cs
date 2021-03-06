@@ -9,10 +9,14 @@ public class Ennemy1_Attack : MonoBehaviour
 
     public float AttackDistance;
     public Animator animator;
+    public bool IsAttacking;
+    public int Index;
 
     void Start()
     {
-        AttackDistance = 50f;
+        AttackDistance = 1f;
+        IsAttacking = false;
+        Index = 0;
     }
 
     // Update is called once per frame
@@ -23,20 +27,53 @@ public class Ennemy1_Attack : MonoBehaviour
         CheckDirection();
     }
 
-    //Position Right
+  
 
     public void CheckDirection()
     {
-        if (moveAngle < 135 & moveAngle > -135 && Vector2.Distance(transform.position, Target.position) < AttackDistance)
+        animator.SetBool("IsAttacking", IsAttacking);
+        animator.SetInteger("Index", Index);
+        
+        
+        //CheckDirection Left
+        if ((moveAngle >= 135 && moveAngle <=180) || (moveAngle <= -135 && moveAngle >=-180) && Vector2.Distance(transform.position, Target.position) < AttackDistance)
         {
-            animator.SetInteger("Index", 1);
-            animator.SetBool("IsAttacking", true);
-           
+            Index = 1;
+            IsAttacking = true;
+            print("attackGauche");
         }
-        else 
+        
+
+        //CheckDirectionUP
+        else if (moveAngle <= 135 & moveAngle >= 45 && Vector2.Distance(transform.position, Target.position) < AttackDistance)
         {
-            animator.SetInteger("Index", 0);
-            animator.SetBool("IsAttacking", false);
+            Index = 2;
+            IsAttacking = true;
+            print("attackhaut");
+        }
+       
+
+        //CheckDirectionRight
+        else if ((moveAngle <= 45 && moveAngle >=0) || (moveAngle >= -45 && moveAngle <= 0) && Vector2.Distance(transform.position, Target.position) < AttackDistance)
+        {
+            Index = 3;
+            IsAttacking = true;
+            print("attackdroite");
+        }
+        
+
+        //CheckDirectionDown
+        else if (moveAngle < -45 & moveAngle > -135 && Vector2.Distance(transform.position, Target.position) < AttackDistance)
+        {
+            Index = 4;
+            IsAttacking = true;
+            print("attackbas");
+        }
+
+        else
+        {
+            Index = 0;
+            IsAttacking = false;
         }
        
     }
@@ -45,9 +82,9 @@ public class Ennemy1_Attack : MonoBehaviour
 
     private void FindAngle()
     {
-        moveAngle = (int) Vector2.Angle(Target.position, Vector2.right);
+        moveAngle = (int)Vector2.Angle(Target.position - this.transform.position, Vector2.right);
 
-        if(Target.position.y < 0)
+        if (Target.position.y < 0)
         {
             moveAngle *= -1;
         }
