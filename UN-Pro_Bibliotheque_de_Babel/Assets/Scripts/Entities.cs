@@ -1,10 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Entities : MonoBehaviour
 {
+    [Header("GameHandler")]
+    public GameHandler _GameHandler;
+
     [Header("Basic Info")]
     public string entityName;
     public int maxHealth;
@@ -17,7 +22,14 @@ public class Entities : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
 
-    //public bool canMove;
+    [Header("IsTakingDamage")]
+    public bool isTakingDamage;
+
+    [Header("IsRooted")]
+    public bool canMove;
+
+    [Header("Health Bar")]
+    public Slider healthBar;
 
     [Header("Type of entity")]
     public string entityType;
@@ -25,17 +37,45 @@ public class Entities : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        SetStartHealth();
+        _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha5)) SetHealth();
+        CheckHealth();
     }
 
-    public void SetHealth()
+    public void SetHealth(int dmg)
     {
-        currentHealth --;
+        currentHealth -= dmg;
     }
+
+    protected void SetStartHealth()
+    {
+        currentHealth = maxHealth;
+        healthBar.maxValue = maxHealth;
+        healthBar.value = maxHealth;
+        
+    }
+    void CheckHealth()
+    {
+        healthBar.value = currentHealth;
+
+        if (currentHealth == 0)
+        {
+            _GameHandler.nmbRemaining--;
+            Destroy(this.gameObject);
+        }
+    }
+
+    public void SetMaxHealth(int Health)
+    {
+        healthBar.maxValue = Health;
+        healthBar.value = Health;
+        maxHealth = Health;
+        currentHealth = maxHealth;
+    }
+
 }

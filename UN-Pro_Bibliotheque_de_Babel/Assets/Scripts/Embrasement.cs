@@ -18,7 +18,7 @@ public class Embrasement : Runes
     // Start is called before the first frame update
     void Start()
     {
-
+        damage = 2;
     }
 
     // Update is called once per frame
@@ -270,13 +270,22 @@ public class Embrasement : Runes
     //Dégâts sur l'ennemi
     public IEnumerator DamageoverTime(GameObject col)
     {
-        for (int i = 0; i <= numberOfTick; i++)
+        if (col.GetComponent<Entities>().isTakingDamage == false)
         {
-            col.GetComponent<Entities>().currentHealth -= damage;
-            col.GetComponent<SpriteRenderer>().color = Color.red;
-            yield return new WaitForSeconds(.75f);
-            col.GetComponent<SpriteRenderer>().color = Color.white;
-            yield return new WaitForSeconds(0.1f);
+            col.GetComponent<Entities>().isTakingDamage = true;
+            for (int i = 0; i <= numberOfTick; i++)
+            {
+                if (col)
+                {
+                    col.GetComponent<SpriteRenderer>().color = Color.red;
+                    yield return new WaitForSeconds(.75f);
+                    col.GetComponent<SpriteRenderer>().color = Color.white;
+                    col.GetComponent<Entities>().currentHealth -= damage;
+                    yield return new WaitForSeconds(0.1f);
+                }
+            }
+
+            if(col) col.GetComponent<Entities>().isTakingDamage = false;
         }
 
         Destroy(this.gameObject);

@@ -6,8 +6,10 @@ public class Projectile : MonoBehaviour
 {
 
     public float speed;
+    public int damage;
 
-    private Transform player1;
+    private GameObject player;
+    private Transform playerTransform;
     private Vector2 target;
 
     private SpriteRenderer sprite;
@@ -16,9 +18,11 @@ public class Projectile : MonoBehaviour
 
     void Start()
     {
-        player1 = GameObject.FindGameObjectWithTag("Player1").transform;
-        target = new Vector2(player1.position.x, player1.position.y);
+        player = GameObject.FindGameObjectWithTag("Player1");
+        playerTransform = GameObject.FindGameObjectWithTag("Player1").transform;
+        target = new Vector2(playerTransform.position.x, playerTransform.position.y);
         speed = 3f;
+        damage = 12;
         projectileExplosion = GetComponentInChildren<ParticleSystem>();
         sprite = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
@@ -39,6 +43,7 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag("Player1"))
         {
+            player.GetComponent<PlayerScript>().currentHealth -= damage;
             StartCoroutine(DestroyProjectile());
         }
     }

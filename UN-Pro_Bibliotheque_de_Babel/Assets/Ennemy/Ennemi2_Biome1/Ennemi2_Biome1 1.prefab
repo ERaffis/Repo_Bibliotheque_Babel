@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 3530227072964081391}
   - component: {fileID: 3530227072964081390}
   - component: {fileID: 2147504486629351590}
-  - component: {fileID: 6576388446637131208}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ennemi2_Biome1 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3530227072964081393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.5957, y: 0.8234, z: 0}
-  m_LocalScale: {x: 0.5686, y: 0.5269, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9000715839595478602}
   m_Father: {fileID: 0}
@@ -55,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -75,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: dc0f56f336c87fb42aaf287b4dc97ab5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -104,7 +103,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.15625, y: 0.25}
+    oldSize: {x: 0.41666666, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -125,9 +124,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db02b089316cc4aa6567970ab89e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
-  stoppingDistance: 0
-  startTimeBtwShots: 0
+  entityName: Flame Guy
+  maxHealth: 32
+  currentHealth: 32
+  moveSpeed: 0.25
+  animationIndex: 0
+  spriteRenderer: {fileID: 3530227072964081388}
+  animator: {fileID: 0}
+  rb: {fileID: 2147504486629351590}
+  isTakingDamage: 0
+  healthBar: {fileID: 9000715839711004977}
+  entityType: Ennemy
+  stoppingDistance: 2.5
+  startTimeBtwShots: 1
   projectile: {fileID: 8208866026022696, guid: a13c25df8e146ac4392cde6a6bf6ca02, type: 3}
   player1: {fileID: 0}
 --- !u!50 &2147504486629351590
@@ -151,21 +160,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &6576388446637131208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3530227072964081393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67945035474517f4da24af0085888ea8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 5
-  currentHealth: 0
-  healthBar: {fileID: 9000715839595478614}
 --- !u!1001 &3530227073592526806
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,9 +167,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3530227072964081389}
     m_Modifications:
+    - target: {fileID: 5482311827595972327, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+      propertyPath: m_MaxValue
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482311827595972328, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5482311827710998912, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
       propertyPath: m_Name
       value: HealthBarCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482311827710998912, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5482311827710998940, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
       propertyPath: m_Pivot.x
@@ -281,15 +287,29 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5482311828189247577, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482311828284885211, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
---- !u!1 &9000715839595478614 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5482311827710998912, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
-  m_PrefabInstance: {fileID: 3530227073592526806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &9000715839595478602 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5482311827710998940, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
   m_PrefabInstance: {fileID: 3530227073592526806}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9000715839711004977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5482311827595972327, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+  m_PrefabInstance: {fileID: 3530227073592526806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

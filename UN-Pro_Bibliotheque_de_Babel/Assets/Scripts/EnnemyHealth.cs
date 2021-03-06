@@ -12,23 +12,13 @@ public class EnnemyHealth : MonoBehaviour
     void Start()
     {
         
-        currentHealth = maxHealth;
-        healthBar.GetComponentInChildren<HealthBar>().SetMaxHealth(maxHealth);
+        
     }
 
 
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
-        {
-            currentHealth--;
-            healthBar.GetComponentInChildren<HealthBar>().SetHealth(currentHealth);
-
-        }
-        if(currentHealth == 0)
-        {
-            Destroy(this.gameObject);
-        }
+        
     }
 }

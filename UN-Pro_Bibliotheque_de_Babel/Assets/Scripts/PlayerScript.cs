@@ -6,8 +6,6 @@ using Rewired;
 public class PlayerScript : Entities
 {
 
-    [Header("Game Handler")]
-    public GameHandler _GameHandler;
 
     [Header("Rewired Attributes")]
     [SerializeField] private int playerID = 0;
@@ -16,8 +14,6 @@ public class PlayerScript : Entities
     [Header("Run Counter")]
     public int nmbRun;
 
-    [Header("Status")]
-    public bool canMove = true;
 
 
     // Start is called before the first frame update
@@ -29,7 +25,11 @@ public class PlayerScript : Entities
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)) SetHealth();
+        print(currentHealth);
+        if(currentHealth <= 0)
+        {
+            PlayerDied();
+        }
     }
 
     public IEnumerator SetSpawn()
@@ -49,6 +49,8 @@ public class PlayerScript : Entities
 
     public void PlayerDied()
     {
+        Destroy(GameObject.FindGameObjectWithTag("Spawner"));
+        SetStartHealth();
         _GameHandler.RunEnded(false);
     }
 }

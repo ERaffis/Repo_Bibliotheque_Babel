@@ -336,7 +336,7 @@ MonoBehaviour:
   entityName: Player 1
   maxHealth: 64
   currentHealth: 64
-  moveSpeed: 1
+  moveSpeed: 2
   animationIndex: 0
   spriteRenderer: {fileID: 1254482564753501563}
   animator: {fileID: 1254482564753501560}

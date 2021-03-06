@@ -31,7 +31,14 @@ public class LevelManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Delete)) FadeToLevel();
     }
 
+    public void ReturnToHubAfterDeath()
+    {
+        this.roomName = "HUB_Principal";
 
+        StartCoroutine(playerScript.BlockMove());
+        animator.SetTrigger("FadeOut");
+        playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+    }
     // Change scene with random generation -- GenerateRoom()
     public void FadeToLevel()
     {
@@ -42,6 +49,9 @@ public class LevelManager : MonoBehaviour
             case "HUB_Principal":
                 playerScript._GameHandler.RunEnded(true);
                 animator.SetTrigger("FadeOut");
+
+                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+
                 break;
             default:
                 StartCoroutine(playerScript.BlockMove());
@@ -63,6 +73,9 @@ public class LevelManager : MonoBehaviour
             case "HUB_Principal":
                 playerScript._GameHandler.RunEnded(true);
                 animator.SetTrigger("FadeOut");
+
+                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+
                 break;
             default:
                 StartCoroutine(playerScript.BlockMove());
@@ -84,6 +97,9 @@ public class LevelManager : MonoBehaviour
             case "HUB_Principal":
                 playerScript._GameHandler.RunEnded(true);
                 animator.SetTrigger("FadeOut");
+
+                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+
                 break;
             default:
                 StartCoroutine(playerScript.BlockMove());
@@ -102,7 +118,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene(roomName);
         StartCoroutine(playerScript.SetSpawn());
         playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
-        playerScript._GameHandler.uiManager.GetComponent<uiManager>().SetRoomInfo();
+        if (roomName == "HUB_Principal") playerScript._GameHandler.uiManager.GetComponent<uiManager>().SetRoomInfoHUB();
+        else playerScript._GameHandler.uiManager.GetComponent<uiManager>().SetRoomInfo();
     }
 
     // Generate a room name based on parameters
@@ -119,6 +136,7 @@ public class LevelManager : MonoBehaviour
             shouldBoss = 0f;
             shouldBiome = 0f;
             shouldExterior = 0f;
+            playerScript._GameHandler.RunEnded(false);
             return "HUB_Principal";
         }
 

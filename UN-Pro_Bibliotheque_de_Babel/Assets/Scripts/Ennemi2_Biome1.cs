@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ennemi2_Biome1 : MonoBehaviour
+public class Ennemi2_Biome1 : Entities
 {
-    public float moveSpeed;
     public float stoppingDistance;
 
     private float timeBtwShots;
@@ -13,9 +12,12 @@ public class Ennemi2_Biome1 : MonoBehaviour
     public GameObject projectile;
     public Transform player1;
 
+    
+
     void Start()
     {
         player1 = GameObject.FindGameObjectWithTag("Player1").transform;
+        _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
         moveSpeed = 2f;
         stoppingDistance = 2f;
 
@@ -47,4 +49,7 @@ public class Ennemi2_Biome1 : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
     }
+
+
+    
 }

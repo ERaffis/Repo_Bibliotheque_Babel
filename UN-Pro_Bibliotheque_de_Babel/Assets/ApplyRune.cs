@@ -31,7 +31,7 @@ public class ApplyRune : MonoBehaviour
             runeSlot.DropItem();
 
             Instantiate(inventory.slots[slot.i].transform.GetChild(0), inventory.activeRune.transform, false);
-
+            /*
             foreach (GameObject item in inventory._UIManager.GetComponent<uiManager>().runeManager.GetComponent<RuneCasting>().equippedRune)
             {
                 if (item.name == rune.name)
@@ -40,6 +40,7 @@ public class ApplyRune : MonoBehaviour
 
                 }
             }
+            */
             inventory._UIManager.GetComponent<uiManager>().runeManager.GetComponent<RuneCasting>().equippedRune[inventory.activeIndex] = rune;
             print("Set Rune : " + inventory.activeIndex + " to " + rune.name);
 

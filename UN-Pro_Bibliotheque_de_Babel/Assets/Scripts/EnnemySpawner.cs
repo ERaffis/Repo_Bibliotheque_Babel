@@ -28,7 +28,7 @@ public class EnnemySpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) ResetSpawn();
+
     }
 
     void SpawnEnnemies()
@@ -45,17 +45,17 @@ public class EnnemySpawner : MonoBehaviour
                     {
                         _GameHandler.nmbSpawned++;
                         
-                        spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
+                        //spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
-                            //Instantiate(ennemiesBiome1[0], spawnLocation.transform);
-                            spawnLocation.GetComponent<SpriteRenderer>().color = Color.blue;
+                            Instantiate(ennemiesBiome1[0], spawnLocation.transform);
+                            //spawnLocation.GetComponent<SpriteRenderer>().color = Color.blue;
                         }
                         else
                         {
-                            //Instantiate(ennemiesBiome1[1], spawnLocation.transform);
-                            spawnLocation.GetComponent<SpriteRenderer>().color = Color.red;
+                            Instantiate(ennemiesBiome1[1], spawnLocation.transform);
+                            //spawnLocation.GetComponent<SpriteRenderer>().color = Color.red;
                         }
                         
                     }
@@ -68,7 +68,7 @@ public class EnnemySpawner : MonoBehaviour
                     {
                         _GameHandler.nmbSpawned++;
 
-                        spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
+                        //spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
@@ -113,6 +113,7 @@ public class EnnemySpawner : MonoBehaviour
                 break;
         }
 
+        _GameHandler.nmbRemaining = _GameHandler.nmbSpawned;
     }
 
     private void ResetSpawn()

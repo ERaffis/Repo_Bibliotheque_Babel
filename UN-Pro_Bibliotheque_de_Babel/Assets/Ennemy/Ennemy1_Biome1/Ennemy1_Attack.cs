@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Ennemy1_Attack : MonoBehaviour
 {
+    public int damage;
+
+    public GameObject player;
     public Transform Target;
     public int moveAngle;
 
@@ -14,6 +17,9 @@ public class Ennemy1_Attack : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player1");
+        damage = 6;
+
         AttackDistance = 1f;
         IsAttacking = false;
         Index = 0;
@@ -34,42 +40,44 @@ public class Ennemy1_Attack : MonoBehaviour
         animator.SetBool("IsAttacking", IsAttacking);
         animator.SetInteger("Index", Index);
         
-        
-        //CheckDirection Left
-        if ((moveAngle >= 135 && moveAngle <=180) || (moveAngle <= -135 && moveAngle >=-180) && Vector2.Distance(transform.position, Target.position) < AttackDistance)
+        if(Vector2.Distance(transform.position, Target.position) < AttackDistance)
         {
-            Index = 1;
-            IsAttacking = true;
-            print("attackGauche");
+            //CheckDirection Left
+            if ((moveAngle >= 135 && moveAngle <= 180) || (moveAngle <= -135 && moveAngle >= -180))
+            {
+                Index = 1;
+                IsAttacking = true;
+                print("attackGauche");
+            }
+
+
+            //CheckDirectionUP
+            else if (moveAngle <= 135 & moveAngle >= 45)
+            {
+                Index = 2;
+                IsAttacking = true;
+                print("attackhaut");
+            }
+
+
+            //CheckDirectionRight
+            else if ((moveAngle <= 45 && moveAngle >= 0) || (moveAngle >= -45 && moveAngle <= 0))
+            {
+                Index = 3;
+                IsAttacking = true;
+                print("attackdroite");
+            }
+
+
+            //CheckDirectionDown
+            else if (moveAngle < -45 & moveAngle > -135)
+            {
+                Index = 4;
+                IsAttacking = true;
+                print("attackbas");
+            }
         }
         
-
-        //CheckDirectionUP
-        else if (moveAngle <= 135 & moveAngle >= 45 && Vector2.Distance(transform.position, Target.position) < AttackDistance)
-        {
-            Index = 2;
-            IsAttacking = true;
-            print("attackhaut");
-        }
-       
-
-        //CheckDirectionRight
-        else if ((moveAngle <= 45 && moveAngle >=0) || (moveAngle >= -45 && moveAngle <= 0) && Vector2.Distance(transform.position, Target.position) < AttackDistance)
-        {
-            Index = 3;
-            IsAttacking = true;
-            print("attackdroite");
-        }
-        
-
-        //CheckDirectionDown
-        else if (moveAngle < -45 & moveAngle > -135 && Vector2.Distance(transform.position, Target.position) < AttackDistance)
-        {
-            Index = 4;
-            IsAttacking = true;
-            print("attackbas");
-        }
-
         else
         {
             Index = 0;
@@ -87,6 +95,14 @@ public class Ennemy1_Attack : MonoBehaviour
         if (Target.position.y < 0)
         {
             moveAngle *= -1;
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Player1"))
+        {
+            collision.gameObject.GetComponent<PlayerScript>().currentHealth -= damage;
         }
     }
 }

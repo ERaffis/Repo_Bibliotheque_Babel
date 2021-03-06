@@ -76,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             comboModifier = 1f;
         }
-
+        
 
 
         if(moveDirection != Vector2.zero) {

@@ -45,7 +45,7 @@ public class GameHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        nmbRemaining = 0;
         print(gameDifficulty);
 
         activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
@@ -68,15 +68,15 @@ public class GameHandler : MonoBehaviour
         // if the player reached the outside during the run
         if(var == true)
         {
-            gameDifficulty += 1;
+            gameDifficulty += 2;
             //lvlManager.FadeToLevel("HUB_Principal");
             // print(gameDifficulty);
         }
         // if the player died during the run
         if (var != true)
         {
-            gameDifficulty += 2;
-            lvlManager.GetComponent<LevelManager>().FadeToLevel("HUB_Principal");
+            gameDifficulty += 1;
+            lvlManager.GetComponent<LevelManager>().ReturnToHubAfterDeath();
             // print(gameDifficulty);
         }
     }
