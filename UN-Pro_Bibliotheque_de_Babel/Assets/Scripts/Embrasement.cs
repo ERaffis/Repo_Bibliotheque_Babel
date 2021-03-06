@@ -9,13 +9,14 @@ public class Embrasement : Runes
 
     public int numberOfTick;
     public int projectileSpeed;
-
+    public int dotDamage;
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        damage = 10;
+        dotDamage = 2;
     }
 
     // Update is called once per frame
@@ -36,7 +37,7 @@ public class Embrasement : Runes
 
         //Ajout du script Embrassement sur le projectile pour le DOT
         bullet.AddComponent<Embrasement>();
-        bullet.GetComponent<Embrasement>().numberOfTick = 5;
+        bullet.GetComponent<Embrasement>().numberOfTick = 3;
 
         //Ajout du collider sur le projectile
         bullet.AddComponent<BoxCollider2D>();
@@ -65,7 +66,7 @@ public class Embrasement : Runes
 
                 //Ajout du script Embrassement sur le projectile pour le DOT
                 bullet1.AddComponent<Embrasement>();
-                bullet1.GetComponent<Embrasement>().numberOfTick = 5;
+                bullet1.GetComponent<Embrasement>().numberOfTick = 3;
 
                 //Ajout du collider sur le projectile
                 bullet1.AddComponent<BoxCollider2D>();
@@ -96,7 +97,7 @@ public class Embrasement : Runes
 
                 //Ajout du script Embrassement sur le projectile pour le DOT
                 bullet2.AddComponent<Embrasement>();
-                bullet2.GetComponent<Embrasement>().numberOfTick = 5;
+                bullet2.GetComponent<Embrasement>().numberOfTick = 3;
 
                 //Ajout du collider sur le projectile
                 bullet2.AddComponent<BoxCollider2D>();
@@ -243,7 +244,7 @@ public class Embrasement : Runes
     {
         for (int i = 0; i <= numberOfTick; i++)
         {
-            col.GetComponent<Entities>().health -= damage;
+            col.GetComponent<Entities>().health -= dotDamage;
             col.GetComponent<SpriteRenderer>().color = Color.red;
             yield return new WaitForSeconds(.75f);
             col.GetComponent<SpriteRenderer>().color = Color.white;

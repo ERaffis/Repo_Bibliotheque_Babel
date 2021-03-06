@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Empalement : MonoBehaviour
+public class Empalement : Runes
 {
     // Start is called before the first frame update
     void Start()
@@ -10,15 +10,21 @@ public class Empalement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
     //Rune utilisée seule
     public void RuneMaitresse()
     {
+
+
+        GameObject firepoint = _GameHandler.activeInstDir;
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, firepoint.transform.position,10f);       
+        //if (hit.collider.gameObject.layer == 6)
+        if (hit)
+        {
+            print("Cool");
+        }
 
     }
 
@@ -98,7 +104,7 @@ public class Empalement : MonoBehaviour
             if (collision.gameObject.tag != "Player1")
             {
                 collision.gameObject.transform.localScale = new Vector3(2, 2, 2);
-                //collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                
             }
         }
     }

@@ -64,7 +64,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer(){
         
-        if(GetComponent<RuneCasting>().isComboing)
+
+        if(GameObject.Find("RuneManager").GetComponent<RuneCasting>().isComboing)
         {   
             //Vitesse Reduite
             comboModifier = .5f;
