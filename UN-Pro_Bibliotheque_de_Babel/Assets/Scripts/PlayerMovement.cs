@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(moveDirection != Vector2.zero) {
 
+
             //SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
 
             //Move Right
@@ -93,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move Left
-            if (moveAngle >= 155 || moveAngle <= -155)
+            else if (moveAngle >= 155 || moveAngle <= -155)
             {
                 Vector2 dir = Vector2.left;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
@@ -102,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move Up
-            if (moveAngle >= 65 & moveAngle <= 115)
+            else if (moveAngle >= 65 & moveAngle <= 115)
             {
                 Vector2 dir = Vector2.up;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
@@ -111,7 +112,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move Up_Right
-            if (moveAngle > 25 & moveAngle < 65) 
+            else if (moveAngle > 25 & moveAngle < 65) 
             {
                 Vector2 dir = new Vector2(.75f, .75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
@@ -120,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move Up_Left
-            if (moveAngle > 115 & moveAngle < 155) 
+            else if (moveAngle > 115 & moveAngle < 155) 
             {
                 Vector2 dir = new Vector2(-.75f, .75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
@@ -129,7 +130,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move Down
-            if (moveAngle >= -115 & moveAngle <= -65)
+            else if (moveAngle >= -115 & moveAngle <= -65)
             {
                 Vector2 dir = Vector2.down;
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
@@ -138,7 +139,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move Down_Left
-            if (moveAngle > -155 & moveAngle < -115) 
+            else if (moveAngle > -155 & moveAngle < -115) 
             {
                 Vector2 dir = new Vector2(-.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
@@ -147,7 +148,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             //Move Down_Right
-            if (moveAngle > -65 & moveAngle < -25) 
+            else if (moveAngle > -65 & moveAngle < -25) 
             {
                 Vector2 dir = new Vector2(.75f, -.75f);
                 playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
@@ -161,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
         {
             playerScript.rb.velocity = Vector2.zero;
             playerScript.animator.SetInteger("Index", 0);
-            playerScript._GameHandler.ChangeRuneDir(0);
+            playerScript._GameHandler.ChangeRuneDir(6);
         }
     }
 

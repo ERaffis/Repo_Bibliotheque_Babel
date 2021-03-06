@@ -10,7 +10,10 @@ public class Embrasement : Runes
     public int numberOfTick;
     public int projectileSpeed;
 
-
+    private void Awake()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +30,15 @@ public class Embrasement : Runes
     //Rune utilisée seule
     public void RuneMaitresse()
     {
+        if(_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
+
         //Création du projetile
-        GameObject firepoint = _GameHandler.GetComponent<GameHandler>().activeInstDir;
+        GameObject firepoint = _GameHandler.activeInstDir;
         GameObject bullet = Instantiate(projectile, firepoint.transform);
 
         //Changement de couleur du projectile
@@ -51,6 +61,13 @@ public class Embrasement : Runes
     //Rune en combo avec 1 rune support
     public void RuneMaitresse(GameObject rune2)
     {
+        if (_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
+
         switch (rune2.name)
         {
             //Embrasement → Expulsion
@@ -121,6 +138,13 @@ public class Embrasement : Runes
     //Rune en combo avec 2 rune support
     public void RuneMaitresse(GameObject rune2, GameObject rune3)
     {
+        if (_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
+
         switch (rune2.name)
         {
             //Embrasement → Expulsion
@@ -220,7 +244,12 @@ public class Embrasement : Runes
     //Rune en combo avec 3 rune support
     public void RuneMaitresse(GameObject rune2, GameObject rune3, GameObject rune4)
     {
-
+        if (_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
     }
 
     //Collision pour le DOT

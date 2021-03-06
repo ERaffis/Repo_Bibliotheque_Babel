@@ -12,6 +12,9 @@ public class Inventory : MonoBehaviour
     [Header("Player")]
     public PlayerScript player;
 
+    [Header("Relations")]
+    public GameObject _UIManager;
+
     public static Inventory instance;
     public GameObject inventoryCanvas;
 
@@ -21,11 +24,14 @@ public class Inventory : MonoBehaviour
     public GameObject[] slots;
     public GameObject[] equippedRunes;
     public GameObject activeRune;
+    public int activeIndex;
+    public GameObject activeRuneUI;
 
     public bool isChangingRune;
 
 
     public GameObject openFirstButton;
+    
 
     private void Awake()
     {
@@ -38,6 +44,8 @@ public class Inventory : MonoBehaviour
             Destroy(this);
         }
         DontDestroyOnLoad(this);
+
+        _UIManager = GameObject.FindGameObjectWithTag("UIManager");
     }
     // Start is called before the first frame update
     void Start()

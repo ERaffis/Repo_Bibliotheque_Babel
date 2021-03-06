@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Empalement : MonoBehaviour
+public class Empalement : Runes
 {
     // Start is called before the first frame update
     void Start()
@@ -19,12 +19,24 @@ public class Empalement : MonoBehaviour
     //Rune utilisée seule
     public void RuneMaitresse()
     {
-
+        if (_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
     }
 
     //Rune en combo avec 1 rune support
     public void RuneMaitresse(GameObject rune2)
     {
+        if (_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
+
         switch (rune2.name)
         {
             //Empalement → Embrasement
@@ -45,6 +57,13 @@ public class Empalement : MonoBehaviour
     //Rune en combo avec 2 rune support
     public void RuneMaitresse(GameObject rune2, GameObject rune3)
     {
+        if (_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
+
         switch (rune2.name)
         {
             //Empalement → Embrasement
@@ -86,7 +105,12 @@ public class Empalement : MonoBehaviour
     //Rune en combo avec 3 rune support
     public void RuneMaitresse(GameObject rune2, GameObject rune3, GameObject rune4)
     {
-
+        if (_GameHandler == null)
+        {
+            _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+            playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+            playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
+        }
     }
 
     //Gestion collision
