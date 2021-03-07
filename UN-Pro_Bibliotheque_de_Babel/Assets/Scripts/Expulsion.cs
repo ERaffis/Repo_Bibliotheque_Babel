@@ -26,10 +26,11 @@ public class Expulsion : Runes
             playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
         }
 
+        playerScript.gameObject.AddComponent<Expulsion>();
+
         //Dash du joueur
         GameObject firepoint = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-        playerRb.AddForce(new Vector2(1000f * firepoint.transform.localPosition.x, 1000f * firepoint.transform.localPosition.y));
-
+        playerScript.gameObject.GetComponent<Expulsion>().StartCoroutine(Dash(firepoint));
     }
 
     //Rune en combo avec 1 rune support
@@ -49,23 +50,20 @@ public class Expulsion : Runes
             case "Embrasement":
 
                 //Création collider autour du joueur
-                GameObject player1 = GameObject.Find("Player_1");
-                player1.AddComponent<Expulsion>();
-                player1.AddComponent<CircleCollider2D>();
-                player1.GetComponent<CircleCollider2D>().isTrigger = true;
-                player1.GetComponent<CircleCollider2D>().radius = (1.3f);
+                playerScript.gameObject.AddComponent<Expulsion>();
+                playerScript.gameObject.AddComponent<CircleCollider2D>();
+                playerScript.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                playerScript.gameObject.GetComponent<CircleCollider2D>().radius = (1.3f);
 
                 //Ajout du script Embrassement sur le projectile pour le DOT
-                player1.AddComponent<Embrasement>();
-                player1.GetComponent<Embrasement>().numberOfTick = 3;
-
-                player1.GetComponent<Expulsion>().StartCoroutine(DestroyCollider(player1));
-
-                //StartCoroutine(DestroyCollider(player1));
+                playerScript.gameObject.AddComponent<Embrasement>();
+                playerScript.gameObject.GetComponent<Embrasement>().numberOfTick = 3;
 
                 //Dash du joueur
                 GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                playerRb.AddForce(firepoint1.transform.right * dashForce, ForceMode2D.Impulse);
+                playerScript.gameObject.GetComponent<Expulsion>().StartCoroutine(Dash(firepoint1));
+
+
 
                 break;
 
@@ -73,18 +71,18 @@ public class Expulsion : Runes
             case "Empalement":
 
                 //Création collider autour du joueur
-                GameObject player2 = GameObject.Find("Player_1");
-                player2.AddComponent<Expulsion>();
-                player2.AddComponent<CircleCollider2D>();
-                player2.GetComponent<CircleCollider2D>().isTrigger = true;
-                player2.GetComponent<CircleCollider2D>().radius = (1.3f);
+                playerScript.gameObject.gameObject.AddComponent<Expulsion>();
+                playerScript.gameObject.AddComponent<CircleCollider2D>();
+                playerScript.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                playerScript.gameObject.GetComponent<CircleCollider2D>().radius = (1.3f);
 
                 //Ajout du script Empalement sur le projectile pour le root
-                player2.AddComponent<Empalement>();
+                playerScript.gameObject.AddComponent<Empalement>();
 
                 //Dash du joueur
                 GameObject firepoint2 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                playerRb.AddForce(firepoint2.transform.right * dashForce, ForceMode2D.Impulse);
+                playerScript.gameObject.GetComponent<Expulsion>().StartCoroutine(Dash(firepoint2));
+
 
                 break;
 
@@ -114,26 +112,24 @@ public class Expulsion : Runes
                     case "Empalement":
 
                         //Création collider autour du joueur
-                        GameObject player1 = GameObject.Find("Player_1");
-                        player1.AddComponent<Expulsion>();
-                        player1.AddComponent<CircleCollider2D>();
-                        player1.GetComponent<CircleCollider2D>().isTrigger = true;
-                        player1.GetComponent<CircleCollider2D>().radius = (1.3f);
+                        playerScript.gameObject.AddComponent<Expulsion>();
+                        playerScript.gameObject.AddComponent<CircleCollider2D>();
+                        playerScript.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                        playerScript.gameObject.GetComponent<CircleCollider2D>().radius = (1.3f);
 
 
                         //Ajout du script Embrassement sur le projectile pour le DOT
-                        player1.AddComponent<Embrasement>();
-                        player1.GetComponent<Embrasement>().numberOfTick = 3;
+                        playerScript.gameObject.AddComponent<Embrasement>();
+                        playerScript.gameObject.GetComponent<Embrasement>().numberOfTick = 3;
 
 
                         //Ajout du script Empalement sur le projectile pour le root
-                        player1.AddComponent<Empalement>();
-
-                        player1.GetComponent<Expulsion>().StartCoroutine(DestroyCollider(player1));
+                        playerScript.gameObject.AddComponent<Empalement>();
 
                         //Dash du joueur
                         GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                        playerRb.AddForce(firepoint1.transform.right * dashForce, ForceMode2D.Impulse);
+                        playerScript.gameObject.GetComponent<Expulsion>().StartCoroutine(Dash(firepoint1));
+
 
                         break;
 
@@ -152,26 +148,24 @@ public class Expulsion : Runes
                     case "Embrassement":
 
                         //Création collider autour du joueur
-                        GameObject player1 = GameObject.Find("Player_1");
-                        player1.AddComponent<Expulsion>();
-                        player1.AddComponent<CircleCollider2D>();
-                        player1.GetComponent<CircleCollider2D>().isTrigger = true;
-                        player1.GetComponent<CircleCollider2D>().radius = (1.3f);
+                        playerScript.gameObject.AddComponent<Expulsion>();
+                        playerScript.gameObject.AddComponent<CircleCollider2D>();
+                        playerScript.gameObject.GetComponent<CircleCollider2D>().isTrigger = true;
+                        playerScript.gameObject.GetComponent<CircleCollider2D>().radius = (1.3f);
 
 
                         //Ajout du script Embrassement sur le projectile pour le DOT
-                        player1.AddComponent<Embrasement>();
-                        player1.GetComponent<Embrasement>().numberOfTick = 3;
+                        playerScript.gameObject.AddComponent<Embrasement>();
+                        playerScript.gameObject.GetComponent<Embrasement>().numberOfTick = 3;
 
 
                         //Ajout du script Empalement sur le projectile pour le root
-                        player1.AddComponent<Empalement>();
-
-                        player1.GetComponent<Expulsion>().StartCoroutine(DestroyCollider(player1));
+                        playerScript.gameObject.AddComponent<Empalement>();
 
                         //Dash du joueur
                         GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                        playerRb.AddForce(firepoint1.transform.right * dashForce, ForceMode2D.Impulse);
+                        playerScript.gameObject.GetComponent<Expulsion>().StartCoroutine(Dash(firepoint1));
+
 
                         break;
 
@@ -196,26 +190,45 @@ public class Expulsion : Runes
         }
     }
 
-    public IEnumerator DestroyCollider(GameObject player)
+    public void DestroyCollider()
     {
+        
+        if (playerScript.TryGetComponent(out CircleCollider2D a))
+        {
+            Destroy(playerScript.GetComponent<CircleCollider2D>());
+        }
+        if (playerScript.TryGetComponent(out Embrasement b))
+        {
+            Destroy(playerScript.GetComponent<Embrasement>());
+        }
+        if (playerScript.TryGetComponent(out Empalement c))
+        {
+            Destroy(playerScript.GetComponent<Empalement>());
+        }
+        if (playerScript.TryGetComponent(out Expulsion d))
+        {
+            Destroy(playerScript.GetComponent<Expulsion>());
+        }
+
+    }
+
+    public IEnumerator Dash(GameObject dir)
+    {
+        playerScript.gameObject.GetComponent<SpriteRenderer>().color = Color.gray;
+        playerScript.gameObject.layer = 11;
+        playerScript.isImmune = true;
+
         yield return new WaitForSeconds(0.1f);
 
-        if (player.TryGetComponent(out CircleCollider2D a))
-        {
-            Destroy(player.GetComponent<CircleCollider2D>());
-        }
-        if (player.TryGetComponent(out Embrasement b))
-        {
-            Destroy(player.GetComponent<Embrasement>());
-        }
-        if (player.TryGetComponent(out Empalement c))
-        {
-            Destroy(player.GetComponent<Empalement>());
-        }
-        if (player.TryGetComponent(out Expulsion d))
-        {
-            Destroy(player.GetComponent<Expulsion>());
-        }
+        playerRb.AddForce(new Vector2(Mathf.Lerp(dir.transform.localPosition.x, dashForce * dir.transform.localPosition.x,0.15f), Mathf.Lerp(dir.transform.localPosition.y, dashForce * dir.transform.localPosition.y, 0.15f)));
+
+        yield return new WaitForSeconds(0.25f);
+
+        playerScript.isImmune = false;
+        playerScript.gameObject.layer = 7;
+        playerScript.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+
+        playerScript.gameObject.GetComponent<Expulsion>().DestroyCollider();
 
     }
 

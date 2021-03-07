@@ -24,11 +24,11 @@ TagManager:
   - Water
   - UI
   - Entities
-  - 
+  - Player
   - 
   - Room
   - Post-Processing
-  - 
+  - NoCollision
   - 
   - 
   - 

@@ -51,14 +51,12 @@ public class Embrasement : Runes
         bullet.AddComponent<Embrasement>();
         bullet.GetComponent<Embrasement>().numberOfTick = 3;
 
-        //Ajout du collider sur le projectile
-        bullet.AddComponent<BoxCollider2D>();
-        bullet.GetComponent<BoxCollider2D>().isTrigger = true;
-        bullet.GetComponent<BoxCollider2D>().size = new Vector2(1f, 1f);
 
         //Ajout de la force sur le projectile
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firepoint.transform.right * projectileSpeed);
+
+        Destroy(bullet, 5f);
     }
 
     //Rune en combo avec 1 rune support
@@ -84,15 +82,9 @@ public class Embrasement : Runes
                 bullet1.AddComponent<Embrasement>();
                 bullet1.GetComponent<Embrasement>().numberOfTick = 5;
 
-                //Ajout du collider sur le projectile
-                bullet1.AddComponent<BoxCollider2D>();
-                bullet1.GetComponent<BoxCollider2D>().isTrigger = true;
-                bullet1.GetComponent<BoxCollider2D>().usedByEffector = true;
-                bullet1.GetComponent<BoxCollider2D>().size = new Vector2(2f, 2f);
 
                 //Ajout du AreaEffector2D pour le knockback sur le projectile
-                bullet1.AddComponent<AreaEffector2D>();
-                bullet1.GetComponent<AreaEffector2D>().forceMagnitude = 10f;
+                bullet1.GetComponent<AreaEffector2D>().enabled = true;
 
                 //Ajout de la force sur le projectile
                 Rigidbody2D rb = bullet1.GetComponent<Rigidbody2D>();
@@ -113,10 +105,6 @@ public class Embrasement : Runes
                 bullet2.AddComponent<Embrasement>();
                 bullet2.GetComponent<Embrasement>().numberOfTick = 5;
 
-                //Ajout du collider sur le projectile
-                bullet2.AddComponent<BoxCollider2D>();
-                bullet2.GetComponent<BoxCollider2D>().isTrigger = true;
-                bullet2.GetComponent<BoxCollider2D>().size = new Vector2(2f, 2f);
 
                 //Ajout du script Empalement sur le projectile pour le root
                 bullet2.AddComponent<Empalement>();
@@ -162,15 +150,9 @@ public class Embrasement : Runes
                         bullet1.AddComponent<Embrasement>();
                         bullet1.GetComponent<Embrasement>().numberOfTick = 5;
 
-                        //Ajout du collider sur le projectile
-                        bullet1.AddComponent<BoxCollider2D>();
-                        bullet1.GetComponent<BoxCollider2D>().isTrigger = true;
-                        bullet1.GetComponent<BoxCollider2D>().usedByEffector = true;
-                        bullet1.GetComponent<BoxCollider2D>().size = new Vector2(2f, 2f);
 
                         //Ajout du AreaEffector2D pour le knockback sur le projectile
-                        bullet1.AddComponent<AreaEffector2D>();
-                        bullet1.GetComponent<AreaEffector2D>().forceMagnitude = 10f;
+                        bullet1.GetComponent<AreaEffector2D>().enabled = true;
 
                         //Ajout du script Empalement sur le projectile pour le root
                         bullet1.AddComponent<Empalement>();
@@ -205,15 +187,9 @@ public class Embrasement : Runes
                         bullet1.AddComponent<Embrasement>();
                         bullet1.GetComponent<Embrasement>().numberOfTick = 5;
 
-                        //Ajout du collider sur le projectile
-                        bullet1.AddComponent<BoxCollider2D>();
-                        bullet1.GetComponent<BoxCollider2D>().isTrigger = true;
-                        bullet1.GetComponent<BoxCollider2D>().usedByEffector = true;
-                        bullet1.GetComponent<BoxCollider2D>().size = new Vector2(2f, 2f);
 
                         //Ajout du AreaEffector2D pour le knockback sur le projectile
-                        bullet1.AddComponent<AreaEffector2D>();
-                        bullet1.GetComponent<AreaEffector2D>().forceMagnitude = 10f;
+                        bullet1.GetComponent<AreaEffector2D>().enabled = true;
 
                         //Ajout du script Empalement sur le projectile pour le root
                         bullet1.AddComponent<Empalement>();
@@ -249,18 +225,22 @@ public class Embrasement : Runes
     //Collision pour le DOT
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.layer == 6)
+        if(this.gameObject.tag != "Player1")
         {
-            //Si la Rune touche un ennemi
-            if (collision.gameObject.tag != "Player1")
+            if (collision.gameObject.layer == 6)
             {
-                collision.GetComponent<Entities>().currentHealth -= damage;
-                if(collision.gameObject != null) StartCoroutine(DamageoverTime(collision.gameObject));
-                this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                //Si la Rune touche un ennemi
+                if (collision.gameObject.tag != "Player1")
+                {
+                    if (collision.gameObject != null) collision.GetComponent<Entities>().currentHealth -= damage;
+                    if (collision.gameObject != null) StartCoroutine(DamageoverTime(collision.gameObject));
+                    this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                }
             }
-        }
+        } 
+
     }
+
 
     //Dégâts sur l'ennemi
     public IEnumerator DamageoverTime(GameObject col)
@@ -270,14 +250,21 @@ public class Embrasement : Runes
             col.GetComponent<Entities>().isTakingDamage = true;
             for (int i = 0; i <= numberOfTick; i++)
             {
+
                 if (col)
-                {
+                    col.GetComponent<Entities>().currentHealth -= dotDamage;
+
+                if (col) 
                     col.GetComponent<SpriteRenderer>().color = Color.red;
-                    yield return new WaitForSeconds(.75f);
+
+                yield return new WaitForSeconds(.75f);
+
+                if (col)
                     col.GetComponent<SpriteRenderer>().color = Color.white;
-                    col.GetComponent<Entities>().currentHealth -= damage;
-                    yield return new WaitForSeconds(0.1f);
-                }
+                    
+                yield return new WaitForSeconds(0.1f);
+                
+               
             }
 
             if(col) col.GetComponent<Entities>().isTakingDamage = false;

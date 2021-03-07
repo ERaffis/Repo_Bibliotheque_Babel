@@ -55,4 +55,9 @@ public class uiManager : MonoBehaviour
         underLayUI.gameObject.SetActive(!underLayUI.gameObject.activeSelf);
     }
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }

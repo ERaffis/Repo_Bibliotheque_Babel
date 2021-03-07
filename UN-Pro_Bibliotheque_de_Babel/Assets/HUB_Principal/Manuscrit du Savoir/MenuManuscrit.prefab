@@ -369,8 +369,8 @@ MonoBehaviour:
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.8113208, g: 0.18752226, b: 0.18752226, a: 1}
+    m_SelectedColor: {r: 0.35577944, g: 0.7075472, b: 0.25031152, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -390,9 +390,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5889366328615673876}
-        m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: CloseManuscritMenu
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ManuscritInteract, Assembly-CSharp
+        m_MethodName: OpenCloseMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,18 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class ManuscritInteract : MonoBehaviour
 {
+
+    public PlayerScript player;
     public GameObject ManuscritMenu;
     public GameObject TextManuscrit;
+    public GameObject mainUI;
     public bool CanInteract;
-    
+    public bool isActive;
+    public GameObject openFirstButton;
+
+
+
 
     private void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
+        mainUI  = GameObject.FindGameObjectWithTag("MainUI");
         CanInteract = false;
-        
+        isActive = false;
+
+
     }
 
     void OnTriggerEnter2D (Collider2D collision)
@@ -38,10 +50,34 @@ public class ManuscritInteract : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L) && CanInteract)
+        if (player.playerInputs.GetButtonDown("Interact") && CanInteract)
         {
-            ManuscritMenu.SetActive(true);
-           
+            OpenCloseMenu();
         }
+    }
+
+    public void OpenCloseMenu()
+    {
+        isActive = !isActive;
+
+        if (isActive)
+        {
+            Time.timeScale = 0;
+            mainUI.SetActive(false);
+            StartCoroutine(SelectFirstButton());
+        }
+        else
+        {
+            Time.timeScale = 1;
+            mainUI.SetActive(true);
+        }
+        ManuscritMenu.SetActive(isActive);
+    }
+
+    IEnumerator SelectFirstButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(openFirstButton);
     }
 }

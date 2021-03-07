@@ -14,6 +14,9 @@ public class PlayerScript : Entities
     [Header("Run Counter")]
     public int nmbRun;
 
+    [Header("Immunity")]
+    public bool isImmune;
+
 
 
     // Start is called before the first frame update
@@ -21,6 +24,8 @@ public class PlayerScript : Entities
     {
         playerInputs = ReInput.players.GetPlayer(playerID);
         SetStartHealth();
+
+        isImmune = false;
     }
 
     // Update is called once per frame

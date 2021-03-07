@@ -43,8 +43,11 @@ public class Projectile : MonoBehaviour
     {
         if(collision.CompareTag("Player1"))
         {
-            player.GetComponent<PlayerScript>().currentHealth -= damage;
-            StartCoroutine(DestroyProjectile());
+            if(!player.GetComponent<PlayerScript>().isImmune)
+            {
+                player.GetComponent<PlayerScript>().currentHealth -= damage;
+                StartCoroutine(DestroyProjectile());
+            }
         }
     }
 

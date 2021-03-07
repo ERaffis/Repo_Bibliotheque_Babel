@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7719408011221861080}
   - component: {fileID: 5978658818299486157}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2047317403271058449}
   - component: {fileID: 1126899240807539814}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DownL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 161625625904053921}
   - component: {fileID: 2797574608533365792}
   - component: {fileID: 1254482564753501560}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player_1
   m_TagString: Player1
   m_Icon: {fileID: 0}
@@ -347,6 +347,7 @@ MonoBehaviour:
   entityType: Player
   playerID: 0
   nmbRun: 0
+  isImmune: 0
 --- !u!114 &161625625904053921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,7 +427,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8063632794393487727}
   - component: {fileID: 9005647386303357126}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3446480658747687306}
   - component: {fileID: 2126923913110808773}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: DownR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4326537580333552250}
   - component: {fileID: 1395078542533481005}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UpR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -672,7 +673,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6205140501288311470}
   - component: {fileID: 7534642320522041921}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -753,7 +754,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5798651621169841539}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: InstDir
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6337210799708638570}
   - component: {fileID: 6531116890237021252}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -874,7 +875,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812176670506127457}
   - component: {fileID: 7124594951647635800}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: UpL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -27,10 +27,20 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDirection;
     private int moveAngle;
 
+    private float aimHorizontal;
+    private float aimVertical;
+    private Vector2 aimDirection;
+    private int aimAngle;
 
-    private void Start() {
+    
 
-        
+    private bool backPedal;
+
+
+    private void Start() 
+    {
+
+        backPedal = false;
         playerScript = GetComponent<PlayerScript>();
 
         playerScript.rb.gravityScale = 0;
@@ -38,122 +48,167 @@ public class PlayerMovement : MonoBehaviour
         comboModifier = 1f;
     }
     
-    private void Update() {
+    private void Update() 
+    {
+        CheckBackPedal();
+        CheckCombo();
+
+        GetMoveAxies();
+        GetAimAxies();
+        FindMoveAngle();
+        FindAimAngle();
         
+        if (playerScript.canMove) MovePlayer();
+        AimPlayer();
+
     }
 
-    private void FixedUpdate() {
-
-        
-        
-        GetAxies();
-
-        FindAngle();
-        if(playerScript.canMove) MovePlayer();
-
-        
+    private void FixedUpdate() 
+    {
+    
     }
 
-    private void GetAxies() {
+    private void GetMoveAxies() {
 
         // Mouvement sans délais
         moveHorizontal = playerScript.playerInputs.GetAxisRaw("Move Horizontal");
-        moveVertical = playerScript.playerInputs.GetAxisRaw("Move Vertical");
-        
+        moveVertical = playerScript.playerInputs.GetAxisRaw("Move Vertical");       
+    }
+
+    private void GetAimAxies()
+    {
+        // Mouvement sans délais
+        aimHorizontal = playerScript.playerInputs.GetAxisRaw("Aim Horizontal");
+        aimVertical = playerScript.playerInputs.GetAxisRaw("Aim Vertical");
+    }
+
+    private void AimPlayer()
+    {
+        //Aim Right
+        if (aimAngle >= -25 & aimAngle <= 25 && aimAngle != 0)
+        {
+            playerScript._GameHandler.ChangeRuneDir(0);
+            playerScript.animator.SetInteger("Index", 1);
+        }
+        //Aim Left
+        else if (aimAngle >= 155 || aimAngle <= -155)
+        {
+            playerScript._GameHandler.ChangeRuneDir(4);
+            playerScript.animator.SetInteger("Index", 2);
+        }
+        //Aim Up
+        else if (aimAngle >= 65 & aimAngle <= 115)
+        {
+            playerScript.animator.SetInteger("Index", 3);
+            playerScript._GameHandler.ChangeRuneDir(2);
+        }
+        //Aim UpRight
+        else if (aimAngle > 25 & aimAngle < 65)
+        {
+            playerScript.animator.SetInteger("Index", 3);
+            playerScript._GameHandler.ChangeRuneDir(1);
+        }
+        //Aim UpLeft
+        else if (aimAngle > 115 & aimAngle < 155)
+        {
+            playerScript.animator.SetInteger("Index", 3);
+            playerScript._GameHandler.ChangeRuneDir(3);
+        }
+        //Aim Down
+        else if (aimAngle >= -115 & aimAngle <= -65)
+        {
+            playerScript.animator.SetInteger("Index", 4);
+            playerScript._GameHandler.ChangeRuneDir(6);
+        }
+        //Aim DownLeft
+        else if (aimAngle > -155 & aimAngle < -115)
+        {
+            playerScript.animator.SetInteger("Index", 4);
+            playerScript._GameHandler.ChangeRuneDir(5);
+        }
+        //Aim DownRight
+        else if (aimAngle > -65 & aimAngle < -25)
+        {
+            playerScript.animator.SetInteger("Index", 4);
+            playerScript._GameHandler.ChangeRuneDir(7);
+        }
+
     }
 
     private void MovePlayer(){
-        
-        if(GameObject.Find("RuneManager").GetComponent<RuneCasting>().isComboing)
-        {   
-            //Vitesse Reduite
-            comboModifier = .5f;
-
-            //Vitesse Nulle
-            //comboModifier = 0f;
-            
-        } else
-        {
-            comboModifier = 1f;
-        }
-        
-
 
         if(moveDirection != Vector2.zero) {
-
-
-            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
 
             //Move Right
             if (moveAngle >= -25 & moveAngle <= 25)
             {
                 Vector2 dir = Vector2.right;
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 1);
                 playerScript._GameHandler.ChangeRuneDir(0);
+                playerScript.animator.SetInteger("Index", 1);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
             //Move Left
             else if (moveAngle >= 155 || moveAngle <= -155)
             {
                 Vector2 dir = Vector2.left;
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
-                playerScript.animator.SetInteger("Index", 2);
                 playerScript._GameHandler.ChangeRuneDir(4);
+                playerScript.animator.SetInteger("Index", 2);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
             //Move Up
             else if (moveAngle >= 65 & moveAngle <= 115)
             {
                 Vector2 dir = Vector2.up;
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript._GameHandler.ChangeRuneDir(2);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
             //Move Up_Right
             else if (moveAngle > 25 & moveAngle < 65) 
             {
                 Vector2 dir = new Vector2(.75f, .75f);
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript._GameHandler.ChangeRuneDir(1);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
             //Move Up_Left
             else if (moveAngle > 115 & moveAngle < 155) 
             {
                 Vector2 dir = new Vector2(-.75f, .75f);
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 3);
                 playerScript._GameHandler.ChangeRuneDir(3);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
             //Move Down
             else if (moveAngle >= -115 & moveAngle <= -65)
             {
                 Vector2 dir = Vector2.down;
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 4);
                 playerScript._GameHandler.ChangeRuneDir(6);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
             //Move Down_Left
             else if (moveAngle > -155 & moveAngle < -115) 
             {
                 Vector2 dir = new Vector2(-.75f, -.75f);
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 4);
                 playerScript._GameHandler.ChangeRuneDir(5);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
             //Move Down_Right
             else if (moveAngle > -65 & moveAngle < -25) 
             {
                 Vector2 dir = new Vector2(.75f, -.75f);
-                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
                 playerScript.animator.SetInteger("Index", 4);
                 playerScript._GameHandler.ChangeRuneDir(7);
+                playerScript.rb.velocity = dir * playerScript.moveSpeed * comboModifier;
             }
 
         }
@@ -161,12 +216,35 @@ public class PlayerMovement : MonoBehaviour
         if (moveDirection == Vector2.zero)
         {
             playerScript.rb.velocity = Vector2.zero;
-            playerScript.animator.SetInteger("Index", 0);
-            playerScript._GameHandler.ChangeRuneDir(6);
         }
     }
 
-    private void FindAngle(){
+    private void CheckBackPedal()
+    {
+        if (playerScript.playerInputs.GetButtonDown("BackPedal"))
+            backPedal = true;
+        if(playerScript.playerInputs.GetButtonUp("BackPedal"))
+            backPedal = false;
+    }
+
+    private void CheckCombo()
+    {
+        if (GameObject.Find("RuneManager").GetComponent<RuneCasting>().isComboing)
+        {
+            //Vitesse Reduite
+            comboModifier = .5f;
+
+            //Vitesse Nulle
+            //comboModifier = 0f;
+
+        }
+        else
+        {
+            comboModifier = 1f;
+        }
+    }
+
+    private void FindMoveAngle(){
         moveDirection = new Vector2(moveHorizontal, moveVertical);
 
         moveAngle = (int) Vector2.Angle(moveDirection, Vector2.right);
@@ -174,6 +252,17 @@ public class PlayerMovement : MonoBehaviour
         {
             moveAngle *= -1;
         }  
+    }
+
+    private void FindAimAngle()
+    {
+        aimDirection = new Vector2(aimHorizontal, aimVertical);
+
+        aimAngle = (int)Vector2.Angle(aimDirection, Vector2.right);
+        if (aimVertical < 0)
+        {
+            aimAngle *= -1;
+        }
     }
 
     public Vector3 GetPosition()
@@ -197,26 +286,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //private void Playerdash(Vector2 direction)
-    //{
-    //    playerScript.rb.AddForce(direction * dashForce, ForceMode2D.Impulse);
-    //    StartCoroutine(playerScript._GameHandler.uiManager.UpdateDash(dashCooldown));
-    //    StartCoroutine(WaitForDash());
-    //    print("dash");
-    //}
-
-    //private IEnumerator WaitForDash()
-    //{
-    //    isDashing = true;
-    //    playerScript.animator.SetBool("IsDashing", isDashing);
-
-    //    yield return new WaitForSeconds(dashDuration);
-
-    //    isDashing = false;
-    //    playerScript.animator.SetBool("IsDashing", isDashing);
-
-    //    canDash = false;
-    //    yield return new WaitForSeconds(dashCooldown);
-    //    canDash = true;
-    //}
 }
