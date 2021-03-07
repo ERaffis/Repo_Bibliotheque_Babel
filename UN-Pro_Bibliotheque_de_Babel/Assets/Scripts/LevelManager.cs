@@ -36,6 +36,7 @@ public class LevelManager : MonoBehaviour
         this.roomName = "HUB_Principal";
 
         StartCoroutine(playerScript.BlockMove());
+        StartCoroutine(numberManager.WriteTrial("" + playerScript.nmbRun));
         animator.SetTrigger("FadeOut");
         playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
     }

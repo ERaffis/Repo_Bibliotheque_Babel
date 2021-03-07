@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         if(moveDirection != Vector2.zero) {
 
 
-            //SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
+            SoundManager.PlaySound(SoundManager.Sound.PlayerMove, GetPosition());
 
             //Move Right
             if (moveAngle >= -25 & moveAngle <= 25)
@@ -179,6 +179,22 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 GetPosition()
     {
         return this.gameObject.transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "ExitTrigger")
+        {
+            if (playerScript._GameHandler.roomCleared)
+            {
+                playerScript._GameHandler.roomCleared = false;
+                playerScript._GameHandler.lvlManager.GetComponent<LevelManager>().FadeToLevel();
+            }
+            else
+            {
+                Debug.LogWarning("Roomed Not Cleared");
+            }
+        }
     }
 
     //private void Playerdash(Vector2 direction)

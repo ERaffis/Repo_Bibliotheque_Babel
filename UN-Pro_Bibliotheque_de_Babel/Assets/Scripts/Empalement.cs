@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class Empalement : Runes
 {
+
+    private int rootTime;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rootTime = 1;
     }
 
     // Update is called once per frame
@@ -121,9 +123,28 @@ public class Empalement : Runes
             //Si la Rune touche un ennemi
             if (collision.gameObject.tag != "Player1")
             {
-                collision.gameObject.transform.localScale = new Vector3(2, 2, 2);
-                //collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(RootEnemy(collision.gameObject));                
             }
         }
+    }
+
+    private IEnumerator RootEnemy(GameObject enemy)
+    {
+        enemy.GetComponent<SpriteRenderer>().color = Color.green;
+
+        if (enemy.TryGetComponent(out Ennemi2_Biome1 a))
+        {
+            enemy.GetComponent<Ennemi2_Biome1>().canMove = false;
+            yield return new WaitForSeconds(rootTime);
+            enemy.GetComponent<Ennemi2_Biome1>().canMove = true;
+
+        } else if (enemy.TryGetComponent(out Entities b))
+        {
+            enemy.GetComponent<Entities>().canMove = false;
+            yield return new WaitForSeconds(rootTime);
+            enemy.GetComponent<Entities>().canMove = true;
+        }
+        enemy.GetComponent<SpriteRenderer>().color = Color.white;
+
     }
 }

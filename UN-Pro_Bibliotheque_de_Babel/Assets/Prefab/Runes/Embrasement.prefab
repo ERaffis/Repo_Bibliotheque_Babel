@@ -49,5 +49,6 @@ MonoBehaviour:
   playerRb: {fileID: 0}
   _GameHandler: {fileID: 0}
   projectile: {fileID: 3837785196029444533, guid: 18b1f987529a2814e8dbe3892c447ea9, type: 3}
+  projectileSprite: {fileID: 21300000, guid: c899ca3ca0a8bbc41ac91ba8a5fe40db, type: 3}
   numberOfTick: 5
   projectileSpeed: 100

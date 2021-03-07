@@ -23,31 +23,36 @@ public class Ennemi2_Biome1 : Entities
 
         timeBtwShots = startTimeBtwShots;
         startTimeBtwShots = 2f;
+        canMove = true;
     }
 
     
     void Update()
     {
-        if (Vector2.Distance(transform.position, player1.position) > stoppingDistance)
+        if(canMove)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player1.position, moveSpeed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, player1.position) < stoppingDistance)
-        {
-            transform.position = this.transform.position;
-        }
+            if (Vector2.Distance(transform.position, player1.position) > stoppingDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, player1.position, moveSpeed * Time.deltaTime);
+            }
+            else if (Vector2.Distance(transform.position, player1.position) < stoppingDistance)
+            {
+                transform.position = this.transform.position;
+            }
 
 
 
-        if (timeBtwShots <= 0)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
+            if (timeBtwShots <= 0)
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
         }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
-        }
+        
     }
 
 

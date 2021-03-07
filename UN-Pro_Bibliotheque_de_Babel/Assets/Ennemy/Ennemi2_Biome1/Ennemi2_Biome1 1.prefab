@@ -99,7 +99,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.10219848}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -110,7 +110,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.42235374, y: 0.45877385}
   m_EdgeRadius: 0
 --- !u!114 &3530227072964081390
 MonoBehaviour:
@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75db02b089316cc4aa6567970ab89e7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GameHandler: {fileID: 0}
   entityName: Flame Guy
   maxHealth: 32
   currentHealth: 32
@@ -133,6 +134,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   rb: {fileID: 2147504486629351590}
   isTakingDamage: 0
+  canMove: 0
   healthBar: {fileID: 9000715839711004977}
   entityType: Ennemy
   stoppingDistance: 2.5

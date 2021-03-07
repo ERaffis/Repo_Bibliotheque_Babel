@@ -178,7 +178,6 @@ GameObject:
   - component: {fileID: 1254482564753501564}
   - component: {fileID: 1254482564753501541}
   - component: {fileID: 1254482564753501561}
-  - component: {fileID: 1254482564753501565}
   - component: {fileID: 161625625904053921}
   - component: {fileID: 2797574608533365792}
   - component: {fileID: 1254482564753501560}
@@ -333,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b7d45121cc9248499a7e131f0c8fa43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _GameHandler: {fileID: 0}
   entityName: Player 1
   maxHealth: 64
   currentHealth: 64
@@ -341,25 +341,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 1254482564753501563}
   animator: {fileID: 1254482564753501560}
   rb: {fileID: 1254482564753501540}
+  isTakingDamage: 0
+  canMove: 1
+  healthBar: {fileID: 0}
   entityType: Player
-  _GameHandler: {fileID: 0}
   playerID: 0
   nmbRun: 0
-  canMove: 1
---- !u!114 &1254482564753501565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254482564753501542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0434c2f5e22ca7f4b84709e30c319d01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lvlManager: {fileID: 0}
-  roomCleared: 0
 --- !u!114 &161625625904053921
 MonoBehaviour:
   m_ObjectHideFlags: 0

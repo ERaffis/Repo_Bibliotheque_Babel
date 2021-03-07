@@ -6,7 +6,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public void NouvellePartie()
     {
-        SceneManager.LoadScene("HUB_Principal");
+        SceneManager.LoadScene("HUB_Principal Start");
     }
 
     public void QuitterJeu()

@@ -20,12 +20,12 @@ public class PlayerScript : Entities
     void Start()
     {
         playerInputs = ReInput.players.GetPlayer(playerID);
+        SetStartHealth();
     }
 
     // Update is called once per frame
     void Update()
     {
-        print(currentHealth);
         if(currentHealth <= 0)
         {
             PlayerDied();
@@ -49,6 +49,10 @@ public class PlayerScript : Entities
 
     public void PlayerDied()
     {
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Projectile"))
+        {
+            Destroy(item);
+        }
         Destroy(GameObject.FindGameObjectWithTag("Spawner"));
         SetStartHealth();
         _GameHandler.RunEnded(false);

@@ -17,6 +17,7 @@ public class EnnemyFollow : MonoBehaviour
     
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        if(this.GetComponent<Entities>().canMove)
+            transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
     }
 }

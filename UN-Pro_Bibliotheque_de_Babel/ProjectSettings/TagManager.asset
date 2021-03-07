@@ -15,6 +15,7 @@ TagManager:
   - Ennemy
   - RuneManager
   - Spawner
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Entities
   - 
   - 
-  - 
+  - Room
   - Post-Processing
   - 
   - 

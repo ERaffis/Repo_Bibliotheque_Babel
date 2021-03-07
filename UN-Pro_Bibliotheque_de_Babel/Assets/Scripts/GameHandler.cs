@@ -20,32 +20,49 @@ public class GameHandler : MonoBehaviour
     public int nmbSpawned;
     public int nmbRemaining;
 
+    public bool roomCleared;
+
     public string biomeName;
 
     private void Awake()
     {
         SoundManager.Initialize();
-        _Cameras = GameObject.Find("_Camera");
-        eventSystem = GameObject.Find("Rewired Event System");
-        player1 = GameObject.Find("Player_1");
-        lvlManager = GameObject.FindGameObjectWithTag("LevelManager");
-        uiManager = GameObject.FindGameObjectWithTag("UIManager");
+        if(_Cameras == null)
+        {
+            _Cameras = GameObject.Find("_Camera");
+            DontDestroyOnLoad(_Cameras);
+        }
+
+        if (eventSystem == null)
+        {
+            eventSystem = GameObject.Find("Rewired Event System");
+            DontDestroyOnLoad(eventSystem);
+        }
+        if (player1 == null)
+        {
+            player1 = GameObject.Find("Player_1"); 
+            DontDestroyOnLoad(player1);
+        }
+            
+        if (lvlManager == null)
+        {
+            lvlManager = GameObject.FindGameObjectWithTag("LevelManager");
+            DontDestroyOnLoad(lvlManager);
+        }
+        if (uiManager == null)
+        {
+            uiManager = GameObject.FindGameObjectWithTag("UIManager");
+            DontDestroyOnLoad(uiManager);
+        }
 
 
         //List of objects not to destroy when switching scene
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(_Cameras);
-        DontDestroyOnLoad(eventSystem);
-        DontDestroyOnLoad(player1);
-        DontDestroyOnLoad(lvlManager);
-        DontDestroyOnLoad(uiManager);
-
         gameDifficulty = 1;
     }
     // Start is called before the first frame update
     void Start()
     {
-        
         print(gameDifficulty);
 
         activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
@@ -56,6 +73,7 @@ public class GameHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G)) RunEnded(true);
         if (Input.GetKeyDown(KeyCode.H)) RunEnded(false);
+        CheckForRoomClear();    
     }
 
     // Method to call when the player dies or reaches the outside
@@ -73,6 +91,7 @@ public class GameHandler : MonoBehaviour
         if(var == true)
         {
             gameDifficulty += 2;
+            player1.GetComponent<PlayerScript>().SetMaxHealth(64);
             //lvlManager.FadeToLevel("HUB_Principal");
             // print(gameDifficulty);
         }
@@ -80,6 +99,7 @@ public class GameHandler : MonoBehaviour
         if (var != true)
         {
             gameDifficulty += 1;
+            player1.GetComponent<PlayerScript>().SetMaxHealth(64);
             lvlManager.GetComponent<LevelManager>().ReturnToHubAfterDeath();
             // print(gameDifficulty);
         }
@@ -92,4 +112,12 @@ public class GameHandler : MonoBehaviour
         activeInstDir = instDir[i];
         activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
     }
+
+
+    public void CheckForRoomClear()
+    {
+        if (nmbRemaining <= 0) roomCleared = true;
+    }
+
+    
 }

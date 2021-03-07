@@ -73,4 +73,25 @@ public class RoomNumberManager : MonoBehaviour
         roomNumberText.gameObject.SetActive(false);
         
     }
+
+    public IEnumerator WriteTrial(string number)
+    {
+        roomNumberText.gameObject.SetActive(true);
+        roomNumberText.text = null;
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < number.Length; i++)
+        {
+            roomNumberText.text += number[i];
+            SoundManager.PlaySound(SoundManager.Sound.TypeWriter);
+            yield return new WaitForSeconds(0.20f);
+        }
+
+        yield return new WaitForSeconds(.25f);
+        SoundManager.PlaySound(SoundManager.Sound.TypeWriterEnd);
+
+        yield return new WaitForSeconds(.5f);
+        roomNumberText.text = null;
+        roomNumberText.gameObject.SetActive(false);
+    }
 }

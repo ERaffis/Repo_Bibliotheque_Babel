@@ -6,9 +6,11 @@ public class Embrasement : Runes
 {
 
     public GameObject projectile;
+    public Sprite projectileSprite;
 
     public int numberOfTick;
     public int projectileSpeed;
+    public int dotDamage;
 
     private void Awake()
     {
@@ -18,7 +20,8 @@ public class Embrasement : Runes
     // Start is called before the first frame update
     void Start()
     {
-        damage = 2;
+        damage = 5;
+        dotDamage = 2;
     }
 
     // Update is called once per frame
@@ -42,11 +45,11 @@ public class Embrasement : Runes
         GameObject bullet = Instantiate(projectile, firepoint.transform);
 
         //Changement de couleur du projectile
-        bullet.GetComponent<SpriteRenderer>().color = Color.yellow;
+        bullet.GetComponent<SpriteRenderer>().sprite = projectileSprite;
 
         //Ajout du script Embrassement sur le projectile pour le DOT
         bullet.AddComponent<Embrasement>();
-        bullet.GetComponent<Embrasement>().numberOfTick = 5;
+        bullet.GetComponent<Embrasement>().numberOfTick = 3;
 
         //Ajout du collider sur le projectile
         bullet.AddComponent<BoxCollider2D>();
@@ -77,9 +80,6 @@ public class Embrasement : Runes
                 GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
                 GameObject bullet1 = Instantiate(projectile, firepoint1.transform);
 
-                //Changement de couleur du projectile
-                bullet1.GetComponent<SpriteRenderer>().color = Color.yellow + Color.red;
-
                 //Ajout du script Embrassement sur le projectile pour le DOT
                 bullet1.AddComponent<Embrasement>();
                 bullet1.GetComponent<Embrasement>().numberOfTick = 5;
@@ -108,8 +108,6 @@ public class Embrasement : Runes
                 GameObject firepoint2 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
                 GameObject bullet2 = Instantiate(projectile, firepoint2.transform);
 
-                //Changement de couleur du projectile
-                bullet2.GetComponent<SpriteRenderer>().color = Color.yellow + Color.blue;
 
                 //Ajout du script Embrassement sur le projectile pour le DOT
                 bullet2.AddComponent<Embrasement>();
@@ -159,8 +157,6 @@ public class Embrasement : Runes
                         GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
                         GameObject bullet1 = Instantiate(projectile, firepoint1.transform);
 
-                        //Changement de couleur du projectile
-                        bullet1.GetComponent<SpriteRenderer>().color = Color.yellow + Color.red + Color.blue;
 
                         //Ajout du script Embrassement sur le projectile pour le DOT
                         bullet1.AddComponent<Embrasement>();
@@ -204,8 +200,6 @@ public class Embrasement : Runes
                         GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
                         GameObject bullet1 = Instantiate(projectile, firepoint1.transform);
 
-                        //Changement de couleur du projectile
-                        bullet1.GetComponent<SpriteRenderer>().color = Color.yellow + Color.red + Color.blue;
 
                         //Ajout du script Embrassement sur le projectile pour le DOT
                         bullet1.AddComponent<Embrasement>();
@@ -260,9 +254,10 @@ public class Embrasement : Runes
             //Si la Rune touche un ennemi
             if (collision.gameObject.tag != "Player1")
             {
+                collision.GetComponent<Entities>().currentHealth -= damage;
+                if(collision.gameObject != null) StartCoroutine(DamageoverTime(collision.gameObject));
                 this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
                 this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                StartCoroutine(DamageoverTime(collision.gameObject));
             }
         }
     }

@@ -39,6 +39,7 @@ public class Entities : MonoBehaviour
     {
         SetStartHealth();
         _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+        canMove = true;
     }
 
     // Update is called once per frame
@@ -63,7 +64,7 @@ public class Entities : MonoBehaviour
     {
         healthBar.value = currentHealth;
 
-        if (currentHealth == 0)
+        if (currentHealth <= 0)
         {
             _GameHandler.nmbRemaining--;
             Destroy(this.gameObject);
