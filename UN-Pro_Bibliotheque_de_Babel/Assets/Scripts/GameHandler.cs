@@ -45,7 +45,7 @@ public class GameHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nmbRemaining = 0;
+        
         print(gameDifficulty);
 
         activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
@@ -61,6 +61,10 @@ public class GameHandler : MonoBehaviour
     // Method to call when the player dies or reaches the outside
     public void RunEnded(bool var)
     {
+        nmbRemaining = 0;
+        nmbToSpawns = 0;
+        nmbSpawned = 0;
+
         //Adds the total of runs
         player1.GetComponent<PlayerScript>().nmbRun++;
         // print(player1.GetComponent<PlayerScript>().nmbRun);

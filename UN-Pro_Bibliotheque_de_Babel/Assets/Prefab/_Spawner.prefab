@@ -141,7 +141,9 @@ MonoBehaviour:
   - {fileID: 3500047014814256203}
   - {fileID: 3500047015204631515}
   - {fileID: 3500047014307109232}
-  ennemiesBiome1: []
+  ennemiesBiome1:
+  - {fileID: 1109663837958840069, guid: adbc51d5272e7d54ab1963af92020f2b, type: 3}
+  - {fileID: 3530227072964081393, guid: 13c94abd3a73d8a4d9c302ecb927be2c, type: 3}
   ennemiesBiome2: []
   ennemiesBiome3: []
 --- !u!1 &3500047014546704876
