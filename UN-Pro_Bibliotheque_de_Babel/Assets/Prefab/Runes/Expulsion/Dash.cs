@@ -10,6 +10,8 @@ public class Dash : MonoBehaviour
     public float dashDuration;
     public float dashCooldown;
 
+    public bool shouldDestroy;
+
     public PlayerScript playerScript;
     public Rigidbody2D playerRb;
     public GameObject firepoint;
@@ -18,17 +20,44 @@ public class Dash : MonoBehaviour
     void Start()
     {
         canDash = false;
+        shouldDestroy = true;
 
         StartCoroutine(LaunchDash(firepoint));
     }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(canDash == true)
+        if (!collision.CompareTag("Player1"))
         {
-            StartCoroutine(LaunchDash(firepoint));
+            if (collision.gameObject.layer == 6)
+            {
+                if (collision.gameObject.transform.childCount <= 3)
+                {
+                    shouldDestroy = false;
+                    StartCoroutine(DisableProjectile());
+                }
+            }
         }
+    }
+
+    IEnumerator DisableProjectile()
+    {
+
+        if (TryGetComponent(out Collider2D a))
+            Destroy(a);
+        if (TryGetComponent(out Collider2D b))
+            Destroy(b);
+
+        yield return new WaitForSeconds(.2f);
+
+        if (TryGetComponent(out Effector2D c))
+            Destroy(c);
+
+        yield return new WaitForSeconds(1.5f);
+
+        if (GameObject.FindGameObjectWithTag("ForceField") != null)
+            Destroy(GameObject.FindGameObjectWithTag("ForceField"));
     }
 
     public IEnumerator LaunchDash(GameObject dir)
@@ -53,8 +82,9 @@ public class Dash : MonoBehaviour
         playerScript.gameObject.layer = 7;
         playerScript.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
 
-        if (GameObject.FindGameObjectWithTag("ForceField") != null)
+        if (GameObject.FindGameObjectWithTag("ForceField") != null && shouldDestroy)
             Destroy(GameObject.FindGameObjectWithTag("ForceField"));
+        else StartCoroutine(DisableProjectile());
 
         canDash = true;
 

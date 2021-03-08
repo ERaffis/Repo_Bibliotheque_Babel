@@ -42,6 +42,8 @@ public class Expulsion : Runes
                 //Ajout du script Embrassement sur le projectile pour le DOT
                 forceFieldClone.AddComponent<Embrasement_Support>();
                 forceFieldClone.GetComponent<Embrasement_Support>().numberOfTick = 3;
+                forceFieldClone.GetComponent<Embrasement_Support>().damage = 4;
+                forceFieldClone.GetComponent<Embrasement_Support>().dotDamage = 1;
 
                 break;
 
@@ -79,6 +81,8 @@ public class Expulsion : Runes
                 //Ajout du script Embrassement sur le projectile pour le DOT
                 forceFieldClone.AddComponent<Embrasement_Support>();
                 forceFieldClone.GetComponent<Embrasement_Support>().numberOfTick = 3;
+                forceFieldClone.GetComponent<Embrasement_Support>().damage = 4;
+                forceFieldClone.GetComponent<Embrasement_Support>().dotDamage = 1;
 
                 forceFieldClone.AddComponent<Empalement_Support>();
                 forceFieldClone.GetComponent<Empalement_Support>().rootTime = 1f;
@@ -101,6 +105,8 @@ public class Expulsion : Runes
                 //Ajout du script Embrassement sur le projectile pour le DOT
                 forceFieldClone.AddComponent<Embrasement_Support>();
                 forceFieldClone.GetComponent<Embrasement_Support>().numberOfTick = 3;
+                forceFieldClone.GetComponent<Embrasement_Support>().damage = 4;
+                forceFieldClone.GetComponent<Embrasement_Support>().dotDamage = 1;
 
                 forceFieldClone.AddComponent<Empalement_Support>();
                 forceFieldClone.GetComponent<Empalement_Support>().rootTime = 1f;

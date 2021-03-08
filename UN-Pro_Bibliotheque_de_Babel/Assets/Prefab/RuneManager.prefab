@@ -65,6 +65,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  equippedRune_1: {fileID: 0}
+  equippedRune_2: {fileID: 0}
+  equippedRune_3: {fileID: 0}
+  equippedRune_4: {fileID: 0}
+  coolDown1: 1
+  coolDown2: 1
+  coolDown3: 1
+  coolDown4: 1
   equippedRune: []
   availableBracelets: []
   equippedBracelet: {fileID: 0}

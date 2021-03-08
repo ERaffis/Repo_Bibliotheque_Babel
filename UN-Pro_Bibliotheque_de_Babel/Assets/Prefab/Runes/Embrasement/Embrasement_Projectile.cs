@@ -26,7 +26,7 @@ public class Embrasement_Projectile : MonoBehaviour
                     ennemyTransform = collision.gameObject.transform;
                     transform.parent = ennemyTransform;
 
-                    collision.GetComponent<Entities>().currentHealth -= damage;
+                    collision.GetComponent<Entities>().SetHealth(damage);
                     StartCoroutine(DamageoverTime(collision.gameObject));
 
                     StartCoroutine(DisableProjectile());
@@ -50,7 +50,7 @@ public class Embrasement_Projectile : MonoBehaviour
             for (int i = 0; i <= numberOfTick; i++)
             {
 
-                col.GetComponent<Entities>().currentHealth -= dotDamage;
+                col.GetComponent<Entities>().SetHealth(dotDamage);
 
                 yield return new WaitForSeconds(.25f);
 

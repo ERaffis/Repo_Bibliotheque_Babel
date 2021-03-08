@@ -34,13 +34,11 @@ public class PlayerMovement : MonoBehaviour
 
     
 
-    private bool backPedal;
 
 
     private void Start() 
     {
 
-        backPedal = false;
         playerScript = GetComponent<PlayerScript>();
 
         playerScript.rb.gravityScale = 0;
@@ -50,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update() 
     {
-        CheckBackPedal();
         CheckCombo();
 
         GetMoveAxies();
@@ -219,13 +216,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void CheckBackPedal()
-    {
-        if (playerScript.playerInputs.GetButtonDown("BackPedal"))
-            backPedal = true;
-        if(playerScript.playerInputs.GetButtonUp("BackPedal"))
-            backPedal = false;
-    }
 
     private void CheckCombo()
     {

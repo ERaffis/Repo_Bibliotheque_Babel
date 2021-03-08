@@ -18,7 +18,7 @@ public class Embrasement_Support : MonoBehaviour
             {
                 if(collision.gameObject.transform.childCount <= 3)
                 {
-                    collision.GetComponent<Entities>().currentHealth -= damage;
+                    collision.GetComponent<Entities>().SetHealth(damage);
                     StartCoroutine(DamageoverTime(collision.gameObject));
                 }
             }
@@ -34,7 +34,7 @@ public class Embrasement_Support : MonoBehaviour
 
             for (int i = 0; i <= numberOfTick; i++)
             {
-                col.GetComponent<Entities>().currentHealth -= dotDamage;
+                col.GetComponent<Entities>().SetHealth(dotDamage);
 
                 yield return new WaitForSeconds(.25f);
             }

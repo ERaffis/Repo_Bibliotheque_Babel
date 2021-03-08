@@ -103,7 +103,7 @@ public class Ennemy1_Attack : MonoBehaviour
         if(collision.gameObject.CompareTag("Player1"))
         {
             if(!player.GetComponent<PlayerScript>().isImmune)
-                collision.gameObject.GetComponent<PlayerScript>().currentHealth -= damage;
+                collision.gameObject.GetComponent<PlayerScript>().SetPlayerHealth(damage);
         }
     }
 }

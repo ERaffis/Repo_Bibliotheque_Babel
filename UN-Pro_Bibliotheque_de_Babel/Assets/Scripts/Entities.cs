@@ -28,6 +28,9 @@ public class Entities : MonoBehaviour
     [Header("IsRooted")]
     public bool canMove;
 
+    [Header("Immunity")]
+    public bool isImmune;
+
     [Header("Health Bar")]
     public Slider healthBar;
 
@@ -39,7 +42,7 @@ public class Entities : MonoBehaviour
     {
         SetStartHealth();
         _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
-        canMove = true;
+        StartCoroutine(WaitToMoveStart());
     }
 
     // Update is called once per frame
@@ -50,7 +53,14 @@ public class Entities : MonoBehaviour
 
     public void SetHealth(int dmg)
     {
-        currentHealth -= dmg;
+        if(!isImmune)
+            currentHealth -= dmg;
+    }
+
+    public void SetPlayerHealth(int dmg)
+    {
+        if (!isImmune)
+            currentHealth -= dmg;
     }
 
     protected void SetStartHealth()
@@ -81,6 +91,13 @@ public class Entities : MonoBehaviour
         healthBar.value = Health;
         maxHealth = Health;
         currentHealth = maxHealth;
+    }
+
+    protected IEnumerator WaitToMoveStart()
+    {
+        canMove = false;
+        yield return new WaitForSeconds(1f);
+        canMove = true;
     }
 
 }

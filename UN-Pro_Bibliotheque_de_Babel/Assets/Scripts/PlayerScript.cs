@@ -14,10 +14,7 @@ public class PlayerScript : Entities
     [Header("Run Counter")]
     public int nmbRun;
 
-    [Header("Immunity")]
-    public bool isImmune;
-
-
+ 
 
     // Start is called before the first frame update
     void Start()
@@ -51,6 +48,7 @@ public class PlayerScript : Entities
         yield return new WaitForSeconds(5f);
         canMove = true;
     }
+
 
     public void PlayerDied()
     {

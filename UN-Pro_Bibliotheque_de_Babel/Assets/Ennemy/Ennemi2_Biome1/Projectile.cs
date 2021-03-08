@@ -45,7 +45,7 @@ public class Projectile : MonoBehaviour
         {
             if(!player.GetComponent<PlayerScript>().isImmune)
             {
-                player.GetComponent<PlayerScript>().currentHealth -= damage;
+                player.GetComponent<PlayerScript>().SetPlayerHealth(damage);
                 StartCoroutine(DestroyProjectile());
             }
         }

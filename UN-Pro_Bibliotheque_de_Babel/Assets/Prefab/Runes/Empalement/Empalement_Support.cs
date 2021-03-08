@@ -5,11 +5,6 @@ using UnityEngine;
 public class Empalement_Support : MonoBehaviour
 {
     public float rootTime;
-    public Transform ennemyTransform;
-
-    private void Update()
-    {
-    }
 
     //Gestion collision
     private void OnTriggerEnter2D(Collider2D collision)

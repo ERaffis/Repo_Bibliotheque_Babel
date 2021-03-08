@@ -10,6 +10,11 @@ public class CameraShake : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K)) StartCoroutine(Shake(duration, magnitude));
     }
+
+    void ShakeCam()
+    {
+        StartCoroutine(Shake(duration, magnitude));
+    }
     public IEnumerator Shake(float duration, float magnitude)
     {
         Vector3 originalPos = transform.localPosition;

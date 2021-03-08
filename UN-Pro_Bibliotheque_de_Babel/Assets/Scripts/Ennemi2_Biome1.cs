@@ -23,10 +23,11 @@ public class Ennemi2_Biome1 : Entities
 
         timeBtwShots = startTimeBtwShots;
         startTimeBtwShots = 2f;
-        canMove = true;
+
+        StartCoroutine(WaitToMoveStart());
     }
 
-    
+
     void Update()
     {
         if(canMove)
