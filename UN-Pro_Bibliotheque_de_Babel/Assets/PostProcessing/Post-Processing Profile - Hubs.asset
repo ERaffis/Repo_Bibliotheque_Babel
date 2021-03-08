@@ -16,10 +16,10 @@ MonoBehaviour:
   m_AdvancedMode: 0
   type:
     m_OverrideState: 1
-    m_Value: 9
+    m_Value: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.566
+    m_Value: 0.25
     min: 0
     max: 1
   response:
@@ -30,36 +30,6 @@ MonoBehaviour:
   texture:
     m_OverrideState: 1
     m_Value: {fileID: 2800000, guid: e2be4abe83ea3274388db7e16f3c5551, type: 3}
---- !u!114 &-1902107947718034016
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf1aba9553839d41ae37dd52e9ebcce, type: 3}
-  m_Name: MotionBlur
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  mode:
-    m_OverrideState: 0
-    m_Value: 0
-  quality:
-    m_OverrideState: 1
-    m_Value: 2
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.101
-    min: 0
-    max: 1
-  clamp:
-    m_OverrideState: 0
-    m_Value: 0.05
-    min: 0
-    max: 0.2
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +49,6 @@ MonoBehaviour:
   - {fileID: 8445669592849163595}
   - {fileID: 7615195219382564318}
   - {fileID: 7033923353795633400}
-  - {fileID: -1902107947718034016}
 --- !u!114 &3838929009414173510
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -96,7 +65,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.16037738, g: 0.14241058, b: 0.08851016, a: 1}
+    m_Value: {r: 0, g: 0, b: 0, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -105,7 +74,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.365
+    m_Value: 0.75
     min: 0
     max: 1
   smoothness:
@@ -149,7 +118,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   distance:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.25
     min: 0
     max: 1
   cropToFit:
@@ -173,7 +142,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 1.25
+    m_Value: 0.25
   contrast:
     m_OverrideState: 0
     m_Value: 100
@@ -215,7 +184,7 @@ MonoBehaviour:
     min: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 0.75
     min: 0
   scatter:
     m_OverrideState: 0
@@ -228,7 +197,7 @@ MonoBehaviour:
     min: 0
   tint:
     m_OverrideState: 1
-    m_Value: {r: 0.8490566, g: 0.7785514, b: 0.33241364, a: 1}
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1

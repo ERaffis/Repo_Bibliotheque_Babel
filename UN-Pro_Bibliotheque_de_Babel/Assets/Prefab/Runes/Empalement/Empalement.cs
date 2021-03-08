@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class Empalement : Runes
 {
+    [Header("Projectile")]
+    public GameObject projectile;
 
-    private int rootTime;
-    // Start is called before the first frame update
+    [Header("Attributs")]
+    public float rootTime;
+    public int projectileSpeed;
+
+
+
     void Start()
     {
-        rootTime = 1;
+
     }
 
     // Update is called once per frame
@@ -27,6 +33,16 @@ public class Empalement : Runes
             playerScript = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
             playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
         }
+
+        //Création du projetile
+        GameObject firepoint = _GameHandler.activeInstDir;
+        GameObject bullet = Instantiate(projectile, firepoint.transform);
+
+        bullet.GetComponent<Empalement_Projectile>().rootTime = rootTime;
+
+        //Ajout de la force sur le projectile
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        rb.AddForce(firepoint.transform.right * projectileSpeed);
     }
 
     //Rune en combo avec 1 rune support
@@ -39,16 +55,32 @@ public class Empalement : Runes
             playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
         }
 
+        GameObject firepoint = _GameHandler.activeInstDir;
+        GameObject bullet = Instantiate(projectile, firepoint.transform);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+        bullet.GetComponent<Empalement_Projectile>().rootTime = rootTime;
+
         switch (rune2.name)
         {
             //Empalement → Embrasement
             case "Embrasement":
 
+                bullet.AddComponent<Embrasement_Support>();
+                bullet.GetComponent<Embrasement_Support>().damage = 6;
+                bullet.GetComponent<Embrasement_Support>().dotDamage = 1;
+                bullet.GetComponent<Embrasement_Support>().numberOfTick = 3;
+
+                rb.AddForce(firepoint.transform.right * projectileSpeed);
+
                 break;
 
             //Empalement → Expulsion
-            case "Expuslion":
+            case "Expulsion":
 
+                bullet.GetComponent<AreaEffector2D>().enabled = true;
+
+                rb.AddForce(firepoint.transform.right * projectileSpeed);
                 break;
 
             default:
@@ -66,6 +98,10 @@ public class Empalement : Runes
             playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
         }
 
+        GameObject firepoint = _GameHandler.activeInstDir;
+        GameObject bullet = Instantiate(projectile, firepoint.transform);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
         switch (rune2.name)
         {
             //Empalement → Embrasement
@@ -76,6 +112,16 @@ public class Empalement : Runes
                     //Empalement → Embrasement → Expulsion
                     case "Expulsion":
 
+                        bullet.GetComponent<Empalement_Projectile>().rootTime = rootTime;
+
+                        bullet.AddComponent<Embrasement_Support>();
+                        bullet.GetComponent<Embrasement_Support>().damage = 6;
+                        bullet.GetComponent<Embrasement_Support>().dotDamage = 1;
+                        bullet.GetComponent<Embrasement_Support>().numberOfTick = 3;
+
+                        bullet.GetComponent<AreaEffector2D>().enabled = true;
+                        
+                        rb.AddForce(firepoint.transform.right * projectileSpeed);
                         break;
 
                     default:
@@ -90,8 +136,20 @@ public class Empalement : Runes
                 switch (rune3.name)
                 {
                     //Empalement → Expulsion → Embrasement 
-                    case "Embrassement":
+                    case "Embrasement":
 
+                        bullet.GetComponent<Empalement_Projectile>().rootTime = rootTime;
+
+                        bullet.AddComponent<Embrasement_Support>();
+                        bullet.GetComponent<Embrasement_Support>().damage = 6;
+                        bullet.GetComponent<Embrasement_Support>().dotDamage = 1;
+                        bullet.GetComponent<Embrasement_Support>().numberOfTick = 3;
+
+                        //Ajout du AreaEffector2D pour le knockback sur le projectile
+                        bullet.GetComponent<AreaEffector2D>().enabled = true;
+
+                        //Ajout de la force sur le projectile
+                        rb.AddForce(firepoint.transform.right * projectileSpeed);
                         break;
 
                     default:
@@ -115,36 +173,4 @@ public class Empalement : Runes
         }
     }
 
-    //Gestion collision
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.layer == 6)
-        {
-            //Si la Rune touche un ennemi
-            if (collision.gameObject.tag != "Player1")
-            {
-                StartCoroutine(RootEnemy(collision.gameObject));                
-            }
-        }
-    }
-
-    private IEnumerator RootEnemy(GameObject enemy)
-    {
-        enemy.GetComponent<SpriteRenderer>().color = Color.green;
-
-        if (enemy.TryGetComponent(out Ennemi2_Biome1 a))
-        {
-            enemy.GetComponent<Ennemi2_Biome1>().canMove = false;
-            yield return new WaitForSeconds(rootTime);
-            enemy.GetComponent<Ennemi2_Biome1>().canMove = true;
-
-        } else if (enemy.TryGetComponent(out Entities b))
-        {
-            enemy.GetComponent<Entities>().canMove = false;
-            yield return new WaitForSeconds(rootTime);
-            enemy.GetComponent<Entities>().canMove = true;
-        }
-        enemy.GetComponent<SpriteRenderer>().color = Color.white;
-
-    }
 }

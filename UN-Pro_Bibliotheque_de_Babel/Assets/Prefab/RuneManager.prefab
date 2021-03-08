@@ -65,11 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  availableRunes: []
-  equippedRune_1: {fileID: 1645181886424545456}
-  equippedRune_2: {fileID: 7256089141628481766}
-  equippedRune_3: {fileID: 8988270831500277553}
-  equippedRune_4: {fileID: 0}
+  equippedRune: []
   availableBracelets: []
   equippedBracelet: {fileID: 0}
   isComboing: 0
@@ -129,6 +125,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6347526663427962435, guid: 6540bc6e65a5784498f904be8a8dd00b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
     - target: {fileID: 6347526663427962436, guid: 6540bc6e65a5784498f904be8a8dd00b, type: 3}
       propertyPath: rb
       value: 
@@ -147,11 +147,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6540bc6e65a5784498f904be8a8dd00b, type: 3}
---- !u!1 &8988270831500277553 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6347526663427962437, guid: 6540bc6e65a5784498f904be8a8dd00b, type: 3}
-  m_PrefabInstance: {fileID: 2641978478570078580}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8988270831500277558 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6347526663427962434, guid: 6540bc6e65a5784498f904be8a8dd00b, type: 3}
@@ -213,6 +208,10 @@ PrefabInstance:
       value: Embrasement
       objectReference: {fileID: 0}
     - target: {fileID: 4395125199859810710, guid: 5bacb675e8b926345a7a9dbf383c00a0, type: 3}
+      propertyPath: playerRb
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4395125199859810710, guid: 5bacb675e8b926345a7a9dbf383c00a0, type: 3}
       propertyPath: firepoint
       value: 
       objectReference: {fileID: 0}
@@ -226,11 +225,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bacb675e8b926345a7a9dbf383c00a0, type: 3}
---- !u!1 &1645181886424545456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3638606512143178221, guid: 5bacb675e8b926345a7a9dbf383c00a0, type: 3}
-  m_PrefabInstance: {fileID: 2641978478622826845}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3974636724241680408 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1405842608758958405, guid: 5bacb675e8b926345a7a9dbf383c00a0, type: 3}
@@ -293,11 +287,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d6df930c37b67e44ae92771ab68b10a, type: 3}
---- !u!1 &7256089141628481766 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2953937888707263396, guid: 8d6df930c37b67e44ae92771ab68b10a, type: 3}
-  m_PrefabInstance: {fileID: 5497963286125284162}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4994119930947141710 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 649114164344556300, guid: 8d6df930c37b67e44ae92771ab68b10a, type: 3}

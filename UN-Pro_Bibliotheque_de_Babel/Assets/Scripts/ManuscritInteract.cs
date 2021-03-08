@@ -63,12 +63,20 @@ public class ManuscritInteract : MonoBehaviour
         if (isActive)
         {
             Time.timeScale = 0;
+
+            player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Game");
+            player.playerInputs.controllers.maps.SetMapsEnabled(true, "In Menu");
+
             mainUI.SetActive(false);
             StartCoroutine(SelectFirstButton());
         }
         else
         {
             Time.timeScale = 1;
+
+            player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Menu");
+            player.playerInputs.controllers.maps.SetMapsEnabled(true, "In Game");
+
             mainUI.SetActive(true);
         }
         ManuscritMenu.SetActive(isActive);

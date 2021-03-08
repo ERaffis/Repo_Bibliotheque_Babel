@@ -16,6 +16,7 @@ TagManager:
   - RuneManager
   - Spawner
   - Projectile
+  - ForceField
   layers:
   - Default
   - TransparentFX
@@ -29,8 +30,8 @@ TagManager:
   - Room
   - Post-Processing
   - NoCollision
-  - 
-  - 
+  - Projectile
+  - Interactables
   - 
   - 
   - 

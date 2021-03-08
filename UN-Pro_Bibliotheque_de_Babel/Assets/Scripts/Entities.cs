@@ -71,6 +71,10 @@ public class Entities : MonoBehaviour
         }
     }
 
+    public void SetMovement()
+    {
+        canMove = !canMove;
+    }
     public void SetMaxHealth(int Health)
     {
         healthBar.maxValue = Health;

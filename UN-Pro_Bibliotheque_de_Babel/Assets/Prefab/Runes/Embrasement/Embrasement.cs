@@ -6,7 +6,6 @@ public class Embrasement : Runes
 {
 
     public GameObject projectile;
-    public Sprite projectileSprite;
 
     public int numberOfTick;
     public int projectileSpeed;
@@ -22,6 +21,7 @@ public class Embrasement : Runes
     {
         damage = 5;
         dotDamage = 2;
+        projectileSpeed = 75;
     }
 
     // Update is called once per frame
@@ -43,17 +43,14 @@ public class Embrasement : Runes
         //Création du projetile
         GameObject firepoint = _GameHandler.activeInstDir;
         GameObject bullet = Instantiate(projectile, firepoint.transform);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
 
-        //Changement de couleur du projectile
-        bullet.GetComponent<SpriteRenderer>().sprite = projectileSprite;
 
-        //Ajout du script Embrassement sur le projectile pour le DOT
-        bullet.AddComponent<Embrasement>();
-        bullet.GetComponent<Embrasement>().numberOfTick = 3;
-
+        bullet.GetComponent<Embrasement_Projectile>().dotDamage = dotDamage;
+        bullet.GetComponent<Embrasement_Projectile>().damage = damage;
+        bullet.GetComponent<Embrasement_Projectile>().numberOfTick = numberOfTick;
 
         //Ajout de la force sur le projectile
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.AddForce(firepoint.transform.right * projectileSpeed);
 
         Destroy(bullet, 5f);
@@ -69,50 +66,47 @@ public class Embrasement : Runes
             playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
         }
 
+        //Création du projetile
+        GameObject firepoint = _GameHandler.GetComponent<GameHandler>().activeInstDir;
+        GameObject bullet = Instantiate(projectile, firepoint.transform);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+
         switch (rune2.name)
         {
             //Embrasement → Expulsion
             case "Expulsion":
 
-                //Création du projetile
-                GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                GameObject bullet1 = Instantiate(projectile, firepoint1.transform);
 
                 //Ajout du script Embrassement sur le projectile pour le DOT
-                bullet1.AddComponent<Embrasement>();
-                bullet1.GetComponent<Embrasement>().numberOfTick = 5;
-
+                bullet.GetComponent<Embrasement_Projectile>().dotDamage = dotDamage;
+                bullet.GetComponent<Embrasement_Projectile>().damage = damage;
+                bullet.GetComponent<Embrasement_Projectile>().numberOfTick = numberOfTick;
 
                 //Ajout du AreaEffector2D pour le knockback sur le projectile
-                bullet1.GetComponent<AreaEffector2D>().enabled = true;
+                bullet.GetComponent<AreaEffector2D>().enabled = true;
 
                 //Ajout de la force sur le projectile
-                Rigidbody2D rb = bullet1.GetComponent<Rigidbody2D>();
-                rb.AddForce(firepoint1.transform.right * projectileSpeed);
-                Destroy(bullet1, 5f);
+                rb.AddForce(firepoint.transform.right * projectileSpeed);
+                Destroy(bullet, 5f);
 
                 break;
 
             //Embrasement → Empalement
             case "Empalement":
 
-                //Création du projetile
-                GameObject firepoint2 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                GameObject bullet2 = Instantiate(projectile, firepoint2.transform);
-
-
                 //Ajout du script Embrassement sur le projectile pour le DOT
-                bullet2.AddComponent<Embrasement>();
-                bullet2.GetComponent<Embrasement>().numberOfTick = 5;
-
+                bullet.GetComponent<Embrasement_Projectile>().dotDamage = dotDamage;
+                bullet.GetComponent<Embrasement_Projectile>().damage = damage;
+                bullet.GetComponent<Embrasement_Projectile>().numberOfTick = numberOfTick;
 
                 //Ajout du script Empalement sur le projectile pour le root
-                bullet2.AddComponent<Empalement>();
+                bullet.AddComponent<Empalement_Support>();
+                bullet.GetComponent<Empalement_Support>().rootTime = 1f;
 
                 //Ajout de la force sur le projectile
-                Rigidbody2D rb2 = bullet2.GetComponent<Rigidbody2D>();
-                rb2.AddForce(firepoint2.transform.right * projectileSpeed);
-                Destroy(bullet2, 5f);
+                rb.AddForce(firepoint.transform.right * projectileSpeed);
+                Destroy(bullet, 5f);
 
                 break;
 
@@ -131,6 +125,12 @@ public class Embrasement : Runes
             playerRb = GameObject.FindGameObjectWithTag("Player1").GetComponent<Rigidbody2D>();
         }
 
+        //Création du projetile
+        GameObject firepoint = _GameHandler.GetComponent<GameHandler>().activeInstDir;
+        GameObject bullet = Instantiate(projectile, firepoint.transform);
+        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+
+
         switch (rune2.name)
         {
             //Embrasement → Expulsion
@@ -141,26 +141,21 @@ public class Embrasement : Runes
                     //Embrasement → Expulsion → Empalement
                     case "Empalement":
 
-                        //Création du projetile
-                        GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                        GameObject bullet1 = Instantiate(projectile, firepoint1.transform);
-
-
                         //Ajout du script Embrassement sur le projectile pour le DOT
-                        bullet1.AddComponent<Embrasement>();
-                        bullet1.GetComponent<Embrasement>().numberOfTick = 5;
-
+                        bullet.GetComponent<Embrasement_Projectile>().dotDamage = dotDamage;
+                        bullet.GetComponent<Embrasement_Projectile>().damage = damage;
+                        bullet.GetComponent<Embrasement_Projectile>().numberOfTick = numberOfTick;
 
                         //Ajout du AreaEffector2D pour le knockback sur le projectile
-                        bullet1.GetComponent<AreaEffector2D>().enabled = true;
+                        bullet.GetComponent<AreaEffector2D>().enabled = true;
 
                         //Ajout du script Empalement sur le projectile pour le root
-                        bullet1.AddComponent<Empalement>();
+                        bullet.AddComponent<Empalement_Support>();
+                        bullet.GetComponent<Empalement_Support>().rootTime = 1f;
 
                         //Ajout de la force sur le projectile
-                        Rigidbody2D rb = bullet1.GetComponent<Rigidbody2D>();
-                        rb.AddForce(firepoint1.transform.right * projectileSpeed);
-                        Destroy(bullet1, 5f);
+                        rb.AddForce(firepoint.transform.right * projectileSpeed);
+                        Destroy(bullet, 5f);
 
                         break;
 
@@ -178,26 +173,22 @@ public class Embrasement : Runes
                     //Embrasement → Empalement → Expulsion
                     case "Expulsion":
 
-                        //Création du projetile
-                        GameObject firepoint1 = _GameHandler.GetComponent<GameHandler>().activeInstDir;
-                        GameObject bullet1 = Instantiate(projectile, firepoint1.transform);
-
-
                         //Ajout du script Embrassement sur le projectile pour le DOT
-                        bullet1.AddComponent<Embrasement>();
-                        bullet1.GetComponent<Embrasement>().numberOfTick = 5;
+                        bullet.GetComponent<Embrasement_Projectile>().dotDamage = dotDamage;
+                        bullet.GetComponent<Embrasement_Projectile>().damage = damage;
+                        bullet.GetComponent<Embrasement_Projectile>().numberOfTick = numberOfTick;
 
 
                         //Ajout du AreaEffector2D pour le knockback sur le projectile
-                        bullet1.GetComponent<AreaEffector2D>().enabled = true;
+                        bullet.GetComponent<AreaEffector2D>().enabled = true;
 
                         //Ajout du script Empalement sur le projectile pour le root
-                        bullet1.AddComponent<Empalement>();
+                        bullet.AddComponent<Empalement_Support>();
+                        bullet.GetComponent<Empalement_Support>().rootTime = 1f;
 
                         //Ajout de la force sur le projectile
-                        Rigidbody2D rb = bullet1.GetComponent<Rigidbody2D>();
-                        rb.AddForce(firepoint1.transform.right * projectileSpeed);
-                        Destroy(bullet1, 5f);
+                        rb.AddForce(firepoint.transform.right * projectileSpeed);
+                        Destroy(bullet, 5f);
 
                         break;
 
@@ -222,54 +213,5 @@ public class Embrasement : Runes
         }
     }
 
-    //Collision pour le DOT
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(this.gameObject.tag != "Player1")
-        {
-            if (collision.gameObject.layer == 6)
-            {
-                //Si la Rune touche un ennemi
-                if (collision.gameObject.tag != "Player1")
-                {
-                    if (collision.gameObject != null) collision.GetComponent<Entities>().currentHealth -= damage;
-                    if (collision.gameObject != null) StartCoroutine(DamageoverTime(collision.gameObject));
-                    this.gameObject.GetComponent<SpriteRenderer>().enabled = false;
-                }
-            }
-        } 
 
-    }
-
-
-    //Dégâts sur l'ennemi
-    public IEnumerator DamageoverTime(GameObject col)
-    {
-        if (col.GetComponent<Entities>().isTakingDamage == false)
-        {
-            col.GetComponent<Entities>().isTakingDamage = true;
-            for (int i = 0; i <= numberOfTick; i++)
-            {
-
-                if (col)
-                    col.GetComponent<Entities>().currentHealth -= dotDamage;
-
-                if (col) 
-                    col.GetComponent<SpriteRenderer>().color = Color.red;
-
-                yield return new WaitForSeconds(.75f);
-
-                if (col)
-                    col.GetComponent<SpriteRenderer>().color = Color.white;
-                    
-                yield return new WaitForSeconds(0.1f);
-                
-               
-            }
-
-            if(col) col.GetComponent<Entities>().isTakingDamage = false;
-        }
-
-        Destroy(this.gameObject);
-    }
 }
