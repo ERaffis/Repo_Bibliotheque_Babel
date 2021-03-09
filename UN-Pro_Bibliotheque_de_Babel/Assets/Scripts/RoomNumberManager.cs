@@ -6,15 +6,24 @@ using TMPro;
 
 public class RoomNumberManager : MonoBehaviour
 {
+    public static RoomNumberManager Instance { get; private set; }
+
+
     public TMP_Text roomNumberText;
-    public string roomNumber;
-    public int roomNumberINT;
-    public string levelNumber;
-    public int levelNumberINT;
+    public int roomNumber;
+    public int levelNumber;
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -25,43 +34,40 @@ public class RoomNumberManager : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.O)) PlusLevelNumber();
-        if (Input.GetKeyDown(KeyCode.L)) PlusRoomNumber();
     }
 
     public void GenerateNumbers()
     {
-        levelNumberINT = (Random.Range(0, 9)*1000) + (Random.Range(0, 9)*100) + (Random.Range(0, 9)*10) + Random.Range(0, 9);
-        levelNumber = "" + levelNumberINT;
+        levelNumber = (Random.Range(0, 9)*1000) + (Random.Range(0, 9)*100) + (Random.Range(0, 9)*10) + Random.Range(0, 9);
 
-        roomNumberINT = (Random.Range(0, 9) * 10000) + (Random.Range(0, 9) * 1000) + (Random.Range(0, 9) * 100) + (Random.Range(0, 9) * 10) + Random.Range(0, 9);
-        roomNumber = "." + roomNumberINT; 
+        roomNumber = (Random.Range(0, 9) * 10000) + (Random.Range(0, 9) * 1000) + (Random.Range(0, 9) * 100) + (Random.Range(0, 9) * 10) + Random.Range(0, 9);
     }
 
     public void PlusLevelNumber()
     {
-        levelNumberINT += 1;
-        levelNumber = "" + levelNumberINT;
+        levelNumber += 1;
 
     }
 
     public void PlusRoomNumber()
     {
-        roomNumberINT += 1;
-        roomNumber = "." + roomNumberINT;
+        roomNumber += 1;
     }
 
-    public IEnumerator WriteNumber(string number)
+    public IEnumerator WriteNumber()
     {
         roomNumberText.gameObject.SetActive(true);
         roomNumberText.text = null;
+
+        string number = levelNumber.ToString() + "." + roomNumber.ToString();
+
         yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < number.Length; i++)
         {
             roomNumberText.text += number[i];
             SoundManager.PlaySound(SoundManager.Sound.TypeWriter);
-            yield return new WaitForSeconds(0.20f) ;
+            yield return new WaitForSeconds(0.25f);
         }
 
         yield return new WaitForSeconds(.25f);

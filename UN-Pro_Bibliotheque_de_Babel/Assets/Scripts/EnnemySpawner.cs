@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnnemySpawner : MonoBehaviour
 {
-    [Header("Game Handler")]
-    public GameHandler _GameHandler;
 
     public GameObject[] spawnLocationArray;
 
@@ -16,7 +14,7 @@ public class EnnemySpawner : MonoBehaviour
 
     private void Awake()
     {
-        _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
+
     }
 
     // Start is called before the first frame update
@@ -33,32 +31,29 @@ public class EnnemySpawner : MonoBehaviour
 
     void SpawnEnnemies()
     {
-        _GameHandler.roomCleared = false;
-        _GameHandler.nmbSpawned = 0;
-        _GameHandler.nmbRemaining = 0;
-        _GameHandler.nmbToSpawns =  2 * (int) _GameHandler.gameDifficulty;
+        GameHandler.Instance.roomCleared = false;
+        GameHandler.Instance.nmbSpawned = 0;
+        GameHandler.Instance.nmbRemaining = 0;
+        GameHandler.Instance.nmbToSpawns =  2 * (int) GameHandler.Instance.gameDifficulty;
 
         // Spawn le nombre d'enemies en fonction de la difficulé et du biome. 
-        switch (_GameHandler.lvlManager.GetComponent<LevelManager>().currentBiome)
+        switch (LevelManager.Instance.currentBiome)
         {
             case 0:
                 foreach (GameObject spawnLocation in spawnLocationArray)
                 {
-                    if(_GameHandler.nmbSpawned <= _GameHandler.nmbToSpawns)
+                    if(GameHandler.Instance.nmbSpawned <= GameHandler.Instance.nmbToSpawns)
                     {
-                        _GameHandler.nmbSpawned++;
+                        GameHandler.Instance.nmbSpawned++;
                         
-                        //spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
                             Instantiate(ennemiesBiome1[0], spawnLocation.transform);
-                            //spawnLocation.GetComponent<SpriteRenderer>().color = Color.blue;
                         }
                         else
                         {
                             Instantiate(ennemiesBiome1[1], spawnLocation.transform);
-                            //spawnLocation.GetComponent<SpriteRenderer>().color = Color.red;
                         }
                         
                     }
@@ -67,21 +62,18 @@ public class EnnemySpawner : MonoBehaviour
             case 1:
                 foreach (GameObject spawnLocation in spawnLocationArray)
                 {
-                    if (_GameHandler.nmbSpawned <= _GameHandler.nmbToSpawns)
+                    if (GameHandler.Instance.nmbSpawned <= GameHandler.Instance.nmbToSpawns)
                     {
-                        _GameHandler.nmbSpawned++;
+                        GameHandler.Instance.nmbSpawned++;
 
-                        //spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
-                            //Instantiate(ennemiesBiome1[0], spawnLocation.transform);
-                            spawnLocation.GetComponent<SpriteRenderer>().color = Color.blue;
+                            Instantiate(ennemiesBiome1[0], spawnLocation.transform);
                         }
                         else
                         {
-                            //Instantiate(ennemiesBiome1[1], spawnLocation.transform);
-                            spawnLocation.GetComponent<SpriteRenderer>().color = Color.red;
+                            Instantiate(ennemiesBiome1[1], spawnLocation.transform);
                         }
 
                     }
@@ -90,21 +82,18 @@ public class EnnemySpawner : MonoBehaviour
             case 2:
                 foreach (GameObject spawnLocation in spawnLocationArray)
                 {
-                    if (_GameHandler.nmbSpawned <= _GameHandler.nmbToSpawns)
+                    if (GameHandler.Instance.nmbSpawned <= GameHandler.Instance.nmbToSpawns)
                     {
-                        _GameHandler.nmbSpawned++;
+                        GameHandler.Instance.nmbSpawned++;
 
-                        spawnLocation.GetComponent<SpriteRenderer>().enabled = true;
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
-                            //Instantiate(ennemiesBiome1[0], spawnLocation.transform);
-                            spawnLocation.GetComponent<SpriteRenderer>().color = Color.blue;
+                            Instantiate(ennemiesBiome1[0], spawnLocation.transform);
                         }
                         else
                         {
-                            //Instantiate(ennemiesBiome1[1], spawnLocation.transform);
-                            spawnLocation.GetComponent<SpriteRenderer>().color = Color.red;
+                            Instantiate(ennemiesBiome1[1], spawnLocation.transform);
                         }
 
                     }
@@ -116,14 +105,14 @@ public class EnnemySpawner : MonoBehaviour
                 break;
         }
 
-        _GameHandler.nmbRemaining = _GameHandler.nmbSpawned;
+        GameHandler.Instance.nmbRemaining = GameHandler.Instance.nmbSpawned;
     }
 
     private void ResetSpawn()
     {
         foreach (GameObject item in spawnLocationArray)
         {
-            _GameHandler.nmbSpawned = 0;
+            GameHandler.Instance.nmbSpawned = 0;
             item.GetComponent<SpriteRenderer>().color = Color.white;
             item.GetComponent<SpriteRenderer>().enabled = false;
             SpawnEnnemies();

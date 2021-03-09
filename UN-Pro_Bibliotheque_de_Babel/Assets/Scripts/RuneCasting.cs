@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class RuneCasting : MonoBehaviour
 {
 
-    [Header("Player")]
-    public PlayerScript player;
 
     [Header("UI")]
     public Image equippedRune_1;
@@ -105,7 +103,7 @@ public class RuneCasting : MonoBehaviour
 
     private void FireRune()
     {
-        if (player.playerInputs.GetButtonDown("Combo"))
+        if (PlayerScript.Instance.playerInputs.GetButtonDown("Combo"))
         {
             print("Combo Started");
             isComboing = true;
@@ -113,7 +111,7 @@ public class RuneCasting : MonoBehaviour
 
         if(!isComboing)
         {
-            if (player.playerInputs.GetButtonDown("Rune 1"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1"))
             {
                 if(equippedRune[0] !=null && coolDown1)
                 {
@@ -145,7 +143,7 @@ public class RuneCasting : MonoBehaviour
 
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 2"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2"))
             {
                 if (equippedRune[1] != null && coolDown2)
                 {
@@ -173,7 +171,7 @@ public class RuneCasting : MonoBehaviour
                 }
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 3"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3"))
             {
                 if (equippedRune[2] != null && coolDown3)
                 {
@@ -200,7 +198,7 @@ public class RuneCasting : MonoBehaviour
                 }
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 4"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4"))
             {
                 if (equippedRune[3] != null && coolDown4)
                 {
@@ -230,7 +228,7 @@ public class RuneCasting : MonoBehaviour
 
         if (isComboing)
         {
-            if (player.playerInputs.GetButtonDown("Rune 1") && rune1)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && rune1)
             {
                 if (equippedRune[0] != null)
                 {
@@ -247,7 +245,7 @@ public class RuneCasting : MonoBehaviour
 
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 2") && rune2)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && rune2)
             {
                 if (equippedRune[1] != null)
                 {
@@ -263,7 +261,7 @@ public class RuneCasting : MonoBehaviour
                 }
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 3") && rune3)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && rune3)
             {
                 if (equippedRune[2] != null)
                 {
@@ -280,7 +278,7 @@ public class RuneCasting : MonoBehaviour
                 }
             }
 
-            if (player.playerInputs.GetButtonDown("Rune 4") && rune4)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && rune4)
             {
                 if (equippedRune[3] != null)
                 {
@@ -298,7 +296,7 @@ public class RuneCasting : MonoBehaviour
             }
         }
 
-        if (player.playerInputs.GetButtonUp("Combo"))
+        if (PlayerScript.Instance.playerInputs.GetButtonUp("Combo"))
         {
             rune1 = true;
             rune2 = true;

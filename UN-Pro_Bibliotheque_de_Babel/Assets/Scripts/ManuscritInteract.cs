@@ -50,7 +50,7 @@ public class ManuscritInteract : MonoBehaviour
 
     void Update()
     {
-        if (player.playerInputs.GetButtonDown("Interact") && CanInteract)
+        if (PlayerScript.Instance.playerInputs.GetButtonDown("Interact") && CanInteract)
         {
             OpenCloseMenu();
         }

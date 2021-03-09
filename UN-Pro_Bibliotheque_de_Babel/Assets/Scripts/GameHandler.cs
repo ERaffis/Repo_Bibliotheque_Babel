@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-    public GameObject _Cameras;
-    public GameObject eventSystem;
-    public GameObject player1;
+    public static GameHandler Instance { get; private set; }
+
 
     public GameObject[] instDir;
     public GameObject activeInstDir;
@@ -14,6 +13,7 @@ public class GameHandler : MonoBehaviour
     [Header("Managers")]
     public GameObject lvlManager;
     public GameObject uiManager;
+
 
     public int gameDifficulty;
     public int nmbToSpawns;
@@ -26,38 +26,19 @@ public class GameHandler : MonoBehaviour
 
     private void Awake()
     {
+
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
         SoundManager.Initialize();
-        if(_Cameras == null)
-        {
-            _Cameras = GameObject.Find("_Camera");
-            DontDestroyOnLoad(_Cameras);
-        }
 
-        if (eventSystem == null)
-        {
-            eventSystem = GameObject.Find("Rewired Event System");
-            DontDestroyOnLoad(eventSystem);
-        }
-        if (player1 == null)
-        {
-            player1 = GameObject.Find("Player_1"); 
-            DontDestroyOnLoad(player1);
-        }
-            
-        if (lvlManager == null)
-        {
-            lvlManager = GameObject.FindGameObjectWithTag("LevelManager");
-            DontDestroyOnLoad(lvlManager);
-        }
-        if (uiManager == null)
-        {
-            uiManager = GameObject.FindGameObjectWithTag("UIManager");
-            DontDestroyOnLoad(uiManager);
-        }
-
-
-        //List of objects not to destroy when switching scene
-        DontDestroyOnLoad(this);
         gameDifficulty = 1;
     }
     // Start is called before the first frame update
@@ -71,8 +52,6 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G)) RunEnded(true);
-        if (Input.GetKeyDown(KeyCode.H)) RunEnded(false);
         CheckForRoomClear();    
     }
 
@@ -84,24 +63,19 @@ public class GameHandler : MonoBehaviour
         nmbSpawned = 0;
 
         //Adds the total of runs
-        player1.GetComponent<PlayerScript>().nmbRun++;
-        // print(player1.GetComponent<PlayerScript>().nmbRun);
+        PlayerScript.Instance.nmbRun++;
 
         // if the player reached the outside during the run
         if(var == true)
         {
             gameDifficulty += 2;
-            player1.GetComponent<PlayerScript>().SetMaxHealth(64);
-            //lvlManager.FadeToLevel("HUB_Principal");
-            // print(gameDifficulty);
+            LevelManager.Instance.ReturnToHubAfterWin();
         }
-        // if the player died during the run
+
         if (var != true)
         {
             gameDifficulty += 1;
-            player1.GetComponent<PlayerScript>().SetMaxHealth(64);
-            lvlManager.GetComponent<LevelManager>().ReturnToHubAfterDeath();
-            // print(gameDifficulty);
+            LevelManager.Instance.ReturnToHubAfterDeath();
         }
     }
 

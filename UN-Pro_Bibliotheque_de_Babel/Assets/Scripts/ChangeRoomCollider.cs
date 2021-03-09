@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ChangeRoomCollider : MonoBehaviour
 {
-    public LevelManager lvlManager;
 
     public bool roomCleared;
 
@@ -21,17 +20,17 @@ public class ChangeRoomCollider : MonoBehaviour
 
     public void CheckForRoomClear()
     {
-        if (lvlManager.playerScript._GameHandler.nmbRemaining <= 0) roomCleared = true;
+        if (GameHandler.Instance.nmbRemaining <= 0) roomCleared = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "ExitTrigger")
+        if(collision.gameObject.tag == "Player1")
         {
             if(roomCleared)
             {
                 roomCleared = false;
-                lvlManager.FadeToLevel();
+                LevelManager.Instance.FadeToLevel();
             } else
             {
                 Debug.LogWarning("Roomed Not Cleared");

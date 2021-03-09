@@ -3,11 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    public Animator animator;
+    public static LevelManager Instance { get; private set; }
 
-    [Header("Class Relations")]
-    public RoomNumberManager numberManager;
-    public PlayerScript playerScript;
+    public Animator animator;
 
     private int levelToLoad;
 
@@ -18,6 +16,19 @@ public class LevelManager : MonoBehaviour
     public int currentBiome;
     public float shouldExterior;
     string roomName;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -35,11 +46,22 @@ public class LevelManager : MonoBehaviour
     {
         this.roomName = "HUB_Principal";
 
-        StartCoroutine(playerScript.BlockMove());
-        StartCoroutine(numberManager.WriteTrial("" + playerScript.nmbRun));
+        StartCoroutine(PlayerScript.Instance.BlockMove());
+        StartCoroutine(RoomNumberManager.Instance.WriteTrial("" + PlayerScript.Instance.nmbRun));
         animator.SetTrigger("FadeOut");
-        playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+        uiManager.Instance.ChangeUiState();
     }
+
+    public void ReturnToHubAfterWin()
+    {
+        this.roomName = "HUB_Principal";
+
+        StartCoroutine(PlayerScript.Instance.BlockMove());
+        StartCoroutine(RoomNumberManager.Instance.WriteTrial("" + PlayerScript.Instance.nmbRun));
+        animator.SetTrigger("FadeOut");
+        uiManager.Instance.ChangeUiState();
+    }
+
     // Change scene with random generation -- GenerateRoom()
     public void FadeToLevel()
     {
@@ -48,18 +70,20 @@ public class LevelManager : MonoBehaviour
         switch (roomName)
         {
             case "HUB_Principal":
-                playerScript._GameHandler.RunEnded(true);
+                StartCoroutine(PlayerScript.Instance.BlockMove());
+
+                GameHandler.Instance.RunEnded(true);
                 animator.SetTrigger("FadeOut");
 
-                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+                uiManager.Instance.ChangeUiState();
 
                 break;
             default:
-                StartCoroutine(playerScript.BlockMove());
-                StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
+                StartCoroutine(PlayerScript.Instance.BlockMove());
+                StartCoroutine(RoomNumberManager.Instance.WriteNumber());
                 animator.SetTrigger("FadeOut");
 
-                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+                uiManager.Instance.ChangeUiState();
                 break;
         }
     }
@@ -72,18 +96,20 @@ public class LevelManager : MonoBehaviour
         switch (roomName)
         {
             case "HUB_Principal":
-                playerScript._GameHandler.RunEnded(true);
+                StartCoroutine(PlayerScript.Instance.BlockMove());
+
+                GameHandler.Instance.RunEnded(true);
                 animator.SetTrigger("FadeOut");
 
-                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+                uiManager.Instance.ChangeUiState();
 
                 break;
             default:
-                StartCoroutine(playerScript.BlockMove());
-                StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
+                StartCoroutine(PlayerScript.Instance.BlockMove());
+                StartCoroutine(RoomNumberManager.Instance.WriteNumber());
                 animator.SetTrigger("FadeOut");
 
-                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+                uiManager.Instance.ChangeUiState();
                 break;
         }
     }
@@ -96,18 +122,20 @@ public class LevelManager : MonoBehaviour
         switch (roomName)
         {
             case "HUB_Principal":
-                playerScript._GameHandler.RunEnded(true);
+                StartCoroutine(PlayerScript.Instance.BlockMove());
+
+                GameHandler.Instance.RunEnded(true);
                 animator.SetTrigger("FadeOut");
 
-                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+                uiManager.Instance.ChangeUiState();
 
                 break;
             default:
-                StartCoroutine(playerScript.BlockMove());
-                StartCoroutine(numberManager.WriteNumber(numberManager.levelNumber + numberManager.roomNumber));
+                StartCoroutine(PlayerScript.Instance.BlockMove());
+                StartCoroutine(RoomNumberManager.Instance.WriteNumber());
                 animator.SetTrigger("FadeOut");
 
-                playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
+                uiManager.Instance.ChangeUiState();
                 break;
         }
     }
@@ -117,10 +145,16 @@ public class LevelManager : MonoBehaviour
     {
         
         SceneManager.LoadScene(roomName);
-        StartCoroutine(playerScript.SetSpawn());
-        playerScript._GameHandler.uiManager.GetComponent<uiManager>().HideUI();
-        if (roomName == "HUB_Principal") playerScript._GameHandler.uiManager.GetComponent<uiManager>().SetRoomInfoHUB();
-        else playerScript._GameHandler.uiManager.GetComponent<uiManager>().SetRoomInfo();
+        StartCoroutine(PlayerScript.Instance.SetSpawn());
+        uiManager.Instance.ChangeUiState();
+
+        if (roomName == "HUB_Principal")
+        {
+            uiManager.Instance.SetRoomInfoHUB();
+            PlayerScript.Instance.SetMaxHealth(64);
+        }
+        else 
+            uiManager.Instance.SetRoomInfo();
     }
 
     // Generate a room name based on parameters
@@ -137,13 +171,13 @@ public class LevelManager : MonoBehaviour
             shouldBoss = 0f;
             shouldBiome = 0f;
             shouldExterior = 0f;
-            playerScript._GameHandler.RunEnded(false);
+            GameHandler.Instance.RunEnded(false);
             return "HUB_Principal";
         }
 
         if (spawnHub * shouldHub > 0.95f)
         {
-            numberManager.PlusRoomNumber();
+            RoomNumberManager.Instance.PlusRoomNumber();
             shouldHub = 0f;
             shouldBoss = 0f;
             shouldBiome = 100f;
@@ -158,7 +192,7 @@ public class LevelManager : MonoBehaviour
                 case 0:
                     if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f)
                     {
-                        numberManager.PlusLevelNumber();
+                        RoomNumberManager.Instance.PlusLevelNumber();
                         shouldHub = 100f;
                         shouldBoss = 0f;
                         shouldExterior += 0.2f;
@@ -166,7 +200,7 @@ public class LevelManager : MonoBehaviour
                     }
                     else
                     {
-                        numberManager.PlusRoomNumber();
+                        RoomNumberManager.Instance.PlusRoomNumber();
                         shouldHub += 0.05f;
                         shouldBoss += 0.075f;
                         shouldBiome += 0.05f;
@@ -183,7 +217,7 @@ public class LevelManager : MonoBehaviour
                 case 1:
                     if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f)
                     {
-                        numberManager.PlusLevelNumber();
+                        RoomNumberManager.Instance.PlusLevelNumber();
                         shouldHub = 100f;
                         shouldBoss = 0f;
                         shouldExterior += 0.2f;
@@ -191,7 +225,7 @@ public class LevelManager : MonoBehaviour
                     }
                     else
                     {
-                        numberManager.PlusRoomNumber();
+                        RoomNumberManager.Instance.PlusRoomNumber();
                         shouldHub += 0.05f;
                         shouldBoss += 0.075f;
                         shouldBiome += 0.05f;
@@ -207,7 +241,7 @@ public class LevelManager : MonoBehaviour
                 case 2:
                     if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f )
                     {
-                        numberManager.PlusLevelNumber();
+                        RoomNumberManager.Instance.PlusLevelNumber();
                         shouldHub = 100f;
                         shouldBoss = 0f;
                         shouldExterior += 0.2f;
@@ -215,7 +249,7 @@ public class LevelManager : MonoBehaviour
                     }
                     else
                     {
-                        numberManager.PlusRoomNumber();
+                        RoomNumberManager.Instance.PlusRoomNumber();
                         shouldHub += 0.05f;
                         shouldBoss += 0.075f;
                         shouldBiome += 0.05f;
@@ -247,12 +281,12 @@ public class LevelManager : MonoBehaviour
                     if (Random.Range(0f, 1f) > 0.5f)
                     {
                         currentBiome = 1;
-                        playerScript._GameHandler.biomeName = "L'Incendie";
+                        GameHandler.Instance.biomeName = "L'Incendie";
                     }
                     else
                     {
                         currentBiome = 2;
-                        playerScript._GameHandler.biomeName = "La Ruine";
+                        GameHandler.Instance.biomeName = "La Ruine";
                     }
                     break;
 
@@ -262,12 +296,12 @@ public class LevelManager : MonoBehaviour
                     if (Random.Range(0f, 1f) > 0.5f)
                     {
                         currentBiome = 2;
-                        playerScript._GameHandler.biomeName = "La Ruine";
+                        GameHandler.Instance.biomeName = "La Ruine";
                     }
                     else 
                     {
                         currentBiome = 0;
-                        playerScript._GameHandler.biomeName = "La Preservation";
+                        GameHandler.Instance.biomeName = "La Preservation";
                     }
                     
                     break;
@@ -278,12 +312,12 @@ public class LevelManager : MonoBehaviour
                     if (Random.Range(0f, 1f) > 0.5f)
                     {
                         currentBiome = 0;
-                        playerScript._GameHandler.biomeName = "La Preservation";
+                        GameHandler.Instance.biomeName = "La Preservation";
                     }
                     else
                     {
                         currentBiome = 1;
-                        playerScript._GameHandler.biomeName = "L'Incendie";
+                        GameHandler.Instance.biomeName = "L'Incendie";
                     }
                     break;
 

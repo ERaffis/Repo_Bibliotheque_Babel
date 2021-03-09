@@ -5,12 +5,19 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 public class MainMenuManager : MonoBehaviour
 {
+
+
     public GameObject optionButton;
     public GameObject firstButton;
 
+
+    private void Awake()
+    {
+       
+    }
     public void NouvellePartie()
     {
-        SceneManager.LoadScene("HUB_Principal Start");
+        SceneManager.LoadScene("HUB_Principal");
     }
 
     public void QuitterJeu()
@@ -28,6 +35,7 @@ public class MainMenuManager : MonoBehaviour
     {
         StartCoroutine(SetSelectedButton(firstButton));
     }
+
 
     IEnumerator SetSelectedButton(GameObject button)
     {

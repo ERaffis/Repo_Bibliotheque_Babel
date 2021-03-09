@@ -6,6 +6,7 @@ using Rewired;
 public class PlayerScript : Entities
 {
 
+    public static PlayerScript Instance { get; private set; }
 
     [Header("Rewired Attributes")]
     [SerializeField] private int playerID = 0;
@@ -14,7 +15,18 @@ public class PlayerScript : Entities
     [Header("Run Counter")]
     public int nmbRun;
 
- 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +70,6 @@ public class PlayerScript : Entities
         }
         Destroy(GameObject.FindGameObjectWithTag("Spawner"));
         SetStartHealth();
-        _GameHandler.RunEnded(false);
+        GameHandler.Instance.RunEnded(false);
     }
 }

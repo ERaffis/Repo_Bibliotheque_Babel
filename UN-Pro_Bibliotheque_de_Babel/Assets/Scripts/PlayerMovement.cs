@@ -48,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
     
     private void Update() 
     {
-        CheckCombo();
+        //CheckCombo();
 
         GetMoveAxies();
         GetAimAxies();
@@ -216,7 +216,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     private void CheckCombo()
     {
         if (GameObject.Find("RuneManager").GetComponent<RuneCasting>().isComboing)
@@ -260,20 +259,5 @@ public class PlayerMovement : MonoBehaviour
         return this.gameObject.transform.position;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "ExitTrigger")
-        {
-            if (playerScript._GameHandler.roomCleared)
-            {
-                playerScript._GameHandler.roomCleared = false;
-                playerScript._GameHandler.lvlManager.GetComponent<LevelManager>().FadeToLevel();
-            }
-            else
-            {
-                Debug.LogWarning("Roomed Not Cleared");
-            }
-        }
-    }
 
 }

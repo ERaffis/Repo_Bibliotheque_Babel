@@ -8,6 +8,7 @@ using Rewired;
 
 public class Inventory : MonoBehaviour
 {
+    public static Inventory Instance { get; private set; }
 
     [Header("Player")]
     public PlayerScript player;
@@ -15,7 +16,7 @@ public class Inventory : MonoBehaviour
     [Header("Relations")]
     public GameObject _UIManager;
 
-    public static Inventory instance;
+    
     public GameObject inventoryCanvas;
 
     private bool menuState;
@@ -35,15 +36,15 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
-        else if (instance != this)
+        else if (Instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
-        DontDestroyOnLoad(this);
 
         _UIManager = GameObject.FindGameObjectWithTag("UIManager");
     }
@@ -60,14 +61,13 @@ public class Inventory : MonoBehaviour
     void Update()
     {
         OpenCloseMenu();
-
-        if (player.playerInputs.GetButtonDown("UICancel")) ResetUI();
     }
 
 
     void OpenCloseMenu()
     {
-        if (player.playerInputs.GetButtonDown("UIMenu"))
+
+        if (PlayerScript.Instance.playerInputs.GetButtonDown("UIMenu"))
         {
 
             if (Time.timeScale == 1)
@@ -88,6 +88,7 @@ public class Inventory : MonoBehaviour
             
             menuState = !menuState;
             inventoryCanvas.SetActive(menuState);
+            TooltipSystem.Hide();
         }
     }
 
