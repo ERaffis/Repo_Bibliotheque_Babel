@@ -21,7 +21,6 @@ public class LigthController : MonoBehaviour
     void FixedUpdate()
     {
         float rdm = Random.Range(0, 100);
-        print(rdm);
         if (rdm > 90 && !isTwitch) StartCoroutine(ChangeIntensity());
     }
 

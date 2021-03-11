@@ -76,6 +76,7 @@ public class Inventory : MonoBehaviour
                 player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Game");
                 player.playerInputs.controllers.maps.SetMapsEnabled(true, "In Menu");
 
+                uiManager.Instance.mainUI.enabled = false;
                 StartCoroutine(SelectFirstButton());
 
             }
@@ -83,9 +84,11 @@ public class Inventory : MonoBehaviour
             {
                 Time.timeScale = 1;
                 player.playerInputs.controllers.maps.SetMapsEnabled(true, "In Game");
-                player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Menu");   
+                player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Menu");
+                uiManager.Instance.mainUI.enabled = true;
+
             }
-            
+
             menuState = !menuState;
             inventoryCanvas.SetActive(menuState);
             TooltipSystem.Hide();
