@@ -10,8 +10,7 @@ public class CursorController : MonoBehaviour
 
     private void ChangeCursor(Texture2D cursorType)
     {
-        Vector2 hotspot = new Vector2(cursorType.width / 2, cursorType.height / 2);
-        Cursor.SetCursor(cursorType, hotspot, CursorMode.Auto);
+        Cursor.SetCursor(cursorType, Vector2.zero, CursorMode.Auto);
     }
 
     private void Awake()

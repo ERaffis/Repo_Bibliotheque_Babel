@@ -10,9 +10,9 @@ public class GameHandler : MonoBehaviour
     public GameObject[] instDir;
     public GameObject activeInstDir;
 
-    [Header("Managers")]
-    public GameObject lvlManager;
-    public GameObject uiManager;
+    public GameObject activeMoveDir;
+    public GameObject[] moveDir;
+
 
 
     public int gameDifficulty;
@@ -47,6 +47,7 @@ public class GameHandler : MonoBehaviour
         print(gameDifficulty);
 
         activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
+        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     // Update is called once per frame
@@ -87,11 +88,16 @@ public class GameHandler : MonoBehaviour
         activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
+    public void ChangeMoveDir(int i)
+    {
+        activeMoveDir.GetComponent<SpriteRenderer>().enabled = false;
+        activeMoveDir = moveDir[i];
+        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
+    }
+
 
     public void CheckForRoomClear()
     {
         if (nmbRemaining <= 0) roomCleared = true;
-    }
-
-    
+    }   
 }

@@ -6,15 +6,14 @@ using UnityEngine.EventSystems;
 public class MainMenuManager : MonoBehaviour
 {
 
-
     public GameObject optionButton;
     public GameObject firstButton;
 
-
     private void Awake()
     {
-       
+
     }
+
     public void NouvellePartie()
     {
         SceneManager.LoadScene("HUB_Principal");
