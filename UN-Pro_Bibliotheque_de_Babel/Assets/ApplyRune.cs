@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ApplyRune : MonoBehaviour
 {
-    private Inventory inventory;
     public Slot slot;
     public RuneSlot runeSlot;
     public GameObject rune;
@@ -13,7 +12,6 @@ public class ApplyRune : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("UIManager").GetComponent<Inventory>();
         slot = GetComponentInParent<Slot>();
     }
 
@@ -25,12 +23,12 @@ public class ApplyRune : MonoBehaviour
 
     public void SetRune()
     {
-        if (inventory.activeRune != null)
+        if (Inventory.Instance.activeRune != null)
         {
-            runeSlot = inventory.activeRune.GetComponent<RuneSlot>();
+            runeSlot = Inventory.Instance.activeRune.GetComponent<RuneSlot>();
             runeSlot.DropItem();
 
-            Instantiate(inventory.slots[slot.i].transform.GetChild(0), inventory.activeRune.transform, false);
+            Instantiate(Inventory.Instance.slots[slot.i].transform.GetChild(0), Inventory.Instance.activeRune.transform, false);
             /*
             foreach (GameObject item in inventory._UIManager.GetComponent<uiManager>().runeManager.GetComponent<RuneCasting>().equippedRune)
             {
@@ -41,12 +39,12 @@ public class ApplyRune : MonoBehaviour
                 }
             }
             */
-            inventory._UIManager.GetComponent<uiManager>().runeManager.GetComponent<RuneCasting>().equippedRune[inventory.activeIndex] = rune;
-            print("Set Rune : " + inventory.activeIndex + " to " + rune.name);
+            uiManager.Instance.runeManager.GetComponent<RuneCasting>().equippedRune[Inventory.Instance.activeIndex] = rune;
+            print("Set Rune : " + Inventory.Instance.activeIndex + " to " + rune.name);
 
-            inventory.activeRuneUI.GetComponent<Image>().enabled = true;
-            inventory.activeRuneUI.GetComponent<Image>().sprite = this.GetComponent<Image>().sprite;
-            inventory.ResetUI();
+            Inventory.Instance.activeRuneUI.GetComponent<Image>().enabled = true;
+            Inventory.Instance.activeRuneUI.GetComponent<Image>().sprite = this.GetComponent<Image>().sprite;
+            Inventory.Instance.ResetUI();
         }
     }
 }

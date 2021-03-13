@@ -72,4 +72,10 @@ public class PlayerScript : Entities
         SetStartHealth();
         GameHandler.Instance.RunEnded(false);
     }
+    public void PickedUpHeart()
+    {
+        currentHealth += 8;
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+    }
 }

@@ -5,19 +5,31 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
-    private Inventory inventory;
-    public GameObject itemButton;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        inventory = GameObject.FindGameObjectWithTag("UIManager").GetComponent<Inventory>();
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player1"))
         {
+            switch (this.gameObject.tag)
+            {
+                case "Page_Vierge":
+                    Inventory.Instance.AddPageVierge(1);
+                    break;
+
+                case "Fragment":
+                    Inventory.Instance.AddFragment(1);
+                    break;
+
+                case "Hearth":
+                    PlayerScript.Instance.PickedUpHeart();
+                    break;
+
+                default:
+                    break;
+            }
+
+            Destroy(this.gameObject);
+
+            /*
             for (int i = 0; i < inventory.slots.Length; i++)
             {
                 if(inventory.isFull[i] == false)
@@ -29,6 +41,7 @@ public class Pickup : MonoBehaviour
                     break;
                 }
             }
+            */
         }
     }
 }

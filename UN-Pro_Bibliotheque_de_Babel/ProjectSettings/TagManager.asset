@@ -17,6 +17,8 @@ TagManager:
   - Spawner
   - Projectile
   - ForceField
+  - Page_Vierge
+  - Fragment
   layers:
   - Default
   - TransparentFX

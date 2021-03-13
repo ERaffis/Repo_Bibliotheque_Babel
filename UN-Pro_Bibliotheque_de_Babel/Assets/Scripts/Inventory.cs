@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.EventSystems;
 using Rewired;
 
@@ -9,13 +10,6 @@ using Rewired;
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
-
-    [Header("Player")]
-    public PlayerScript player;
-
-    [Header("Relations")]
-    public GameObject _UIManager;
-
     
     public GameObject inventoryCanvas;
 
@@ -30,9 +24,14 @@ public class Inventory : MonoBehaviour
 
     public bool isChangingRune;
 
-
     public GameObject openFirstButton;
-    
+
+    public int nmbPageVierge;
+    public TextMeshProUGUI textPageVierge;
+    public int nmbFragment;
+    public TextMeshProUGUI textFragment;
+
+
 
     private void Awake()
     {
@@ -45,8 +44,6 @@ public class Inventory : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        _UIManager = GameObject.FindGameObjectWithTag("UIManager");
     }
     // Start is called before the first frame update
     void Start()
@@ -63,6 +60,29 @@ public class Inventory : MonoBehaviour
         OpenCloseMenu();
     }
 
+    public void AddPageVierge(int i)
+    {
+        nmbPageVierge += i;
+        textPageVierge.SetText("x " + nmbPageVierge);
+    }
+
+    public void RemovePageVierge(int i)
+    {
+        nmbPageVierge -= i;
+        textPageVierge.SetText("x " + nmbPageVierge);
+    }
+
+    public void AddFragment(int i)
+    {
+        nmbFragment += i;
+        textFragment.SetText("x " + nmbFragment);
+    }
+
+    public void RemoveFragment(int i)
+    {
+        nmbFragment -= i;
+        textFragment.SetText("x " + nmbFragment);
+    }
 
     void OpenCloseMenu()
     {
@@ -73,8 +93,8 @@ public class Inventory : MonoBehaviour
             if (Time.timeScale == 1)
             {
                 Time.timeScale = 0;
-                player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Game");
-                player.playerInputs.controllers.maps.SetMapsEnabled(true, "In Menu");
+                PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(false, "In Game");
+                PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(true, "In Menu");
 
                 uiManager.Instance.mainUI.enabled = false;
                 StartCoroutine(SelectFirstButton());
@@ -83,8 +103,8 @@ public class Inventory : MonoBehaviour
             else 
             {
                 Time.timeScale = 1;
-                player.playerInputs.controllers.maps.SetMapsEnabled(true, "In Game");
-                player.playerInputs.controllers.maps.SetMapsEnabled(false, "In Menu");
+                PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(true, "In Game");
+                PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(false, "In Menu");
                 uiManager.Instance.mainUI.enabled = true;
 
             }
