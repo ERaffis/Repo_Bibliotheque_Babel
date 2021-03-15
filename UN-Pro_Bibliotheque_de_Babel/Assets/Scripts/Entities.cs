@@ -74,9 +74,10 @@ public class Entities : MonoBehaviour
     {
         healthBar.value = currentHealth;
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0 && !this.gameObject.CompareTag("Player1"))
         {
             _GameHandler.nmbRemaining--;
+            SpawnReward.Instance.SpawnItem(this.gameObject.transform.position, this.gameObject.tag);
             Destroy(this.gameObject);
         }
     }

@@ -96,6 +96,10 @@ public class GameHandler : MonoBehaviour
 
     public void CheckForRoomClear()
     {
-        if (nmbRemaining <= 0) roomCleared = true;
+        if (nmbRemaining <= 0)
+        {
+            roomCleared = true;
+            SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");
+        }
     }   
 }

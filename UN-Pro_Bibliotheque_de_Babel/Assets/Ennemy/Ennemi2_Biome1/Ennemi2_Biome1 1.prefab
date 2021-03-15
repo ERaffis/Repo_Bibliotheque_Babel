@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2147504486629351590}
   m_Layer: 6
   m_Name: Ennemi2_Biome1 1
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,6 +135,7 @@ MonoBehaviour:
   rb: {fileID: 2147504486629351590}
   isTakingDamage: 0
   canMove: 0
+  isImmune: 0
   healthBar: {fileID: 9000715839711004977}
   entityType: Ennemy
   stoppingDistance: 2.5
