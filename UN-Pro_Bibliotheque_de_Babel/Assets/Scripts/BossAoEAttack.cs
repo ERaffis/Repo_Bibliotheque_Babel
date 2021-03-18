@@ -20,9 +20,9 @@ public class BossAoEAttack : MonoBehaviour
         startTimeBtwAttacks = 10f;
         timebtwattacks = startTimeBtwAttacks;
         zonequantity = 5;
-        cellsize = grid.GetComponent<GridLayoutGroup>().cellSize;
-        width =  7 * cellsize.x;
-        height = 8 * cellsize.y;
+        cellsize = grid.GetComponent<Grid>().cellSize;
+        width =  .65f * cellsize.x;
+        height = .75f * cellsize.y;
     }
 
     
@@ -53,6 +53,7 @@ public class BossAoEAttack : MonoBehaviour
             angle += angleStep;
             if (angle >= 360f) angle -= 360f;
 
+            //Sassurer que les dimmensions fonctionne pour la piece
             float zoneXposition =  Mathf.Sin((angle * Mathf.PI) / 180) * Random.Range(3.0f, width);
             float zoneYposition =  Mathf.Cos((angle * Mathf.PI) / 180) * Random.Range(3.0f, height);
 

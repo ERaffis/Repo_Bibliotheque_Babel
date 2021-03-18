@@ -53,16 +53,17 @@ public class ZonesDangereuse : MonoBehaviour
 
     public void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "player1" && isActive == true && isTakingDamage == false)
+        if (collision.gameObject.tag == "Player1" && isActive == true && isTakingDamage == false)
         {
             StartCoroutine(DamageOverTime(collision));
         }
         
     }
 
+
     public void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "player1" && isActive == true)
+        if(collision.gameObject.tag == "Player1" && isActive == true)
         {
             isTakingDamage = false;
         }

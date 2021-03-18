@@ -60,6 +60,8 @@ public class BossProjectileAttack : MonoBehaviour
             Vector2 projectileMoveDirection = (projectileVector - startPoint).normalized * projectileSpeed;
 
             GameObject tmpObj = Instantiate(BossProjectilePrefab, startPoint, Quaternion.identity);
+            tmpObj.GetComponent<SpriteRenderer>().enabled = true;
+            tmpObj.GetComponent<BoxCollider2D>().enabled = true;
             tmpObj.GetComponent<Rigidbody2D>().velocity = new Vector2(projectileMoveDirection.x,projectileMoveDirection.y);
 
             

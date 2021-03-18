@@ -18,6 +18,9 @@ public class BossProjectilePrefab : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         damage = 12;
+
+        sprite.enabled = true;
+        boxCollider.enabled = true;
     }
 
    
