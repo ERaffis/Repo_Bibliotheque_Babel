@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 1254482564753501541}
   - component: {fileID: 1254482564753501561}
   - component: {fileID: 161625625904053921}
-  - component: {fileID: 2797574608533365792}
   - component: {fileID: 1254482564753501560}
   m_Layer: 6
   m_Name: Player_1
@@ -268,7 +267,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -293,7 +292,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.6666667, y: 0.6666667}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -320,6 +319,7 @@ MonoBehaviour:
   dashCooldown: 3.5
   canDash: 1
   isDashing: 0
+  lastVelocity: {x: 0, y: 0}
 --- !u!114 &1254482564753501561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,37 +367,15 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 00000000695f153a
   m_ShapePath:
-  - {x: -0.22596604, y: 0.014781227, z: 0}
-  - {x: -0.2849651, y: -0.04664907, z: 0}
-  - {x: -0.21044809, y: -0.14696035, z: 0}
-  - {x: -0.25057265, y: -0.26733407, z: 0}
-  - {x: -0.16172534, y: -0.32178888, z: 0}
-  - {x: -0.16745748, y: -0.485153, z: 0}
-  - {x: 0.17151137, y: -0.4839097, z: 0}
-  - {x: 0.14780676, y: -0.31032446, z: 0}
-  - {x: 0.24525209, y: -0.2816643, z: 0}
-  - {x: 0.21659179, y: -0.14122814, z: 0}
-  - {x: 0.21659179, y: -0.04664907, z: 0}
-  - {x: 0.29684088, y: 0.12531336, z: 0}
-  - {x: 0.13138671, y: 0.37786588, z: 0}
-  - {x: -0.13425276, y: 0.38073197, z: 0}
-  - {x: -0.27636692, y: 0.16543794, z: 0}
-  m_ShapePathHash: -1886740796
+  - {x: -0.14944372, y: -0.26652157, z: 0}
+  - {x: 0.17237, y: -0.2642684, z: 0}
+  - {x: 0.1954833, y: 0.16109478, z: 0}
+  - {x: 0.08840104, y: 0.31645775, z: 0}
+  - {x: -0.08699399, y: 0.314615, z: 0}
+  - {x: -0.18337923, y: 0.15352198, z: 0}
+  m_ShapePathHash: -646357795
   m_Mesh: {fileID: 0}
-  m_InstanceId: 63934
---- !u!114 &2797574608533365792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254482564753501542}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38f48a8d66b2adc46887f23a3a88ac01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
+  m_InstanceId: 21806
 --- !u!95 &1254482564753501560
 Animator:
   serializedVersion: 3

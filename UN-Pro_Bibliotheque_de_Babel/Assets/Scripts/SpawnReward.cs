@@ -11,6 +11,7 @@ public class SpawnReward : MonoBehaviour
 
     public GameObject heart;
 
+
     private void Awake()
     {
         if (Instance == null)
@@ -37,7 +38,7 @@ public class SpawnReward : MonoBehaviour
 
         if (tag == "Ennemy")
         {
-            if (Random.Range(0, 1) >= 80)
+            if (Random.Range(0, 1) >= 0.85f)
             {
                 GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
 
@@ -52,8 +53,6 @@ public class SpawnReward : MonoBehaviour
         {
             GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
 
-            Instantiate(fragment, spawnLocation, Quaternion.Euler(0, 0, 0));
-
             for (int i = 0; i < (int)(Random.Range(2, 5)); i++)
             {
                 Instantiate(heart, newPage.transform);
@@ -64,11 +63,10 @@ public class SpawnReward : MonoBehaviour
         {
             GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
 
-            Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
-
             for (int i = 0; i < (int)(Random.Range(1, 3)); i++)
             {
-                Instantiate(heart, newPage.transform);
+                GameObject newHeart = Instantiate(heart, newPage.transform);
+                newHeart.transform.parent = null;
             }
         }
     }

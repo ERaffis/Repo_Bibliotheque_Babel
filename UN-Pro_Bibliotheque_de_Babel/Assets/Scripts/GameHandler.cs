@@ -13,7 +13,7 @@ public class GameHandler : MonoBehaviour
     public GameObject activeMoveDir;
     public GameObject[] moveDir;
 
-
+    public bool alreadySpawned;
 
     public int gameDifficulty;
     public int nmbToSpawns;
@@ -46,6 +46,7 @@ public class GameHandler : MonoBehaviour
     {
         activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
         activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
+        alreadySpawned = false;
     }
 
     // Update is called once per frame
@@ -99,7 +100,11 @@ public class GameHandler : MonoBehaviour
         if (nmbRemaining <= 0)
         {
             roomCleared = true;
-            SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");
+            if(!alreadySpawned)
+            {
+                SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");
+                alreadySpawned = true;
+            }
         }
     }   
 }

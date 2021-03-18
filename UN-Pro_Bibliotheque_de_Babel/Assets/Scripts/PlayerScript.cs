@@ -55,10 +55,14 @@ public class PlayerScript : Entities
 
     public IEnumerator BlockMove()
     {
-        rb.velocity = Vector2.zero;
         canMove = false;
         yield return new WaitForSeconds(5f);
         canMove = true;
+    }
+
+    public void ChangeMoveState()
+    {
+        canMove = !canMove;
     }
 
 

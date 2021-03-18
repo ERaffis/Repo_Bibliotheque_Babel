@@ -46,7 +46,11 @@ public class RoomNumberManager : MonoBehaviour
     public void PlusLevelNumber()
     {
         levelNumber += 1;
+    }
 
+    public void MinusLevelNumber()
+    {
+        levelNumber -= 1;
     }
 
     public void PlusRoomNumber()

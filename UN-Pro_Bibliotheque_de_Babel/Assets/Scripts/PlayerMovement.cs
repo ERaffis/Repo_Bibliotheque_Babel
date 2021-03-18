@@ -8,6 +8,7 @@ using Rewired;
 public class PlayerMovement : MonoBehaviour
 {
     public float comboModifier;
+    public float envModifier;
 
     [Header("Dash Values")]
     public float dashForce = 10;
@@ -35,11 +36,12 @@ public class PlayerMovement : MonoBehaviour
         PlayerScript.Instance.rb.gravityScale = 0;
 
         comboModifier = 1f;
+        envModifier = 1f;
     }
     
     private void Update() 
     {
-        //CheckCombo();
+        CheckCombo();
 
         GetMoveAxies();
         GetAimAxies();
@@ -140,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(0);
 
                 PlayerScript.Instance.animator.SetInteger("Index", 1);
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
@@ -153,7 +155,7 @@ public class PlayerMovement : MonoBehaviour
 
 
                 PlayerScript.Instance.animator.SetInteger("Index", 2);
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
@@ -167,7 +169,7 @@ public class PlayerMovement : MonoBehaviour
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(2);
 
 
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
@@ -180,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(1);
 
 
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
@@ -193,7 +195,7 @@ public class PlayerMovement : MonoBehaviour
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(3);
 
 
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
@@ -205,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(6);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(6);
 
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
@@ -217,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(5);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(5);
 
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
@@ -229,13 +231,13 @@ public class PlayerMovement : MonoBehaviour
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(7);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(7);
 
-                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier;
+                PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
         } else
         {
-            PlayerScript.Instance.rb.velocity = Vector2.Lerp(PlayerScript.Instance.rb.velocity, Vector2.zero, Time.deltaTime * 1.5f);
+            //PlayerScript.Instance.rb.velocity = Vector2.Lerp(PlayerScript.Instance.rb.velocity, Vector2.zero, Time.deltaTime * 0.5f);
         }
     }
 
