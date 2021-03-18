@@ -17,7 +17,7 @@ public class BossAoEAttack : MonoBehaviour
     
     void Start()
     {
-        startTimeBtwAttacks = 3f;
+        startTimeBtwAttacks = 10f;
         timebtwattacks = startTimeBtwAttacks;
         zonequantity = 5;
         cellsize = grid.GetComponent<GridLayoutGroup>().cellSize;
