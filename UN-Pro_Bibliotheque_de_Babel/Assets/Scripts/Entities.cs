@@ -37,6 +37,8 @@ public class Entities : MonoBehaviour
     [Header("Type of entity")]
     public string entityType;
 
+    public GameObject bloodParticles;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +62,11 @@ public class Entities : MonoBehaviour
     public void SetPlayerHealth(int dmg)
     {
         if (!isImmune)
+        {
             currentHealth -= dmg;
+            GameObject bloodSplat = Instantiate(bloodParticles, gameObject.transform.position, Quaternion.identity);
+            bloodSplat.transform.parent = null;
+        }
     }
 
     protected void SetStartHealth()

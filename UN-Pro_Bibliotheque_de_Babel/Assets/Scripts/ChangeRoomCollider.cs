@@ -13,6 +13,7 @@ public class ChangeRoomCollider : MonoBehaviour
             {
                 GameHandler.Instance.roomCleared = false;
                 GameHandler.Instance.alreadySpawned = false;
+                GameHandler.Instance.gameDifficulty += 0.1f;
                 LevelManager.Instance.FadeToLevel();
             } else
             {

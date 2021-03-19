@@ -347,6 +347,7 @@ MonoBehaviour:
   isImmune: 0
   healthBar: {fileID: 0}
   entityType: Player
+  bloodParticles: {fileID: 814997966836708481, guid: eb2d557c0754c8343a091defbb1af35e, type: 3}
   playerID: 0
   nmbRun: 0
 --- !u!114 &161625625904053921

@@ -15,7 +15,8 @@ public class GameHandler : MonoBehaviour
 
     public bool alreadySpawned;
 
-    public int gameDifficulty;
+    public float gameDifficulty;
+    public float startingDifficulty;
     public int nmbToSpawns;
     public int nmbSpawned;
     public int nmbRemaining;
@@ -39,7 +40,7 @@ public class GameHandler : MonoBehaviour
 
         SoundManager.Initialize();
 
-        gameDifficulty = 1;
+        gameDifficulty = 0.25f;
     }
     // Start is called before the first frame update
     void Start()
@@ -68,13 +69,15 @@ public class GameHandler : MonoBehaviour
         // if the player reached the outside during the run
         if(var == true)
         {
-            gameDifficulty += 2;
+            gameDifficulty += 0.5f;
+            startingDifficulty = gameDifficulty;
             LevelManager.Instance.ReturnToHubAfterWin();
         }
 
         if (var != true)
         {
-            gameDifficulty += 1;
+            gameDifficulty = startingDifficulty;
+            startingDifficulty = gameDifficulty;
             LevelManager.Instance.ReturnToHubAfterDeath();
         }
     }
