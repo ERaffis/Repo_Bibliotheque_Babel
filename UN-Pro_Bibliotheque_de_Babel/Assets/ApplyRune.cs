@@ -39,7 +39,7 @@ public class ApplyRune : MonoBehaviour
                 }
             }
             */
-            uiManager.Instance.runeManager.GetComponent<RuneCasting>().equippedRune[Inventory.Instance.activeIndex] = rune;
+            //uiManager.Instance.runeManager.GetComponent<RuneCasting>().equippedRune[Inventory.Instance.activeIndex] = rune;
             print("Set Rune : " + Inventory.Instance.activeIndex + " to " + rune.name);
 
             Inventory.Instance.activeRuneUI.GetComponent<Image>().enabled = true;

@@ -243,7 +243,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CheckCombo()
     {
-        if (GameObject.Find("RuneManager").GetComponent<RuneCasting>().isComboing)
+        /*if (GameObject.Find("RuneManager").GetComponent<RuneCasting>().isComboing)
         {
             //Vitesse Reduite
             comboModifier = .5f;
@@ -256,6 +256,7 @@ public class PlayerMovement : MonoBehaviour
         {
             comboModifier = 1f;
         }
+        */
     }
 
     private void FindMoveAngle(){

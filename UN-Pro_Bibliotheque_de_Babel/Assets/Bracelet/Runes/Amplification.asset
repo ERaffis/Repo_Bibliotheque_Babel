@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5650157e1322f4ea3bc41451f59b83, type: 3}
+  m_Name: Amplification
+  m_EditorClassIdentifier: 
+  name: Amplification
+  description: 
+  baseDamage: 50
+  multDamage: 1.5
+  baseKnockbak: 1.2
+  order: 4
+  dotDamage: 0
+  dotDuration: 0
+  areaSize: 0
+  areaDamage: 0
+  areaDuration: 0
+  stuntDuration: 0
+  debuff: 0
+  debuffDuration: 0
+  slowDuration: 0
+  slowPower: 0
+  multSize: 2
+  multSpeed: 0.75
+  aoeSize: 0
+  aoeDamage: 0
+  secondEnemyDamage: 0
+  secondAoeSize: 0
+  secondAoeDamage: 0
+  delaySecondAoe: 0
