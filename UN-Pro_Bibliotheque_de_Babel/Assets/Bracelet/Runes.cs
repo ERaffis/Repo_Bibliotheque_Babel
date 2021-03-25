@@ -42,6 +42,7 @@ public class Runes : ScriptableObject
     public float secondAoeSize;
     public int secondAoeDamage;
     public float delaySecondAoe;
+    public float explosionForce;
 
 
     public void Maitresse(string name)
@@ -61,6 +62,8 @@ public class Runes : ScriptableObject
                 break;
 
             case "Explosion":
+
+           
 
                 break;
 
