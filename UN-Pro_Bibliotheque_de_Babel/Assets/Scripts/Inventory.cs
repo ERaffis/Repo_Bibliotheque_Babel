@@ -31,7 +31,9 @@ public class Inventory : MonoBehaviour
     public int nmbFragment;
     public TextMeshProUGUI textFragment;
 
-
+    [Header("Bracelet")]
+    public Bracelet activeBracelet;
+    public Button bracelet1, bracelet2, bracelet3, bracelet4, bracelet5;
 
     private void Awake()
     {
@@ -129,6 +131,19 @@ public class Inventory : MonoBehaviour
         foreach (GameObject rune in equippedRunes)
         {
             rune.gameObject.GetComponent<Image>().sprite = rune.gameObject.GetComponent<RuneSlot>().unSelected;
+        }
+    }
+
+    public void SelectBracelet()
+    {
+
+    }
+
+    public void ClearBracelet()
+    {
+        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+        {
+            activeBracelet.activeRunes[i] = null;
         }
     }
     

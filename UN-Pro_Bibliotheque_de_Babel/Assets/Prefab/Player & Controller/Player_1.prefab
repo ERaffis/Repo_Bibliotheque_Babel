@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 1254482564753501541}
   - component: {fileID: 1254482564753501561}
   - component: {fileID: 161625625904053921}
+  - component: {fileID: 7014725019331352941}
   - component: {fileID: 1254482564753501560}
   m_Layer: 6
   m_Name: Player_1
@@ -321,6 +322,7 @@ MonoBehaviour:
   canDash: 1
   isDashing: 0
   lastVelocity: {x: 0, y: 0}
+  runeManager: {fileID: 7014725019331352941}
 --- !u!114 &1254482564753501561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +379,27 @@ MonoBehaviour:
   - {x: -0.18337923, y: 0.15352198, z: 0}
   m_ShapePathHash: -646357795
   m_Mesh: {fileID: 0}
-  m_InstanceId: 21806
+  m_InstanceId: 33622
+--- !u!114 &7014725019331352941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254482564753501542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e458d2e50cf93e48a586bbeda3e24ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equippedBracelet: {fileID: 0}
+  isComboing: 0
+  nmbPressed: 0
+  pressed0: 0
+  pressed1: 0
+  pressed2: 0
+  pressed3: 0
+  orderRune: []
 --- !u!95 &1254482564753501560
 Animator:
   serializedVersion: 3

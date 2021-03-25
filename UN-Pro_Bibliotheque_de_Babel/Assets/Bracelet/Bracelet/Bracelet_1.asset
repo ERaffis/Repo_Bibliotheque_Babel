@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3df743f89b79ab4f85dbf58c9e01a62, type: 3}
   m_Name: Bracelet_1
   m_EditorClassIdentifier: 
-  name: Bracelet 1
+  name: Simple
   description: 
   nmbProjectile: 1
   sizeProjectile: 1
