@@ -44,7 +44,7 @@ public class Runes : ScriptableObject
     public float delaySecondAoe;
 
 
-    public void Maitresse(string name)
+    public void Maitresse()
     {
         switch (name)
         {
@@ -69,7 +69,7 @@ public class Runes : ScriptableObject
         }
     }
 
-    public void Support(string name, int pressOrder)
+    public void Support(int pressOrder)
     {
         switch (name)
         {

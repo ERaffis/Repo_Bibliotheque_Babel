@@ -27,23 +27,200 @@ public class Bracelet : ScriptableObject
     public Runes[] activeRunes;
 
 
-    public void Projectile(string name)
+    public void ProjectileSolo(string name, Runes rune)
     {
         switch (name)
         {
-            case "1":
+            case "Simple":
+                Instantiate(prefabProjectile);
+                rune.Maitresse();
                 break;
 
-            case "2":
+            case "3 Projectiles":
+                Instantiate(prefabProjectile);
+                rune.Maitresse();
                 break;
 
-            case "3":
+            case "Mitrailleuse":
+                Instantiate(prefabProjectile);
+                rune.Maitresse();
                 break;
 
-            case "4":
+            case "Tete Chercheuse":
+                Instantiate(prefabProjectile);
+                rune.Maitresse();
                 break;
 
-            case "5":
+            case "Vitesse Rapide":
+                Instantiate(prefabProjectile);
+                rune.Maitresse();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
+    public void ProjectileCombo(string braceletName, Runes rune0)
+    {
+        switch (braceletName)
+        {
+            case "Simple":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                break;
+
+            case "3 Projectiles":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                break;
+
+            case "Mitrailleuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                break;
+
+            case "Tete Chercheuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                break;
+
+            case "Vitesse Rapide":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void ProjectileCombo(string braceletName, Runes rune0, Runes rune1)
+    {
+        switch (braceletName)
+        {
+            case "Simple":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                break;
+
+            case "3 Projectiles":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                break;
+
+            case "Mitrailleuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                break;
+
+            case "Tete Chercheuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                break;
+
+            case "Vitesse Rapide":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void ProjectileCombo(string braceletName, Runes rune0, Runes rune1, Runes rune2)
+    {
+        switch (braceletName)
+        {
+            case "Simple":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                break;
+
+            case "3 Projectiles":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                break;
+
+            case "Mitrailleuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                break;
+
+            case "Tete Chercheuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                break;
+
+            case "Vitesse Rapide":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public void ProjectileCombo(string braceletName, Runes rune0, Runes rune1, Runes rune2, Runes rune3)
+    {
+        switch (braceletName)
+        {
+            case "Simple":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                rune3.Support(3);
+                break;
+
+            case "3 Projectiles":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                rune3.Support(3);
+                break;
+
+            case "Mitrailleuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                rune3.Support(3);
+                break;
+
+            case "Tete Chercheuse":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                rune3.Support(3);
+                break;
+
+            case "Vitesse Rapide":
+                Instantiate(prefabProjectile);
+                rune0.Maitresse();
+                rune1.Support(1);
+                rune2.Support(2);
+                rune3.Support(3);
                 break;
 
             default:
