@@ -37,6 +37,9 @@ public class Inventory : MonoBehaviour
     [Header("Active Bracelet Runes")]
     public GameObject[] equippedRunes;
 
+    [Header("RuneBouton")]
+    public Runes[] runes;
+    public GameObject rune1, rune2, rune3, rune4;
 
     [Header("Bracelet")]
     public Bracelet activeBracelet;
@@ -139,6 +142,45 @@ public class Inventory : MonoBehaviour
         foreach (GameObject rune in equippedRunes)
         {
             rune.gameObject.GetComponent<Image>().sprite = rune.gameObject.GetComponent<RuneSlot>().unSelected;
+        }
+    }
+
+    public void SelectRune(string name)
+    {
+        if (activeBracelet != null)
+        {
+            switch (name)
+            {
+                case "Embrasement":
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            activeBracelet.activeRunes[i] = runes[0];
+                            equippedRunes[i].GetComponent<Image>().sprite = rune1.GetComponent<Image>().sprite;
+                            equippedRunes[i].GetComponent<Image>().color = rune1.GetComponent<Image>().color;
+                            break;
+                        }
+                    }
+                    break;
+
+                case "Givre":
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            activeBracelet.activeRunes[i] = runes[1];
+                            equippedRunes[i].GetComponent<Image>().sprite = rune2.GetComponent<Image>().sprite;
+                            equippedRunes[i].GetComponent<Image>().color = rune2.GetComponent<Image>().color;
+                            break;
+                        }
+                    }
+                    break;
+
+
+                default:
+                    break;
+            }
         }
     }
 
