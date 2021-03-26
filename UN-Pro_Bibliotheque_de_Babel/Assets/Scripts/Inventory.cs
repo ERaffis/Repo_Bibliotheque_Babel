@@ -17,8 +17,11 @@ public class Inventory : MonoBehaviour
 
     public bool[] isFull;
     public GameObject[] slots;
-    public GameObject[] equippedRunes;
+
+
     public GameObject activeRune;
+
+
     public int activeIndex;
     public GameObject activeRuneUI;
 
@@ -31,9 +34,14 @@ public class Inventory : MonoBehaviour
     public int nmbFragment;
     public TextMeshProUGUI textFragment;
 
+    [Header("Active Bracelet Runes")]
+    public GameObject[] equippedRunes;
+
+
     [Header("Bracelet")]
     public Bracelet activeBracelet;
-    public Button bracelet1, bracelet2, bracelet3, bracelet4, bracelet5;
+    public GameObject bracelet1, bracelet2, bracelet3, bracelet4, bracelet5;
+    public Bracelet[] bracelets;
 
     private void Awake()
     {
@@ -134,9 +142,191 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void SelectBracelet()
+    public void SelectBracelet(string name)
     {
+        switch (name)
+        {
+            case "Simple":
+                activeBracelet = bracelets[0];
 
+                
+                //Set the number of Runes available in the bracelet
+                {
+                    for (int i = 0; i < equippedRunes.Length; i++)
+                    {
+                        equippedRunes[i].SetActive(false);
+                    }
+                    for (int i = 0; i < activeBracelet.nmbRune; i++)
+                    {
+                        equippedRunes[i].SetActive(true);
+                    }
+                }
+                
+
+                //Change active bracelet to white
+                bracelet1.GetComponent<Image>().color = Color.white;
+
+                //Change inactive bracelet to gray
+                { 
+                bracelet2.GetComponent<Image>().color = Color.gray;
+                bracelet3.GetComponent<Image>().color = Color.gray;
+                bracelet4.GetComponent<Image>().color = Color.gray;
+                bracelet5.GetComponent<Image>().color = Color.gray;
+                }
+
+                break;
+
+            case "3 Projectiles":
+                activeBracelet = bracelets[1];
+
+                //Set the number of Runes available in the bracelet
+                {
+                    for (int i = 0; i < equippedRunes.Length; i++)
+                    {
+                        equippedRunes[i].SetActive(false);
+                    }
+                    for (int i = 0; i < activeBracelet.nmbRune; i++)
+                    {
+                        equippedRunes[i].SetActive(true);
+                    }
+                }
+
+                //Change active bracelet to white
+                bracelet2.GetComponent<Image>().color = Color.white;
+
+                //Change inactive bracelet to gray
+                {
+                    bracelet1.GetComponent<Image>().color = Color.gray;
+                bracelet3.GetComponent<Image>().color = Color.gray;
+                bracelet4.GetComponent<Image>().color = Color.gray;
+                bracelet5.GetComponent<Image>().color = Color.gray;
+                }
+
+                break;
+
+            case "Mitrailleuse":
+                activeBracelet = bracelets[2];
+
+                //Set the number of Runes available in the bracelet
+                {
+                    for (int i = 0; i < equippedRunes.Length; i++)
+                    {
+                        equippedRunes[i].SetActive(false);
+                    }
+                    for (int i = 0; i < activeBracelet.nmbRune; i++)
+                    {
+                        equippedRunes[i].SetActive(true);
+                    }
+                }
+
+                //Change active bracelet to white
+                bracelet3.GetComponent<Image>().color = Color.white;
+
+                //Change inactive bracelet to gray
+                {
+                    bracelet2.GetComponent<Image>().color = Color.gray;
+                bracelet1.GetComponent<Image>().color = Color.gray;
+                bracelet4.GetComponent<Image>().color = Color.gray;
+                bracelet5.GetComponent<Image>().color = Color.gray;
+                }
+
+                break;
+
+            case "Tete Chercheuse":
+                activeBracelet = bracelets[3];
+
+                //Set the number of Runes available in the bracelet
+                {
+                    for (int i = 0; i < equippedRunes.Length; i++)
+                    {
+                        equippedRunes[i].SetActive(false);
+                    }
+                    for (int i = 0; i < activeBracelet.nmbRune; i++)
+                    {
+                        equippedRunes[i].SetActive(true);
+                    }
+                }
+
+                //Change active bracelet to white
+                bracelet4.GetComponent<Image>().color = Color.white;
+
+                //Change inactive bracelet to gray
+                {
+                    bracelet2.GetComponent<Image>().color = Color.gray;
+                bracelet3.GetComponent<Image>().color = Color.gray;
+                bracelet1.GetComponent<Image>().color = Color.gray;
+                bracelet5.GetComponent<Image>().color = Color.gray;
+                }
+
+                break;
+
+            case "Vitesse Rapide":
+                activeBracelet = bracelets[4];
+
+                //Set the number of Runes available in the bracelet
+                {
+                    for (int i = 0; i < equippedRunes.Length; i++)
+                    {
+                        equippedRunes[i].SetActive(false);
+                    }
+                    for (int i = 0; i < activeBracelet.nmbRune; i++)
+                    {
+                        equippedRunes[i].SetActive(true);
+                    }
+                }
+
+                //Change active bracelet to white
+                bracelet5.GetComponent<Image>().color = Color.white;
+
+                //Change inactive bracelet to gray
+                {
+                    bracelet2.GetComponent<Image>().color = Color.gray;
+                bracelet3.GetComponent<Image>().color = Color.gray;
+                bracelet4.GetComponent<Image>().color = Color.gray;
+                bracelet1.GetComponent<Image>().color = Color.gray;
+                }
+
+                break;
+
+            default:
+                Debug.LogWarning("Eat My Booty! Something went wrong");
+                break;
+        }
+    }
+
+    public void ActivateBracelet(string name)
+    {
+        switch (name)
+        {
+            case "Simple":
+                bracelet1.GetComponent<Image>().enabled = true;
+                bracelet1.GetComponent<Button>().enabled = true;
+                break;
+
+            case "3 Projectiles":
+                bracelet2.GetComponent<Image>().enabled = true;
+                bracelet2.GetComponent<Button>().enabled = true;
+                break;
+
+            case "Mitrailleuse":
+                bracelet3.GetComponent<Image>().enabled = true;
+                bracelet3.GetComponent<Button>().enabled = true;
+                break;
+
+            case "Tete Chercheuse":
+                bracelet4.GetComponent<Image>().enabled = true;
+                bracelet4.GetComponent<Button>().enabled = true;
+                break;
+
+            case "Vitesse Rapide":
+                bracelet5.GetComponent<Image>().enabled = true;
+                bracelet5.GetComponent<Button>().enabled = true;
+                break;
+
+            default:
+                Debug.LogWarning("Eat My Booty Something went wrong");
+                break;
+        }
     }
 
     public void ClearBracelet()
