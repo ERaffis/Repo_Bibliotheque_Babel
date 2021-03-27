@@ -177,6 +177,32 @@ public class Inventory : MonoBehaviour
                     }
                     break;
 
+                case "Amplification":
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            activeBracelet.activeRunes[i] = runes[1];
+                            equippedRunes[i].GetComponent<Image>().sprite = rune3.GetComponent<Image>().sprite;
+                            equippedRunes[i].GetComponent<Image>().color = rune3.GetComponent<Image>().color;
+                            break;
+                        }
+                    }
+                    break;
+
+                case "Explosion":
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            activeBracelet.activeRunes[i] = runes[1];
+                            equippedRunes[i].GetComponent<Image>().sprite = rune4.GetComponent<Image>().sprite;
+                            equippedRunes[i].GetComponent<Image>().color = rune4.GetComponent<Image>().color;
+                            break;
+                        }
+                    }
+                    break;
+
 
                 default:
                     break;
