@@ -9,17 +9,19 @@ public class Ennemy1_Attack : MonoBehaviour
     public GameObject player;
     public Transform Target;
     public int moveAngle;
+    public GameObject AoePrefabEnnemi1;
 
     public float AttackDistance;
     public Animator animator;
     public bool IsAttacking;
     public int Index;
+    public float timeforattack2;
 
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player1");
         damage = 6;
-
+        timeforattack2 = Random.Range(3,6);
         AttackDistance = 1f;
         IsAttacking = false;
         Index = 0;
@@ -40,7 +42,7 @@ public class Ennemy1_Attack : MonoBehaviour
         animator.SetBool("IsAttacking", IsAttacking);
         animator.SetInteger("Index", Index);
         
-        if(Vector2.Distance(transform.position, Target.position) < AttackDistance)
+        if(Vector2.Distance(transform.position, Target.position) < AttackDistance && timeforattack2 >0)
         {
             //CheckDirection Left
             if ((moveAngle >= 135 && moveAngle <= 180) || (moveAngle <= -135 && moveAngle >= -180))
@@ -76,16 +78,26 @@ public class Ennemy1_Attack : MonoBehaviour
                 IsAttacking = true;
                 print("attackbas");
             }
+            timeforattack2 -= Time.deltaTime;
         }
-        
-        else
+        else if (Vector2.Distance(transform.position, Target.position) < AttackDistance && timeforattack2 <=0 )
+        {
+            Index = 5;
+            IsAttacking = true;
+            SpawnAoePrefabEnnemi1();
+        }
+        else if (Vector2.Distance(transform.position, Target.position) > AttackDistance)
         {
             Index = 0;
             IsAttacking = false;
         }
-       
     }
     
+    private void SpawnAoePrefabEnnemi1()
+    {
+        Instantiate(AoePrefabEnnemi1, this.transform.position, Quaternion.identity);
+        timeforattack2 = Random.Range(3, 6);
+    }
 
 
     private void FindAngle()
