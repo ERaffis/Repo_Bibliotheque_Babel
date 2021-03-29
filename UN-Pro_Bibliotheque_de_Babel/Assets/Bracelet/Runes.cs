@@ -61,7 +61,8 @@ public class Runes : ScriptableObject
                 break;
 
             case "Explosion":
-
+                projectile.AddComponent<Explosion_Maîtresse>();
+                projectile.GetComponent<Explosion_Maîtresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             default:

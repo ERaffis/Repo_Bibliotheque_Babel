@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Explosion_Maîtresse : MonoBehaviour
 {
-    //public Projectile_Joueur projectile_Joueur;
+    public Projectile_Joueur projectile_Joueur;
 
     // Start is called before the first frame update
     void Start()
@@ -12,7 +12,7 @@ public class Explosion_Maîtresse : MonoBehaviour
         
     }
 
-    /*void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.layer == 6)
         {
@@ -27,7 +27,7 @@ public class Explosion_Maîtresse : MonoBehaviour
                 Rigidbody2D rb = hit.GetComponent<Rigidbody2D>();
                 if (rb != null)
                 {
-                    rb.AddExplosionForce(projectile_Joueur.explosionForce, explosionPos, projectile_Joueur.aoeSize);
+                    //rb.AddExplosionForce(projectile_Joueur.explosionForce, explosionPos, projectile_Joueur.aoeSize);
                 }
 
                 //+5% dégâts au projo par ennemi dans aoe
@@ -37,5 +37,5 @@ public class Explosion_Maîtresse : MonoBehaviour
         }
 
         Destroy(gameObject);
-    }*/
+    }
 }

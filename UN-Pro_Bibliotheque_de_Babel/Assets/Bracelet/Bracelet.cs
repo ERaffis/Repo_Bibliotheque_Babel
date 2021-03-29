@@ -32,7 +32,29 @@ public class Bracelet : ScriptableObject
         switch (name)
         {
             case "Simple":
-                GameObject projectile = Instantiate(prefabProjectile,GameHandler.Instance.activeInstDir.transform);
+                GameObject projectile = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                projectile.AddComponent<Projectile_Joueur>();
+                projectile.GetComponent<Projectile_Joueur>().SetValues(
+                    (baseDamage + rune.baseDamage) * rune.multDamage, 
+                    rune.baseKnockbak, 
+                    rune.dotDamage, 
+                    rune.dotDuration, 
+                    rune.areaSize, 
+                    rune.areaDamage, 
+                    rune.areaDuration, 
+                    rune.stuntDuration, 
+                    rune.debuff, 
+                    rune.debuffDuration, 
+                    rune.slowDuration, 
+                    rune.slowPower, 
+                    rune.aoeSize, 
+                    rune.aoeDamage, 
+                    rune.secondEnemyDamage, 
+                    rune.secondAoeSize, 
+                    rune.secondAoeDamage, 
+                    rune.delaySecondAoe, 
+                    rune.explosionForce);
+
                 Debug.Log("Instantiaded Projectile");
                 rune.Maitresse(projectile);
                 break;
