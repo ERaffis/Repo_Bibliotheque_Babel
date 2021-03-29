@@ -20,8 +20,9 @@ MonoBehaviour:
   baseDamage: 15
   baseSpeed: 1.15
   damageCast: 1
-  castSpeed: 2
+  castSpeed: 0.25
   castMultDamage: 0
+  angle: 0
   nmbRune: 1
   activeRunes:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 7ccf16dc7905c2441b13287d4c79af9c, type: 2}

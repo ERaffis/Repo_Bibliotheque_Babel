@@ -20,11 +20,12 @@ MonoBehaviour:
   baseDamage: 50
   baseSpeed: 1
   damageCast: 1.1
-  castSpeed: 1
+  castSpeed: 2
   castMultDamage: 1
+  angle: 0
   nmbRune: 4
   activeRunes:
   - {fileID: 11400000, guid: 7ccf16dc7905c2441b13287d4c79af9c, type: 2}
-  - {fileID: 11400000, guid: 7ccf16dc7905c2441b13287d4c79af9c, type: 2}
-  - {fileID: 11400000, guid: 7ccf16dc7905c2441b13287d4c79af9c, type: 2}
-  - {fileID: 11400000, guid: c22c50bc01a17bd4fa5675963a4f2ec8, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

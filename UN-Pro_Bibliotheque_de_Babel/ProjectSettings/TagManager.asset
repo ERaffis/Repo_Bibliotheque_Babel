@@ -19,6 +19,7 @@ TagManager:
   - ForceField
   - Page_Vierge
   - Fragment
+  - Boss
   layers:
   - Default
   - TransparentFX

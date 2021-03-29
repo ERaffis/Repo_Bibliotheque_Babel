@@ -126,8 +126,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameHandler: {fileID: 0}
   entityName: Flame Guy
-  maxHealth: 32
-  currentHealth: 32
+  maxHealth: 512
+  currentHealth: 512
   moveSpeed: 0.25
   animationIndex: 0
   spriteRenderer: {fileID: 3530227072964081388}
@@ -138,10 +138,15 @@ MonoBehaviour:
   isImmune: 0
   healthBar: {fileID: 9000715839711004977}
   entityType: Ennemy
-  stoppingDistance: 2.5
+  bloodParticles: {fileID: 0}
+  charactervelocity: 0
+  latestDirectionChangeTime: 0
+  directionChangeTime: 0
+  movementDirection: {x: 0, y: 0}
+  movementPerSecond: {x: 0, y: 0}
+  ennemyCanMove: 0
   startTimeBtwShots: 1
   projectile: {fileID: 8208866026022696, guid: a13c25df8e146ac4392cde6a6bf6ca02, type: 3}
-  player1: {fileID: 0}
 --- !u!50 &2147504486629351590
 Rigidbody2D:
   serializedVersion: 4
@@ -172,7 +177,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5482311827595972327, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
       propertyPath: m_MaxValue
-      value: 32
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 5482311827595972328, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
       propertyPath: m_Layer

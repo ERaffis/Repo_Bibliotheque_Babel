@@ -31,12 +31,13 @@ public class AoePrefabEnnemi1 : MonoBehaviour
 
     void Update()
     {
-        if(activetime >0 && gameObject.activeInHierarchy)
+        if(activetime > 0 && gameObject.activeInHierarchy)
         {
-            activetime -= Time.time;
+            activetime -= Time.deltaTime;
         }
         else if (activetime <= 0 && gameObject.activeInHierarchy)
         {
+            Debug.Log("Destroy Attack 2");
             Destroy(gameObject);
         }
     }

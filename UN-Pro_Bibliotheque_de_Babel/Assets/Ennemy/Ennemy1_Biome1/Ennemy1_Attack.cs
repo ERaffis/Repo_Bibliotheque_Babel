@@ -95,7 +95,8 @@ public class Ennemy1_Attack : MonoBehaviour
     
     private void SpawnAoePrefabEnnemi1()
     {
-        Instantiate(AoePrefabEnnemi1, this.transform.position, Quaternion.identity);
+        Debug.Log("Attack 2");
+        Instantiate(AoePrefabEnnemi1, new Vector3(this.transform.position.x, this.transform.position.y, -0.15f), Quaternion.identity);
         timeforattack2 = Random.Range(3, 6);
     }
 

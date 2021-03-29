@@ -185,10 +185,12 @@ MonoBehaviour:
   player: {fileID: 0}
   Target: {fileID: 0}
   moveAngle: 0
+  AoePrefabEnnemi1: {fileID: 8748386024122321987, guid: ce0c786f6ed07d6458b2b247ae62dcb9, type: 3}
   AttackDistance: 0
   animator: {fileID: 1109663837958840123}
   IsAttacking: 0
   Index: 0
+  timeforattack2: 0
 --- !u!114 &-3461986535095053137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,8 +205,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameHandler: {fileID: 0}
   entityName: MaceGuy
-  maxHealth: 16
-  currentHealth: 16
+  maxHealth: 256
+  currentHealth: 256
   moveSpeed: 1
   animationIndex: 0
   spriteRenderer: {fileID: 1109663837958840120}
@@ -223,6 +225,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1109663837958840121}
     m_Modifications:
+    - target: {fileID: 5482311827595972327, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+      propertyPath: m_MaxValue
+      value: 256
+      objectReference: {fileID: 0}
     - target: {fileID: 5482311827595972328, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
       propertyPath: m_Layer
       value: 6

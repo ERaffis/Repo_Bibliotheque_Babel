@@ -12,9 +12,17 @@ public class Embrasement_Maitresse : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Ennemy"))
         {
-            collider.gameObject.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+            if (collider.gameObject.transform.childCount < 3)
+            {
 
-            Destroy(gameObject);
+                Transform ennemyTransform = collider.gameObject.transform;
+                transform.parent = ennemyTransform;
+
+                collider.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+                StartCoroutine(DamageoverTime(collider.gameObject));
+
+                StartCoroutine(DisableProjectile());
+            }
         }
 
         if (collider.gameObject.CompareTag("Boss"))
@@ -22,5 +30,50 @@ public class Embrasement_Maitresse : MonoBehaviour
             Debug.Log("The Boss was hit");
             Destroy(gameObject);
         }
+    }
+
+    public IEnumerator DamageoverTime(GameObject col)
+    {
+
+        if (col.GetComponent<Entities>().isTakingDamage == false)
+        {
+            col.GetComponent<Entities>().isTakingDamage = true;
+
+            for (int i = 0; i <= projectile_Joueur.dotDuration; i++)
+            {
+
+                col.GetComponent<Entities>().SetHealth(projectile_Joueur.dotDamage);
+
+                yield return new WaitForSeconds(.25f);
+
+            }
+
+            col.GetComponent<Entities>().isTakingDamage = false;
+        }
+
+        Destroy(this.gameObject);
+    }
+
+    IEnumerator DisableProjectile()
+    {
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (TryGetComponent(out Collider2D a))
+            Destroy(a);
+        if (TryGetComponent(out Collider2D b))
+            Destroy(b);
+
+        yield return new WaitForSeconds(.2f);
+
+        if (TryGetComponent(out AreaEffector2D c))
+            Destroy(c);
+
+        yield return new WaitForSeconds(2.5f);
+    }
+
+    IEnumerator ExplodeProjectile()
+    {
+        yield return new WaitForSeconds(0.01f);
+        Destroy(this.gameObject);
     }
 }

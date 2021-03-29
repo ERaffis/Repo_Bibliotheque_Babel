@@ -64,7 +64,7 @@ public class Entities : MonoBehaviour
         if (!isImmune)
         {
             currentHealth -= dmg;
-            GameObject bloodSplat = Instantiate(bloodParticles, gameObject.transform.position, Quaternion.identity);
+            GameObject bloodSplat = Instantiate(bloodParticles, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -0.15f), Quaternion.identity);
             bloodSplat.transform.parent = null;
         }
     }

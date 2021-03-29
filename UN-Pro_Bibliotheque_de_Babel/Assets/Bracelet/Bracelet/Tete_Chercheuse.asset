@@ -20,8 +20,9 @@ MonoBehaviour:
   baseDamage: 5
   baseSpeed: 1
   damageCast: 1
-  castSpeed: 1
+  castSpeed: 5
   castMultDamage: 1
+  angle: 0
   nmbRune: 2
   activeRunes:
   - {fileID: 0}

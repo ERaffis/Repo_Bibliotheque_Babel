@@ -36,6 +36,7 @@ public class Inventory : MonoBehaviour
 
     [Header("Active Bracelet Runes")]
     public GameObject[] equippedRunes;
+    public Sprite runeOutline; 
 
     [Header("RuneBouton")]
     public Runes[] runes;
@@ -152,6 +153,18 @@ public class Inventory : MonoBehaviour
             switch (name)
             {
                 case "Embrasement":
+
+                    bool nullFound = false;
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            nullFound = true;
+                            break;
+                        }
+                    }
+                    if (!nullFound) ClearBracelet();
+
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
                         if (activeBracelet.activeRunes[i] == null)
@@ -165,6 +178,18 @@ public class Inventory : MonoBehaviour
                     break;
 
                 case "Givre":
+
+                    bool nullFound1 = false;
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            nullFound1 = true;
+                            break;
+                        }
+                    }
+                    if (!nullFound1) ClearBracelet();
+
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
                         if (activeBracelet.activeRunes[i] == null)
@@ -178,6 +203,18 @@ public class Inventory : MonoBehaviour
                     break;
 
                 case "Amplification":
+
+                    bool nullFound2 = false;
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            nullFound2 = true;
+                            break;
+                        }
+                    }
+                    if (!nullFound2) ClearBracelet();
+
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
                         if (activeBracelet.activeRunes[i] == null)
@@ -191,6 +228,18 @@ public class Inventory : MonoBehaviour
                     break;
 
                 case "Explosion":
+
+                    bool nullFound3 = false;
+                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    {
+                        if (activeBracelet.activeRunes[i] == null)
+                        {
+                            nullFound3 = true;
+                            break;
+                        }
+                    }
+                    if (!nullFound3) ClearBracelet();
+
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
                         if (activeBracelet.activeRunes[i] == null)
@@ -217,19 +266,8 @@ public class Inventory : MonoBehaviour
             case "Simple":
                 activeBracelet = bracelets[0];
 
-                
-                //Set the number of Runes available in the bracelet
-                {
-                    for (int i = 0; i < equippedRunes.Length; i++)
-                    {
-                        equippedRunes[i].SetActive(false);
-                    }
-                    for (int i = 0; i < activeBracelet.nmbRune; i++)
-                    {
-                        equippedRunes[i].SetActive(true);
-                    }
-                }
-                
+                ClearBracelet();
+
 
                 //Change active bracelet to white
                 bracelet1.GetComponent<Image>().color = Color.white;
@@ -247,17 +285,7 @@ public class Inventory : MonoBehaviour
             case "3 Projectiles":
                 activeBracelet = bracelets[1];
 
-                //Set the number of Runes available in the bracelet
-                {
-                    for (int i = 0; i < equippedRunes.Length; i++)
-                    {
-                        equippedRunes[i].SetActive(false);
-                    }
-                    for (int i = 0; i < activeBracelet.nmbRune; i++)
-                    {
-                        equippedRunes[i].SetActive(true);
-                    }
-                }
+                ClearBracelet();
 
                 //Change active bracelet to white
                 bracelet2.GetComponent<Image>().color = Color.white;
@@ -275,17 +303,7 @@ public class Inventory : MonoBehaviour
             case "Mitrailleuse":
                 activeBracelet = bracelets[2];
 
-                //Set the number of Runes available in the bracelet
-                {
-                    for (int i = 0; i < equippedRunes.Length; i++)
-                    {
-                        equippedRunes[i].SetActive(false);
-                    }
-                    for (int i = 0; i < activeBracelet.nmbRune; i++)
-                    {
-                        equippedRunes[i].SetActive(true);
-                    }
-                }
+                ClearBracelet();
 
                 //Change active bracelet to white
                 bracelet3.GetComponent<Image>().color = Color.white;
@@ -303,17 +321,7 @@ public class Inventory : MonoBehaviour
             case "Tete Chercheuse":
                 activeBracelet = bracelets[3];
 
-                //Set the number of Runes available in the bracelet
-                {
-                    for (int i = 0; i < equippedRunes.Length; i++)
-                    {
-                        equippedRunes[i].SetActive(false);
-                    }
-                    for (int i = 0; i < activeBracelet.nmbRune; i++)
-                    {
-                        equippedRunes[i].SetActive(true);
-                    }
-                }
+                ClearBracelet();
 
                 //Change active bracelet to white
                 bracelet4.GetComponent<Image>().color = Color.white;
@@ -331,17 +339,7 @@ public class Inventory : MonoBehaviour
             case "Vitesse Rapide":
                 activeBracelet = bracelets[4];
 
-                //Set the number of Runes available in the bracelet
-                {
-                    for (int i = 0; i < equippedRunes.Length; i++)
-                    {
-                        equippedRunes[i].SetActive(false);
-                    }
-                    for (int i = 0; i < activeBracelet.nmbRune; i++)
-                    {
-                        equippedRunes[i].SetActive(true);
-                    }
-                }
+                ClearBracelet();
 
                 //Change active bracelet to white
                 bracelet5.GetComponent<Image>().color = Color.white;
@@ -402,6 +400,20 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
         {
             activeBracelet.activeRunes[i] = null;
+        }
+
+        //Set the number of Runes available in the bracelet
+        {
+            for (int i = 0; i < equippedRunes.Length; i++)
+            {
+                equippedRunes[i].SetActive(false);
+            }
+            for (int i = 0; i < activeBracelet.nmbRune; i++)
+            {
+                equippedRunes[i].SetActive(true);
+                equippedRunes[i].GetComponent<Image>().sprite = runeOutline;
+                equippedRunes[i].GetComponent<Image>().color = Color.white;
+            }
         }
     }
     
