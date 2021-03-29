@@ -2,40 +2,54 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Explosion_Maîtresse : MonoBehaviour
+public class Explosion_Maitresse : MonoBehaviour
 {
     public Projectile_Joueur projectile_Joueur;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    void OnCollisionEnter(Collision col)
+
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (col.gameObject.layer == 6)
+        if (collider.gameObject.layer == 6 && !collider.gameObject.CompareTag("Player1"))
         {
             
-
-                Vector3 explosionPos = transform.position;
-                Collider[] colliders = Physics.OverlapSphere(explosionPos, projectile_Joueur.aoeSize);
+            Vector2 explosionPos = transform.position;
+            
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, projectile_Joueur.aoeSize);
 
             
-            foreach (Collider hit in colliders)
+
+
+            foreach (Collider2D hit in colliders)
             {
-                Rigidbody2D rb = hit.GetComponent<Rigidbody2D>();
-                if (rb != null)
+               //hit.attachedRigidbody.AddExplosionForce(projectile_Joueur.explosionForce, explosionPos, projectile_Joueur.aoeSize, 0);
+                if (colliders.Length == 1)
                 {
-                    //rb.AddExplosionForce(projectile_Joueur.explosionForce, explosionPos, projectile_Joueur.aoeSize);
+                    if (hit.gameObject.CompareTag("Ennemy") )
+                        hit.GetComponent<Entities>().SetHealth((int) projectile_Joueur.damage);
+
+                }
+                else if (colliders.Length==2)
+                {
+                    if (hit.gameObject.CompareTag("Ennemy"))
+                        hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+                }
+                else if (colliders.Length == 3)
+                {
+                    if (hit.gameObject.CompareTag("Ennemy"))
+                        hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+                }
+                else
+                {
+                    if (hit.gameObject.CompareTag("Ennemy"))
+                        hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
                 }
 
-                //+5% dégâts au projo par ennemi dans aoe
-                //puis degâts
             }
 
+            Destroy(gameObject);
         }
 
-        Destroy(gameObject);
+        
     }
 }

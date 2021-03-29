@@ -212,8 +212,10 @@ MonoBehaviour:
   rb: {fileID: 384689267087546666}
   isTakingDamage: 0
   canMove: 0
+  isImmune: 0
   healthBar: {fileID: 4860304212942483349}
   entityType: 
+  bloodParticles: {fileID: 0}
 --- !u!1001 &1109663838585921906
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -28,11 +28,12 @@ MonoBehaviour:
   debuffDuration: 0
   slowDuration: 0
   slowPower: 0
-  multSize: 0
-  multSpeed: 0
+  multSize: 1
+  multSpeed: 1
   aoeSize: 1
   aoeDamage: 50
   secondEnemyDamage: 0.8
   secondAoeSize: 2
   secondAoeDamage: 75
   delaySecondAoe: 1.5
+  explosionForce: 0

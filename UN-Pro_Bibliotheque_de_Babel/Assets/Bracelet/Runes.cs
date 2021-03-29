@@ -48,8 +48,9 @@ public class Runes : ScriptableObject
     {
         switch (name)
         {
-            case "Embrasemnent":
-
+            case "Embrasement":
+                projectile.AddComponent<Embrasement_Maitresse>();
+                projectile.GetComponent<Embrasement_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             case "Givre":
@@ -61,8 +62,8 @@ public class Runes : ScriptableObject
                 break;
 
             case "Explosion":
-                projectile.AddComponent<Explosion_Maîtresse>();
-                projectile.GetComponent<Explosion_Maîtresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
+                projectile.AddComponent<Explosion_Maitresse>();
+                projectile.GetComponent<Explosion_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             default:
@@ -70,24 +71,25 @@ public class Runes : ScriptableObject
         }
     }
 
-    public void Support(int pressOrder)
+    public void Support(int pressOrder, GameObject projectile)
     {
         switch (name)
         {
-            case "Embrasemnent":
-                if(order == pressOrder )
+            case "Embrasement":
+                if(order == pressOrder)
                 {
-                    Ordre(name);
+                    Debug.Log("EmbrasementOrdre");
+                    Ordre(name, projectile);
                 } else
                 {
-
+                    Debug.Log("EmbrasementSupport");
                 }
                 break;
 
             case "Givre":
                 if (order == pressOrder)
                 {
-                    Ordre(name);
+                    Ordre(name, projectile);
                 }
                 else
                 {
@@ -98,7 +100,7 @@ public class Runes : ScriptableObject
             case "Amplification":
                 if (order == pressOrder)
                 {
-                    Ordre(name);
+                    Ordre(name, projectile);
                 }
                 else
                 {
@@ -109,7 +111,7 @@ public class Runes : ScriptableObject
             case "Explosion":
                 if (order == pressOrder)
                 {
-                    Ordre(name);
+                    Ordre(name, projectile);
                 }
                 else
                 {
@@ -122,12 +124,13 @@ public class Runes : ScriptableObject
         }
     }
 
-    public void Ordre(string name)
+    public void Ordre(string name, GameObject projectile)
     {
         switch (name)
         {
-            case "Embrasemnent":
-
+            case "Embrasement":
+                projectile.AddComponent<Embrasement_Ordre>();
+                projectile.GetComponent<Embrasement_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             case "Givre":

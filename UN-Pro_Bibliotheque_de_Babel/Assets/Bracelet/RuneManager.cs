@@ -70,6 +70,7 @@ public class RuneManager : MonoBehaviour
                 {
                     pressed0 = true;
                     orderRune.Add(equippedBracelet.activeRunes[0]);
+                    Debug.Log(orderRune);
                     nmbPressed++;
                 }
             }
@@ -79,6 +80,8 @@ public class RuneManager : MonoBehaviour
                 {
                     pressed1 = true;
                     orderRune.Add(equippedBracelet.activeRunes[1]);
+                    Debug.Log(orderRune);
+
                     nmbPressed++;
                 }
             }
@@ -88,6 +91,8 @@ public class RuneManager : MonoBehaviour
                 {
                     pressed2 = true;
                     orderRune.Add(equippedBracelet.activeRunes[2]);
+                    Debug.Log(orderRune);
+
                     nmbPressed++;
                 }
             }
@@ -97,6 +102,8 @@ public class RuneManager : MonoBehaviour
                 {
                     pressed3 = true;
                     orderRune.Add(equippedBracelet.activeRunes[3]);
+                    Debug.Log(orderRune);
+
                     nmbPressed++;
                 }
             }

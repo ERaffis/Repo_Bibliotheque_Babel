@@ -46,4 +46,10 @@ public class Projectile_Joueur : MonoBehaviour
         this.delaySecondAoe = delaySecondAoe;
         this.explosionForce = explosionForce;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 9)
+            Destroy(gameObject);
+    }
 }
