@@ -10,10 +10,16 @@ public class Embrasement_Maitresse : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.layer == 6 && !collider.gameObject.CompareTag("Player1"))
+        if (collider.gameObject.CompareTag("Ennemy"))
         {
             collider.gameObject.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
 
+            Destroy(gameObject);
+        }
+
+        if (collider.gameObject.CompareTag("Boss"))
+        {
+            Debug.Log("The Boss was hit");
             Destroy(gameObject);
         }
     }

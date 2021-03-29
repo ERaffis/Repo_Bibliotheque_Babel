@@ -28,21 +28,34 @@ public class Explosion_Maitresse : MonoBehaviour
                     if (hit.gameObject.CompareTag("Ennemy") )
                         hit.GetComponent<Entities>().SetHealth((int) projectile_Joueur.damage);
 
+                    if (hit.gameObject.CompareTag("Boss"))
+                        Debug.Log("The Boss was hit");
+                    
                 }
                 else if (colliders.Length==2)
                 {
                     if (hit.gameObject.CompareTag("Ennemy"))
                         hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+
+                    if (hit.gameObject.CompareTag("Boss"))
+                        Debug.Log("The Boss was hit");
                 }
                 else if (colliders.Length == 3)
                 {
                     if (hit.gameObject.CompareTag("Ennemy"))
                         hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+
+                    if (hit.gameObject.CompareTag("Boss"))
+                        Debug.Log("The Boss was hit");
                 }
                 else
                 {
                     if (hit.gameObject.CompareTag("Ennemy"))
                         hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+
+                    if (hit.gameObject.CompareTag("Boss"))
+                        Debug.Log("The Boss was hit");
+
                 }
 
             }
