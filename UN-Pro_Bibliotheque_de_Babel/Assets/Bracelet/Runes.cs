@@ -42,9 +42,9 @@ public class Runes : ScriptableObject
     public float secondAoeSize;
     public int secondAoeDamage;
     public float delaySecondAoe;
+    public float explosionForce;
 
-
-    public void Maitresse()
+    public void Maitresse(GameObject projectile)
     {
         switch (name)
         {

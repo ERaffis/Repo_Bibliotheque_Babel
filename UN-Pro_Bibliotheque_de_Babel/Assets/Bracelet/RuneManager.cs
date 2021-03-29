@@ -24,6 +24,7 @@ public class RuneManager : MonoBehaviour
     }
     private void Update()
     {
+        equippedBracelet = Inventory.Instance.activeBracelet;
         CheckCombo();
         ShootRune();
     }

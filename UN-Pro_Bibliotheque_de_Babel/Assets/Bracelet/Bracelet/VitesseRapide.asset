@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   nmbProjectile: 1
   sizeProjectile: 1
-  prefabProjectile: {fileID: 0}
+  prefabProjectile: {fileID: 4963542174127619358, guid: 395ddd9b005999e44aa37064a86a44c5, type: 3}
   baseDamage: 20
   baseSpeed: 1.3
   damageCast: 1

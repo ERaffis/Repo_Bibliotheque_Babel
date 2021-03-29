@@ -23,7 +23,7 @@ public class Bracelet : ScriptableObject
     public float castMultDamage;
 
     [Header("Runes")]
-    public float nmbRune;
+    public int nmbRune;
     public Runes[] activeRunes;
 
 
@@ -32,28 +32,33 @@ public class Bracelet : ScriptableObject
         switch (name)
         {
             case "Simple":
-                Instantiate(prefabProjectile);
-                rune.Maitresse();
+                GameObject projectile = Instantiate(prefabProjectile,GameHandler.Instance.activeInstDir.transform);
+                Debug.Log("Instantiaded Projectile");
+                rune.Maitresse(projectile);
                 break;
 
             case "3 Projectiles":
-                Instantiate(prefabProjectile);
-                rune.Maitresse();
+                GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                Debug.Log("Instantiaded Projectile");
+                rune.Maitresse(projectile1);
                 break;
 
             case "Mitrailleuse":
-                Instantiate(prefabProjectile);
-                rune.Maitresse();
+                GameObject projectile2 = Instantiate(prefabProjectile,GameHandler.Instance.activeInstDir.transform);
+                Debug.Log("Instantiaded Projectile");
+                rune.Maitresse(projectile2);
                 break;
 
             case "Tete Chercheuse":
-                Instantiate(prefabProjectile);
-                rune.Maitresse();
+                GameObject projectile3 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                Debug.Log("Instantiaded Projectile");
+                rune.Maitresse(projectile3);
                 break;
 
             case "Vitesse Rapide":
-                Instantiate(prefabProjectile);
-                rune.Maitresse();
+                GameObject projectile4 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                Debug.Log("Instantiaded Projectile");
+                rune.Maitresse(projectile4);
                 break;
 
             default:
@@ -67,28 +72,28 @@ public class Bracelet : ScriptableObject
         switch (braceletName)
         {
             case "Simple":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile);
                 break;
 
             case "3 Projectiles":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile1);
                 break;
 
             case "Mitrailleuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile2 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile2);
                 break;
 
             case "Tete Chercheuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile3 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile3);
                 break;
 
             case "Vitesse Rapide":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile4 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile4);
                 break;
 
             default:
@@ -101,32 +106,32 @@ public class Bracelet : ScriptableObject
         switch (braceletName)
         {
             case "Simple":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile);
                 rune1.Support(1);
                 break;
 
             case "3 Projectiles":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile1);
                 rune1.Support(1);
                 break;
 
             case "Mitrailleuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile2 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile2);
                 rune1.Support(1);
                 break;
 
             case "Tete Chercheuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile3 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile3);
                 rune1.Support(1);
                 break;
 
             case "Vitesse Rapide":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile4 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile4);
                 rune1.Support(1);
                 break;
 
@@ -140,36 +145,36 @@ public class Bracelet : ScriptableObject
         switch (braceletName)
         {
             case "Simple":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile);
                 rune1.Support(1);
                 rune2.Support(2);
                 break;
 
             case "3 Projectiles":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile1);
                 rune1.Support(1);
                 rune2.Support(2);
                 break;
 
             case "Mitrailleuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile2 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile2);
                 rune1.Support(1);
                 rune2.Support(2);
                 break;
 
             case "Tete Chercheuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile3 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile3);
                 rune1.Support(1);
                 rune2.Support(2);
                 break;
 
             case "Vitesse Rapide":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile4 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile4);
                 rune1.Support(1);
                 rune2.Support(2);
                 break;
@@ -184,40 +189,40 @@ public class Bracelet : ScriptableObject
         switch (braceletName)
         {
             case "Simple":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile);
                 rune1.Support(1);
                 rune2.Support(2);
                 rune3.Support(3);
                 break;
 
             case "3 Projectiles":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile1);
                 rune1.Support(1);
                 rune2.Support(2);
                 rune3.Support(3);
                 break;
 
             case "Mitrailleuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile2 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile2);
                 rune1.Support(1);
                 rune2.Support(2);
                 rune3.Support(3);
                 break;
 
             case "Tete Chercheuse":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile3 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile3);
                 rune1.Support(1);
                 rune2.Support(2);
                 rune3.Support(3);
                 break;
 
             case "Vitesse Rapide":
-                Instantiate(prefabProjectile);
-                rune0.Maitresse();
+                GameObject projectile4 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform);
+                rune0.Maitresse(projectile4);
                 rune1.Support(1);
                 rune2.Support(2);
                 rune3.Support(3);
