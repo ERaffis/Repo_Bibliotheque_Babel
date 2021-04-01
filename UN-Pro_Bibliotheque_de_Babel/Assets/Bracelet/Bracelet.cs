@@ -158,6 +158,8 @@ public class Bracelet : ScriptableObject
                     rune.explosionForce);
 
                 Debug.Log("Instantiaded Projectile");
+                projectile3.AddComponent<AimAssist>();
+                projectile3.GetComponent<AimAssist>().speed = baseSpeed * rune.multSpeed;
                 rune.Maitresse(projectile3);
                 break;
 

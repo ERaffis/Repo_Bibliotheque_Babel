@@ -49,11 +49,13 @@ public class EnnemySpawner : MonoBehaviour
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
-                            Instantiate(ennemiesBiome1[0], spawnLocation.transform);
+                            GameObject ennemy = Instantiate(ennemiesBiome1[0], spawnLocation.transform);
+                            ennemy.transform.parent = null;
                         }
                         else
                         {
-                            Instantiate(ennemiesBiome1[1], spawnLocation.transform);
+                            GameObject ennemy = Instantiate(ennemiesBiome1[1], spawnLocation.transform);
+                            ennemy.transform.parent = null;
                         }
                         
                     }
@@ -69,11 +71,13 @@ public class EnnemySpawner : MonoBehaviour
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
-                            Instantiate(ennemiesBiome1[0], spawnLocation.transform);
+                            GameObject ennemy = Instantiate(ennemiesBiome1[0], spawnLocation.transform);
+                            ennemy.transform.parent = null;
                         }
                         else
                         {
-                            Instantiate(ennemiesBiome1[1], spawnLocation.transform);
+                            GameObject ennemy = Instantiate(ennemiesBiome1[1], spawnLocation.transform);
+                            ennemy.transform.parent = null;
                         }
 
                     }
@@ -89,11 +93,13 @@ public class EnnemySpawner : MonoBehaviour
 
                         if (Random.Range(0f, 1f) >= .5f)
                         {
-                            Instantiate(ennemiesBiome1[0], spawnLocation.transform);
+                            GameObject ennemy = Instantiate(ennemiesBiome1[0], spawnLocation.transform);
+                            ennemy.transform.parent = null;
                         }
                         else
                         {
-                            Instantiate(ennemiesBiome1[1], spawnLocation.transform);
+                            GameObject ennemy = Instantiate(ennemiesBiome1[1], spawnLocation.transform);
+                            ennemy.transform.parent = null;
                         }
 
                     }
