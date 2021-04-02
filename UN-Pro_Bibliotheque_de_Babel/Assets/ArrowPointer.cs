@@ -5,7 +5,7 @@ using CodeMonkey.Utils;
 
 public class ArrowPointer : MonoBehaviour
 {
-    [SerializeField] private Camera uiCamera;
+    [SerializeField] private Camera _Camera;
     public Vector3 targetPosition;
     private RectTransform pointerRectTransform;
     public bool shouldPoint;
@@ -13,11 +13,15 @@ public class ArrowPointer : MonoBehaviour
     {
         targetPosition = GameObject.Find("TriggerSortie").transform.position;
         pointerRectTransform = transform.Find("IndicationArrow").GetComponent<RectTransform>();
+        _Camera = Camera.main;
         shouldPoint = false;
     }
 
     private void Update()
     {
+        if (Inventory.Instance.activeBracelet != null)
+            shouldPoint = true;
+
         if (shouldPoint)
         {
             float borderSize = 100f;
@@ -34,7 +38,7 @@ public class ArrowPointer : MonoBehaviour
                 if (cappedTargetScreenPostion.y <= borderSize) cappedTargetScreenPostion.y = borderSize;
                 if (cappedTargetScreenPostion.y >= Screen.height - borderSize) cappedTargetScreenPostion.y = Screen.height - borderSize;
 
-                Vector3 pointerWorldPosition = uiCamera.ScreenToWorldPoint(cappedTargetScreenPostion);
+                Vector3 pointerWorldPosition = _Camera.ScreenToWorldPoint(cappedTargetScreenPostion);
                 pointerRectTransform.position = pointerWorldPosition;
                 pointerRectTransform.localPosition = new Vector3(pointerRectTransform.localPosition.x, pointerRectTransform.localPosition.y, 0f);
             }
@@ -48,6 +52,9 @@ public class ArrowPointer : MonoBehaviour
                 pointerRectTransform.localPosition = new Vector3(pointerRectTransform.localPosition.x, pointerRectTransform.localPosition.y, 0f);
                 */
             }
+        } else
+        {
+            transform.Find("IndicationArrow").gameObject.SetActive(false);
         }
         
     }

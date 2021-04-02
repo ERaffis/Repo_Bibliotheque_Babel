@@ -72,7 +72,6 @@ public class PlayerScript : Entities
         {
             Destroy(item);
         }
-        Destroy(GameObject.FindGameObjectWithTag("Spawner"));
         SetStartHealth();
         GameHandler.Instance.RunEnded(false);
     }

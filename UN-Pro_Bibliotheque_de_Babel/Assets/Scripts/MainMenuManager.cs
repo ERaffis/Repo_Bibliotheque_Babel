@@ -16,7 +16,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void NouvellePartie()
     {
-        SceneManager.LoadScene("HUB_Principal");
+        SceneManager.LoadScene("FirstExposure");
     }
 
     public void QuitterJeu()

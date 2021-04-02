@@ -25,13 +25,6 @@ public class SpawnReward : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.I))
-            SpawnItem(new Vector2(0, -1), "Ennemy_1"); 
-    }
-
-
     public void SpawnItem(Vector2 pos, string tag = "")
     {
         Vector3 spawnLocation = new Vector3(pos.x, pos.y, 0);
@@ -42,10 +35,10 @@ public class SpawnReward : MonoBehaviour
             {
                 GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
 
-                for (int i = 0; i < (int)(Random.Range(0, 2)); i++)
+                /*for (int i = 0; i < (int)(Random.Range(0, 2)); i++)
                 {
                     Instantiate(heart, newPage.transform);
-                }
+                }*/
             }    
             
         }
@@ -53,10 +46,10 @@ public class SpawnReward : MonoBehaviour
         {
             GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
 
-            for (int i = 0; i < (int)(Random.Range(2, 5)); i++)
+            /*for (int i = 0; i < (int)(Random.Range(2, 5)); i++)
             {
                 Instantiate(heart, newPage.transform);
-            }
+            }*/
         }
 
         if (tag == "Room")
@@ -66,6 +59,7 @@ public class SpawnReward : MonoBehaviour
             for (int i = 0; i < (int)(Random.Range(1, 3)); i++)
             {
                 GameObject newHeart = Instantiate(heart, newPage.transform);
+                newHeart.transform.position += new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f),0);
                 newHeart.transform.parent = null;
             }
         }

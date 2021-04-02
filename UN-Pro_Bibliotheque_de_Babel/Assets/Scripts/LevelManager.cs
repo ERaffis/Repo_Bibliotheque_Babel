@@ -185,7 +185,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            ChangeBiome();
+            //ChangeBiome();
 
             switch (currentBiome)
             {

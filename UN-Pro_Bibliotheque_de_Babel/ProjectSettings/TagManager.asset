@@ -35,7 +35,7 @@ TagManager:
   - NoCollision
   - Projectile
   - Interactables
-  - 
+  - HalfCollider
   - 
   - 
   - 

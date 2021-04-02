@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour
 {
@@ -42,11 +43,33 @@ public class GameHandler : MonoBehaviour
 
         gameDifficulty = 0.25f;
     }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if(arg0.name == "HUB_Principal")
+        {
+            nmbRemaining = 0;
+            nmbToSpawns = 0;
+            nmbSpawned = 0;
+            Inventory.Instance.activeBracelet = null;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
-        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
+        //activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
+        //activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
         alreadySpawned = false;
     }
 
@@ -59,9 +82,6 @@ public class GameHandler : MonoBehaviour
     // Method to call when the player dies or reaches the outside
     public void RunEnded(bool var)
     {
-        nmbRemaining = 0;
-        nmbToSpawns = 0;
-        nmbSpawned = 0;
 
         //Adds the total of runs
         PlayerScript.Instance.nmbRun++;
@@ -80,21 +100,22 @@ public class GameHandler : MonoBehaviour
             startingDifficulty = gameDifficulty;
             LevelManager.Instance.ReturnToHubAfterDeath();
         }
+
     }
 
 
     public void ChangeRuneDir(int i)
     {
-        activeInstDir.GetComponent<SpriteRenderer>().enabled = false;
+        //activeInstDir.GetComponent<SpriteRenderer>().enabled = false;
         activeInstDir = instDir[i];
-        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
+        //activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void ChangeMoveDir(int i)
     {
-        activeMoveDir.GetComponent<SpriteRenderer>().enabled = false;
+        //activeMoveDir.GetComponent<SpriteRenderer>().enabled = false;
         activeMoveDir = moveDir[i];
-        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
+        //activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
 
@@ -105,9 +126,16 @@ public class GameHandler : MonoBehaviour
             roomCleared = true;
             if(!alreadySpawned)
             {
-                SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");
-                alreadySpawned = true;
+                Debug.Log(SceneManager.GetActiveScene().name);
+
+                if (SceneManager.GetActiveScene().name != "HUB_Principal")
+                {
+                    SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");
+                    alreadySpawned = true;
+                }
             }
         }
-    }   
+    }
+    
+    
 }
