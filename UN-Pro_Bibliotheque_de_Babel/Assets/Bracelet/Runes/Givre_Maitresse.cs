@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Embrasement_Maitresse : MonoBehaviour
+public class Givre_Maitresse : MonoBehaviour
 {
-    public Projectile_Joueur projectile_Joueur;
 
-    
+    public Projectile_Joueur projectile_Joueur;
 
     void OnTriggerEnter2D(Collider2D collider)
     {
@@ -18,8 +17,13 @@ public class Embrasement_Maitresse : MonoBehaviour
                 Transform ennemyTransform = collider.gameObject.transform;
                 transform.parent = ennemyTransform;
 
+                if (TryGetComponent(out SpriteRenderer a))
+                {
+                    Destroy(a);
+                }
+
                 collider.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
-                StartCoroutine(DamageoverTime(collider.gameObject));
+                StartCoroutine(StunEnnemy(collider.gameObject));
 
                 StartCoroutine(DisableProjectile());
             }
@@ -30,35 +34,28 @@ public class Embrasement_Maitresse : MonoBehaviour
             Debug.Log("The Boss was hit");
             Destroy(gameObject);
         }
-
     }
 
-    public IEnumerator DamageoverTime(GameObject col)
+    // Update is called once per frame
+    void Update()
     {
+        
+    }
 
-        if (col.GetComponent<Entities>().isTakingDamage == false)
-        {
-            col.GetComponent<Entities>().isTakingDamage = true;
+    private IEnumerator StunEnnemy(GameObject ennemy)
+    {
+        if (ennemy.TryGetComponent(out Entities ent))
+            ent.isStuned = true;
 
-            for (int i = 0; i <= projectile_Joueur.dotDuration; i++)
-            {
+        yield return new WaitForSeconds(projectile_Joueur.stuntDuration);
 
-                col.GetComponent<Entities>().SetHealth(projectile_Joueur.dotDamage);
-
-                yield return new WaitForSeconds(.25f);
-
-            }
-
-            col.GetComponent<Entities>().isTakingDamage = false;
-        }
-
-        Destroy(this.gameObject);
+        ent.isStuned = false;
     }
 
     IEnumerator DisableProjectile()
     {
-        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        Destroy(gameObject, projectile_Joueur.stuntDuration + 2f);
         if (TryGetComponent(out Collider2D a))
             Destroy(a);
         if (TryGetComponent(out Collider2D b))
@@ -70,11 +67,5 @@ public class Embrasement_Maitresse : MonoBehaviour
             Destroy(c);
 
         yield return new WaitForSeconds(2.5f);
-    }
-
-    IEnumerator ExplodeProjectile()
-    {
-        yield return new WaitForSeconds(0.01f);
-        Destroy(this.gameObject);
     }
 }

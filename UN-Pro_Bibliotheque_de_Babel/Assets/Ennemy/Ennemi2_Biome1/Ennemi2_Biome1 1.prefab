@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2147504486629351590}
   - component: {fileID: 3530227072964081390}
   - component: {fileID: -7615484754597554946}
+  - component: {fileID: 1710174770924835685}
   m_Layer: 6
   m_Name: Ennemi2_Biome1 1
   m_TagString: Ennemy
@@ -185,6 +186,34 @@ MonoBehaviour:
   timebtwattacks: 2
   startTimeBtwAttacks: 5
   playerposition: {fileID: 0}
+--- !u!114 &1710174770924835685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530227072964081393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000695f153a
+  m_ShapePath:
+  - {x: -0.20151043, y: -0.35152808, z: 0}
+  - {x: 0.17876697, y: -0.3492537, z: 0}
+  - {x: 0.22061098, y: -0.29793864, z: 0}
+  - {x: 0.19696164, y: -0.21250838, z: 0}
+  - {x: -0.2001419, y: -0.21151364, z: 0}
+  - {x: -0.23789978, y: -0.29893327, z: 0}
+  m_ShapePathHash: -43224951
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -4302
 --- !u!1001 &3530227073592526806
 PrefabInstance:
   m_ObjectHideFlags: 0

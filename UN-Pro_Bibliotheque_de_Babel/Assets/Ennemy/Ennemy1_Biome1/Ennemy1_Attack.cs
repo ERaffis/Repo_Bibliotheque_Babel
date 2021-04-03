@@ -30,9 +30,12 @@ public class Ennemy1_Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Target = GetComponent<EnnemyFollow>().target;
-        FindAngle();
-        CheckDirection();
+        if(gameObject.GetComponent<Entities>().isStuned == false)
+        {
+            Target = GetComponent<EnnemyFollow>().target;
+            FindAngle();
+            CheckDirection();
+        }
     }
 
   

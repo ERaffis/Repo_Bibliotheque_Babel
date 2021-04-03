@@ -25,8 +25,10 @@ public class Entities : MonoBehaviour
     [Header("IsTakingDamage")]
     public bool isTakingDamage;
 
-    [Header("IsRooted")]
+    [Header("Effects")]
     public bool canMove;
+    public bool isStuned;
+    public bool isRooted;
 
     [Header("Immunity")]
     public bool isImmune;

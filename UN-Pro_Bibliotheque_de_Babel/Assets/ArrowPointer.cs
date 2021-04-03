@@ -2,24 +2,60 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using CodeMonkey.Utils;
+using UnityEngine.SceneManagement;
 
 public class ArrowPointer : MonoBehaviour
 {
+    public static ArrowPointer Instance { get; private set; }
+
     [SerializeField] private Camera _Camera;
     public Vector3 targetPosition;
-    private RectTransform pointerRectTransform;
+    [SerializeField] private RectTransform pointerRectTransform;
+
     public bool shouldPoint;
+    private Canvas _Canvas;
     private void Awake()
     {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+
         targetPosition = GameObject.Find("TriggerSortie").transform.position;
-        pointerRectTransform = transform.Find("IndicationArrow").GetComponent<RectTransform>();
+        pointerRectTransform = GameObject.Find("IndicationArrow").GetComponent<RectTransform>();
         _Camera = Camera.main;
+        _Canvas = GetComponent<Canvas>();
+        _Canvas.worldCamera = Camera.main;
+        shouldPoint = false;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        Debug.Log("PET");
+        targetPosition = GameObject.Find("TriggerSortie").transform.position;
+        _Camera = Camera.main;
+        _Canvas = GetComponent<Canvas>();
+        _Canvas.worldCamera = Camera.main;
         shouldPoint = false;
     }
 
     private void Update()
     {
-        if (Inventory.Instance.activeBracelet != null)
+        if (Inventory.Instance.activeBracelet != null && SceneManager.GetActiveScene().name == "HUB_Principal")
             shouldPoint = true;
 
         if (shouldPoint)
@@ -30,7 +66,7 @@ public class ArrowPointer : MonoBehaviour
 
             if (isOffScreen)
             {
-                transform.Find("IndicationArrow").gameObject.SetActive(true);
+                pointerRectTransform.gameObject.SetActive(true);
                 RotatePointerTowardsTargetPosition();
                 Vector3 cappedTargetScreenPostion = targetPositionScreenPoint;
                 if (cappedTargetScreenPostion.x <= borderSize) cappedTargetScreenPostion.x = borderSize;
@@ -44,7 +80,7 @@ public class ArrowPointer : MonoBehaviour
             }
             else
             {
-                transform.Find("IndicationArrow").gameObject.SetActive(false);
+                pointerRectTransform.gameObject.SetActive(false);
 
                 /*
                 Vector3 pointerWorldPosition = uiCamera.ScreenToWorldPoint(targetPositionScreenPoint);
@@ -54,10 +90,12 @@ public class ArrowPointer : MonoBehaviour
             }
         } else
         {
-            transform.Find("IndicationArrow").gameObject.SetActive(false);
+            pointerRectTransform.gameObject.SetActive(false);
         }
         
     }
+
+
 
     private void RotatePointerTowardsTargetPosition()
     {

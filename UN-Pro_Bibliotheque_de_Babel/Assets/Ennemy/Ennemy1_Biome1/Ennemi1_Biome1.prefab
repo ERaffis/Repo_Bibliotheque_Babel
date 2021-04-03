@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 384689267087546666}
   - component: {fileID: 1109663837958840127}
   - component: {fileID: -3461986535095053137}
+  - component: {fileID: 6440644169112148207}
   m_Layer: 6
   m_Name: Ennemi1_Biome1
   m_TagString: Ennemy
@@ -218,6 +219,34 @@ MonoBehaviour:
   healthBar: {fileID: 4860304212942483349}
   entityType: 
   bloodParticles: {fileID: 0}
+--- !u!114 &6440644169112148207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1109663837958840069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000695f153a
+  m_ShapePath:
+  - {x: -0.007135129, y: -0.06475092, z: 0}
+  - {x: 0.045199204, y: -0.06485542, z: 0}
+  - {x: 0.05175023, y: -0.05722638, z: 0}
+  - {x: 0.04818237, y: -0.04406124, z: 0}
+  - {x: -0.009300905, y: -0.045750815, z: 0}
+  - {x: -0.015767235, y: -0.055715233, z: 0}
+  m_ShapePathHash: 1902109731
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -6600
 --- !u!1001 &1109663838585921906
 PrefabInstance:
   m_ObjectHideFlags: 0

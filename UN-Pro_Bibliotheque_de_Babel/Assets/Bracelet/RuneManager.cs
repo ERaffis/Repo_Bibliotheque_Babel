@@ -88,7 +88,7 @@ public class RuneManager : MonoBehaviour
     {
         if (equippedBracelet != null)
         {
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && equippedBracelet.activeRunes.Length >= 1)
             {
                 if (equippedBracelet.activeRunes[0] != null && !pressed0 && nmbPressed < equippedBracelet.nmbRune)
                 {
@@ -98,7 +98,7 @@ public class RuneManager : MonoBehaviour
                     nmbPressed++;
                 }
             }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && equippedBracelet.activeRunes.Length >= 2)
             {
                 if (equippedBracelet.activeRunes[1] != null && !pressed1 && nmbPressed < equippedBracelet.nmbRune)
                 {
@@ -109,7 +109,7 @@ public class RuneManager : MonoBehaviour
                     nmbPressed++;
                 }
             }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && equippedBracelet.activeRunes.Length >= 3)
             {
                 if (equippedBracelet.activeRunes[2] != null && !pressed2 && nmbPressed < equippedBracelet.nmbRune)
                 {
@@ -120,7 +120,7 @@ public class RuneManager : MonoBehaviour
                     nmbPressed++;
                 }
             }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4"))
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && equippedBracelet.activeRunes.Length >= 4)
             {
                 if (equippedBracelet.activeRunes[3] != null && !pressed3 && nmbPressed < equippedBracelet.nmbRune)
                 {

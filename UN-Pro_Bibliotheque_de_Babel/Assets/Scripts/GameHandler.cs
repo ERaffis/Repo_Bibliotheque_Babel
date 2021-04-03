@@ -132,10 +132,18 @@ public class GameHandler : MonoBehaviour
                 {
                     SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");
                     alreadySpawned = true;
+                    StartCoroutine(WaitToPoint());
+
                 }
             }
         }
     }
-    
-    
+
+    private IEnumerator WaitToPoint()
+    {
+        yield return new WaitForSeconds(1);
+        ArrowPointer.Instance.shouldPoint = true;
+
+    }
+
 }

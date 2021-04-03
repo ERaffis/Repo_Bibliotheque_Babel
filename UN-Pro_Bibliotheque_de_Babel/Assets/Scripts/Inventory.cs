@@ -167,6 +167,9 @@ public class Inventory : MonoBehaviour
 
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
+                        if (activeBracelet.activeRunes[i] == runes[0])
+                            break;
+
                         if (activeBracelet.activeRunes[i] == null)
                         {
                             activeBracelet.activeRunes[i] = runes[0];
@@ -192,6 +195,9 @@ public class Inventory : MonoBehaviour
 
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
+                        if (activeBracelet.activeRunes[i] == runes[1])
+                            break;
+
                         if (activeBracelet.activeRunes[i] == null)
                         {
                             activeBracelet.activeRunes[i] = runes[1];
@@ -217,9 +223,12 @@ public class Inventory : MonoBehaviour
 
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
+                        if (activeBracelet.activeRunes[i] == runes[2])
+                            break;
+
                         if (activeBracelet.activeRunes[i] == null)
                         {
-                            activeBracelet.activeRunes[i] = runes[1];
+                            activeBracelet.activeRunes[i] = runes[2];
                             equippedRunes[i].GetComponent<Image>().sprite = rune3.GetComponent<Image>().sprite;
                             equippedRunes[i].GetComponent<Image>().color = rune3.GetComponent<Image>().color;
                             break;
@@ -242,6 +251,9 @@ public class Inventory : MonoBehaviour
 
                     for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                     {
+                        if (activeBracelet.activeRunes[i] == runes[3])
+                            break;
+
                         if (activeBracelet.activeRunes[i] == null)
                         {
                             activeBracelet.activeRunes[i] = runes[1];

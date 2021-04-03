@@ -54,7 +54,8 @@ public class Runes : ScriptableObject
                 break;
 
             case "Givre":
-
+                projectile.AddComponent<Givre_Maitresse>();
+                projectile.GetComponent<Givre_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             case "Amplification":

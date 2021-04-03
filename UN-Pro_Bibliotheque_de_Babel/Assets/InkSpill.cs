@@ -10,6 +10,11 @@ public class InkSpill : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerMovement>().envModifier = 0.25f;
         }
+
+        if (collision.TryGetComponent(out Givre_Maitresse b))
+        {
+            GetComponent<CircleCollider2D>().enabled = false;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -19,4 +24,5 @@ public class InkSpill : MonoBehaviour
             collision.gameObject.GetComponent<PlayerMovement>().envModifier = 1f;
         }
     }
+
 }

@@ -72,6 +72,12 @@ public class PlayerScript : Entities
         {
             Destroy(item);
         }
+
+        foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ennemy"))
+        {
+            Destroy(item);
+        }
+
         SetStartHealth();
         GameHandler.Instance.RunEnded(false);
     }

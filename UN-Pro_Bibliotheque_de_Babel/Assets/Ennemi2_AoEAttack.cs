@@ -20,17 +20,17 @@ public class Ennemi2_AoEAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (timebtwattacks <= 0)
+        if(gameObject.GetComponent<Entities>().isStuned == false)
         {
-
-            timebtwattacks = startTimeBtwAttacks;
-            SpawnZones();
-
-        }
-        else
-        {
-            timebtwattacks -= Time.deltaTime;
-
+            if (timebtwattacks <= 0)
+            {
+                timebtwattacks = startTimeBtwAttacks;
+                SpawnZones();
+            }
+            else
+            {
+                timebtwattacks -= Time.deltaTime;
+            }
         }
     }
 

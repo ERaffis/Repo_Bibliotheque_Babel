@@ -9,6 +9,16 @@ public class Hole : MonoBehaviour
     {
         if (collision.TryGetComponent(out PlayerScript a))
         {
+            foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ennemy"))
+            {
+                Destroy(item);
+            }
+
+            foreach (GameObject item in GameObject.FindGameObjectsWithTag("Projectile"))
+            {
+                Destroy(item);
+            }
+
             collision.GetComponent<PlayerScript>().SetPlayerHealth(12);
             RoomNumberManager.Instance.MinusLevelNumber();
             LevelManager.Instance.shouldBiome = 200;

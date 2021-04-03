@@ -107,6 +107,7 @@ GameObject:
   - component: {fileID: 4957815095265700117}
   - component: {fileID: 4957815095265700118}
   - component: {fileID: 4957815095265700119}
+  - component: {fileID: 6093481329641398290}
   m_Layer: 5
   m_Name: ArrowPointerCanvas
   m_TagString: Untagged
@@ -195,6 +196,21 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6093481329641398290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4957815095265700112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d3a5b2cb9f4354ebcf139146870318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Camera: {fileID: 0}
+  targetPosition: {x: 50, y: 25, z: 0}
+  shouldPoint: 0
 --- !u!1 &4957815096141296760
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +220,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4957815096141296767}
-  - component: {fileID: 4957815096141296766}
   m_Layer: 5
   m_Name: Window_Pointer
   m_TagString: Untagged
@@ -232,17 +247,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4957815096141296766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4957815096141296760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d3a5b2cb9f4354ebcf139146870318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  uiCamera: {fileID: 0}
-  targetPosition: {x: 50, y: 25, z: 0}

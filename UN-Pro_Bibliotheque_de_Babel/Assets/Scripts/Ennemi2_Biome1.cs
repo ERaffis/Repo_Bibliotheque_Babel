@@ -15,6 +15,7 @@ public class Ennemi2_Biome1 : Entities
     public float startTimeBtwShots;
 
     public GameObject projectile;
+
     
 
     
@@ -45,26 +46,29 @@ public class Ennemi2_Biome1 : Entities
 
     void Update()
     {
-        if(Time.time - latestDirectionChangeTime > directionChangeTime)
+        if(!isStuned)
         {
-            latestDirectionChangeTime = Time.time;
-            calculateNewMovementVector();
-        }
+            if (Time.time - latestDirectionChangeTime > directionChangeTime)
+            {
+                latestDirectionChangeTime = Time.time;
+                calculateNewMovementVector();
+            }
 
-        if (ennemyCanMove)
-        {
-            transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime), transform.position.y + (movementPerSecond.y * Time.deltaTime));
-        }
+            if (ennemyCanMove)
+            {
+                transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime), transform.position.y + (movementPerSecond.y * Time.deltaTime));
+            }
 
 
-        if (timeBtwShots <= 0)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
-        }
-        else
-        {
-            timeBtwShots -= Time.deltaTime;
+            if (timeBtwShots <= 0)
+            {
+                Instantiate(projectile, transform.position, Quaternion.identity);
+                timeBtwShots = startTimeBtwShots;
+            }
+            else
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
         }
     }
 
