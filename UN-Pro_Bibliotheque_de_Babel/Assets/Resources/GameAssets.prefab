@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c0bd76b0ba8a4b4db35b6ddd43ae525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pfDamagePopup: {fileID: 3742661838767412859, guid: 193e007e84eb3164597cb7c22d8bf5fb, type: 3}
   soundAudioClipArray:
   - sound: 0
     audioClip: {fileID: 8300000, guid: 155f105ab3bbff44a94e60555b7bf464, type: 3}

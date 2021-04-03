@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2396551886631031279}
   - component: {fileID: 2396551886631031276}
-  - component: {fileID: 2396551886631031277}
   - component: {fileID: 2396551886631031282}
   - component: {fileID: 2396551886631031278}
+  - component: {fileID: 4919306696576814985}
   m_Layer: 0
   m_Name: Page_Vierge
   m_TagString: Page_Vierge
@@ -86,36 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2396551886631031277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2396551886631031283}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 1
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000695f153a
-  m_ShapePath:
-  - {x: -0.3654052, y: -0.49328804, z: 0}
-  - {x: 0.22032046, y: -0.49204445, z: 0}
-  - {x: 0.36727452, y: -0.18133497, z: 0}
-  - {x: 0.36734295, y: 0.1632762, z: 0}
-  - {x: 0.21815836, y: 0.43480968, z: 0}
-  - {x: -0.37013507, y: 0.439281, z: 0}
-  - {x: -0.2969495, y: 0.17193794, z: 0}
-  - {x: -0.3089062, y: -0.17893696, z: 0}
-  m_ShapePathHash: -2144806935
-  m_Mesh: {fileID: 0}
-  m_InstanceId: 32970
 --- !u!114 &2396551886631031282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +114,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!95 &4919306696576814985
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396551886631031283}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 783c0c00315e27947a1f991e18ff9755, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2396551886715914702
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +180,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4
+  m_Intensity: 2
   m_LightVolumeOpacity: 0.25
   m_ApplyToSortingLayers: 00000000
   m_LightCookieSprite: {fileID: 21300000, guid: d12feb42bd33fc54eb07549579980e1f, type: 3}

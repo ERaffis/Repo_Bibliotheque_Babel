@@ -49,7 +49,7 @@ public class RuneManager : MonoBehaviour
     {
         if (equippedBracelet != null)
         {
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && timeBetween >= equippedBracelet.castSpeed)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 1)
             {
                 if (equippedBracelet.activeRunes[0] != null)
                 {
@@ -57,27 +57,27 @@ public class RuneManager : MonoBehaviour
                     timeBetween = 0;
                 }
             }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && timeBetween >= equippedBracelet.castSpeed)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 2)
             {
                 if (equippedBracelet.activeRunes[1] != null)
                 {
-                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
+                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[1]);
                     timeBetween = 0;
                 }
             }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && timeBetween >= equippedBracelet.castSpeed)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 3)
             {
                 if (equippedBracelet.activeRunes[2] != null)
                 {
-                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
+                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[2]);
                     timeBetween = 0;
                 }
             }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && timeBetween >= equippedBracelet.castSpeed)
+            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 4)
             {
                 if (equippedBracelet.activeRunes[3] != null)
                 {
-                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
+                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[3]);
                     timeBetween = 0;
                 }
             }

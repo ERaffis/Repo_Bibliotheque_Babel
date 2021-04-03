@@ -58,7 +58,10 @@ public class Entities : MonoBehaviour
     public void SetHealth(int dmg)
     {
         if(!isImmune)
+        {
             currentHealth -= dmg;
+            DamagePopup.Create(GetPosition(), dmg);
+        }
     }
 
     public void SetPlayerHealth(int dmg)
@@ -107,6 +110,11 @@ public class Entities : MonoBehaviour
         canMove = false;
         yield return new WaitForSeconds(1f);
         canMove = true;
+    }
+
+    public Vector3 GetPosition()
+    {
+        return transform.position;
     }
 
 }

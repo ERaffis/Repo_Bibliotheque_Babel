@@ -85,6 +85,7 @@ GameObject:
   - component: {fileID: 3351786634240279273}
   - component: {fileID: 3351786634240279272}
   - component: {fileID: 3351786634240279279}
+  - component: {fileID: 8731772633354159323}
   m_Layer: 0
   m_Name: Fragment
   m_TagString: Fragment
@@ -101,7 +102,7 @@ Transform:
   m_GameObject: {fileID: 3351786634240279278}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.206, y: -1.775, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3351786633361376276}
   m_Father: {fileID: 0}
@@ -186,7 +187,7 @@ MonoBehaviour:
   - {x: -0.5007775, y: -0.28382683, z: 0}
   m_ShapePathHash: -1380895681
   m_Mesh: {fileID: 0}
-  m_InstanceId: 33070
+  m_InstanceId: 41150
 --- !u!114 &3351786634240279272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,3 +216,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.25
+--- !u!95 &8731772633354159323
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3351786634240279278}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 9397ab049a372a341a42310ab398716f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

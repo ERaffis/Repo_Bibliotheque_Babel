@@ -38,7 +38,7 @@ public class SelectionBracelet : MonoBehaviour
                 }
                 braceletPanneauImage[0].color = Color.white;
 
-
+                
 
                 break;
 
@@ -97,6 +97,14 @@ public class SelectionBracelet : MonoBehaviour
             default:
                 Debug.LogWarning("Eat My Booty! Something went wrong");
                 break;
+        }
+        foreach (var item in uiManager.Instance.uiRunes)
+        {
+            item.SetActive(false);
+        }
+        for (int i = 0; i < Inventory.Instance.activeBracelet.nmbRune; i++)
+        {
+            uiManager.Instance.uiRunes[i].SetActive(true);
         }
     }
 

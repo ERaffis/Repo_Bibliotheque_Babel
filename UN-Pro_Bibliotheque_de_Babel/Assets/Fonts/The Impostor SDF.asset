@@ -270,6 +270,20 @@ MonoBehaviour:
       m_Height: 102
     m_Scale: 1
     m_AtlasIndex: 0
+  - m_Index: 25
+    m_Metrics:
+      m_Width: 22.5
+      m_Height: 78.75
+      m_HorizontalBearingX: 0
+      m_HorizontalBearingY: 90
+      m_HorizontalAdvance: 33.75
+    m_GlyphRect:
+      m_X: 967
+      m_Y: 10
+      m_Width: 23
+      m_Height: 79
+    m_Scale: 1
+    m_AtlasIndex: 0
   - m_Index: 29
     m_Metrics:
       m_Width: 67.5
@@ -788,20 +802,6 @@ MonoBehaviour:
       m_Height: 102
     m_Scale: 1
     m_AtlasIndex: 0
-  - m_Index: 25
-    m_Metrics:
-      m_Width: 22.5
-      m_Height: 78.75
-      m_HorizontalBearingX: 0
-      m_HorizontalBearingY: 90
-      m_HorizontalAdvance: 33.75
-    m_GlyphRect:
-      m_X: 967
-      m_Y: 10
-      m_Width: 23
-      m_Height: 79
-    m_Scale: 1
-    m_AtlasIndex: 0
   m_CharacterTable:
   - m_ElementType: 1
     m_Unicode: 32
@@ -854,6 +854,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 57
     m_GlyphIndex: 24
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 58
+    m_GlyphIndex: 25
     m_Scale: 1
   - m_ElementType: 1
     m_Unicode: 65
@@ -1002,10 +1006,6 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 122
     m_GlyphIndex: 80
-    m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 58
-    m_GlyphIndex: 25
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: -4296792379526534038}
@@ -1334,7 +1334,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: The Impostor Atlas Material
   m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
-  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

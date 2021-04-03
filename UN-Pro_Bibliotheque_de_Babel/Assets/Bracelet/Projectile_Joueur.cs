@@ -45,6 +45,8 @@ public class Projectile_Joueur : MonoBehaviour
         this.secondAoeDamage = secondAoeDamage;
         this.delaySecondAoe = delaySecondAoe;
         this.explosionForce = explosionForce;
+
+        GetComponent<PointEffector2D>().forceMagnitude = this.knockbak * 20;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

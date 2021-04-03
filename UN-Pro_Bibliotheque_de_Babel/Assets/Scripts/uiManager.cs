@@ -16,9 +16,10 @@ public class uiManager : MonoBehaviour
     [Header("Components")]
     public GameObject _GameHandler;
     public Canvas mainUI;
-    public Canvas underLayUI;
     public TMP_Text roomInfo;
     public Image dashIcon;
+
+    public GameObject[] uiRunes;
     
 
     [Header("Relations")]
@@ -41,6 +42,10 @@ public class uiManager : MonoBehaviour
         mainUI = GameObject.FindGameObjectWithTag("MainUI").GetComponent<Canvas>();
         _GameHandler = GameObject.FindGameObjectWithTag("GameHandler");
         runeManager = GameObject.FindGameObjectWithTag("RuneManager");
+        foreach (var item in uiRunes)
+        {
+            item.SetActive(false); 
+        }
     }
 
     private void Start()
@@ -66,7 +71,6 @@ public class uiManager : MonoBehaviour
     public void ChangeUiState()
     {
         mainUI.gameObject.SetActive(!mainUI.gameObject.activeSelf);
-        underLayUI.gameObject.SetActive(!underLayUI.gameObject.activeSelf);
     }
 
     public void HideUI(GameObject canvas, bool state)

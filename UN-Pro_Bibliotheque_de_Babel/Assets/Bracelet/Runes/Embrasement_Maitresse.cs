@@ -35,7 +35,7 @@ public class Embrasement_Maitresse : MonoBehaviour
 
     public IEnumerator DamageoverTime(GameObject col)
     {
-
+        yield return new WaitForSeconds(.5f);
         if (col.GetComponent<Entities>().isTakingDamage == false)
         {
             col.GetComponent<Entities>().isTakingDamage = true;

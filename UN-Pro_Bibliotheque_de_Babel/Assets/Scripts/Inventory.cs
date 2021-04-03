@@ -111,7 +111,7 @@ public class Inventory : MonoBehaviour
                 PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(true, "In Menu");
 
                 uiManager.Instance.mainUI.enabled = false;
-                StartCoroutine(SelectFirstButton());
+                StartCoroutine(SetSelectedButton(rune1));
 
             }
             else 
@@ -129,11 +129,11 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    IEnumerator SelectFirstButton()
+    IEnumerator SetSelectedButton(GameObject button)
     {
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(openFirstButton);
+        EventSystem.current.SetSelectedGameObject(button);
     }
 
     public void ResetUI()

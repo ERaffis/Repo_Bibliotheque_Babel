@@ -18,6 +18,7 @@ public class GameAssets : MonoBehaviour
         }
     }
 
+    public Transform pfDamagePopup;
     public SoundAudioClip[] soundAudioClipArray;
     //public AudioClip typeWriterSound;
 
