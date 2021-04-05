@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Rewired;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -54,11 +55,23 @@ public class PlayerMovement : MonoBehaviour
         AimPlayer();
 
     }
-
-    private void FixedUpdate() 
+    private void OnEnable()
     {
-    
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
     }
+
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        comboModifier = 1f;
+        envModifier = 1f;
+    }
+
 
     private void GetMoveAxies() {
 

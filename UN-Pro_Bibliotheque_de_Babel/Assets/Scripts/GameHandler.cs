@@ -126,8 +126,6 @@ public class GameHandler : MonoBehaviour
             roomCleared = true;
             if(!alreadySpawned)
             {
-                Debug.Log(SceneManager.GetActiveScene().name);
-
                 if (SceneManager.GetActiveScene().name != "HUB_Principal")
                 {
                     SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");

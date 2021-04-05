@@ -12,7 +12,7 @@ public class AimAssist : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cooldown = 2.5f;
+        cooldown = 0.75f;
     }
 
     // Update is called once per frame
@@ -22,14 +22,14 @@ public class AimAssist : MonoBehaviour
 
         if(cooldown <= 0)
         {
-            cooldown = 5f;
+            cooldown = 1.15f;
             FindTarget();
         }
 
         // Move our position a step closer to the target.
         if (target != null) 
         {
-            float step = speed * Time.deltaTime; // calculate distance to move
+            float step = speed * Time.unscaledDeltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
         }
        

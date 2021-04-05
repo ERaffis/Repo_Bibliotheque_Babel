@@ -30,6 +30,29 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+
+    }
+
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        Debug.Log("Scene " + arg0.name + " loaded");
+        if (arg0.name == "HUB_Principal")
+        {
+            uiManager.Instance.SetRoomInfoHUB();
+            PlayerScript.Instance.SetMaxHealth(64);
+        }
+    }
+
     private void Start()
     {
         currentBiome = 0;
@@ -150,11 +173,13 @@ public class LevelManager : MonoBehaviour
 
         if (roomName == "HUB_Principal")
         {
-            uiManager.Instance.SetRoomInfoHUB();
+            //uiManager.Instance.SetRoomInfoHUB();
             PlayerScript.Instance.SetMaxHealth(64);
         }
-        else 
-            uiManager.Instance.SetRoomInfo();
+        else
+        {
+            //uiManager.Instance.SetRoomInfo();
+        }
     }
 
     // Generate a room name based on parameters

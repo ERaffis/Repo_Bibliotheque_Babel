@@ -7,7 +7,7 @@ public class Hole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PlayerScript a))
+        if (collision.transform.parent.TryGetComponent(out PlayerScript a))
         {
             foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ennemy"))
             {
@@ -19,7 +19,7 @@ public class Hole : MonoBehaviour
                 Destroy(item);
             }
 
-            collision.GetComponent<PlayerScript>().SetPlayerHealth(12);
+            collision.transform.parent.GetComponent<PlayerScript>().SetPlayerHealth(12);
             RoomNumberManager.Instance.MinusLevelNumber();
             LevelManager.Instance.shouldBiome = 200;
             LevelManager.Instance.shouldBoss = 0;

@@ -32,21 +32,27 @@ public class LigthController : MonoBehaviour
         foreach (Light2D light in lightComponent)
         {
             light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f);
+            if (light.intensity <= 0) light.intensity += 1f;
             yield return new WaitForSeconds(0.2f);
 
             light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f);
+            if (light.intensity <= 0) light.intensity += 1f;
             yield return new WaitForSeconds(0.25f);
 
             light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f);
+            if (light.intensity <= 0) light.intensity += 1f;
             yield return new WaitForSeconds(0.05f);
 
-            light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f);
+            light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f); 
+            if (light.intensity <= 0) light.intensity += 1f;
             yield return new WaitForSeconds(0.1f);
 
             light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f);
+            if (light.intensity <= 0) light.intensity += 1f;
             yield return new WaitForSeconds(0.35f);
 
-            light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f);
+            light.intensity = Random.Range(light.intensity - 0.25f, light.intensity + 0.25f); 
+            if (light.intensity <= 0) light.intensity += 1f;
         }
         yield return new WaitForSeconds(1f);
 

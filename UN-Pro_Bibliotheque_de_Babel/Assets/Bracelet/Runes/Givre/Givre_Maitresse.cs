@@ -21,7 +21,7 @@ public class Givre_Maitresse : MonoBehaviour
                 {
                     Destroy(a);
                 }
-
+                StartCoroutine(collider.GetComponent<Entities>().AffaiblirEnnemi(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
                 collider.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
                 StartCoroutine(StunEnnemy(collider.gameObject));
 

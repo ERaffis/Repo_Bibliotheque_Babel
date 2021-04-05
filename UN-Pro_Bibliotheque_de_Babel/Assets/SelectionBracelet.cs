@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SelectionBracelet : MonoBehaviour
 {
@@ -15,6 +16,24 @@ public class SelectionBracelet : MonoBehaviour
     private void Awake()
     {
         isInRange = false;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (arg0.name == "HUB_Principal" && Inventory.Instance.activeBracelet != null)
+        {    
+            Inventory.Instance.ClearBracelet();
+        }
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
     }
     private void Update()
     {

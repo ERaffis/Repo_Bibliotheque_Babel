@@ -8,8 +8,6 @@ public class EnnemySpawner : MonoBehaviour
     public GameObject[] spawnLocationArray;
 
     public GameObject[] ennemiesBiome1;
-    //public GameObject[] ennemiesBiome2;
-    //public GameObject[] ennemiesBiome3;
 
     public GameObject[] modifEnvironnement;
     private int envSpawned;
@@ -60,85 +58,6 @@ public class EnnemySpawner : MonoBehaviour
 
         }
         
-    
-
-        /*
-        // Spawn le nombre d'enemies en fonction de la difficulé et du biome. 
-        switch (LevelManager.Instance.currentBiome)
-        {
-            case 0:
-                foreach (GameObject spawnLocation in spawnLocationArray)
-                {
-                    if(GameHandler.Instance.nmbSpawned <= GameHandler.Instance.nmbToSpawns)
-                    {
-                        GameHandler.Instance.nmbSpawned++;
-                        
-
-                        if (Random.Range(0f, 1f) >= .5f)
-                        {
-                            GameObject ennemy = Instantiate(ennemiesBiome1[0], spawnLocation.transform);
-                            ennemy.transform.parent = null;
-                        }
-                        else
-                        {
-                            GameObject ennemy = Instantiate(ennemiesBiome1[1], spawnLocation.transform);
-                            ennemy.transform.parent = null;
-                        }
-                        
-                    }
-                }
-                break;
-            case 1:
-                foreach (GameObject spawnLocation in spawnLocationArray)
-                {
-                    if (GameHandler.Instance.nmbSpawned <= GameHandler.Instance.nmbToSpawns)
-                    {
-                        GameHandler.Instance.nmbSpawned++;
-
-
-                        if (Random.Range(0f, 1f) >= .5f)
-                        {
-                            GameObject ennemy = Instantiate(ennemiesBiome1[0], spawnLocation.transform);
-                            ennemy.transform.parent = null;
-                        }
-                        else
-                        {
-                            GameObject ennemy = Instantiate(ennemiesBiome1[1], spawnLocation.transform);
-                            ennemy.transform.parent = null;
-                        }
-
-                    }
-                }
-                break;
-            case 2:
-                foreach (GameObject spawnLocation in spawnLocationArray)
-                {
-                    if (GameHandler.Instance.nmbSpawned <= GameHandler.Instance.nmbToSpawns)
-                    {
-                        GameHandler.Instance.nmbSpawned++;
-
-
-                        if (Random.Range(0f, 1f) >= .5f)
-                        {
-                            GameObject ennemy = Instantiate(ennemiesBiome1[0], spawnLocation.transform);
-                            ennemy.transform.parent = null;
-                        }
-                        else
-                        {
-                            GameObject ennemy = Instantiate(ennemiesBiome1[1], spawnLocation.transform);
-                            ennemy.transform.parent = null;
-                        }
-
-                    }
-                }
-                break;
-
-            default:
-                Debug.LogWarning("Something went wrong with the spawns");
-                break;
-        }
-        */
-
         GameHandler.Instance.nmbRemaining = GameHandler.Instance.nmbSpawned;
     }
 

@@ -6,19 +6,19 @@ public class OilSpill : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out PlayerScript a))
+        if (collision.transform.parent.TryGetComponent(out PlayerScript a))
         {
-            collision.gameObject.GetComponent<PlayerScript>().ChangeMoveState();
-            collision.gameObject.GetComponent<Rigidbody2D>().drag = 0;
+            collision.transform.parent.GetComponent<PlayerScript>().ChangeMoveState();
+            collision.transform.parent.GetComponent<Rigidbody2D>().drag = 0;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out PlayerScript a))
+        if(collision.transform.parent.TryGetComponent(out PlayerScript a))
         {
-            collision.gameObject.GetComponent<PlayerScript>().ChangeMoveState();
-            collision.gameObject.GetComponent<Rigidbody2D>().drag = 10;
+            collision.transform.parent.GetComponent<PlayerScript>().ChangeMoveState();
+            collision.transform.parent.GetComponent<Rigidbody2D>().drag = 10;
         }
     }
 }

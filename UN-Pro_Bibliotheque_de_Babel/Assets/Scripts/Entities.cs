@@ -13,7 +13,7 @@ public class Entities : MonoBehaviour
     [Header("Basic Info")]
     public string entityName;
     public int maxHealth;
-    public int currentHealth;
+    public float currentHealth;
     public float moveSpeed;
     public int animationIndex;
 
@@ -29,6 +29,7 @@ public class Entities : MonoBehaviour
     public bool canMove;
     public bool isStuned;
     public bool isRooted;
+    public float weakness;
 
     [Header("Immunity")]
     public bool isImmune;
@@ -59,7 +60,7 @@ public class Entities : MonoBehaviour
     {
         if(!isImmune)
         {
-            currentHealth -= dmg;
+            currentHealth -= dmg * weakness;
             DamagePopup.Create(GetPosition(), dmg);
         }
     }
@@ -115,6 +116,13 @@ public class Entities : MonoBehaviour
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    public IEnumerator AffaiblirEnnemi(float val, float time)
+    {
+        weakness = val;
+        yield return new WaitForSeconds(time);
+        weakness = 1;
     }
 
 }

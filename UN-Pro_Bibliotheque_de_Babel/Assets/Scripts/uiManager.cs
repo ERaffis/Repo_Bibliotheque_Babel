@@ -48,9 +48,31 @@ public class uiManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;    
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+    }
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (arg0.name == "HUB_Principal")
+        {
+            SetRoomInfoHUB();
+        }
+        else
+        {
+            SetRoomInfo();
+        }
+    }
+
+
     private void Start()
     {
-        SetRoomInfo();
+        SetRoomInfoHUB();
     }
 
     private void Update()
