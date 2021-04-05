@@ -10,59 +10,73 @@ public class Explosion_Maitresse : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.layer == 6 && !collider.gameObject.CompareTag("Player1"))
+        if (collider.gameObject.CompareTag("Ennemy"))
         {
             
             Vector2 explosionPos = transform.position;
             
             Collider2D[] colliders = Physics2D.OverlapCircleAll(explosionPos, projectile_Joueur.aoeSize);
 
-            
 
-
+            float tempDmg = projectile_Joueur.damage;
+            //hit.attachedRigidbody.AddExplosionForce(projectile_Joueur.explosionForce, explosionPos, projectile_Joueur.aoeSize, 0);
             foreach (Collider2D hit in colliders)
             {
-               //hit.attachedRigidbody.AddExplosionForce(projectile_Joueur.explosionForce, explosionPos, projectile_Joueur.aoeSize, 0);
-                if (colliders.Length == 1)
+
+                switch (colliders.Length)
                 {
-                    if (hit.gameObject.CompareTag("Ennemy") )
-                        hit.GetComponent<Entities>().SetHealth((int) projectile_Joueur.damage);
+                    case 1:
 
-                    if (hit.gameObject.CompareTag("Boss"))
-                        Debug.Log("The Boss was hit");
-                    
+                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+
+                        break;
+
+                    case 2:
+
+                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                        projectile_Joueur.damage = tempDmg * 0.80f;
+                        break;
+
+                    case 3:
+
+                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                        projectile_Joueur.damage = tempDmg * 0.60f;
+                        break;
+
+                    case 4:
+
+                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                        projectile_Joueur.damage = tempDmg * 0.40f;
+                        break;
+
+                    default:
+                        break;
                 }
-                else if (colliders.Length==2)
-                {
-                    if (hit.gameObject.CompareTag("Ennemy"))
-                        hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
-
-                    if (hit.gameObject.CompareTag("Boss"))
-                        Debug.Log("The Boss was hit");
-                }
-                else if (colliders.Length == 3)
-                {
-                    if (hit.gameObject.CompareTag("Ennemy"))
-                        hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
-
-                    if (hit.gameObject.CompareTag("Boss"))
-                        Debug.Log("The Boss was hit");
-                }
-                else
-                {
-                    if (hit.gameObject.CompareTag("Ennemy"))
-                        hit.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
-
-                    if (hit.gameObject.CompareTag("Boss"))
-                        Debug.Log("The Boss was hit");
-
-                }
-
+             
             }
-
-            Destroy(gameObject);
+            projectile_Joueur.damage = tempDmg;
+            StartCoroutine(DisableProjectile());
         }
 
-        
+        if (collider.gameObject.CompareTag("Boss"))
+        {
+            //Deal damage to Boss.
+        }
+
     }
+
+    IEnumerator DisableProjectile()
+    {
+        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+        if (TryGetComponent(out Collider2D a))
+            Destroy(a);
+        if (TryGetComponent(out Collider2D b))
+            Destroy(b);
+        if (TryGetComponent(out AreaEffector2D c))
+            Destroy(c);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
+    }
+
 }

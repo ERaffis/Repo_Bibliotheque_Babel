@@ -2,26 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Givre_Maitresse : MonoBehaviour
+public class Amplification_Maitresse : MonoBehaviour
 {
-
     public Projectile_Joueur projectile_Joueur;
+
+
+    public void OnEnable()
+    {
+        transform.localScale = transform.localScale * 2;
+    }
+
 
     void OnTriggerEnter2D(Collider2D collider)
     {
         //Projectile entre en collision avec un ennemi
         if (collider.gameObject.CompareTag("Ennemy"))
         {
-            //Debuff & Stun Enemy
-            StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
-            StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
-
             //Damage Enemy
             collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
             //DestroyProjectile
             StartCoroutine(DisableProjectile());
-            
         }
 
         //Projectile entre en collision avec un boss
@@ -32,7 +33,6 @@ public class Givre_Maitresse : MonoBehaviour
         }
 
     }
-
 
     IEnumerator DisableProjectile()
     {

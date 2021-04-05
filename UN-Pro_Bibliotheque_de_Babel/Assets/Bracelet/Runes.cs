@@ -59,7 +59,8 @@ public class Runes : ScriptableObject
                 break;
 
             case "Amplification":
-
+                projectile.AddComponent<Amplification_Maitresse>();
+                projectile.GetComponent<Amplification_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             case "Explosion":
@@ -79,11 +80,11 @@ public class Runes : ScriptableObject
             case "Embrasement":
                 if(order == pressOrder)
                 {
-                    Debug.Log("EmbrasementOrdre");
                     Ordre(name, projectile);
                 } else
                 {
-                    Debug.Log("EmbrasementSupport");
+                    projectile.AddComponent<Embrasement_Support>();
+                    projectile.GetComponent<Embrasement_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 }
                 break;
 
@@ -94,6 +95,8 @@ public class Runes : ScriptableObject
                 }
                 else
                 {
+                    projectile.AddComponent<Givre_Support>();
+                    projectile.GetComponent<Givre_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
 
                 }
                 break;
@@ -105,6 +108,8 @@ public class Runes : ScriptableObject
                 }
                 else
                 {
+                    projectile.AddComponent<Amplification_Support>();
+                    projectile.GetComponent<Amplification_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
 
                 }
                 break;
@@ -116,6 +121,8 @@ public class Runes : ScriptableObject
                 }
                 else
                 {
+                    projectile.AddComponent<Explosion_Support>();
+                    projectile.GetComponent<Explosion_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
 
                 }
                 break;
@@ -135,14 +142,20 @@ public class Runes : ScriptableObject
                 break;
 
             case "Givre":
+                projectile.AddComponent<Givre_Ordre>();
+                projectile.GetComponent<Givre_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
 
                 break;
 
             case "Amplification":
+                projectile.AddComponent<Amplification_Ordre>();
+                projectile.GetComponent<Amplification_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
 
                 break;
 
             case "Explosion":
+                projectile.AddComponent<Explosion_Ordre>();
+                projectile.GetComponent<Explosion_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
 
                 break;
 

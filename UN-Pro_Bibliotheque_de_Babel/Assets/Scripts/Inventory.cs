@@ -301,7 +301,7 @@ public class Inventory : MonoBehaviour
                 break;
 
             default:
-                Debug.LogWarning("Eat My Booty Something went wrong");
+                //Debug.LogWarning("Eat My Booty Something went wrong");
                 break;
         }
     }

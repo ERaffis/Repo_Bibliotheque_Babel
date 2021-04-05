@@ -48,6 +48,7 @@ public class Entities : MonoBehaviour
         SetStartHealth();
         _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
         StartCoroutine(WaitToMoveStart());
+        weakness = 1;
     }
 
     // Update is called once per frame
@@ -56,12 +57,12 @@ public class Entities : MonoBehaviour
         CheckHealth();
     }
 
-    public void SetHealth(int dmg)
+    public void SetHealth(float dmg)
     {
         if(!isImmune)
         {
             currentHealth -= dmg * weakness;
-            DamagePopup.Create(GetPosition(), dmg);
+            DamagePopup.Create(GetPosition(), (int) dmg);
         }
     }
 
@@ -118,11 +119,27 @@ public class Entities : MonoBehaviour
         return transform.position;
     }
 
-    public IEnumerator AffaiblirEnnemi(float val, float time)
+    public IEnumerator WeakenEnemy(float val, float time)
     {
         weakness = val;
         yield return new WaitForSeconds(time);
         weakness = 1;
+    }
+    public IEnumerator StunEnnemy(float time)
+    {
+        isStuned = true;
+
+        yield return new WaitForSeconds(time);
+
+        isStuned = false;
+    }
+
+    public IEnumerator SlowEnnemy(float val, float time)
+    {
+        float previousMS = moveSpeed;
+        moveSpeed = val;
+        yield return new WaitForSeconds(time);
+        moveSpeed = previousMS;
     }
 
 }

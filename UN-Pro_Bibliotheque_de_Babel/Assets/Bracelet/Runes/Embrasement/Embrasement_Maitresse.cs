@@ -6,10 +6,10 @@ public class Embrasement_Maitresse : MonoBehaviour
 {
     public Projectile_Joueur projectile_Joueur;
 
-    
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        //Projectile entre en contact avec un ennemy
         if (collider.gameObject.CompareTag("Ennemy"))
         {
             if (collider.gameObject.transform.childCount < 3)
@@ -18,13 +18,14 @@ public class Embrasement_Maitresse : MonoBehaviour
                 Transform ennemyTransform = collider.gameObject.transform;
                 transform.parent = ennemyTransform;
 
-                collider.GetComponent<Entities>().SetHealth((int)projectile_Joueur.damage);
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
                 StartCoroutine(DamageoverTime(collider.gameObject));
 
                 StartCoroutine(DisableProjectile());
             }
         }
 
+        //Projectile entre en contact avec un Boss
         if (collider.gameObject.CompareTag("Boss"))
         {
             Debug.Log("The Boss was hit");
@@ -35,7 +36,7 @@ public class Embrasement_Maitresse : MonoBehaviour
 
     public IEnumerator DamageoverTime(GameObject col)
     {
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(0.5f);
         if (col.GetComponent<Entities>().isTakingDamage == false)
         {
             col.GetComponent<Entities>().isTakingDamage = true;
@@ -45,7 +46,7 @@ public class Embrasement_Maitresse : MonoBehaviour
 
                 col.GetComponent<Entities>().SetHealth(projectile_Joueur.dotDamage);
 
-                yield return new WaitForSeconds(.25f);
+                yield return new WaitForSeconds(0.25f);
 
             }
 
@@ -63,18 +64,10 @@ public class Embrasement_Maitresse : MonoBehaviour
             Destroy(a);
         if (TryGetComponent(out Collider2D b))
             Destroy(b);
-
-        yield return new WaitForSeconds(.2f);
-
         if (TryGetComponent(out AreaEffector2D c))
             Destroy(c);
-
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.5f);
+        Destroy(gameObject);
     }
 
-    IEnumerator ExplodeProjectile()
-    {
-        yield return new WaitForSeconds(0.01f);
-        Destroy(this.gameObject);
-    }
 }
