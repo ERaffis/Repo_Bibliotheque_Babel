@@ -58,7 +58,8 @@ public class Bracelet : ScriptableObject
                     rune.secondAoeSize, 
                     rune.secondAoeDamage, 
                     rune.delaySecondAoe, 
-                    rune.explosionForce);
+                    rune.explosionForce,
+                    rune.nmbProjectileExplosion);
 
                 Debug.Log("Instantiaded Projectile");
                 rune.Maitresse(projectile);
@@ -94,7 +95,8 @@ public class Bracelet : ScriptableObject
                         rune.secondAoeSize,
                         rune.secondAoeDamage,
                         rune.delaySecondAoe,
-                        rune.explosionForce);
+                        rune.explosionForce,
+                        rune.nmbProjectileExplosion);
 
                     rune.Maitresse(projectile1);
                     angle += 45f;
@@ -125,7 +127,8 @@ public class Bracelet : ScriptableObject
                     rune.secondAoeSize,
                     rune.secondAoeDamage,
                     rune.delaySecondAoe,
-                    rune.explosionForce);
+                    rune.explosionForce,
+                    rune.nmbProjectileExplosion);
 
                 Debug.Log("Instantiaded Projectile");
                 rune.Maitresse(projectile2);
@@ -155,7 +158,8 @@ public class Bracelet : ScriptableObject
                     rune.secondAoeSize,
                     rune.secondAoeDamage,
                     rune.delaySecondAoe,
-                    rune.explosionForce);
+                    rune.explosionForce,
+                    rune.nmbProjectileExplosion);
 
                 Debug.Log("Instantiaded Projectile");
                 projectile3.AddComponent<AimAssist>();
@@ -187,7 +191,8 @@ public class Bracelet : ScriptableObject
                     rune.secondAoeSize,
                     rune.secondAoeDamage,
                     rune.delaySecondAoe,
-                    rune.explosionForce);
+                    rune.explosionForce,
+                    rune.nmbProjectileExplosion);
 
                 Debug.Log("Instantiaded Projectile");
                 rune.Maitresse(projectile4);
@@ -230,7 +235,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile);
                 break;
@@ -263,7 +269,8 @@ public class Bracelet : ScriptableObject
                         rune0.secondAoeSize,
                         rune0.secondAoeDamage,
                         rune0.delaySecondAoe,
-                        rune0.explosionForce);
+                        rune0.explosionForce,
+                        rune0.nmbProjectileExplosion);
 
                     rune0.Maitresse(projectile1);
                     angle += 15f;
@@ -296,7 +303,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile2);
                 break;
@@ -326,7 +334,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile3);
                 break;
@@ -356,7 +365,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile4);
                 break;
@@ -380,7 +390,7 @@ public class Bracelet : ScriptableObject
 
                 projectile.AddComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -398,7 +408,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile);
                 rune1.Support(2, projectile);
@@ -414,7 +425,7 @@ public class Bracelet : ScriptableObject
 
                     projectile1.AddComponent<Projectile_Joueur>();
                     projectile1.GetComponent<Projectile_Joueur>().SetValues(
-                        (baseDamage + rune0.baseDamage) * rune1.multDamage,
+                        (baseDamage + rune0.baseDamage),
                         rune0.baseKnockbak,
                         rune0.dotDamage,
                         rune0.dotDuration,
@@ -432,7 +443,8 @@ public class Bracelet : ScriptableObject
                         rune0.secondAoeSize,
                         rune0.secondAoeDamage,
                         rune0.delaySecondAoe,
-                        rune0.explosionForce);
+                        rune0.explosionForce,
+                        rune0.nmbProjectileExplosion);
 
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
@@ -448,7 +460,7 @@ public class Bracelet : ScriptableObject
 
                 projectile2.AddComponent<Projectile_Joueur>();
                 projectile2.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -466,7 +478,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile2);
                 rune1.Support(2, projectile2);
@@ -479,7 +492,7 @@ public class Bracelet : ScriptableObject
 
                 projectile3.AddComponent<Projectile_Joueur>();
                 projectile3.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -497,7 +510,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile3);
                 rune1.Support(2, projectile3);
@@ -510,7 +524,7 @@ public class Bracelet : ScriptableObject
 
                 projectile4.AddComponent<Projectile_Joueur>();
                 projectile4.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -528,7 +542,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile4);
                 rune1.Support(2, projectile4);
@@ -552,7 +567,7 @@ public class Bracelet : ScriptableObject
 
                 projectile.AddComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -570,7 +585,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile);
                 rune1.Support(2, projectile);
@@ -587,7 +603,7 @@ public class Bracelet : ScriptableObject
 
                     projectile1.AddComponent<Projectile_Joueur>();
                     projectile1.GetComponent<Projectile_Joueur>().SetValues(
-                        (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage,
+                        (baseDamage + rune0.baseDamage),
                         rune0.baseKnockbak,
                         rune0.dotDamage,
                         rune0.dotDuration,
@@ -605,7 +621,8 @@ public class Bracelet : ScriptableObject
                         rune0.secondAoeSize,
                         rune0.secondAoeDamage,
                         rune0.delaySecondAoe,
-                        rune0.explosionForce);
+                        rune0.explosionForce,
+                        rune0.nmbProjectileExplosion);
 
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
@@ -622,7 +639,7 @@ public class Bracelet : ScriptableObject
 
                 projectile2.AddComponent<Projectile_Joueur>();
                 projectile2.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -640,7 +657,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile2);
                 rune1.Support(2, projectile2);
@@ -654,7 +672,7 @@ public class Bracelet : ScriptableObject
 
                 projectile3.AddComponent<Projectile_Joueur>();
                 projectile3.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -672,7 +690,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile3);
                 rune1.Support(2, projectile3);
@@ -686,7 +705,7 @@ public class Bracelet : ScriptableObject
 
                 projectile4.AddComponent<Projectile_Joueur>();
                 projectile4.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -704,7 +723,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile4);
                 rune1.Support(2, projectile4);
@@ -729,7 +749,7 @@ public class Bracelet : ScriptableObject
 
                 projectile.AddComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage * rune3.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -747,7 +767,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile);
                 rune1.Support(2, projectile);
@@ -765,7 +786,7 @@ public class Bracelet : ScriptableObject
 
                     projectile1.AddComponent<Projectile_Joueur>();
                     projectile1.GetComponent<Projectile_Joueur>().SetValues(
-                        (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage * rune3.multDamage,
+                        (baseDamage + rune0.baseDamage),
                         rune0.baseKnockbak,
                         rune0.dotDamage,
                         rune0.dotDuration,
@@ -783,7 +804,8 @@ public class Bracelet : ScriptableObject
                         rune0.secondAoeSize,
                         rune0.secondAoeDamage,
                         rune0.delaySecondAoe,
-                        rune0.explosionForce);
+                        rune0.explosionForce,
+                        rune0.nmbProjectileExplosion);
 
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
@@ -801,7 +823,7 @@ public class Bracelet : ScriptableObject
 
                 projectile2.AddComponent<Projectile_Joueur>();
                 projectile2.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage * rune3.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -819,7 +841,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile2);
                 rune1.Support(2, projectile2);
@@ -834,7 +857,7 @@ public class Bracelet : ScriptableObject
 
                 projectile3.AddComponent<Projectile_Joueur>();
                 projectile3.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage * rune3.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -852,7 +875,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile3);
                 rune1.Support(2, projectile3);
@@ -867,7 +891,7 @@ public class Bracelet : ScriptableObject
 
                 projectile4.AddComponent<Projectile_Joueur>();
                 projectile4.GetComponent<Projectile_Joueur>().SetValues(
-                    (baseDamage + rune0.baseDamage) * rune1.multDamage * rune2.multDamage * rune3.multDamage,
+                    (baseDamage + rune0.baseDamage),
                     rune0.baseKnockbak,
                     rune0.dotDamage,
                     rune0.dotDuration,
@@ -885,7 +909,8 @@ public class Bracelet : ScriptableObject
                     rune0.secondAoeSize,
                     rune0.secondAoeDamage,
                     rune0.delaySecondAoe,
-                    rune0.explosionForce);
+                    rune0.explosionForce,
+                    rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile4);
                 rune1.Support(2, projectile4);

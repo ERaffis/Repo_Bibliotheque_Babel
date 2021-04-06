@@ -6,15 +6,8 @@ public class Amplification_Ordre : MonoBehaviour
 { 
     public Projectile_Joueur projectile_Joueur;
 
-    // Start is called before the first frame update
-    void Start()
+    public void OnEnable()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GetComponent<Rigidbody2D>().velocity *= 1.3f;
     }
 }

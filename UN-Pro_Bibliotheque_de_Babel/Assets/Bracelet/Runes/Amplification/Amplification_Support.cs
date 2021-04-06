@@ -6,15 +6,12 @@ public class Amplification_Support : MonoBehaviour
 {
     public Projectile_Joueur projectile_Joueur;
 
-    // Start is called before the first frame update
-    void Start()
+
+    public void OnEnable()
     {
-        
+        transform.localScale = transform.localScale * 1.5f;
+        GetComponent<Rigidbody2D>().velocity *= 0.8f;
+        projectile_Joueur.SetKnockback(1.1f);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

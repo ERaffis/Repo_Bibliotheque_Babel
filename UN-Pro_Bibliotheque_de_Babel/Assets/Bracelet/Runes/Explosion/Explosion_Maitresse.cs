@@ -26,27 +26,33 @@ public class Explosion_Maitresse : MonoBehaviour
                 switch (colliders.Length)
                 {
                     case 1:
-
-                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                        if (hit.gameObject.CompareTag("Ennemy"))
+                            hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
                         break;
 
                     case 2:
-
-                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
-                        projectile_Joueur.damage = tempDmg * 0.80f;
+                        if (hit.gameObject.CompareTag("Ennemy"))
+                        {
+                            hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                            projectile_Joueur.damage = tempDmg * 0.80f;
+                        }
                         break;
 
                     case 3:
-
-                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
-                        projectile_Joueur.damage = tempDmg * 0.60f;
+                        if (hit.gameObject.CompareTag("Ennemy"))
+                        {
+                            hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                            projectile_Joueur.damage = tempDmg * 0.60f;
+                        }
                         break;
 
                     case 4:
-
-                        hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
-                        projectile_Joueur.damage = tempDmg * 0.40f;
+                        if (hit.gameObject.CompareTag("Ennemy"))
+                        {
+                            hit.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                            projectile_Joueur.damage = tempDmg * 0.40f;
+                        }
                         break;
 
                     default:

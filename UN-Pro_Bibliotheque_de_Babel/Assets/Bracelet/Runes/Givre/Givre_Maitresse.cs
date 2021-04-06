@@ -28,7 +28,7 @@ public class Givre_Maitresse : MonoBehaviour
         if (collider.gameObject.CompareTag("Boss"))
         {
             Debug.Log("The Boss was hit");
-            Destroy(gameObject);
+            StartCoroutine(DisableProjectile());
         }
 
     }

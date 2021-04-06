@@ -142,4 +142,18 @@ public class Entities : MonoBehaviour
         moveSpeed = previousMS;
     }
 
+    public IEnumerator DamageoverTime(float dmg, float ticks)
+    {
+        yield return new WaitForSeconds(0.5f);
+        if (!isTakingDamage)
+        {
+           isTakingDamage = true;
+            for (int i = 0; i <= ticks; i++)
+            {
+                SetHealth(dmg);
+                yield return new WaitForSeconds(0.25f);
+            }
+            isTakingDamage = false;
+        }
+    }
 }

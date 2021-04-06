@@ -256,7 +256,7 @@ public class Inventory : MonoBehaviour
 
                         if (activeBracelet.activeRunes[i] == null)
                         {
-                            activeBracelet.activeRunes[i] = runes[1];
+                            activeBracelet.activeRunes[i] = runes[3];
                             equippedRunes[i].GetComponent<Image>().sprite = rune4.GetComponent<Image>().sprite;
                             equippedRunes[i].GetComponent<Image>().color = rune4.GetComponent<Image>().color;
                             break;

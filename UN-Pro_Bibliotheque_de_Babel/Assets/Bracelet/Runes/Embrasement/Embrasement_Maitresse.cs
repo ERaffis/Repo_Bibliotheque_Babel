@@ -19,7 +19,7 @@ public class Embrasement_Maitresse : MonoBehaviour
                 transform.parent = ennemyTransform;
 
                 collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
-                StartCoroutine(DamageoverTime(collider.gameObject));
+                StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
 
                 StartCoroutine(DisableProjectile());
             }
@@ -34,27 +34,6 @@ public class Embrasement_Maitresse : MonoBehaviour
 
     }
 
-    public IEnumerator DamageoverTime(GameObject col)
-    {
-        yield return new WaitForSeconds(0.5f);
-        if (col.GetComponent<Entities>().isTakingDamage == false)
-        {
-            col.GetComponent<Entities>().isTakingDamage = true;
-
-            for (int i = 0; i <= projectile_Joueur.dotDuration; i++)
-            {
-
-                col.GetComponent<Entities>().SetHealth(projectile_Joueur.dotDamage);
-
-                yield return new WaitForSeconds(0.25f);
-
-            }
-
-            col.GetComponent<Entities>().isTakingDamage = false;
-        }
-
-        Destroy(this.gameObject);
-    }
 
     IEnumerator DisableProjectile()
     {

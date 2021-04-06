@@ -5,7 +5,7 @@ using UnityEngine;
 public class Projectile_Joueur : MonoBehaviour
 {
     public float damage;
-    public float knockbak;
+    public float knockback;
     public int dotDamage;
     public int dotDuration;
     public float areaSize;
@@ -23,11 +23,12 @@ public class Projectile_Joueur : MonoBehaviour
     public int secondAoeDamage;
     public float delaySecondAoe;
     public float explosionForce;
+    public int nmbProjectileExplosion;
 
-    public void SetValues(float damage, float knockbak, int dotDamage, int dotDuration, float areaSize, int areaDamage, float areaDuration, int stuntDuration, float debuff, int debuffDuration, int slowDuration, float slowPower, float aoeSize, int aoeDamage, float secondEnemyDamage, float secondAoeSize, int secondAoeDamage, float delaySecondAoe, float explosionForce)
+    public void SetValues(float damage, float knockback, int dotDamage, int dotDuration, float areaSize, int areaDamage, float areaDuration, int stuntDuration, float debuff, int debuffDuration, int slowDuration, float slowPower, float aoeSize, int aoeDamage, float secondEnemyDamage, float secondAoeSize, int secondAoeDamage, float delaySecondAoe, float explosionForce, int nmbProjectileExplosion)
     {
         this.damage = damage;
-        this.knockbak = knockbak;
+        this.knockback = knockback;
         this.dotDamage = dotDamage;
         this.dotDuration = dotDuration;
         this.areaSize = areaSize;
@@ -45,8 +46,15 @@ public class Projectile_Joueur : MonoBehaviour
         this.secondAoeDamage = secondAoeDamage;
         this.delaySecondAoe = delaySecondAoe;
         this.explosionForce = explosionForce;
+        this.nmbProjectileExplosion = nmbProjectileExplosion;
 
-        GetComponent<PointEffector2D>().forceMagnitude = this.knockbak * 20;
+        GetComponent<PointEffector2D>().forceMagnitude = this.knockback * 20;
+    }
+
+    public void SetKnockback(float value)
+    {
+        GetComponent<PointEffector2D>().forceMagnitude = value * 20;
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
