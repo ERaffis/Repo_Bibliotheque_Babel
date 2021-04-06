@@ -6,7 +6,7 @@ public class OilSpill : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.TryGetComponent(out PlayerScript a))
+        if (collision.gameObject.CompareTag("HalfCollider"))
         {
             collision.transform.parent.GetComponent<PlayerScript>().ChangeMoveState();
             collision.transform.parent.GetComponent<Rigidbody2D>().drag = 0;
@@ -15,7 +15,7 @@ public class OilSpill : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.transform.parent.TryGetComponent(out PlayerScript a))
+        if(collision.gameObject.CompareTag("HalfCollider"))
         {
             collision.transform.parent.GetComponent<PlayerScript>().ChangeMoveState();
             collision.transform.parent.GetComponent<Rigidbody2D>().drag = 10;

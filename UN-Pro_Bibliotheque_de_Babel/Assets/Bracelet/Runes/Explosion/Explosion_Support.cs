@@ -12,6 +12,8 @@ public class Explosion_Support : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Ennemy"))
             {
+                collision.gameObject.GetComponent<Entities>().InstantiateNewProjectile(projectile_Joueur.nmbProjectileExplosion, gameObject);
+                /*
                 for (int i = 0; i < projectile_Joueur.nmbProjectileExplosion; i++)
                 {
                     GameObject newProjectile = Instantiate(gameObject, collision.transform.position + Vector3.up * 1.25f, new Quaternion(0, 0, 0, 0));
@@ -19,7 +21,7 @@ public class Explosion_Support : MonoBehaviour
                     Destroy(newProjectile.GetComponent<Explosion_Support>());
                     newProjectile.GetComponent<Rigidbody2D>().velocity = newProjectile.transform.right * GetComponent<Rigidbody2D>().velocity;
                 }
-
+                */
             }
         }
 

@@ -347,6 +347,9 @@ MonoBehaviour:
   rb: {fileID: 1254482564753501540}
   isTakingDamage: 0
   canMove: 1
+  isStuned: 0
+  isRooted: 0
+  weakness: 0
   isImmune: 0
   healthBar: {fileID: 0}
   entityType: Player
@@ -380,7 +383,7 @@ MonoBehaviour:
   - {x: -0.18337923, y: 0.15352198, z: 0}
   m_ShapePathHash: -646357795
   m_Mesh: {fileID: 0}
-  m_InstanceId: 33622
+  m_InstanceId: 33448
 --- !u!114 &7014725019331352941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1657,7 +1660,7 @@ GameObject:
   - component: {fileID: 4678365588362909214}
   m_Layer: 14
   m_Name: HalfCollider
-  m_TagString: Untagged
+  m_TagString: HalfCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -156,4 +156,15 @@ public class Entities : MonoBehaviour
             isTakingDamage = false;
         }
     }
+
+    public void InstantiateNewProjectile(int nmbProj, GameObject projectile)
+    {
+        for (int i = 0; i < nmbProj; i++)
+        {
+            GameObject newProjectile = Instantiate(projectile, transform.position + Vector3.up * 1.25f, new Quaternion(0, 0, 0, 0));
+            newProjectile.transform.RotateAround(transform.position, Vector3.forward, 360 / nmbProj * i);
+            Destroy(newProjectile.GetComponent<Explosion_Support>());
+            newProjectile.GetComponent<Rigidbody2D>().velocity = newProjectile.transform.right * GetComponent<Rigidbody2D>().velocity;
+        }
+    }
 }

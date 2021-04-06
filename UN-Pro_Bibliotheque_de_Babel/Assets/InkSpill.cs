@@ -8,25 +8,44 @@ public class InkSpill : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.TryGetComponent(out PlayerScript a))
+        switch (collision.gameObject.tag)
         {
-            collision.transform.parent.GetComponent<PlayerMovement>().envModifier = 0.25f;
-        }
+            case "HalfCollider" :
+                if(collision.transform.parent.TryGetComponent(out PlayerScript plScript))
+                {
+                    collision.transform.parent.GetComponent<PlayerMovement>().envModifier = 0.25f;
+                }
+                break;
 
-        if (collision.TryGetComponent(out Givre_Maitresse b))
-        {
-            GetComponent<CircleCollider2D>().enabled = false;
-            GetComponent<SpriteRenderer>().sprite = frozenSprite;
-            Destroy(collision.gameObject);
+            case "Projectile":
+
+                if (collision.TryGetComponent(out Givre_Maitresse b))
+                {
+                    Debug.Log("Freeze InkSpill");
+                    GetComponent<CircleCollider2D>().enabled = false;
+                    GetComponent<SpriteRenderer>().sprite = frozenSprite;
+                    Destroy(collision.gameObject);
+                }
+                break;
+
+            default:
+                break;
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.parent.TryGetComponent(out PlayerScript a))
+        switch (collision.gameObject.tag)
         {
-            collision.transform.parent.GetComponent<PlayerMovement>().envModifier = 1f;
+            case "HalfCollider":
+                if (collision.transform.parent.TryGetComponent(out PlayerScript a))
+                {
+                    collision.transform.parent.GetComponent<PlayerMovement>().envModifier = 1f;
+                }
+                break;
         }
     }
-
+        
 }
+

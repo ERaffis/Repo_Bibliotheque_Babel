@@ -20,6 +20,7 @@ TagManager:
   - Page_Vierge
   - Fragment
   - Boss
+  - HalfCollider
   layers:
   - Default
   - TransparentFX

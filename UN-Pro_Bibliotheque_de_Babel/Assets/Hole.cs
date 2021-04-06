@@ -7,7 +7,7 @@ public class Hole : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.parent.TryGetComponent(out PlayerScript a))
+        if (collision.gameObject.CompareTag("HalfCollider"))
         {
             foreach (GameObject item in GameObject.FindGameObjectsWithTag("Ennemy"))
             {
