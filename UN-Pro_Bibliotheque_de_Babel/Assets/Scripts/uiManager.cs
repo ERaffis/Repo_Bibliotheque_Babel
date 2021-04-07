@@ -12,6 +12,7 @@ public class uiManager : MonoBehaviour
 
     [Header("Player")]
     public GameObject player1;
+    public TMP_Text health;
 
     [Header("Components")]
     public GameObject _GameHandler;
@@ -77,7 +78,7 @@ public class uiManager : MonoBehaviour
 
     private void Update()
     {
-
+        health.text = PlayerScript.Instance.currentHealth + " / " + PlayerScript.Instance.maxHealth;
     }
 
     public void SetRoomInfo()
