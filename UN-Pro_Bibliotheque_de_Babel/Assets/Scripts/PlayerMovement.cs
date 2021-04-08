@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashDuration = 0.1f;
     public float dashCooldown = 3.5f;
     public bool canDash = true;
-    public bool isDashing = false;
+    
 
     private float moveHorizontal;
     private float moveVertical ;
@@ -45,14 +45,17 @@ public class PlayerMovement : MonoBehaviour
     private void Update() 
     {
         CheckCombo();
+        if (!PlayerScript.Instance.isDead)
+        {
+            GetMoveAxies();
+            GetAimAxies();
+            FindMoveAngle();
+            FindAimAngle();
 
-        GetMoveAxies();
-        GetAimAxies();
-        FindMoveAngle();
-        FindAimAngle();
+            if (PlayerScript.Instance.canMove) MovePlayer();
+            AimPlayer();
+        }
         
-        if (PlayerScript.Instance.canMove) MovePlayer();
-        AimPlayer();
 
     }
     private void OnEnable()
@@ -140,8 +143,10 @@ public class PlayerMovement : MonoBehaviour
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(7);
             }
         }
-        
-
+        else if (moveDirection == Vector2.zero && aimDirection == Vector2.zero)
+        {
+            PlayerScript.Instance.animator.SetInteger("Index", 0);
+        }
     }
 
     private void MovePlayer(){

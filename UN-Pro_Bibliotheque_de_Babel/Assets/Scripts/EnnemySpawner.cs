@@ -22,7 +22,7 @@ public class EnnemySpawner : MonoBehaviour
     void Start()
     {
         SpawnEnnemies();
-        SpawnEnvironnement();
+        //SpawnEnvironnement();
     }
 
     void SpawnEnnemies()

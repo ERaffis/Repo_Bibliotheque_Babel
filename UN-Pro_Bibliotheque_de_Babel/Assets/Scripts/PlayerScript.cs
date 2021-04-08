@@ -16,6 +16,8 @@ public class PlayerScript : Entities
     [Header("Run Counter")]
     public int nmbRun;
 
+    public bool isDead = false;
+
     private void Awake()
     {
         if (Instance == null)
@@ -41,6 +43,11 @@ public class PlayerScript : Entities
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            isDead = true;
+            animator.Play("PlayerDead",0,0.25f);
+        }
         if(currentHealth <= 0)
         {
             PlayerDied();
@@ -60,7 +67,7 @@ public class PlayerScript : Entities
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        //throw new System.NotImplementedException();
+        isDead = false;
     }
 
     public IEnumerator SetSpawn()
@@ -94,6 +101,8 @@ public class PlayerScript : Entities
         {
             Destroy(item);
         }
+
+        animator.Play("PlayerDead");
 
         SetStartHealth();
         GameHandler.Instance.RunEnded(false);

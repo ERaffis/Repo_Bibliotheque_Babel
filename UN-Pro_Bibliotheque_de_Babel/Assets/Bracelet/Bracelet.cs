@@ -203,7 +203,6 @@ public class Bracelet : ScriptableObject
         }
     }
 
-
     public void ProjectileCombo(string braceletName, Runes rune0)
     {
         var shotRotation = GameHandler.Instance.activeInstDir.transform.rotation;
@@ -242,11 +241,13 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
+                angle = -45f;
                 for (int i = 0; i < 3; i++)
                 {
-                    shotRotation *= Quaternion.Euler(0, 0, angle);
+                    var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
+                    shotRotation1 *= Quaternion.Euler(0, 0, angle);
 
-                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation);
+                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation1);
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed;
 
                     projectile1.AddComponent<Projectile_Joueur>();
@@ -273,7 +274,7 @@ public class Bracelet : ScriptableObject
                         rune0.nmbProjectileExplosion);
 
                     rune0.Maitresse(projectile1);
-                    angle += 15f;
+                    angle += 45f;
                 }
 
                 
@@ -338,6 +339,9 @@ public class Bracelet : ScriptableObject
                     rune0.nmbProjectileExplosion);
 
                 rune0.Maitresse(projectile3);
+                projectile3.AddComponent<AimAssist>();
+                projectile3.GetComponent<AimAssist>().speed = baseSpeed * rune0.multSpeed;
+
                 break;
 
             case "Vitesse Rapide":
@@ -416,11 +420,13 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
+                angle = -45f;
                 for (int i = 0; i < 3; i++)
                 {
-                    shotRotation *= Quaternion.Euler(0, 0, angle);
+                    var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
+                    shotRotation1 *= Quaternion.Euler(0, 0, angle);
 
-                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation);
+                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation1);
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed;
 
                     projectile1.AddComponent<Projectile_Joueur>();
@@ -448,7 +454,7 @@ public class Bracelet : ScriptableObject
 
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
-                    angle += 15f;
+                    angle += 45f;
                 }
                
                 break;
@@ -512,6 +518,9 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion);
+
+                projectile3.AddComponent<AimAssist>();
+                projectile3.GetComponent<AimAssist>().speed = baseSpeed * rune0.multSpeed * rune1.multSpeed;
 
                 rune0.Maitresse(projectile3);
                 rune1.Support(2, projectile3);
@@ -594,11 +603,13 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
+                angle = -45f;
                 for (int i = 0; i < 3; i++)
                 {
-                    shotRotation *= Quaternion.Euler(0, 0, angle);
+                    var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
+                    shotRotation1 *= Quaternion.Euler(0, 0, angle);
 
-                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation);
+                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation1);
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed;
 
                     projectile1.AddComponent<Projectile_Joueur>();
@@ -627,7 +638,7 @@ public class Bracelet : ScriptableObject
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
                     rune2.Support(3, projectile1);
-                    angle += 15f;
+                    angle += 45f;
                 }
                 
                 break;
@@ -692,6 +703,10 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion);
+
+                projectile3.AddComponent<AimAssist>();
+                projectile3.GetComponent<AimAssist>().speed = baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed;
+
 
                 rune0.Maitresse(projectile3);
                 rune1.Support(2, projectile3);
@@ -777,11 +792,13 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
+                angle = -45f;
                 for (int i = 0; i < 3; i++)
                 {
-                    shotRotation *= Quaternion.Euler(0, 0, angle);
+                    var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
+                    shotRotation1 *= Quaternion.Euler(0, 0, angle);
 
-                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation);
+                    GameObject projectile1 = Instantiate(prefabProjectile, GameHandler.Instance.activeInstDir.transform.position, shotRotation1);
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed * rune3.multSpeed;
 
                     projectile1.AddComponent<Projectile_Joueur>();
@@ -811,7 +828,7 @@ public class Bracelet : ScriptableObject
                     rune1.Support(2, projectile1);
                     rune2.Support(3, projectile1);
                     rune3.Support(4, projectile1);
-                    angle += 15f;
+                    angle += 45f;
                 }
                 
                 break;
@@ -877,6 +894,9 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion);
+
+                projectile3.AddComponent<AimAssist>();
+                projectile3.GetComponent<AimAssist>().speed = baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed * rune3.multSpeed;
 
                 rune0.Maitresse(projectile3);
                 rune1.Support(2, projectile3);

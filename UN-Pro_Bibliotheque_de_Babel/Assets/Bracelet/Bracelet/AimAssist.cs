@@ -12,7 +12,7 @@ public class AimAssist : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cooldown = 0.75f;
+        cooldown = 0.25f;
     }
 
     // Update is called once per frame
@@ -20,17 +20,28 @@ public class AimAssist : MonoBehaviour
     {
         cooldown -= Time.deltaTime;
 
-        if(cooldown <= 0)
+        if (cooldown <= 0 && target == null)
         {
-            cooldown = 1.15f;
+            cooldown = 0.35f;
             FindTarget();
         }
 
         // Move our position a step closer to the target.
         if (target != null) 
         {
-            float step = speed * Time.unscaledDeltaTime; // calculate distance to move
+            GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            float step = speed * Time.deltaTime; // calculate distance to move
             transform.position = Vector3.MoveTowards(transform.position, target.position, step);
+
+            if (target == null)
+            {
+                Destroy(gameObject);
+            }
+
+            if(cooldown >= 7.5f )
+            {
+                Destroy(gameObject);
+            }
         }
        
 
@@ -38,7 +49,7 @@ public class AimAssist : MonoBehaviour
 
     public void FindTarget()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(this.transform.position, 10f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.75f);
 
         foreach (Collider2D hit in colliders)
         {
