@@ -11,7 +11,6 @@ public class Amplification_Support : MonoBehaviour
     {
         transform.localScale = transform.localScale * 1.5f;
         GetComponent<Rigidbody2D>().velocity *= 0.8f;
-        projectile_Joueur.SetKnockback(1.1f);
     }
 
 }

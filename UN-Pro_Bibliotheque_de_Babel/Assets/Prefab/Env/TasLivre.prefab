@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4489480015322279361}
   - component: {fileID: 4489480015322279363}
   - component: {fileID: 4865496441380873036}
+  - component: {fileID: 1454250743187486669}
   m_Layer: 15
   m_Name: TasLivre
   m_TagString: Untagged
@@ -130,3 +131,15 @@ PolygonCollider2D:
       - {x: 0.16, y: -0.45}
       - {x: 0.22999999, y: -0.44}
       - {x: 0.45, y: -0.25}
+--- !u!114 &1454250743187486669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4489480015322279362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b2f57d4cb9aac428b2cbce627ea2d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

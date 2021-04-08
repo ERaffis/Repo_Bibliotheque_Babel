@@ -13,14 +13,14 @@ public class Givre_Maitresse : MonoBehaviour
         if (collider.gameObject.CompareTag("Ennemy"))
         {
             //Debuff & Stun Enemy
-            StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
-            StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
-
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
+            
             //Damage Enemy
             collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
             //DestroyProjectile
-            StartCoroutine(DisableProjectile());
+            DisableProjectile();
             
         }
 
@@ -28,23 +28,15 @@ public class Givre_Maitresse : MonoBehaviour
         if (collider.gameObject.CompareTag("Boss"))
         {
             Debug.Log("The Boss was hit");
-            StartCoroutine(DisableProjectile());
+            DisableProjectile();
         }
 
     }
 
 
-    IEnumerator DisableProjectile()
+    void DisableProjectile()
     {
-        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
-        if (TryGetComponent(out Collider2D a))
-            Destroy(a);
-        if (TryGetComponent(out Collider2D b))
-            Destroy(b);
-        if (TryGetComponent(out AreaEffector2D c))
-            Destroy(c);
-        yield return new WaitForSeconds(0.5f);
+        //Faire Explosion de particules
         Destroy(gameObject);
     }
 

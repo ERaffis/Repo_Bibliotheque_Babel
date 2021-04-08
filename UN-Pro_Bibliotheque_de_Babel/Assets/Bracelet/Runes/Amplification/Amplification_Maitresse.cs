@@ -22,29 +22,21 @@ public class Amplification_Maitresse : MonoBehaviour
             collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
             //DestroyProjectile
-            StartCoroutine(DisableProjectile());
+            DisableProjectile();
         }
 
         //Projectile entre en collision avec un boss
         if (collider.gameObject.CompareTag("Boss"))
         {
             Debug.Log("The Boss was hit");
-            Destroy(gameObject);
+            DisableProjectile();
         }
 
     }
 
-    IEnumerator DisableProjectile()
+    void DisableProjectile()
     {
-        this.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-
-        if (TryGetComponent(out Collider2D a))
-            Destroy(a);
-        if (TryGetComponent(out Collider2D b))
-            Destroy(b);
-        if (TryGetComponent(out AreaEffector2D c))
-            Destroy(c);
-        yield return new WaitForSeconds(0.5f);
+        //Faire Explosion de particules
         Destroy(gameObject);
     }
 

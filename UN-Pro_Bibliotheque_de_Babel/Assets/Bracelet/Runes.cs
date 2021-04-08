@@ -88,6 +88,8 @@ public class Runes : ScriptableObject
                     projectile.AddComponent<Embrasement_Support>();
                     projectile.GetComponent<Embrasement_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                     projectile.GetComponent<Projectile_Joueur>().damage *= multDamage;
+                    projectile.GetComponent<Projectile_Joueur>().dotDuration = dotDuration;
+                    projectile.GetComponent<Projectile_Joueur>().dotDamage = dotDamage;
                 }
                 break;
 
@@ -101,6 +103,8 @@ public class Runes : ScriptableObject
                     projectile.AddComponent<Givre_Support>();
                     projectile.GetComponent<Givre_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                     projectile.GetComponent<Projectile_Joueur>().damage *= multDamage;
+                    projectile.GetComponent<Projectile_Joueur>().slowDuration = slowDuration;
+                    projectile.GetComponent<Projectile_Joueur>().slowPower = slowPower;
 
                 }
                 break;
@@ -115,6 +119,7 @@ public class Runes : ScriptableObject
                     projectile.AddComponent<Amplification_Support>();
                     projectile.GetComponent<Amplification_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                     projectile.GetComponent<Projectile_Joueur>().damage *= multDamage;
+                    projectile.GetComponent<Projectile_Joueur>().SetKnockback(1.1f);
 
                 }
                 break;
@@ -153,6 +158,11 @@ public class Runes : ScriptableObject
                 projectile.AddComponent<Givre_Ordre>();
                 projectile.GetComponent<Givre_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().damage *= orderMultDamage;
+                projectile.GetComponent<Projectile_Joueur>().slowDuration = slowDuration;
+                projectile.GetComponent<Projectile_Joueur>().slowPower = slowPower;
+                projectile.GetComponent<Projectile_Joueur>().stuntDuration = stuntDuration;
+                projectile.GetComponent<Projectile_Joueur>().debuff = debuff;
+                projectile.GetComponent<Projectile_Joueur>().debuffDuration = debuffDuration;
 
                 break;
 

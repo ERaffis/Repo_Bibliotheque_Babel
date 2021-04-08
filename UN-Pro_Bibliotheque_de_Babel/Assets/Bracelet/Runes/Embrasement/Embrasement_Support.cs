@@ -13,12 +13,7 @@ public class Embrasement_Support : MonoBehaviour
         {
             if (collider.gameObject.transform.childCount < 3)
             {
-
-                Transform ennemyTransform = collider.gameObject.transform;
-                transform.parent = ennemyTransform;
-
-                StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
-
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
             }
         }
 

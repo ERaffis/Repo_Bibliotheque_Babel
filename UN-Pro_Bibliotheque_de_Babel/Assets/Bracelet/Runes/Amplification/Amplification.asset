@@ -18,6 +18,7 @@ MonoBehaviour:
   multDamage: 1.5
   baseKnockbak: 1.2
   order: 4
+  orderMultDamage: 1.4
   dotDamage: 0
   dotDuration: 0
   areaSize: 0
@@ -36,3 +37,5 @@ MonoBehaviour:
   secondAoeSize: 0
   secondAoeDamage: 0
   delaySecondAoe: 0
+  explosionForce: 0
+  nmbProjectileExplosion: 0

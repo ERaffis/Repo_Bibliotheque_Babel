@@ -20,9 +20,8 @@ public class ChangeRoomCollider : MonoBehaviour
         {
             if(GameHandler.Instance.roomCleared)
             {
-                
-                GameHandler.Instance.gameDifficulty += 0.1f;
                 LevelManager.Instance.FadeToLevel();
+                GameHandler.Instance.nmbRooms++;
             } else
             {
                 Debug.LogWarning("Roomed Not Cleared");

@@ -70,4 +70,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0434c2f5e22ca7f4b84709e30c319d01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomCleared: 0

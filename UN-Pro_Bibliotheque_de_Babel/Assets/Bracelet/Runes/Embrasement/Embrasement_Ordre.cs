@@ -7,47 +7,26 @@ public class Embrasement_Ordre : MonoBehaviour
     public Projectile_Joueur projectile_Joueur;
     public GameObject AoE_Feu;
 
-   /* public void SpawnFeu()
-    {
-        Instantiate(AoE_Feu, transform.position, Quaternion.identity);
-    }
-*/
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collider)
     {
        
-        if (collision.gameObject.CompareTag("Ennemy"))
+        if (collider.gameObject.CompareTag("Ennemy"))
         {    
-            if (collision.gameObject.transform.childCount < 3) //demander edouard pour childcount
-            {
-
-                Transform ennemyTransform = collision.gameObject.transform;
+            if (collider.gameObject.transform.childCount < 3)
+            { 
+                Transform ennemyTransform = collider.gameObject.transform;
                 transform.parent = ennemyTransform;
 
                 Vector3 position = Instantiate(AoE_Feu, transform.position, Quaternion.identity).transform.position;
                 Instantiate(AoE_Feu, transform.position, Quaternion.identity);
-             
-                StartCoroutine(AoEEffect(position));
+
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().AoEEffect(position, projectile_Joueur.dotDuration, projectile_Joueur.dotDamage));
             }
         }
-        
 
-    }
-
-    IEnumerator AoEEffect(Vector3 position)
-    {
-        int i = 0;
-        while ( i < projectile_Joueur.dotDuration)
+        if (collider.gameObject.CompareTag("Boss"))
         {
-            Collider[] hitColliders = Physics.OverlapSphere(position, 1.65f);
-            int j = 0;
-            while (j < hitColliders.Length)
-            {
-                hitColliders [j].GetComponent<Entities>().SetHealth(projectile_Joueur.dotDamage);
-                j++;
-            }
-            i++;
-
-            yield return new WaitForSeconds(.2f);
+            
         }
-    }
+    } 
 }

@@ -30,7 +30,8 @@ public class EnnemySpawner : MonoBehaviour
         GameHandler.Instance.roomCleared = false;
         GameHandler.Instance.nmbSpawned = 0;
         GameHandler.Instance.nmbRemaining = 0;
-        GameHandler.Instance.nmbToSpawns =  2 * (int) GameHandler.Instance.gameDifficulty;
+        GameHandler.Instance.nmbToSpawns =  GameHandler.Instance.nmbRooms + GameHandler.Instance.gameDifficulty;
+
 
         for (int i = 0; i <= GameHandler.Instance.nmbToSpawns; i++)
         {

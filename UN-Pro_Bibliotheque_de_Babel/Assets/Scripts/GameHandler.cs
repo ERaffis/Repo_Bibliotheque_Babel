@@ -16,13 +16,14 @@ public class GameHandler : MonoBehaviour
 
     public bool alreadySpawned;
 
-    public float gameDifficulty;
-    public float startingDifficulty;
+    public int gameDifficulty;
+    public int startingDifficulty;
     public int nmbToSpawns;
     public int nmbSpawned;
     public int nmbRemaining;
 
     public bool roomCleared;
+    public int nmbRooms;
 
     public string biomeName;
 
@@ -41,7 +42,7 @@ public class GameHandler : MonoBehaviour
 
         SoundManager.Initialize();
 
-        gameDifficulty = 0.25f;
+        gameDifficulty = 0;
     }
 
     private void OnEnable()
@@ -61,6 +62,7 @@ public class GameHandler : MonoBehaviour
             nmbRemaining = 0;
             nmbToSpawns = 0;
             nmbSpawned = 0;
+            nmbRooms = 0;
             Inventory.Instance.activeBracelet = null;
         }
     }
@@ -68,8 +70,8 @@ public class GameHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
-        //activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
+        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
+        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
         alreadySpawned = false;
     }
 
@@ -89,7 +91,7 @@ public class GameHandler : MonoBehaviour
         // if the player reached the outside during the run
         if(var == true)
         {
-            gameDifficulty += 0.5f;
+            gameDifficulty += 1;
             startingDifficulty = gameDifficulty;
             LevelManager.Instance.ReturnToHubAfterWin();
         }
@@ -106,16 +108,16 @@ public class GameHandler : MonoBehaviour
 
     public void ChangeRuneDir(int i)
     {
-        //activeInstDir.GetComponent<SpriteRenderer>().enabled = false;
+        activeInstDir.GetComponent<SpriteRenderer>().enabled = false;
         activeInstDir = instDir[i];
-        //activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
+        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void ChangeMoveDir(int i)
     {
-        //activeMoveDir.GetComponent<SpriteRenderer>().enabled = false;
+        activeMoveDir.GetComponent<SpriteRenderer>().enabled = false;
         activeMoveDir = moveDir[i];
-        //activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
+        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
 
@@ -124,7 +126,7 @@ public class GameHandler : MonoBehaviour
         if (nmbRemaining <= 0)
         {
             roomCleared = true;
-            if(!alreadySpawned)
+            if (!alreadySpawned)
             {
                 if (SceneManager.GetActiveScene().name != "HUB_Principal")
                 {

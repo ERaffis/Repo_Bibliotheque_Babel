@@ -5,25 +5,35 @@ using UnityEngine;
 public class InkSpill : MonoBehaviour
 {
     public Sprite frozenSprite;
+    public Sprite normalSprite;
+    public bool isFrozen = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.gameObject.tag)
         {
             case "HalfCollider" :
-                if(collision.transform.parent.TryGetComponent(out PlayerScript plScript))
+                if(collision.transform.parent.TryGetComponent(out PlayerScript plScript) && !isFrozen)
                 {
                     collision.transform.parent.GetComponent<PlayerMovement>().envModifier = 0.25f;
                 }
                 break;
 
             case "Projectile":
-
-                if (collision.TryGetComponent(out Givre_Maitresse b))
+                Debug.Log("TouchedProjectile");
+                if (collision.TryGetComponent(out Givre_Maitresse b) && !isFrozen)
                 {
                     Debug.Log("Freeze InkSpill");
-                    GetComponent<CircleCollider2D>().enabled = false;
+                    isFrozen = true;
                     GetComponent<SpriteRenderer>().sprite = frozenSprite;
+                    Destroy(collision.gameObject);
+                }
+
+                if (collision.TryGetComponent(out Embrasement_Maitresse c) && isFrozen)
+                {
+                    Debug.Log("Freeze InkSpill");
+                    isFrozen = false;
+                    GetComponent<SpriteRenderer>().sprite = normalSprite;
                     Destroy(collision.gameObject);
                 }
                 break;

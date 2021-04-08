@@ -158,6 +158,9 @@ MonoBehaviour:
   rb: {fileID: 2147504486629351590}
   isTakingDamage: 0
   canMove: 0
+  isStuned: 0
+  isRooted: 0
+  weakness: 1
   isImmune: 0
   healthBar: {fileID: 9000715839711004977}
   entityType: Ennemy

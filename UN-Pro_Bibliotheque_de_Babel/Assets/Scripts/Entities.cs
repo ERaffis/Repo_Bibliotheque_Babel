@@ -28,7 +28,7 @@ public class Entities : MonoBehaviour
     [Header("Effects")]
     public bool canMove;
     public bool isStuned;
-    public bool isRooted;
+    public bool isRooted; 
     public float weakness;
 
     [Header("Immunity")]
@@ -122,16 +122,21 @@ public class Entities : MonoBehaviour
     public IEnumerator WeakenEnemy(float val, float time)
     {
         weakness = val;
+        Debug.Log("Weakend for " + time);
         yield return new WaitForSeconds(time);
         weakness = 1;
+        Debug.Log("Unweakend");
     }
     public IEnumerator StunEnnemy(float time)
     {
         isStuned = true;
+        Debug.Log("Stunned for " + time);
 
         yield return new WaitForSeconds(time);
 
         isStuned = false;
+        Debug.Log("Unstunned");
+
     }
 
     public IEnumerator SlowEnnemy(float val, float time)
@@ -165,6 +170,24 @@ public class Entities : MonoBehaviour
             newProjectile.transform.RotateAround(transform.position, Vector3.forward, 360 / nmbProj * i);
             Destroy(newProjectile.GetComponent<Explosion_Support>());
             newProjectile.GetComponent<Rigidbody2D>().velocity = newProjectile.transform.right * GetComponent<Rigidbody2D>().velocity;
+        }
+    }
+
+    public IEnumerator AoEEffect(Vector3 position, float dotDuration, float dotDamage)
+    {
+        int i = 0;
+        while (i < dotDuration)
+        {
+            Collider[] hitColliders = Physics.OverlapSphere(position, 1.65f);
+            int j = 0;
+            while (j < hitColliders.Length)
+            {
+                hitColliders[j].GetComponent<Entities>().SetHealth(dotDamage);
+                j++;
+            }
+            i++;
+
+            yield return new WaitForSeconds(.2f);
         }
     }
 }
