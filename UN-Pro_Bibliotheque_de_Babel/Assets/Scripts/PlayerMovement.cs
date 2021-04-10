@@ -55,8 +55,9 @@ public class PlayerMovement : MonoBehaviour
             if (PlayerScript.Instance.canMove) MovePlayer();
             AimPlayer();
         }
-        
 
+        PlayerScript.Instance.animator.SetFloat("Velocity X", GetComponent<Rigidbody2D>().velocity.x);
+        PlayerScript.Instance.animator.SetFloat("Velocity Y", GetComponent<Rigidbody2D>().velocity.y);
     }
     private void OnEnable()
     {
@@ -98,54 +99,42 @@ public class PlayerMovement : MonoBehaviour
             if (aimAngle >= -25 & aimAngle <= 25 && aimAngle != 0)
             {
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(0);
-                PlayerScript.Instance.animator.SetInteger("Index", 1);
             }
             //Aim Left
             else if (aimAngle >= 155 || aimAngle <= -155)
             {
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(4);
-                PlayerScript.Instance.animator.SetInteger("Index", 2);
             }
             //Aim Up
             else if (aimAngle >= 65 & aimAngle <= 115)
             {
-                PlayerScript.Instance.animator.SetInteger("Index", 3);
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(2);
             }
             //Aim UpRight
             else if (aimAngle > 25 & aimAngle < 65)
             {
-                PlayerScript.Instance.animator.SetInteger("Index", 3);
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(1);
             }
             //Aim UpLeft
             else if (aimAngle > 115 & aimAngle < 155)
             {
-                PlayerScript.Instance.animator.SetInteger("Index", 3);
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(3);
             }
             //Aim Down
             else if (aimAngle >= -115 & aimAngle <= -65)
             {
-                PlayerScript.Instance.animator.SetInteger("Index", 4);
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(6);
             }
             //Aim DownLeft
             else if (aimAngle > -155 & aimAngle < -115)
             {
-                PlayerScript.Instance.animator.SetInteger("Index", 4);
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(5);
             }
             //Aim DownRight
             else if (aimAngle > -65 & aimAngle < -25)
             {
-                PlayerScript.Instance.animator.SetInteger("Index", 4);
                 PlayerScript.Instance._GameHandler.ChangeRuneDir(7);
             }
-        }
-        else if (moveDirection == Vector2.zero && aimDirection == Vector2.zero)
-        {
-            PlayerScript.Instance.animator.SetInteger("Index", 0);
         }
     }
 
@@ -161,7 +150,6 @@ public class PlayerMovement : MonoBehaviour
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(0);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(0);
 
-                PlayerScript.Instance.animator.SetInteger("Index", 1);
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
@@ -174,7 +162,6 @@ public class PlayerMovement : MonoBehaviour
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(4);
 
 
-                PlayerScript.Instance.animator.SetInteger("Index", 2);
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
@@ -183,7 +170,6 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle >= 65 & moveAngle <= 115)
             {
                 Vector2 dir = Vector2.up;
-                PlayerScript.Instance.animator.SetInteger("Index", 3);
 
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(2);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(2);
@@ -197,7 +183,6 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > 25 & moveAngle < 65) 
             {
                 Vector2 dir = new Vector2(.75f, .75f);
-                PlayerScript.Instance.animator.SetInteger("Index", 3);
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(1);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(1);
 
@@ -210,7 +195,6 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > 115 & moveAngle < 155) 
             {
                 Vector2 dir = new Vector2(-.75f, .75f);
-                PlayerScript.Instance.animator.SetInteger("Index", 3);
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(3);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(3);
 
@@ -223,7 +207,6 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle >= -115 & moveAngle <= -65)
             {
                 Vector2 dir = Vector2.down;
-                PlayerScript.Instance.animator.SetInteger("Index", 4);
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(6);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(6);
 
@@ -235,7 +218,6 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > -155 & moveAngle < -115) 
             {
                 Vector2 dir = new Vector2(-.75f, -.75f);
-                PlayerScript.Instance.animator.SetInteger("Index", 4);
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(5);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(5);
 
@@ -247,7 +229,6 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > -65 & moveAngle < -25) 
             {
                 Vector2 dir = new Vector2(.75f, -.75f);
-                PlayerScript.Instance.animator.SetInteger("Index", 4);
                 PlayerScript.Instance._GameHandler.ChangeMoveDir(7);
                 if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(7);
 
@@ -255,10 +236,7 @@ public class PlayerMovement : MonoBehaviour
                 lastVelocity = PlayerScript.Instance.rb.velocity;
             }
 
-        } else
-        {
-            //PlayerScript.Instance.rb.velocity = Vector2.Lerp(PlayerScript.Instance.rb.velocity, Vector2.zero, Time.deltaTime * 0.5f);
-        }
+        } 
     }
 
     private void CheckCombo()

@@ -68,6 +68,7 @@ public class PlayerScript : Entities
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         isDead = false;
+        animator.Play("WalkTree");
     }
 
     public IEnumerator SetSpawn()
@@ -101,7 +102,7 @@ public class PlayerScript : Entities
         {
             Destroy(item);
         }
-
+        
         animator.Play("PlayerDead");
 
         SetStartHealth();

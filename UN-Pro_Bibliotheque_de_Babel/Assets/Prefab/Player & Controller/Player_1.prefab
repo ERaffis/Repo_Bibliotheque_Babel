@@ -197,7 +197,7 @@ Transform:
   m_GameObject: {fileID: 1254482564753501542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 5798651621169841539}
   - {fileID: 6698687992498057281}
@@ -269,7 +269,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 10
+  m_LinearDrag: 7.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
@@ -321,7 +321,6 @@ MonoBehaviour:
   dashDuration: 0.1
   dashCooldown: 3.5
   canDash: 1
-  isDashing: 0
   lastVelocity: {x: 0, y: 0}
   runeManager: {fileID: 7014725019331352941}
 --- !u!114 &1254482564753501561
@@ -340,7 +339,7 @@ MonoBehaviour:
   entityName: Player 1
   maxHealth: 64
   currentHealth: 64
-  moveSpeed: 2
+  moveSpeed: 2.75
   animationIndex: 0
   spriteRenderer: {fileID: 1254482564753501563}
   animator: {fileID: 1254482564753501560}
@@ -356,6 +355,7 @@ MonoBehaviour:
   bloodParticles: {fileID: 814997966836708481, guid: eb2d557c0754c8343a091defbb1af35e, type: 3}
   playerID: 0
   nmbRun: 0
+  isDead: 0
 --- !u!114 &161625625904053921
 MonoBehaviour:
   m_ObjectHideFlags: 0

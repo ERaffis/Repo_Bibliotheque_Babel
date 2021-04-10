@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="27" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="17" nextobjectid="20">
+ <tileset firstgid="1" source="GoodTileAssets.tsx"/>
+ <layer id="1" name="BaseLayer" width="27" height="27">
+  <data encoding="base64" compression="zlib">
+   eJzt1ssKAVEAh/FZsPEK8wouuWywwoLcYqEkZUFuZcEOG5fc3tp3ytSkcw6njkmx+DWbyTf/To1xHcfpwQ3oGpSge9+2q4q6RPMDz9RFSKJvaZd/Sw1hiYaFjaITRQxxJBStJFJII/OiJ9slOlnkkFc0nhVQRMlwnzibMipvdjwttDVnKNslWh3Djmegaal2faL13/XfZbpriJFhZ42F4a4xllgZ9ERngy3mBru83g57HHBUNE4444Irbprf1L3nRW/6MFG0Zr57TPfozjAiYev/S7XRz9YW2379O8qGO57IxGI=
+  </data>
+ </layer>
+ <layer id="15" name="HoleLayer" width="27" height="27">
+  <data encoding="base64" compression="zlib">
+   eJztzSEOACAQxMCTYIGggf8/kpVrEWdIJ6luBADgVVPV6omvo4o1El9LTWsnvgDgZxcEzgES
+  </data>
+ </layer>
+ <objectgroup id="16" name="Collider">
+  <object id="4" x="128" y="111.988" width="48" height="16"/>
+  <object id="5" x="96" y="144" width="16" height="144"/>
+  <object id="6" x="128" y="304" width="48" height="16"/>
+  <object id="7" x="320" y="144" width="16" height="144"/>
+  <object id="8" x="256" y="112" width="48" height="16"/>
+  <object id="9" x="160" y="64" width="16" height="48"/>
+  <object id="10" x="256" y="64" width="16" height="48"/>
+  <object id="11" x="176" y="64" width="80" height="16"/>
+  <object id="12" x="135.031" y="128.031">
+   <polygon points="0,0 -23.0313,22.991 -23.0313,-0.03125"/>
+  </object>
+  <object id="13" x="296.969" y="150.969" rotation="180">
+   <polygon points="0,22.9597 -23.0313,-0.03125 -23.0313,22.991"/>
+  </object>
+  <object id="14" x="134.967" y="281.033">
+   <polygon points="0,22.9597 -23.0313,-0.03125 -23.0313,22.991"/>
+  </object>
+  <object id="15" x="297.02" y="303.995" rotation="180">
+   <polygon points="0,5e-05 -23.0313,22.991 -23.0313,-0.03125"/>
+  </object>
+  <object id="16" x="256" y="304" width="48" height="16"/>
+  <object id="17" x="160" y="320" width="16" height="48"/>
+  <object id="18" x="176" y="352" width="80" height="16"/>
+  <object id="19" x="256" y="320" width="16" height="48"/>
+ </objectgroup>
+</map>
