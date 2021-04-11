@@ -21,7 +21,6 @@ public class Hole : MonoBehaviour
 
             collision.transform.parent.GetComponent<PlayerScript>().SetPlayerHealth(12);
             RoomNumberManager.Instance.MinusLevelNumber();
-            LevelManager.Instance.shouldBiome = 200;
             LevelManager.Instance.shouldBoss = 0;
             LevelManager.Instance.shouldExterior = 0;
             LevelManager.Instance.shouldHub = 0;

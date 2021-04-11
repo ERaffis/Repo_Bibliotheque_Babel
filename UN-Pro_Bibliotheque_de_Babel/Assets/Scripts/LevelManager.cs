@@ -10,10 +10,8 @@ public class LevelManager : MonoBehaviour
     private int levelToLoad;
 
     [Header("Level Generation Values")]
-    public float shouldBiome;
     public float shouldBoss;
     public float shouldHub;
-    public int currentBiome;
     public float shouldExterior;
     string roomName;
 
@@ -55,7 +53,6 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        currentBiome = 0;
         shouldExterior = 0f;
         roomName = "Piece_Biome_1";
     }
@@ -194,7 +191,6 @@ public class LevelManager : MonoBehaviour
             //numberManager.PlusRoomNumber();
             shouldHub = 0f;
             shouldBoss = 0f;
-            shouldBiome = 0f;
             shouldExterior = 0f;
             GameHandler.Instance.RunEnded(false);
             return "HUB_Principal";
@@ -205,147 +201,66 @@ public class LevelManager : MonoBehaviour
             RoomNumberManager.Instance.PlusRoomNumber();
             shouldHub = 0f;
             shouldBoss = 0f;
-            shouldBiome = 100f;
             return "Hub_Secondaire" ;
         }
         else
         {
-            //ChangeBiome();
 
-            switch (currentBiome)
+            if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f)
             {
-                case 0:
-                    if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f)
-                    {
-                        RoomNumberManager.Instance.PlusLevelNumber();
-                        shouldHub = 100f;
-                        shouldBoss = 0f;
-                        shouldExterior += 0.2f;
-                        return "Boss_Biome_1";
-                    }
-                    else
-                    {
-                        RoomNumberManager.Instance.PlusRoomNumber();
-                        shouldHub += 0.05f;
-                        shouldBoss += 0.075f;
-                        shouldBiome += 0.05f;
-                        if (Random.Range(0.01f, 1f) > 0.1f)
-                        {
-                            return "Piece_Biome_1";
-                        }
-                        else
-                        {
-                            return "Puzzle_Biome_1";
-                        }
-                        
-                    }
-                case 1:
-                    if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f)
-                    {
-                        RoomNumberManager.Instance.PlusLevelNumber();
-                        shouldHub = 100f;
-                        shouldBoss = 0f;
-                        shouldExterior += 0.2f;
-                        return "Boss_Biome_2";
-                    }
-                    else
-                    {
-                        RoomNumberManager.Instance.PlusRoomNumber();
-                        shouldHub += 0.05f;
-                        shouldBoss += 0.075f;
-                        shouldBiome += 0.05f;
-                        if (Random.Range(0.01f, 1f) > 0.1f)
-                        {
-                            return "Piece_Biome_2";
-                        }
-                        else
-                        {
-                            return "Puzzle_Biome_2";
-                        }
-                    }
-                case 2:
-                    if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f )
-                    {
-                        RoomNumberManager.Instance.PlusLevelNumber();
-                        shouldHub = 100f;
-                        shouldBoss = 0f;
-                        shouldExterior += 0.2f;
-                        return "Boss_Biome_3";
-                    }
-                    else
-                    {
-                        RoomNumberManager.Instance.PlusRoomNumber();
-                        shouldHub += 0.05f;
-                        shouldBoss += 0.075f;
-                        shouldBiome += 0.05f;
-                        if (Random.Range(0.01f, 1f) > 0.1f)
-                        {
-                            return "Piece_Biome_3";
-                        }
-                        else
-                        {
-                            return "Puzzle_Biome_3";
-                        }
-                    }
+                RoomNumberManager.Instance.PlusLevelNumber();
+                shouldHub = 100f;
+                shouldBoss = 0f;
+                shouldExterior += 0.2f;
+                return "Boss_Biome_1";
             }
-        }
-        Debug.LogError("No Rooms Returned");
-        return null;  
-    }
-
-    // Changes the current biome for the next room
-    public void ChangeBiome()
-    {
-        if (Random.Range(0.01f, 1f) * shouldBiome > 0.8f)
-        {
-            switch (currentBiome)
+            else
             {
-                case 0:
-                    print("1");
-                    shouldBiome = 0;
-                    if (Random.Range(0f, 1f) > 0.5f)
-                    {
-                        currentBiome = 1;
-                        GameHandler.Instance.biomeName = "L'Incendie";
-                    }
-                    else
-                    {
-                        currentBiome = 2;
-                        GameHandler.Instance.biomeName = "La Ruine";
-                    }
-                    break;
-
-                case 1:
-                    print("2");
-                    shouldBiome = 0;
-                    if (Random.Range(0f, 1f) > 0.5f)
-                    {
-                        currentBiome = 2;
-                        GameHandler.Instance.biomeName = "La Ruine";
-                    }
-                    else 
-                    {
-                        currentBiome = 0;
-                        GameHandler.Instance.biomeName = "La Preservation";
-                    }
-                    
-                    break;
-
-                case 2:
-                    print("3");
-                    shouldBiome = 0;
-                    if (Random.Range(0f, 1f) > 0.5f)
-                    {
-                        currentBiome = 0;
-                        GameHandler.Instance.biomeName = "La Preservation";
-                    }
-                    else
-                    {
-                        currentBiome = 1;
-                        GameHandler.Instance.biomeName = "L'Incendie";
-                    }
-                    break;
-
+                int gen = Random.Range(1, 10);
+                RoomNumberManager.Instance.PlusRoomNumber();
+                shouldHub += 0.05f;
+                shouldBoss += 0.075f;
+                if (gen == 1)
+                {
+                    return "Piece_1";
+                }
+                else if (gen == 2)
+                {
+                    return "Piece_2";
+                }
+                else if (gen == 3)
+                {
+                    return "Piece_3";
+                }
+                else if (gen == 4)
+                {
+                    return "Piece_4";
+                }
+                else if (gen == 5)
+                {
+                    return "Piece_5";
+                }
+                else if (gen == 6)
+                {
+                    return "Piece_6";
+                }
+                else if (gen == 7)
+                {
+                    return "Piece_7";
+                }
+                else if (gen == 8)
+                {
+                    return "Piece_8";
+                }
+                else if (gen == 9)
+                {
+                    return "Piece_9";
+                }
+                else if (gen == 10)
+                {
+                    return "Piece_10";
+                }
+                return null;
             }
         }
     }

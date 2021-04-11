@@ -15,33 +15,39 @@ EditorBuildSettings:
     path: Assets/Scenes/HUB_Principal.unity
     guid: 9232cb01b425b32498d3666042185def
   - enabled: 1
-    path: Assets/Scenes/Piece_10.unity
-    guid: f05d70bffb3b6f042a5a96a226ef1b91
+    path: Assets/Scenes/Hubs/Hub_Secondaire.unity
+    guid: c547dc881038efe4393f6c0a46f69e2d
   - enabled: 1
     path: Assets/Scenes/Piece_1.unity
     guid: 414f6650004e8604c9637a0ca8e41321
   - enabled: 1
+    path: Assets/Scenes/Piece_2.unity
+    guid: 19a3ce9e3810c94468f3dfb3a6aa64c3
+  - enabled: 1
+    path: Assets/Scenes/Piece_3.unity
+    guid: ec0b7fd1a7bbdc644bf046098029fdd9
+  - enabled: 1
+    path: Assets/Scenes/Piece_4.unity
+    guid: aee1ce6be0f78f6449d40cb013fd020c
+  - enabled: 1
+    path: Assets/Scenes/Piece_5.unity
+    guid: 228d72845264a6445a696e3c90dafa00
+  - enabled: 1
+    path: Assets/Scenes/Piece_6.unity
+    guid: ebd99059eb0779843b6435cb6bc4655c
+  - enabled: 1
+    path: Assets/Scenes/Piece_7.unity
+    guid: 20f383e76d01b384caa3a968f523ea5a
+  - enabled: 1
+    path: Assets/Scenes/Piece_8.unity
+    guid: ddc750733ab69f74ba8696b5e5b4e05b
+  - enabled: 1
+    path: Assets/Scenes/Piece_9.unity
+    guid: 9fc8a25a60666834d972d34279804442
+  - enabled: 1
+    path: Assets/Scenes/Piece_10.unity
+    guid: f05d70bffb3b6f042a5a96a226ef1b91
+  - enabled: 1
     path: Assets/Scenes/Piece_Boss.unity
     guid: 519536b2e27d58a48adbacc9ea2fa906
-  - enabled: 1
-    path: Assets/Scenes/Biome_2/Puzzle_Biome_2.unity
-    guid: ee45828f6f82459488678c71d7ce039a
-  - enabled: 1
-    path: Assets/Scenes/Biome_2/Piece_Biome_2.unity
-    guid: 4a2dc2abac3328b48bee9f71da954ba6
-  - enabled: 1
-    path: Assets/Scenes/Biome_2/Boss_Biome_2.unity
-    guid: 24ec9cf1c5e3bba4296b8dc21b3065c5
-  - enabled: 1
-    path: Assets/Scenes/Biome_3/Puzzle_Biome_3.unity
-    guid: e371ec0cc4e18d14cb62b568d39b1199
-  - enabled: 1
-    path: Assets/Scenes/Biome_3/Piece_Biome_3.unity
-    guid: 156c123ba5db32142be322c923ecdd76
-  - enabled: 1
-    path: Assets/Scenes/Biome_3/Boss_Biome_3.unity
-    guid: f16d22d078ba5fe4db19cfc126fec8d0
-  - enabled: 1
-    path: Assets/Scenes/Hubs/Hub_Secondaire.unity
-    guid: c547dc881038efe4393f6c0a46f69e2d
   m_configObjects: {}
