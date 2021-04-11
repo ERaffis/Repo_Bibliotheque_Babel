@@ -216,10 +216,10 @@ public class LevelManager : MonoBehaviour
             }
             else
             {
-                int gen = Random.Range(1, 10);
+                int gen = Random.Range(1, 7);
                 RoomNumberManager.Instance.PlusRoomNumber();
-                shouldHub += 0.05f;
-                shouldBoss += 0.075f;
+                shouldHub += 0.1f;
+                shouldBoss += 0.125f;
                 if (gen == 1)
                 {
                     return "Piece_1";

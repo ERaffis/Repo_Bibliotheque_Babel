@@ -130,10 +130,9 @@ public class GameHandler : MonoBehaviour
             {
                 if (SceneManager.GetActiveScene().name != "HUB_Principal")
                 {
-                    SpawnReward.Instance.SpawnItem(new Vector2(0, 0.5f), "Room");
+                    SpawnReward.Instance.SpawnItem(new Vector2(0, 5.25f), "Room");
                     alreadySpawned = true;
                     StartCoroutine(WaitToPoint());
-
                 }
             }
         }

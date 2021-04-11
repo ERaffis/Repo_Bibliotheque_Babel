@@ -8,6 +8,8 @@ public class Runes : ScriptableObject
     [Header("Base Info")]
     public new string name;
     public string description;
+    public Sprite sprite;
+    public Color color;
 
     [Header("Base Stats")]
     public int baseDamage;

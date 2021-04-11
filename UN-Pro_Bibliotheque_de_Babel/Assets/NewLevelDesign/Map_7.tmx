@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="27" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="4" nextobjectid="17">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="27" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="5" nextobjectid="32">
  <tileset firstgid="1" source="GoodTileAssets.tsx"/>
  <layer id="1" name="BaseLayer" width="27" height="27">
   <data encoding="csv">
@@ -63,6 +63,23 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
+ <objectgroup id="4" name="HoleTrigger">
+  <object id="17" x="112" y="166" width="26.5455" height="100"/>
+  <object id="18" x="138.364" y="211.455" width="47.6364" height="25.4545"/>
+  <object id="19" x="186.182" y="227.273" width="58.7273" height="9.81818"/>
+  <object id="20" x="244.727" y="227.455" width="38.5455" height="25.0909"/>
+  <object id="21" x="276.727" y="181.091" width="6.54545" height="46.3636"/>
+  <object id="22" x="147.818" y="131.091" width="24.3636" height="9.81818"/>
+  <object id="23" x="150.545" y="291.091" width="34.9091" height="9.81818"/>
+  <object id="24" x="165.273" y="260.182" width="53.4545" height="7.63636"/>
+  <object id="25" x="212.182" y="276.545" width="71.6364" height="22.9091"/>
+  <object id="26" x="212.727" y="266.909" width="6.54545" height="10.1818"/>
+  <object id="27" x="307.273" y="165.091" width="9.45455" height="101.818"/>
+  <object id="28" x="166" y="164.364" width="84" height="23.2727"/>
+  <object id="29" x="213.636" y="188" width="36.7273" height="16"/>
+  <object id="30" x="199.818" y="133.636" width="50.1818" height="30.9091"/>
+  <object id="31" x="250" y="133.091" width="32.1818" height="21.8182"/>
+ </objectgroup>
  <objectgroup id="3" name="Collider">
   <object id="1" x="128" y="111.988" width="48" height="16"/>
   <object id="2" x="96" y="144" width="16" height="144"/>

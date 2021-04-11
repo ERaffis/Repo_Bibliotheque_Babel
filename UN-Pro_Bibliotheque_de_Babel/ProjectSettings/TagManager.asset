@@ -38,7 +38,7 @@ TagManager:
   - Interactables
   - HalfCollider
   - Obstacle
-  - 
+  - TempHoleBlocker
   - 
   - 
   - 

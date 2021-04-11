@@ -34,11 +34,6 @@ public class SpawnReward : MonoBehaviour
             if (Random.Range(0, 1) >= 0.85f)
             {
                 GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
-
-                /*for (int i = 0; i < (int)(Random.Range(0, 2)); i++)
-                {
-                    Instantiate(heart, newPage.transform);
-                }*/
             }    
             
         }
@@ -55,13 +50,6 @@ public class SpawnReward : MonoBehaviour
         if (tag == "Room")
         {
             GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
-
-            for (int i = 0; i < (int)(Random.Range(1, 3)); i++)
-            {
-                GameObject newHeart = Instantiate(heart, newPage.transform);
-                newHeart.transform.position += new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f),0);
-                newHeart.transform.parent = null;
-            }
         }
     }
 }
