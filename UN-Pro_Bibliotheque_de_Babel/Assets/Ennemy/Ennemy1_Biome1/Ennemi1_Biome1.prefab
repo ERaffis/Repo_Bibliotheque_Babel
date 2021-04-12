@@ -214,10 +214,10 @@ MonoBehaviour:
   animator: {fileID: 1109663837958840123}
   rb: {fileID: 384689267087546666}
   isTakingDamage: 0
-  canMove: 0
+  canMove: 1
   isStuned: 0
   isRooted: 0
-  weakness: 0
+  weakness: 1
   isImmune: 0
   healthBar: {fileID: 4860304212942483349}
   entityType: 

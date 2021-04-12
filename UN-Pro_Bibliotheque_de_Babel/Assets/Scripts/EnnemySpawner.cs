@@ -28,7 +28,8 @@ public class EnnemySpawner : MonoBehaviour
         {
             if (i <= GameHandler.Instance.nmbToSpawns)
             {
-                item.SetActive(false);
+                item.SetActive(true);
+                GameHandler.Instance.nmbSpawned++;
                 i++;
             }
         }

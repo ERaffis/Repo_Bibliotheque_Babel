@@ -26,7 +26,7 @@ public class Entities : MonoBehaviour
     public bool isTakingDamage;
 
     [Header("Effects")]
-    public bool canMove;
+    public bool canMove = true;
     public bool isStuned;
     public bool isRooted; 
     public float weakness;
@@ -47,7 +47,7 @@ public class Entities : MonoBehaviour
     {
         SetStartHealth();
         _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
-        StartCoroutine(WaitToMoveStart());
+        //StartCoroutine(WaitToMoveStart());
         weakness = 1;
     }
 
@@ -110,7 +110,7 @@ public class Entities : MonoBehaviour
     protected IEnumerator WaitToMoveStart()
     {
         canMove = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
         canMove = true;
     }
 
