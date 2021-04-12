@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Embrasement
   description: 
-  sprite: {fileID: 21300000, guid: 37767dfaa4f9e284aac1ca8a19fe73e6, type: 3}
+  sprite: {fileID: 21300000, guid: 9aabf3f5c91db754b83d432dd21bc5a6, type: 3}
   color: {r: 0.754717, g: 0.23822121, b: 0.06763971, a: 0}
   baseDamage: 100
   multDamage: 1.3
