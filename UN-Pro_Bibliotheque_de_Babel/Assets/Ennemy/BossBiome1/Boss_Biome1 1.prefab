@@ -182,7 +182,7 @@ MonoBehaviour:
   height: 0
   animator: {fileID: 3691552315387131018}
   isCasting: 0
-  bossCanMove: {fileID: 0}
+  bossCanMove: {fileID: 2638755235369778544}
 --- !u!95 &3691552315387131018
 Animator:
   serializedVersion: 3

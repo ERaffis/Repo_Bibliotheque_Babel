@@ -212,7 +212,7 @@ public class LevelManager : MonoBehaviour
                 shouldHub = 100f;
                 shouldBoss = 0f;
                 shouldExterior += 0.2f;
-                return "Boss_Biome_1";
+                return "Piece_Boss";
             }
             else
             {
