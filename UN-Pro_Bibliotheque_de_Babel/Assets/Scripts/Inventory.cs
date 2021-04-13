@@ -125,7 +125,6 @@ public class Inventory : MonoBehaviour
 
             menuState = !menuState;
             inventoryCanvas.SetActive(menuState);
-            TooltipSystem.Hide();
         }
     }
 

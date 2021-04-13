@@ -52,6 +52,14 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 09a3a9157f4240a41baf613375eeec34, type: 3}
   - sound: 2
     audioClip: {fileID: 8300000, guid: 21f0972fea46c824781364b9da2adc22, type: 3}
+  - sound: 6
+    audioClip: {fileID: 8300000, guid: 7b2ecc8e5a9513b4483608b96164a58c, type: 3}
+  - sound: 5
+    audioClip: {fileID: 8300000, guid: 0fe4b451443bae542941c58446ac066b, type: 3}
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: 99f55d2ae6db8a940bcad11802f8eb14, type: 3}
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: 85dacd61a2368754a9b508cbeda09b5a, type: 3}
 --- !u!82 &3760755681257133565
 AudioSource:
   m_ObjectHideFlags: 0

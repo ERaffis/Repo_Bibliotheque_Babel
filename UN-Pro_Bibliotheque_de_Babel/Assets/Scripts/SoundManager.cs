@@ -14,6 +14,7 @@ public static class SoundManager
         EnemyDie,
         PlayerDie,
         PlayerHit,
+        ComboCharge,
     }
 
     private static Dictionary<Sound, float> soundTimerDictionnary;

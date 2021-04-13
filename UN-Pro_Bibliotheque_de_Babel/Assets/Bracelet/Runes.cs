@@ -54,16 +54,22 @@ public class Runes : ScriptableObject
         {
             case "Embrasement":
                 projectile.AddComponent<Embrasement_Maitresse>();
+                projectile.transform.GetChild(1).gameObject.SetActive(true);
+                projectile.GetComponent<Animator>().Play("Embrasement");
                 projectile.GetComponent<Embrasement_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             case "Givre":
                 projectile.AddComponent<Givre_Maitresse>();
+                projectile.transform.GetChild(2).gameObject.SetActive(true);
+                projectile.GetComponent<Animator>().Play("Givre");
                 projectile.GetComponent<Givre_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
             case "Amplification":
                 projectile.AddComponent<Amplification_Maitresse>();
+                projectile.transform.GetChild(3).gameObject.SetActive(true); 
+                projectile.GetComponent<Animator>().Play("Amplification");
                 projectile.GetComponent<Amplification_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
@@ -82,7 +88,12 @@ public class Runes : ScriptableObject
         switch (name)
         {
             case "Embrasement":
-                if(order == pressOrder)
+
+                projectile.transform.GetChild(1).gameObject.SetActive(true);
+                projectile.transform.GetChild(1).transform.localScale = new Vector3(.75f, .75f);
+                projectile.transform.GetChild(1).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+
+                if (order == pressOrder)
                 {
                     Ordre(name, projectile);
                 } else
@@ -96,6 +107,11 @@ public class Runes : ScriptableObject
                 break;
 
             case "Givre":
+
+                projectile.transform.GetChild(2).gameObject.SetActive(true);
+                projectile.transform.GetChild(2).transform.localScale = new Vector3(.75f, .75f);
+                projectile.transform.GetChild(2).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+
                 if (order == pressOrder)
                 {
                     Ordre(name, projectile);
@@ -112,6 +128,11 @@ public class Runes : ScriptableObject
                 break;
 
             case "Amplification":
+
+                projectile.transform.GetChild(3).gameObject.SetActive(true);
+                projectile.transform.GetChild(3).transform.localScale = new Vector3(.75f, .75f);
+                projectile.transform.GetChild(3).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+
                 if (order == pressOrder)
                 {
                     Ordre(name, projectile);

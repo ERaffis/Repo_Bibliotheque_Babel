@@ -79,6 +79,7 @@ public class ManuscritInteract : MonoBehaviour
 
             mainUI.SetActive(true);
         }
+
         ManuscritMenu.SetActive(isActive);
     }
 

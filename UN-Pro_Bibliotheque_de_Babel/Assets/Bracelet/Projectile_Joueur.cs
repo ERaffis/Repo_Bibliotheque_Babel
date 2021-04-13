@@ -66,6 +66,7 @@ public class Projectile_Joueur : MonoBehaviour
 
     IEnumerator ExplodeProjectile()
     {
+
         yield return new WaitForSeconds(0.01f);
         Destroy(gameObject);
     }

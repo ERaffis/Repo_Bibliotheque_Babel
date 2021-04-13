@@ -91,6 +91,7 @@ public class Entities : MonoBehaviour
         {
             _GameHandler.nmbRemaining--;
             SpawnReward.Instance.SpawnItem(this.gameObject.transform.position, this.gameObject.tag);
+            SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
             Destroy(this.gameObject);
         }
     }

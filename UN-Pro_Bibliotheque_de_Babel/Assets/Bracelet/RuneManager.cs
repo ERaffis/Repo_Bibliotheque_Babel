@@ -14,6 +14,7 @@ public class RuneManager : MonoBehaviour
     public List<Runes> orderRune = new List<Runes>();
 
     public float timeBetween;
+    public float timeForChargeSound = 0.25f;
 
     private void Start()
     {
@@ -42,7 +43,18 @@ public class RuneManager : MonoBehaviour
     private void CheckCombo()
     {
         if (PlayerScript.Instance.playerInputs.GetButtonDown("Combo"))
+        {
             isComboing = true;
+        }
+        PlayerScript.Instance.animator.SetBool("isComboing", isComboing);
+
+        timeForChargeSound -= Time.deltaTime;
+
+        if (isComboing && timeForChargeSound <= 0)
+        {
+            timeForChargeSound = 1.25f;
+            SoundManager.PlaySound(SoundManager.Sound.ComboCharge);
+        }
     }
 
     private void SingleRune()
@@ -54,6 +66,7 @@ public class RuneManager : MonoBehaviour
                 if (equippedBracelet.activeRunes[0] != null)
                 {
                     equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                     timeBetween = 0;
                 }
             }
@@ -62,6 +75,7 @@ public class RuneManager : MonoBehaviour
                 if (equippedBracelet.activeRunes[1] != null)
                 {
                     equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[1]);
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                     timeBetween = 0;
                 }
             }
@@ -70,6 +84,7 @@ public class RuneManager : MonoBehaviour
                 if (equippedBracelet.activeRunes[2] != null)
                 {
                     equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[2]);
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                     timeBetween = 0;
                 }
             }
@@ -78,6 +93,7 @@ public class RuneManager : MonoBehaviour
                 if (equippedBracelet.activeRunes[3] != null)
                 {
                     equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[3]);
+                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                     timeBetween = 0;
                 }
             }
@@ -143,18 +159,22 @@ public class RuneManager : MonoBehaviour
         {
             case 1:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0]);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                 break;
 
             case 2:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0], orderRune[1]);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                 break;
 
             case 3:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0], orderRune[1], orderRune[2]);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                 break;
 
             case 4:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0], orderRune[1], orderRune[2], orderRune[3]);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
                 break;
 
             default:

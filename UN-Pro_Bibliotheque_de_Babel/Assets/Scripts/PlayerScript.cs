@@ -102,7 +102,8 @@ public class PlayerScript : Entities
         {
             Destroy(item);
         }
-        
+
+        SoundManager.PlaySound(SoundManager.Sound.PlayerDie,transform.position);
         animator.Play("PlayerDead");
 
         SetStartHealth();
