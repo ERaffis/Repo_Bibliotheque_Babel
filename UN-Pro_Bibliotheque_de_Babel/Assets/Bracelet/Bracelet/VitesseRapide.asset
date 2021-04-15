@@ -18,7 +18,7 @@ MonoBehaviour:
   sizeProjectile: 1
   prefabProjectile: {fileID: 4963542174127619358, guid: 395ddd9b005999e44aa37064a86a44c5, type: 3}
   baseDamage: 20
-  baseSpeed: 2
+  baseSpeed: 4
   damageCast: 1
   castSpeed: 0
   castMultDamage: 1
