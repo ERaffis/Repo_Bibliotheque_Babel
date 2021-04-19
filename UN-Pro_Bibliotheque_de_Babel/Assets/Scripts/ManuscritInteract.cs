@@ -13,7 +13,7 @@ public class ManuscritInteract : MonoBehaviour
     public bool CanInteract;
     public bool isActive;
     public GameObject openFirstButton;
-
+    public Animator animator;
 
 
 
@@ -29,10 +29,11 @@ public class ManuscritInteract : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player1")
+        if(collision.gameObject.layer == 14)
         {
             TextManuscrit.SetActive(true);
             CanInteract = true;
+            StartCoroutine(PlayOpenAnimation());
 
         }
 
@@ -40,12 +41,13 @@ public class ManuscritInteract : MonoBehaviour
    
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player1")
+        if (collision.gameObject.layer == 14)
         {
             TextManuscrit.SetActive(false);
             CanInteract = false;
+            StartCoroutine(PlayCloseAnimation());
         }
-        
+
     }
 
     void Update()
@@ -88,5 +90,16 @@ public class ManuscritInteract : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(openFirstButton);
+    }
+
+    IEnumerator PlayCloseAnimation()
+    {
+        yield return new WaitForEndOfFrame();
+        animator.Play("CloseAnimation");
+    }
+    IEnumerator PlayOpenAnimation()
+    {
+        yield return new WaitForEndOfFrame();
+        animator.Play("OpenAnimation");
     }
 }
