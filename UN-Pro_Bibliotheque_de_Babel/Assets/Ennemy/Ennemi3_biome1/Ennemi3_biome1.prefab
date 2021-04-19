@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 5884685802230221819}
   - component: {fileID: 6900714018265005904}
   - component: {fileID: 3590135218726044008}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ennemi3_biome1
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,15 +95,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5884685802230221822}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 908c1a78a1847fd41b32c61fcf21fb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _GameHandler: {fileID: 0}
   entityName: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 750
+  currentHealth: 750
   moveSpeed: 0
   animationIndex: 0
   spriteRenderer: {fileID: 0}
@@ -113,9 +113,9 @@ MonoBehaviour:
   canMove: 0
   isStuned: 0
   isRooted: 0
-  weakness: 0
+  weakness: 1
   isImmune: 0
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 4026553690377062213}
   entityType: 
   bloodParticles: {fileID: 0}
   charactervelocity: 0
@@ -160,7 +160,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!114 &6900714018265005904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -211,7 +211,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5482311827595972327, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
       propertyPath: m_Value
-      value: 4
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 5482311827595972327, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+      propertyPath: m_MaxValue
+      value: 750
       objectReference: {fileID: 0}
     - target: {fileID: 5482311827710998912, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
       propertyPath: m_Name
@@ -328,3 +332,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5482311827710998940, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
   m_PrefabInstance: {fileID: 8931804303210924450}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4026553690377062213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5482311827595972327, guid: 12d65e4ae7129674ea5957d6600605b2, type: 3}
+  m_PrefabInstance: {fileID: 8931804303210924450}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

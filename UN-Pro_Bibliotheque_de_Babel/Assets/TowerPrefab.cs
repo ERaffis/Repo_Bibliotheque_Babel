@@ -21,7 +21,10 @@ public class TowerPrefab : Entities
 
     public Animator anim;
     public CapsuleCollider2D collider2d;
-    
+
+    [Header("DeadSprite")]
+    public GameObject afterSprite;
+
     public void Start()
     {
         timeBtwShots = startTimeBtwShots;
@@ -56,7 +59,6 @@ public class TowerPrefab : Entities
             isAlive = false;
             anim.SetBool("isAlive", false);
             StartCoroutine(DestroyComponents());
-           
         }
     }
 
@@ -90,9 +92,9 @@ public class TowerPrefab : Entities
 
    public IEnumerator DestroyComponents()
     {
-        yield return new WaitForSeconds(2f);
-        Destroy(anim);
-        Destroy(collider2d);
-        
+        GameObject obj = Instantiate(afterSprite, transform);
+        obj.transform.parent = null;
+        yield return new WaitForEndOfFrame();
+        Destroy(this);
     }
 }

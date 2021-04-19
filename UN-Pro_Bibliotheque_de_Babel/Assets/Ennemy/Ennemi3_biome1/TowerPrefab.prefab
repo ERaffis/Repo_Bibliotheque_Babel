@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6998498295658404041}
   m_Layer: 6
   m_Name: TowerPrefab
-  m_TagString: Untagged
+  m_TagString: Tour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameHandler: {fileID: 0}
   entityName: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 150
+  currentHealth: 150
   moveSpeed: 0
   animationIndex: 0
   spriteRenderer: {fileID: 0}
@@ -167,7 +167,7 @@ MonoBehaviour:
   canMove: 0
   isStuned: 0
   isRooted: 0
-  weakness: 0
+  weakness: 1
   isImmune: 0
   healthBar: {fileID: 0}
   entityType: 
@@ -176,5 +176,6 @@ MonoBehaviour:
   projectileSpeed: 0
   BossProjectilePrefab: {fileID: 8832118048256672872, guid: 210f8706a69a3cc48ab9138fd15a5a49, type: 3}
   isAlive: 0
-  anim: {fileID: 0}
+  anim: {fileID: 5787444757769479388}
   collider2d: {fileID: 0}
+  afterSprite: {fileID: 6963963667487304375, guid: 241465f620e00ea4498ad830a5e90464, type: 3}
