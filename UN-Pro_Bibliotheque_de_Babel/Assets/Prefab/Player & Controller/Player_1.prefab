@@ -420,8 +420,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameHandler: {fileID: 0}
   entityName: Player 1
-  maxHealth: 64
-  currentHealth: 64
+  maxHealth: 100
+  currentHealth: 100
   moveSpeed: 2.75
   animationIndex: 0
   spriteRenderer: {fileID: 1254482564753501563}
@@ -488,6 +488,7 @@ MonoBehaviour:
   pressed3: 0
   orderRune: []
   timeBetween: 0
+  timeForChargeSound: 2
 --- !u!95 &1254482564753501560
 Animator:
   serializedVersion: 3

@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
         if (arg0.name == "HUB_Principal")
         {
             uiManager.Instance.SetRoomInfoHUB();
-            PlayerScript.Instance.SetMaxHealth(64);
+            PlayerScript.Instance.SetMaxHealth(PlayerScript.Instance.maxHealth);
         }
     }
 
@@ -171,7 +171,7 @@ public class LevelManager : MonoBehaviour
         if (roomName == "HUB_Principal")
         {
             //uiManager.Instance.SetRoomInfoHUB();
-            PlayerScript.Instance.SetMaxHealth(64);
+            PlayerScript.Instance.SetMaxHealth(PlayerScript.Instance.maxHealth);
         }
         else
         {

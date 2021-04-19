@@ -119,8 +119,7 @@ public class ManuscritMenuManage : MonoBehaviour
     {
         if (player.maxHealth == 100)
         {
-            player.SetMaxHealth(120);
-            
+            PlayerScript.Instance.SetMaxHealth(120); 
         }
         unlocklevel2++;
         MaxPV120button.interactable = false;
@@ -131,7 +130,7 @@ public class ManuscritMenuManage : MonoBehaviour
     {
         if (player.maxHealth == 120)
         {
-            player.SetMaxHealth(140);
+            PlayerScript.Instance.SetMaxHealth(140);
         }
         unlocklevel3++;
         MaxPV140button.interactable = false;
@@ -142,7 +141,7 @@ public class ManuscritMenuManage : MonoBehaviour
     {
         if (player.maxHealth == 140)
         {
-            player.SetMaxHealth(160);
+            PlayerScript.Instance.SetMaxHealth(160);
         }
         MaxPV160button.interactable = false;
         MaxPV160button.GetComponent<Image>().color = Color.green;
