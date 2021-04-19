@@ -10,7 +10,7 @@ public class Embrasement_Ordre : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider)
     {
        
-        if (collider.gameObject.CompareTag("Ennemy"))
+        if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
         {    
             if (collider.gameObject.transform.childCount < 3)
             { 

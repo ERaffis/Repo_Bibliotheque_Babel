@@ -167,7 +167,7 @@ MonoBehaviour:
   canMove: 0
   isStuned: 0
   isRooted: 0
-  weakness: 0
+  weakness: 1
   isImmune: 0
   healthBar: {fileID: 0}
   entityType: 

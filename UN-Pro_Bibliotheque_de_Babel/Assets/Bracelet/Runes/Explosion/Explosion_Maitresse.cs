@@ -10,7 +10,7 @@ public class Explosion_Maitresse : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
+        if (collider.gameObject.CompareTag("Ennemy"))
         {
             
             Vector2 explosionPos = transform.position;
