@@ -40,7 +40,7 @@ public class Bracelet : ScriptableObject
                 projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * baseSpeed * rune.multSpeed;
                 projectile.GetComponent<SpriteRenderer>().sprite = rune.sprite;
                 projectile.GetComponentInChildren<Light2D>().color = rune.color;
-                projectile.transform.GetChild(5).gameObject.SetActive(true);
+                projectile.transform.GetChild(4).gameObject.SetActive(true);
 
                 projectile.AddComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().SetValues(
@@ -80,7 +80,7 @@ public class Bracelet : ScriptableObject
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune.multSpeed;
                     projectile1.GetComponent<SpriteRenderer>().sprite = rune.sprite;
                     projectile1.GetComponentInChildren<Light2D>().color = rune.color;
-                    projectile1.transform.GetChild(6).gameObject.SetActive(true);
+                    projectile1.transform.GetChild(5).gameObject.SetActive(true);
 
 
                     projectile1.AddComponent<Projectile_Joueur>();
@@ -233,7 +233,7 @@ public class Bracelet : ScriptableObject
                 projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * baseSpeed * rune0.multSpeed;
                 projectile.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile.GetComponentInChildren<Light2D>().color = rune0.color;
-                projectile.transform.GetChild(5).gameObject.SetActive(true);
+                projectile.transform.GetChild(4).gameObject.SetActive(true);
 
 
                 projectile.AddComponent<Projectile_Joueur>();
@@ -273,6 +273,7 @@ public class Bracelet : ScriptableObject
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed;
                     projectile1.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                     projectile1.GetComponentInChildren<Light2D>().color = rune0.color;
+                    projectile1.transform.GetChild(5).gameObject.SetActive(true);
 
                     projectile1.AddComponent<Projectile_Joueur>();
                     projectile1.GetComponent<Projectile_Joueur>().SetValues(
@@ -309,6 +310,7 @@ public class Bracelet : ScriptableObject
                 projectile2.GetComponent<Rigidbody2D>().velocity = projectile2.transform.right * baseSpeed * rune0.multSpeed;
                 projectile2.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile2.GetComponentInChildren<Light2D>().color = rune0.color;
+                projectile2.transform.GetChild(6).gameObject.SetActive(true);
 
                 projectile2.AddComponent<Projectile_Joueur>();
                 projectile2.GetComponent<Projectile_Joueur>().SetValues(
@@ -341,7 +343,7 @@ public class Bracelet : ScriptableObject
                 projectile3.GetComponent<Rigidbody2D>().velocity = projectile3.transform.right * baseSpeed * rune0.multSpeed;
                 projectile3.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile3.GetComponentInChildren<Light2D>().color = rune0.color;
-
+                projectile3.transform.GetChild(7).gameObject.SetActive(true);
 
                 projectile3.AddComponent<Projectile_Joueur>();
                 projectile3.GetComponent<Projectile_Joueur>().SetValues(
@@ -422,7 +424,7 @@ public class Bracelet : ScriptableObject
                 projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed;
                 projectile.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile.GetComponentInChildren<Light2D>().color = rune0.color;
-
+                projectile.transform.GetChild(4).gameObject.SetActive(true);
 
                 projectile.AddComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().SetValues(
@@ -462,6 +464,7 @@ public class Bracelet : ScriptableObject
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed;
                     projectile1.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                     projectile1.GetComponentInChildren<Light2D>().color = rune0.color;
+                    projectile1.transform.GetChild(5).gameObject.SetActive(true);
 
                     projectile1.AddComponent<Projectile_Joueur>();
                     projectile1.GetComponent<Projectile_Joueur>().SetValues(
@@ -498,6 +501,7 @@ public class Bracelet : ScriptableObject
                 projectile2.GetComponent<Rigidbody2D>().velocity = projectile2.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed;
                 projectile2.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile2.GetComponentInChildren<Light2D>().color = rune0.color;
+                projectile2.transform.GetChild(6).gameObject.SetActive(true);
 
 
                 projectile2.AddComponent<Projectile_Joueur>();
@@ -532,7 +536,7 @@ public class Bracelet : ScriptableObject
                 projectile3.GetComponent<Rigidbody2D>().velocity = projectile3.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed;
                 projectile3.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile3.GetComponentInChildren<Light2D>().color = rune0.color;
-
+                projectile3.transform.GetChild(7).gameObject.SetActive(true);
 
                 projectile3.AddComponent<Projectile_Joueur>();
                 projectile3.GetComponent<Projectile_Joueur>().SetValues(
@@ -614,7 +618,7 @@ public class Bracelet : ScriptableObject
                 projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed;
                 projectile.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile.GetComponentInChildren<Light2D>().color = rune0.color;
-
+                projectile.transform.GetChild(4).gameObject.SetActive(true);
 
                 projectile.AddComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().SetValues(
@@ -655,6 +659,7 @@ public class Bracelet : ScriptableObject
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed;
                     projectile1.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                     projectile1.GetComponentInChildren<Light2D>().color = rune0.color;
+                    projectile1.transform.GetChild(5).gameObject.SetActive(true);
 
                     projectile1.AddComponent<Projectile_Joueur>();
                     projectile1.GetComponent<Projectile_Joueur>().SetValues(
@@ -692,6 +697,7 @@ public class Bracelet : ScriptableObject
                 projectile2.GetComponent<Rigidbody2D>().velocity = projectile2.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed;
                 projectile2.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile2.GetComponentInChildren<Light2D>().color = rune0.color;
+                projectile2.transform.GetChild(6).gameObject.SetActive(true);
 
 
                 projectile2.AddComponent<Projectile_Joueur>();
@@ -727,7 +733,7 @@ public class Bracelet : ScriptableObject
                 projectile3.GetComponent<Rigidbody2D>().velocity = projectile3.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed;
                 projectile3.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile3.GetComponentInChildren<Light2D>().color = rune0.color;
-
+                projectile3.transform.GetChild(7).gameObject.SetActive(true);
 
                 projectile3.AddComponent<Projectile_Joueur>();
                 projectile3.GetComponent<Projectile_Joueur>().SetValues(
@@ -812,7 +818,7 @@ public class Bracelet : ScriptableObject
                 projectile.GetComponent<Rigidbody2D>().velocity = projectile.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed * rune3.multSpeed;
                 projectile.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile.GetComponentInChildren<Light2D>().color = rune0.color;
-
+                projectile.transform.GetChild(4).gameObject.SetActive(true);
 
                 projectile.AddComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().SetValues(
@@ -854,6 +860,7 @@ public class Bracelet : ScriptableObject
                     projectile1.GetComponent<Rigidbody2D>().velocity = projectile1.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed * rune3.multSpeed;
                     projectile1.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                     projectile1.GetComponentInChildren<Light2D>().color = rune0.color;
+                    projectile1.transform.GetChild(5).gameObject.SetActive(true);
 
                     projectile1.AddComponent<Projectile_Joueur>();
                     projectile1.GetComponent<Projectile_Joueur>().SetValues(
@@ -892,6 +899,7 @@ public class Bracelet : ScriptableObject
                 projectile2.GetComponent<Rigidbody2D>().velocity = projectile2.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed * rune3.multSpeed;
                 projectile2.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile2.GetComponentInChildren<Light2D>().color = rune0.color;
+                projectile2.transform.GetChild(6).gameObject.SetActive(true);
 
 
                 projectile2.AddComponent<Projectile_Joueur>();
@@ -928,7 +936,7 @@ public class Bracelet : ScriptableObject
                 projectile3.GetComponent<Rigidbody2D>().velocity = projectile3.transform.right * baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed * rune3.multSpeed;
                 projectile3.GetComponent<SpriteRenderer>().sprite = rune0.sprite;
                 projectile3.GetComponentInChildren<Light2D>().color = rune0.color;
-
+                projectile3.transform.GetChild(7).gameObject.SetActive(true);
 
                 projectile3.AddComponent<Projectile_Joueur>();
                 projectile3.GetComponent<Projectile_Joueur>().SetValues(
