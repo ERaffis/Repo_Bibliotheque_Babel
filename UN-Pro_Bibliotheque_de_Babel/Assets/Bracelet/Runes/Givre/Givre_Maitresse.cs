@@ -10,7 +10,7 @@ public class Givre_Maitresse : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         //Projectile entre en collision avec un ennemi
-        if (collider.gameObject.CompareTag("Ennemy"))
+        if (collider.gameObject.CompareTag("Ennemy" ) || collider.gameObject.CompareTag("Tour"))
         {
             //Debuff & Stun Enemy
             collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));

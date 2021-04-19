@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -6998498295658404041}
   m_Layer: 6
   m_Name: TowerPrefab
-  m_TagString: Untagged
+  m_TagString: Tour
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,8 +156,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameHandler: {fileID: 0}
   entityName: 
-  maxHealth: 0
-  currentHealth: 0
+  maxHealth: 150
+  currentHealth: 150
   moveSpeed: 0
   animationIndex: 0
   spriteRenderer: {fileID: 0}

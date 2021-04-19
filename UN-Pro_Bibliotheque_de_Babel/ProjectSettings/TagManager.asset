@@ -21,6 +21,7 @@ TagManager:
   - Fragment
   - Boss
   - HalfCollider
+  - Tour
   layers:
   - Default
   - TransparentFX

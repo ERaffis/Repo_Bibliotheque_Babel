@@ -10,7 +10,7 @@ public class Embrasement_Maitresse : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         //Projectile entre en contact avec un ennemy
-        if (collider.gameObject.CompareTag("Ennemy"))
+        if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
         {
             if (collider.gameObject.transform.childCount < 3)
             {

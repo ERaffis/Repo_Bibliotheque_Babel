@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3530227072964081393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 9000715839595478602}
   m_Father: {fileID: 0}
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _GameHandler: {fileID: 0}
   entityName: Flame Guy
-  maxHealth: 512
-  currentHealth: 512
+  maxHealth: 500
+  currentHealth: 500
   moveSpeed: 0.25
   animationIndex: 0
   spriteRenderer: {fileID: 3530227072964081388}

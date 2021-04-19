@@ -16,7 +16,7 @@ public class Amplification_Maitresse : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider)
     {
         //Projectile entre en collision avec un ennemi
-        if (collider.gameObject.CompareTag("Ennemy"))
+        if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
         {
             //Damage Enemy
             collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);

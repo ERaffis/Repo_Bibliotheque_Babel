@@ -46,10 +46,10 @@ public class AimAssist : MonoBehaviour
        
 
     }
-
+    //modif ici pour puissance du aim assist
     public void FindTarget()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.75f);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1.75f);
 
         foreach (Collider2D hit in colliders)
         {
