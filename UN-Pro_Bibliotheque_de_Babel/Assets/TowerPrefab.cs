@@ -95,6 +95,6 @@ public class TowerPrefab : Entities
         GameObject obj = Instantiate(afterSprite, transform);
         obj.transform.parent = null;
         yield return new WaitForEndOfFrame();
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 }
