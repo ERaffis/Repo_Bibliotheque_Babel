@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="27" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="18" nextobjectid="23">
+<map version="1.5" tiledversion="1.5.0" orientation="orthogonal" renderorder="right-down" width="27" height="27" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="23">
  <tileset firstgid="1" source="GoodTileAssets.tsx"/>
  <layer id="1" name="BaseLayer" width="27" height="27">
   <data encoding="base64" compression="zlib">
-   eJzt1ssKAVEAh/FZsPEK8wouuWywwoLcYqEkZUFuZcEOG5fc3tp3ytSkcw6njkmx+DWbyTf/To1xHcfpwQ3oGpSge9+2q4q6RPMDz9RFSKJvaZd/Sw1hiYaFjaITRQxxJBStJFJII/OiJ9slOlnkkFc0nhVQRMlwnzibMipvdjwttDVnKNslWh3Djmegaal2faL13/XfZbpriJFhZ42F4a4xllgZ9ERngy3mBru83g57HHBUNE4444Irbprf1L3nRW/6MFG0Zr57TPfozjAiYev/S7XRz9YW2379O8qGO57IxGI=
+   eJyTZmBgiAJiaTrR9ML0tm+w+csLiH2wYD8auCkCiFmw4Bgq+QvZL95AzIoF+1LBj15Qs3SBWA+I9XHYZQjERkBsDOXjsw+bv7xwmEssJsV/oLhxJ9OeQDxxiM1fILtCybQrHo9duPxFC7tG/TXqL1L9lUymXbkk+iuNTHtgOIsEfyHb1wjETUDcjMPcViBuA+J2KL8Tj5n4ynmQfRlQnI7DrkwkNaT6B18ccmHB1Kq/cPkRGVPLL9TGI70dRQ0MAJXBvcA=
+  </data>
+ </layer>
+ <layer id="18" name="WallLayer" width="27" height="27">
+  <data encoding="base64" compression="zlib">
+   eJzt1UsLAVEYgOHzf9xyW2CFBbnFQlkoC3IrC6ywcMvtX3unRk5yyjdMofPVs5m+mffUWYxSdv5xSqg8UfOh1TI8b3/o+wF1P3/ZsFPVdpJvdIIIIYyIYS+KGOJIeOg5nRTSyLz4ThY55IU9524KKEoOyNTRULI7dFpNYec2HduyrR9tddETdhaYCFtrTDHDXNBZYoWL5IBub4Mtdtgb9g444oSzh47eG7oGhp2RtuO18zh+/7/06av7+XVjH1p2vmOuvSAmug==
   </data>
  </layer>
  <layer id="15" name="HoleLayer" width="27" height="27">
