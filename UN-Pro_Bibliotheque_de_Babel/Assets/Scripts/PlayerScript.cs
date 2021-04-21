@@ -16,6 +16,7 @@ public class PlayerScript : Entities
     [Header("Run Counter")]
     public int nmbRun;
 
+    public bool resurectCharge;
     public bool isDead = false;
 
     private void Awake()
@@ -38,6 +39,7 @@ public class PlayerScript : Entities
         SetStartHealth();
 
         isImmune = false;
+        resurectCharge = false;
     }
 
     // Update is called once per frame
@@ -50,7 +52,20 @@ public class PlayerScript : Entities
         }
         if(currentHealth <= 0)
         {
-            PlayerDied();
+            if(!resurectCharge)
+            {
+                Debug.LogWarning("Full Death");
+                PlayerDied();
+            } 
+            else
+            {
+                Debug.LogWarning("ResurectCharge Used");
+                currentHealth = maxHealth * 0.20f;
+                StartCoroutine(ResurectPlayer());
+                resurectCharge = false;
+
+            }
+
         }
     }
 
@@ -103,16 +118,27 @@ public class PlayerScript : Entities
             Destroy(item);
         }
 
-        SoundManager.PlaySound(SoundManager.Sound.PlayerDie,transform.position);
+        SoundManager.PlaySound(SoundManager.Sound.PlayerDie, transform.position);
         animator.Play("PlayerDead");
 
         SetStartHealth();
-        GameHandler.Instance.RunEnded(false);
+        GameHandler.Instance.RunEnded(false); 
     }
     public void PickedUpHeart()
     {
         currentHealth += 8;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
+    }
+
+    private IEnumerator ResurectPlayer()
+    {
+        isImmune = true;
+        canMove = false;
+        healthBar.value = currentHealth;
+        yield return new WaitForSeconds(0.75f);
+        canMove = true;
+        yield return new WaitForSeconds(1.25f);
+        isImmune = false;
     }
 }

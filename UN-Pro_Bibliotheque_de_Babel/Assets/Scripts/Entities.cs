@@ -7,8 +7,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Rigidbody2D))]
 public class Entities : MonoBehaviour
 {
-    [Header("GameHandler")]
-    public GameHandler _GameHandler;
 
     [Header("Basic Info")]
     public string entityName;
@@ -46,7 +44,6 @@ public class Entities : MonoBehaviour
     void Start()
     {
         SetStartHealth();
-        _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
         //StartCoroutine(WaitToMoveStart());
         weakness = 1;
     }
@@ -90,7 +87,7 @@ public class Entities : MonoBehaviour
 
         if (currentHealth <= 0 && !this.gameObject.CompareTag("Player1") && !gameObject.CompareTag("Tour"))
         {
-            _GameHandler.nmbRemaining--;
+            GameHandler.Instance.nmbRemaining--;
             SpawnReward.Instance.SpawnItem(this.gameObject.transform.position, this.gameObject.tag);
             SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
             Destroy(this.gameObject);

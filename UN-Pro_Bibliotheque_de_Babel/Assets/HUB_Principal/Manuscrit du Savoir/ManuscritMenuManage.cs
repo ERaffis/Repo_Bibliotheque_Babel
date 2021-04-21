@@ -6,8 +6,6 @@ using UnityEngine.UI;
 
 public class ManuscritMenuManage : MonoBehaviour
 {
-    public PlayerScript player;
-    public bool hasRessurect;
 
     public Button Bracelet1unlockbutton;
     public Button Bracelet2unlockbutton;
@@ -30,14 +28,15 @@ public class ManuscritMenuManage : MonoBehaviour
     public Button lifegainonkill2button;
     public Button lifegainonkill3button;
 
-    public int unlocklevel2;
-    public int unlocklevel3;
+    [Header("BoutonRetour")]
+    [SerializeField] private GameObject returnButton;
+
+    private int unlocklevel2;
+    private int unlocklevel3;
 
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
-        hasRessurect = false;
 
         Bracelet1unlockbutton.interactable = true;
         Bracelet2unlockbutton.interactable = false;
@@ -67,11 +66,7 @@ public class ManuscritMenuManage : MonoBehaviour
     
     void Update()
     {
-       //if (player.currentHealth <= 0 && hasRessurect = true)
-        //{
-          //  player.SetHealth(player.maxHealth);
-            //hasRessurect = false;
-        //}
+
 
         if(unlocklevel2 == 5)
         {
@@ -80,7 +75,7 @@ public class ManuscritMenuManage : MonoBehaviour
             slowcast40button.interactable = true;
             pageblanche2button.interactable = true;
             lifegainonkill2button.interactable = true;
-            hasRessurect = true;
+            PlayerScript.Instance.resurectCharge = true;
             
         }
 
@@ -97,6 +92,7 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void BraceletUnlock1()
     {
+        StartCoroutine(SelectFirstButton());
         unlocklevel2++;
         Bracelet1unlockbutton.interactable = false;
         Bracelet1unlockbutton.GetComponent<Image>().color = Color.green;
@@ -104,6 +100,7 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void BraceletUnlock2()
     {
+        StartCoroutine(SelectFirstButton());
         unlocklevel3++;
         Bracelet2unlockbutton.interactable = false;
         Bracelet2unlockbutton.GetComponent<Image>().color = Color.green;
@@ -111,13 +108,15 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void BraceletUnlock3()
     {
+        StartCoroutine(SelectFirstButton());
         Bracelet3unlockbutton.interactable = false;
         Bracelet3unlockbutton.GetComponent<Image>().color = Color.green;
     }
 
     public void MaxPV120()
     {
-        if (player.maxHealth == 100)
+        StartCoroutine(SelectFirstButton());
+        if (PlayerScript.Instance.maxHealth == 100)
         {
             PlayerScript.Instance.SetMaxHealth(120); 
         }
@@ -128,7 +127,8 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void MaxPV140()
     {
-        if (player.maxHealth == 120)
+        StartCoroutine(SelectFirstButton());
+        if (PlayerScript.Instance.maxHealth == 120)
         {
             PlayerScript.Instance.SetMaxHealth(140);
         }
@@ -139,7 +139,8 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void MaxPV160()
     {
-        if (player.maxHealth == 140)
+        StartCoroutine(SelectFirstButton());
+        if (PlayerScript.Instance.maxHealth == 140)
         {
             PlayerScript.Instance.SetMaxHealth(160);
         }
@@ -148,25 +149,29 @@ public class ManuscritMenuManage : MonoBehaviour
     }
 
     public void slowCast20()
-    { 
+    {
+        StartCoroutine(SelectFirstButton());
         unlocklevel2++;
         slowcast20button.interactable = false;
         slowcast20button.GetComponent<Image>().color = Color.green;
     }
     public void slowCast40()
     {
+        StartCoroutine(SelectFirstButton());
         unlocklevel3++;
         slowcast40button.interactable = false;
         slowcast40button.GetComponent<Image>().color = Color.green;
     }
     public void slowCast80()
     {
+        StartCoroutine(SelectFirstButton());
         slowcast80button.interactable = false;
         slowcast80button.GetComponent<Image>().color = Color.green;
     }
 
     public void pageblanche1()
     {
+        StartCoroutine(SelectFirstButton());
         unlocklevel2++;
         pageblanche1button.interactable = false;
         pageblanche1button.GetComponent<Image>().color = Color.green;
@@ -174,6 +179,7 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void pageblanche2()
     {
+        StartCoroutine(SelectFirstButton());
         unlocklevel3++;
         pageblanche2button.interactable = false;
         pageblanche2button.GetComponent<Image>().color = Color.green;
@@ -181,12 +187,14 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void minimumlevelrune()
     {
+        StartCoroutine(SelectFirstButton());
         levelminimumrunebutton.interactable = false;
         levelminimumrunebutton.GetComponent<Image>().color = Color.green;
     }
 
     public void lifegainonkill1()
     {
+        StartCoroutine(SelectFirstButton());
         unlocklevel2++;
         lifegainonkill1button.interactable = false;
         lifegainonkill1button.GetComponent<Image>().color = Color.green;
@@ -194,6 +202,7 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void lifegainonkill2()
     {
+        StartCoroutine(SelectFirstButton());
         unlocklevel3++;
         lifegainonkill2button.interactable = false;
         lifegainonkill2button.GetComponent<Image>().color = Color.green;
@@ -201,6 +210,7 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void lifegainonkill3()
     {
+        StartCoroutine(SelectFirstButton());
         lifegainonkill3button.interactable = false;
         lifegainonkill3button.GetComponent<Image>().color = Color.green;
     }
@@ -208,5 +218,12 @@ public class ManuscritMenuManage : MonoBehaviour
     public void closemenu()
     {
         this.gameObject.SetActive(false);
+    }
+
+    IEnumerator SelectFirstButton()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        yield return new WaitForEndOfFrame();
+        EventSystem.current.SetSelectedGameObject(returnButton);
     }
 }

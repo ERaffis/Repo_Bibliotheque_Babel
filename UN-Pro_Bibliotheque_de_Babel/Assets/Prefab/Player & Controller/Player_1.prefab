@@ -400,10 +400,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboModifier: 0
   envModifier: 0
-  dashForce: 10
-  dashDuration: 0.1
+  dashDistance: 0.6
   dashCooldown: 3.5
   canDash: 1
+  pfDashEffect: {fileID: 1738472642424824048, guid: 91b96ad0e7477db47a778bbe52c359c5, type: 3}
   lastVelocity: {x: 0, y: 0}
   runeManager: {fileID: 7014725019331352941}
 --- !u!114 &1254482564753501561
@@ -438,6 +438,7 @@ MonoBehaviour:
   bloodParticles: {fileID: 814997966836708481, guid: eb2d557c0754c8343a091defbb1af35e, type: 3}
   playerID: 0
   nmbRun: 0
+  resurectCharge: 0
   isDead: 0
 --- !u!114 &161625625904053921
 MonoBehaviour:

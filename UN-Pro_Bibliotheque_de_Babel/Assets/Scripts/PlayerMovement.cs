@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Rewired;
 using UnityEngine.SceneManagement;
+using CodeMonkey.Utils;
 
 
 public class PlayerMovement : MonoBehaviour
@@ -12,10 +13,10 @@ public class PlayerMovement : MonoBehaviour
     public float envModifier;
 
     [Header("Dash Values")]
-    public float dashForce = 10;
-    public float dashDuration = 0.1f;
+    public float dashDistance;
     public float dashCooldown = 3.5f;
     public bool canDash = true;
+    public Transform pfDashEffect;
     
 
     private float moveHorizontal;
@@ -52,9 +53,16 @@ public class PlayerMovement : MonoBehaviour
             FindMoveAngle();
             FindAimAngle();
 
-            if (PlayerScript.Instance.canMove) MovePlayer();
+
+            if (PlayerScript.Instance.canMove)
+            {
+                MovePlayer();
+                Dash();
+            }
             AimPlayer();
         }
+
+        dashCooldown -= Time.deltaTime;
 
         PlayerScript.Instance.animator.SetFloat("Velocity X", GetComponent<Rigidbody2D>().velocity.x);
         PlayerScript.Instance.animator.SetFloat("Velocity Y", GetComponent<Rigidbody2D>().velocity.y);
@@ -98,42 +106,42 @@ public class PlayerMovement : MonoBehaviour
             //Aim Right
             if (aimAngle >= -25 & aimAngle <= 25 && aimAngle != 0)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(0);
+                GameHandler.Instance.ChangeRuneDir(0);
             }
             //Aim Left
             else if (aimAngle >= 155 || aimAngle <= -155)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(4);
+                GameHandler.Instance.ChangeRuneDir(4);
             }
             //Aim Up
             else if (aimAngle >= 65 & aimAngle <= 115)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(2);
+                GameHandler.Instance.ChangeRuneDir(2);
             }
             //Aim UpRight
             else if (aimAngle > 25 & aimAngle < 65)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(1);
+                GameHandler.Instance.ChangeRuneDir(1);
             }
             //Aim UpLeft
             else if (aimAngle > 115 & aimAngle < 155)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(3);
+                GameHandler.Instance.ChangeRuneDir(3);
             }
             //Aim Down
             else if (aimAngle >= -115 & aimAngle <= -65)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(6);
+                GameHandler.Instance.ChangeRuneDir(6);
             }
             //Aim DownLeft
             else if (aimAngle > -155 & aimAngle < -115)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(5);
+                GameHandler.Instance.ChangeRuneDir(5);
             }
             //Aim DownRight
             else if (aimAngle > -65 & aimAngle < -25)
             {
-                PlayerScript.Instance._GameHandler.ChangeRuneDir(7);
+                GameHandler.Instance.ChangeRuneDir(7);
             }
         }
     }
@@ -147,8 +155,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = Vector2.right;
 
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(0);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(0);
+                GameHandler.Instance.ChangeMoveDir(0);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(0);
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
@@ -158,8 +166,8 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle >= 155 || moveAngle <= -155)
             {
                 Vector2 dir = Vector2.left;
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(4);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(4);
+                GameHandler.Instance.ChangeMoveDir(4);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(4);
 
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
@@ -171,8 +179,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 Vector2 dir = Vector2.up;
 
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(2);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(2);
+                GameHandler.Instance.ChangeMoveDir(2);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(2);
 
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
@@ -183,8 +191,8 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > 25 & moveAngle < 65) 
             {
                 Vector2 dir = new Vector2(.75f, .75f);
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(1);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(1);
+                GameHandler.Instance.ChangeMoveDir(1);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(1);
 
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
@@ -195,8 +203,8 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > 115 & moveAngle < 155) 
             {
                 Vector2 dir = new Vector2(-.75f, .75f);
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(3);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(3);
+                GameHandler.Instance.ChangeMoveDir(3);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(3);
 
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
@@ -207,8 +215,8 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle >= -115 & moveAngle <= -65)
             {
                 Vector2 dir = Vector2.down;
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(6);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(6);
+                GameHandler.Instance.ChangeMoveDir(6);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(6);
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
@@ -218,8 +226,8 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > -155 & moveAngle < -115) 
             {
                 Vector2 dir = new Vector2(-.75f, -.75f);
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(5);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(5);
+                GameHandler.Instance.ChangeMoveDir(5);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(5);
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
@@ -229,8 +237,8 @@ public class PlayerMovement : MonoBehaviour
             else if (moveAngle > -65 & moveAngle < -25) 
             {
                 Vector2 dir = new Vector2(.75f, -.75f);
-                PlayerScript.Instance._GameHandler.ChangeMoveDir(7);
-                if (aimDirection == Vector2.zero) PlayerScript.Instance._GameHandler.ChangeRuneDir(7);
+                GameHandler.Instance.ChangeMoveDir(7);
+                if (aimDirection == Vector2.zero) GameHandler.Instance.ChangeRuneDir(7);
 
                 PlayerScript.Instance.rb.velocity = dir * PlayerScript.Instance.moveSpeed * comboModifier * envModifier;
                 lastVelocity = PlayerScript.Instance.rb.velocity;
@@ -281,5 +289,24 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 GetPosition()
     {
         return this.gameObject.transform.position;
+    }
+
+    private bool HitWall(Vector3 dir, float distance)
+    {
+        return Physics2D.Raycast(transform.position, dir, distance,LayerMask.GetMask("Room")).collider == null ;
+    }
+    private void Dash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) && dashCooldown <= 0 && !runeManager.isComboing)
+        {
+            if(HitWall(new Vector3(lastVelocity.x, lastVelocity.y,0).normalized, dashDistance + 0.8f))
+            {
+                dashCooldown = 2f;
+                Vector3 beforeDashPosition = transform.position;
+                Transform dashEffectTransform = Instantiate(pfDashEffect, beforeDashPosition, Quaternion.identity);
+                dashEffectTransform.eulerAngles = new Vector3(0, 0, 180 + UtilsClass.GetAngleFromVectorFloat(lastVelocity));
+                transform.position += new Vector3(lastVelocity.x * dashDistance, lastVelocity.y * dashDistance) ;
+            }
+        }
     }
 }

@@ -14,7 +14,6 @@ public class Ennemi3_Movement : Entities
 
     void Start()
     {
-        _GameHandler = GameObject.FindGameObjectWithTag("GameHandler").GetComponent<GameHandler>();
         ennemyCanMove = true;
         directionChangeTime = 3f;
         charactervelocity = 1f;
