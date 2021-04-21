@@ -13,6 +13,8 @@ public class SelectionBracelet : MonoBehaviour
 
     public bool isInRange;
 
+    [SerializeField] private GameObject ps4Input;
+
     private void Awake()
     {
         isInRange = false;
@@ -167,7 +169,7 @@ public class SelectionBracelet : MonoBehaviour
         if (collision.name == "HalfCollider")
         {
             isInRange = true;
-            Debug.Log("Pressed Right Trigger to select bracelet");
+            ps4Input.SetActive(true);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -175,7 +177,7 @@ public class SelectionBracelet : MonoBehaviour
         if (collision.name == "HalfCollider")
         {
             isInRange = false;
-            Debug.Log("Out of range");
+            ps4Input.SetActive(false);
         }
     }
 }
