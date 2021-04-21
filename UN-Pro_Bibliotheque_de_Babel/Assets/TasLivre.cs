@@ -5,40 +5,34 @@ using UnityEngine;
 public class TasLivre : MonoBehaviour
 {
     private int nmbCharge;
+    private float waitTimer;
+    [SerializeField] private ParticleSystem particle;
 
     private void OnEnable()
     {
         nmbCharge = 3;
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("TouchedProjectile");
-        if (collision.gameObject.TryGetComponent(out Amplification_Maitresse b))
-        {
-            nmbCharge--;
-            if (nmbCharge <= 0)
-            {
-                Destroy(gameObject);
-                Destroy(collision.gameObject);
-            }
-            transform.localScale *= 0.75f;
-            Destroy(collision.gameObject);
-        }
+        waitTimer = 0;
     }
 
+    private void Update()
+    {
+        waitTimer -= Time.deltaTime;
+    }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("TouchedProjectile");
-        if (collision.gameObject.TryGetComponent(out Amplification_Maitresse b))
+        if (collision.gameObject.TryGetComponent(out Amplification_Maitresse b) && waitTimer <= 0f)
         {
+            particle.Stop();
+            particle.Play();
             nmbCharge--;
+            waitTimer = 5f;
             if (nmbCharge <= 0)
             {
-                Destroy(gameObject);
-                Destroy(collision.gameObject);
+                Destroy(gameObject, 1f);
             }
             transform.localScale *= 0.75f;
-            Destroy(collision.gameObject);
         }
     }
 }

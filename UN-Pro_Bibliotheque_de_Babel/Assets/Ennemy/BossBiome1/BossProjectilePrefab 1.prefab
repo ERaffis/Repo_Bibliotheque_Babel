@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3909789343613200548}
   - component: {fileID: 1919163612218418741}
   - component: {fileID: 4080567838057033836}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BossProjectileExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,7 +4875,7 @@ GameObject:
   - component: {fileID: 8419791876243634551}
   - component: {fileID: 9181901180835177345}
   - component: {fileID: 8797867633384219273}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: BossProjectilePrefab 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

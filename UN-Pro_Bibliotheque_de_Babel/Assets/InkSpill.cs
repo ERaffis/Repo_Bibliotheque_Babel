@@ -26,7 +26,6 @@ public class InkSpill : MonoBehaviour
                     Debug.Log("Freeze InkSpill");
                     isFrozen = true;
                     GetComponent<SpriteRenderer>().sprite = frozenSprite;
-                    Destroy(collision.gameObject);
                 }
 
                 if (collision.TryGetComponent(out Embrasement_Maitresse c) && isFrozen)
@@ -34,7 +33,6 @@ public class InkSpill : MonoBehaviour
                     Debug.Log("Freeze InkSpill");
                     isFrozen = false;
                     GetComponent<SpriteRenderer>().sprite = normalSprite;
-                    Destroy(collision.gameObject);
                 }
                 break;
 

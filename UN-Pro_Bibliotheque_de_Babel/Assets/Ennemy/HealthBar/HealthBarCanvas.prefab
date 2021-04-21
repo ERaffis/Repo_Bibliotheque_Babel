@@ -146,8 +146,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: -1630303055
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5482311827710998942
 MonoBehaviour:

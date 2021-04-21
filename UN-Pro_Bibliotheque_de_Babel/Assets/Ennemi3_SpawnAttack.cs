@@ -79,7 +79,12 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
 
             GameObject tmpObj = Instantiate(Ennemi3TowerPrefab, new Vector2(zoneXposition, zoneYposition), Quaternion.identity);
 
-
+            int colliders = Physics2D.OverlapCollider(tmpObj.GetComponent<Collider2D>(), new ContactFilter2D(), new List<Collider2D>());
+            if (colliders != 0)
+            {
+                Destroy(tmpObj);
+                StartCoroutine(SpawnZones());
+            }
 
         }
 

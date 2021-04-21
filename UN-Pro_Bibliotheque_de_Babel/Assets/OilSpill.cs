@@ -22,7 +22,6 @@ public class OilSpill : MonoBehaviour
 
                 Instantiate(fireAnimation, transform);
                 isOnFire = true;
-                Destroy(collision.gameObject);
             }
         }
 
@@ -32,7 +31,6 @@ public class OilSpill : MonoBehaviour
             {
                 Destroy(transform.GetChild(0).gameObject);
                 isOnFire = false;
-                Destroy(collision.gameObject);
             }
         }
 
