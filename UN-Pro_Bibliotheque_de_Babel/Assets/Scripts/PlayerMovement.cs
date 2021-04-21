@@ -297,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && dashCooldown <= 0 && !runeManager.isComboing)
+        if (PlayerScript.Instance.playerInputs.GetButtonDown("Dash") && dashCooldown <= 0 && !runeManager.isComboing)
         {
             if(HitWall(new Vector3(lastVelocity.x, lastVelocity.y,0).normalized, dashDistance + 0.8f))
             {
