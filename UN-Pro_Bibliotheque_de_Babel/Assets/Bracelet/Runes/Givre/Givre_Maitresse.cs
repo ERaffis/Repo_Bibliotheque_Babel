@@ -27,7 +27,8 @@ public class Givre_Maitresse : MonoBehaviour
         if (collider.gameObject.CompareTag("Tour"))
         {
             //Damage Enemy
-            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+            if (collider != null)
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
             //DestroyProjectile
             DisableProjectile();
