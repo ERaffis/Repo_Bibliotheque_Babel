@@ -10,10 +10,14 @@ public class LevelManager : MonoBehaviour
     private int levelToLoad;
 
     [Header("Level Generation Values")]
-    public float shouldBoss;
-    public float shouldHub;
+    public bool shouldBoss;
+    public bool shouldHub;
     public float shouldExterior;
     string roomName;
+
+    [Header("RoomBooleans")]
+    private bool piece1, piece2, piece3, piece4, piece5, piece6;
+    private int roomCounter;
 
     private void Awake()
     {
@@ -48,6 +52,13 @@ public class LevelManager : MonoBehaviour
         {
             uiManager.Instance.SetRoomInfoHUB();
             PlayerScript.Instance.SetMaxHealth(PlayerScript.Instance.maxHealth);
+            piece1 = false;
+            piece2 = false;
+            piece3 = false;
+            piece4 = false;
+            piece5 = false;
+            piece6 = false;
+            roomCounter = 0;
         }
     }
 
@@ -182,86 +193,195 @@ public class LevelManager : MonoBehaviour
     // Generate a room name based on parameters
     public string GenerateRoom()
     {
-        float spawnHub = Random.Range(0f, 1f);
-
         float spawnExterior = Random.Range(0f, 1f);
 
         if (spawnExterior * shouldExterior > 0.95f)
         {
             //numberManager.PlusRoomNumber();
-            shouldHub = 0f;
-            shouldBoss = 0f;
+            shouldBoss = false;
             shouldExterior = 0f;
             GameHandler.Instance.RunEnded(false);
             return "HUB_Principal";
         }
 
-        if (spawnHub * shouldHub > 0.95f)
+        if (roomCounter == 6)
         {
+            roomCounter = 0;
+            shouldBoss = true;
+
             RoomNumberManager.Instance.PlusRoomNumber();
-            shouldHub = 0f;
-            shouldBoss = 0f;
             return "Hub_Secondaire" ;
         }
         else
         {
-
-            if (Random.Range(0.01f, 1f) * shouldBoss > 0.95f)
+            if (shouldBoss)
             {
                 RoomNumberManager.Instance.PlusLevelNumber();
-                shouldHub = 100f;
-                shouldBoss = 0f;
+                piece1 = false;
+                piece2 = false;
+                piece3 = false;
+                piece4 = false;
+                piece5 = false;
+                piece6 = false;
+
+                shouldBoss = false;
                 shouldExterior += 0.2f;
                 return "Piece_Boss";
             }
             else
             {
-                int gen = Random.Range(1, 7);
-                RoomNumberManager.Instance.PlusRoomNumber();
-                shouldHub += 0.1f;
-                shouldBoss += 0.125f;
-                if (gen == 1)
+                int gen = Random.Range(1, 6);
+
+                switch (gen)
                 {
-                    return "Piece_1";
+                    case 1 :
+                        if(!piece1)
+                        {
+                            Debug.Log("Load Piece 1");
+                            LoadPiece1();
+                        } else return CheckBooleans();
+                        break;
+
+                    case 2:
+                        if (!piece2)
+                        {
+                            Debug.Log("Load Piece 2");
+                            LoadPiece2();
+                        }
+                        else return CheckBooleans();
+                        break;
+
+                    case 3:
+                        if (!piece3)
+                        {
+                            Debug.Log("Load Piece 3");
+                            LoadPiece3();
+                        }
+                        else return CheckBooleans();
+                        break;
+
+                    case 4:
+                        if (!piece4)
+                        {
+                            Debug.Log("Load Piece 4");
+                            LoadPiece4();
+                        }
+                        else return CheckBooleans();
+                        break;
+
+                    case 5:
+                        if (!piece5)
+                        {
+                            Debug.Log("Load Piece 5");
+                            LoadPiece5();
+                        }
+                        else return CheckBooleans();
+                        break;
+
+                    case 6:
+                        if (!piece6)
+                        {
+                            Debug.Log("Load Piece 6");
+                            LoadPiece6();
+                        }
+                        else return CheckBooleans();
+                        break;
+
+                    default: 
+                        return CheckBooleans();
+                        break;
                 }
-                else if (gen == 2)
-                {
-                    return "Piece_2";
-                }
-                else if (gen == 3)
-                {
-                    return "Piece_3";
-                }
-                else if (gen == 4)
-                {
-                    return "Piece_4";
-                }
-                else if (gen == 5)
-                {
-                    return "Piece_5";
-                }
-                else if (gen == 6)
-                {
-                    return "Piece_6";
-                }
-                else if (gen == 7)
-                {
-                    return "Piece_7";
-                }
-                else if (gen == 8)
-                {
-                    return "Piece_8";
-                }
-                else if (gen == 9)
-                {
-                    return "Piece_9";
-                }
-                else if (gen == 10)
-                {
-                    return "Piece_10";
-                }
-                return null;
-            }
+            } 
         }
+    }
+
+    string CheckBooleans()
+    {
+        Debug.Log("Had To Check Booleans");
+        if (!piece1)
+        {
+            piece1 = true;
+            RoomNumberManager.Instance.PlusRoomNumber();
+            roomCounter++;
+            return "Piece_1";
+        }
+        if (!piece2)
+        {
+            piece2 = true;
+            RoomNumberManager.Instance.PlusRoomNumber();
+            roomCounter++;
+            return "Piece_2";
+        }
+        if (!piece3)
+        {
+            piece3 = true;
+            RoomNumberManager.Instance.PlusRoomNumber();
+            roomCounter++;
+            return "Piece_3";
+        }
+        if (!piece4)
+        {
+            piece4 = true;
+            RoomNumberManager.Instance.PlusRoomNumber();
+            roomCounter++;
+            return "Piece_4";
+        }
+
+        if (!piece5)
+        {
+            piece5 = true;
+            RoomNumberManager.Instance.PlusRoomNumber();
+            roomCounter++;
+            return "Piece_5";
+        }
+            piece6 = true;
+            RoomNumberManager.Instance.PlusRoomNumber();
+            roomCounter++;
+            return "Piece_6";
+    }
+
+    string LoadPiece1()
+    {
+        piece1 = true;
+        RoomNumberManager.Instance.PlusRoomNumber();
+        roomCounter++;
+        return "Piece_1";
+    }
+
+    string LoadPiece2()
+    {
+        piece2 = true;
+        RoomNumberManager.Instance.PlusRoomNumber();
+        roomCounter++;
+        return "Piece_2";
+    }
+
+    string LoadPiece3()
+    {
+        piece3 = true;
+        RoomNumberManager.Instance.PlusRoomNumber();
+        roomCounter++;
+        return "Piece_3";
+    }
+    string LoadPiece4()
+    {
+        piece4 = true;
+        RoomNumberManager.Instance.PlusRoomNumber();
+        roomCounter++;
+        return "Piece_4";
+    }
+    string LoadPiece5()
+    {
+        piece5 = true;
+        RoomNumberManager.Instance.PlusRoomNumber();
+        roomCounter++;
+        return "Piece_5";
+    }
+    string LoadPiece6()
+    {
+        piece6 = true;
+        RoomNumberManager.Instance.PlusRoomNumber();
+        roomCounter++;
+        return "Piece_6";
     }
 }

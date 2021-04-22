@@ -254,6 +254,59 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c13d17129cb4de346a1a2f7a81ca28fd, type: 3}
+--- !u!1 &1490095554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1490095556}
+  - component: {fileID: 1490095555}
+  m_Layer: 0
+  m_Name: RuneSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1490095555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490095554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8697d8470d5b2e0418bb62bfdc091e07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoints: []
+  embrasementLVL1: {fileID: 4880486872907560814, guid: 4d755425ce18b964386a88ce03105501, type: 3}
+  embrasementLVL2: {fileID: 0}
+  embrasementLVL3: {fileID: 0}
+  givreLVL1: {fileID: 5503935727174500744, guid: 4942962520f45cd49a05e1881ecf540a, type: 3}
+  givreLVL2: {fileID: 0}
+  givreLVL3: {fileID: 0}
+  amplificationLVL1: {fileID: 521356023350719000, guid: 413b9c22a1445ec4db9bbb6cd3ef2bd6, type: 3}
+  amplificationLVL2: {fileID: 0}
+  amplificationLVL3: {fileID: 0}
+--- !u!4 &1490095556
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490095554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.19774956, y: 1.0116886, z: -0.47196075}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1585831099
 PrefabInstance:
   m_ObjectHideFlags: 0
