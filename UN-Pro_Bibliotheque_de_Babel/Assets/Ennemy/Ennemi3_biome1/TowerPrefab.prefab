@@ -154,15 +154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b18ebf6bd885744bbf52bc35544a1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _GameHandler: {fileID: 0}
   entityName: 
   maxHealth: 150
   currentHealth: 150
   moveSpeed: 0
   animationIndex: 0
-  spriteRenderer: {fileID: 0}
-  animator: {fileID: 0}
-  rb: {fileID: 0}
+  spriteRenderer: {fileID: 4650873929684132338}
+  animator: {fileID: 5787444757769479388}
+  rb: {fileID: 3763703341084496125}
   isTakingDamage: 0
   canMove: 0
   isStuned: 0
