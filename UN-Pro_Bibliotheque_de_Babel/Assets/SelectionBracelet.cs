@@ -53,12 +53,12 @@ public class SelectionBracelet : MonoBehaviour
                 Inventory.Instance.activeBracelet = bracelets[0];
                 Inventory.Instance.ClearBracelet();
                 //Change active bracelet to white
-                foreach (var item in braceletPanneauImage)
+                /*foreach (var item in braceletPanneauImage)
                 {
                     item.color = new Color(.25f,.25f,.25f);
                 }
                 braceletPanneauImage[0].color = Color.white;
-
+                */
                 
 
                 break;
@@ -68,12 +68,12 @@ public class SelectionBracelet : MonoBehaviour
                 Inventory.Instance.ClearBracelet();
 
                 //Change active bracelet to white
-                foreach (var item in braceletPanneauImage)
+                /*foreach (var item in braceletPanneauImage)
                 {
                     item.color = new Color(.25f, .25f, .25f);
                 }
                 braceletPanneauImage[1].color = Color.white;
-
+                */
                 break;
 
             case "Mitrailleuse":
@@ -81,12 +81,12 @@ public class SelectionBracelet : MonoBehaviour
                 Inventory.Instance.ClearBracelet();
 
                 //Change active bracelet to white
-                foreach (var item in braceletPanneauImage)
+                /*foreach (var item in braceletPanneauImage)
                 {
                     item.color = new Color(.25f, .25f, .25f);
                 }
                 braceletPanneauImage[2].color = Color.white;
-
+                */
                 break;
 
             case "Tete Chercheuse":
@@ -94,29 +94,15 @@ public class SelectionBracelet : MonoBehaviour
                 Inventory.Instance.ClearBracelet();
 
                 //Change active bracelet to white
-                foreach (var item in braceletPanneauImage)
+                /*foreach (var item in braceletPanneauImage)
                 {
                     item.color = new Color(.25f, .25f, .25f);
                 }
                 braceletPanneauImage[3].color = Color.white;
-
+                */
                 break;
-
-            case "Vitesse Rapide":
-                Inventory.Instance.activeBracelet = bracelets[4];
-                Inventory.Instance.ClearBracelet();
-
-                //Change active bracelet to white
-                foreach (var item in braceletPanneauImage)
-                {
-                    item.color = new Color(.25f, .25f, .25f);
-                }
-                braceletPanneauImage[4].color = Color.white;
-
-                break;
-
+           
             default:
-                Debug.LogWarning("Eat My Booty! Something went wrong");
                 break;
         }
         foreach (var item in uiManager.Instance.uiRunes)
@@ -134,32 +120,27 @@ public class SelectionBracelet : MonoBehaviour
         switch (name)
         {
             case "Simple":
-                braceletPanneauImage[0].enabled = true;
+                //braceletPanneauImage[0].enabled = true;
                 triggerArea.enabled = true;
                 break;
 
             case "3 Projectiles":
-                braceletPanneauImage[1].enabled = true;
+                //braceletPanneauImage[1].enabled = true;
                 triggerArea.enabled = true;
                 break;
 
             case "Mitrailleuse":
-                braceletPanneauImage[2].enabled = true;
+                //braceletPanneauImage[2].enabled = true;
                 triggerArea.enabled = true;
                 break;
 
             case "Tete Chercheuse":
-                braceletPanneauImage[3].enabled = true;
-                triggerArea.enabled = true;
-                break;
-
-            case "Vitesse Rapide":
-                braceletPanneauImage[4].enabled = true;
+                //braceletPanneauImage[3].enabled = true;
                 triggerArea.enabled = true;
                 break;
 
             default:
-                Debug.LogWarning("Eat My Booty Something went wrong");
+                Debug.LogError("No Bracelet Were Found");
                 break;
         }
     }

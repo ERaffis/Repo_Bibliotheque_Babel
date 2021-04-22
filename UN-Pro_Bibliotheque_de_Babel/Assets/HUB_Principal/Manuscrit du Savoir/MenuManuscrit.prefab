@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -471,7 +471,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -646,14 +646,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: slowCast20
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Slow_20
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &581431415391595561
@@ -780,14 +780,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: slowCast40
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Slow_40
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &826943510860069069
@@ -866,7 +866,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -1125,7 +1125,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -1434,14 +1434,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: MaxPV140
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PV_140
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &1463968467506883592
@@ -1520,7 +1520,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -1647,7 +1647,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -2178,7 +2178,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -2487,14 +2487,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: BraceletUnlock1
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Bracelet_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &2365966238428694838
@@ -2782,7 +2782,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -3091,14 +3091,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: pageblanche1
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Page_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4461002793368642336
@@ -3225,14 +3225,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: lifegainonkill3
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Lifesteal_3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &4476252324812801272
@@ -3445,7 +3445,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -3620,14 +3620,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: pageblanche2
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Page_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5507237120568735268
@@ -4153,25 +4153,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5f44ba3f0cecee47ad2917330bb2d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  hasRessurect: 0
-  Bracelet1unlockbutton: {fileID: 6582285193951005882}
-  Bracelet2unlockbutton: {fileID: 1637005720544359170}
-  Bracelet3unlockbutton: {fileID: 8171294142126186812}
-  MaxPV120button: {fileID: 1850177408299558989}
-  MaxPV140button: {fileID: 8350752529784137546}
-  MaxPV160button: {fileID: 1805999614117041101}
-  slowcast20button: {fileID: 4958830980490516596}
-  slowcast40button: {fileID: 7696890581903007725}
-  slowcast80button: {fileID: 2120051037057567359}
-  pageblanche1button: {fileID: 8790789231026988638}
-  pageblanche2button: {fileID: 4940206534722870487}
-  levelminimumrunebutton: {fileID: 3845617592912823867}
-  lifegainonkill1button: {fileID: 803370551842640245}
-  lifegainonkill2button: {fileID: 581788259654954910}
-  lifegainonkill3button: {fileID: 3117032062009179949}
-  unlocklevel2: 0
-  unlocklevel3: 0
+  arrayButtonLVL1:
+  - {fileID: 6582285193951005882}
+  - {fileID: 1850177408299558989}
+  - {fileID: 4958830980490516596}
+  - {fileID: 8790789231026988638}
+  - {fileID: 803370551842640245}
+  arrayButtonLVL2:
+  - {fileID: 1637005720544359170}
+  - {fileID: 8350752529784137546}
+  - {fileID: 7696890581903007725}
+  - {fileID: 4940206534722870487}
+  - {fileID: 581788259654954910}
+  arrayButtonLVL3:
+  - {fileID: 8171294142126186812}
+  - {fileID: 1805999614117041101}
+  - {fileID: 2120051037057567359}
+  - {fileID: 3845617592912823867}
+  - {fileID: 3117032062009179949}
+  returnButton: {fileID: 5889366330734443567}
+  braceletGate1: {fileID: 0}
+  braceletGate2: {fileID: 0}
+  braceletGate3: {fileID: 0}
 --- !u!1 &5889366330734443567
 GameObject:
   m_ObjectHideFlags: 0
@@ -4428,14 +4431,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: lifegainonkill1
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Lifesteal_1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6160675804766801063
@@ -4648,7 +4651,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -4823,14 +4826,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: minimumlevelrune
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Niveau_Rune
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6321429143131573570
@@ -5091,14 +5094,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: MaxPV120
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PV_120
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &6849786870541826556
@@ -5243,7 +5246,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -5418,14 +5421,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: BraceletUnlock3
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Bracelet_3
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7376147258062126230
@@ -5504,7 +5507,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -5679,14 +5682,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: BraceletUnlock2
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Bracelet_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7571704015234947302
@@ -5765,7 +5768,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -5907,10 +5910,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1637005720544359170}
+    m_SelectOnDown: {fileID: 8171294142126186812}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -5940,14 +5943,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: lifegainonkill2
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Lifesteal_2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7893395948505093044
@@ -6074,14 +6077,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: MaxPV160
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PV_160
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &7994763301929273062
@@ -6160,7 +6163,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -6421,7 +6424,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1630303055
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: 3be6ca3a8f97dd24cbcbd99c62893e43, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
@@ -6596,13 +6599,13 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2902899665368194977}
         m_TargetAssemblyTypeName: ManuscritMenuManage, Assembly-CSharp
-        m_MethodName: slowCast80
-        m_Mode: 1
+        m_MethodName: ButtonPressed
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Slow_80
           m_BoolArgument: 0
         m_CallState: 2

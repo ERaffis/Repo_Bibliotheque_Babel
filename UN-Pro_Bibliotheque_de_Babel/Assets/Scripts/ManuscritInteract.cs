@@ -15,8 +15,6 @@ public class ManuscritInteract : MonoBehaviour
     public GameObject openFirstButton;
     public Animator animator;
 
-
-
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
