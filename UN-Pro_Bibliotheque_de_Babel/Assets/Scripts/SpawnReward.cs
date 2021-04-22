@@ -44,7 +44,7 @@ public class SpawnReward : MonoBehaviour
             }
 
         }
-        if (tag == "Boss_1")
+        if (tag == "Boss1")
         {
 
             for (int i = 0; i < (Random.Range(2, 5)); i++)
