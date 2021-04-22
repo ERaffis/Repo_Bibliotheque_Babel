@@ -120,7 +120,11 @@ public class GameHandler : MonoBehaviour
 
     public void CheckForRoomClear()
     {
-        if (nmbRemaining <= 0)
+        if (SceneManager.GetActiveScene().name == "Hub_Principal" && SceneManager.GetActiveScene().name == "Hub_Secondaire")
+        {
+            roomCleared = true;
+
+        } else if (nmbRemaining <= 0)
         {
             roomCleared = true;
 
