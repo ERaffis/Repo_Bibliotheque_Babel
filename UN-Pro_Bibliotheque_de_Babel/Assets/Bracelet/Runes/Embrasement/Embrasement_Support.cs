@@ -21,8 +21,10 @@ public class Embrasement_Support : MonoBehaviour
         //Projectile entre en contact avec un Boss
         if (collider.gameObject.CompareTag("Boss"))
         {
-            Debug.Log("The Boss was hit");
-            Destroy(gameObject);
+            if (collider.gameObject.transform.childCount < 3)
+            {
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
+            }
         }
 
     }

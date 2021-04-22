@@ -34,7 +34,11 @@ public class Givre_Ordre : MonoBehaviour
         //Projectile entre en collision avec un boss
         if (collider.gameObject.CompareTag("Boss"))
         {
+            //SuperWeakenEnnemy
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff * weakenMultiplier, projectile_Joueur.debuffDuration * weakenDurationMultiplier));
 
+            //SuperSlowEnnemy
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().SlowEnnemy(projectile_Joueur.slowPower * slowMultiplier, projectile_Joueur.stuntDuration * slowDurationMultiplier));
         }
 
     }

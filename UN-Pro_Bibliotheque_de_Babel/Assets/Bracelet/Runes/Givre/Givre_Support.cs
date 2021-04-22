@@ -16,7 +16,7 @@ public class Givre_Support : MonoBehaviour
         //Projectile entre en collision avec un boss
         if (collider.gameObject.CompareTag("Boss"))
         {
-
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().SlowEnnemy(projectile_Joueur.slowPower, projectile_Joueur.stuntDuration));
         }
 
     }

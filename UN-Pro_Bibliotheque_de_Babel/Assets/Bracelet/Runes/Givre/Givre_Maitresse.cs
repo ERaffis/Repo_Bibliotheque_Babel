@@ -38,7 +38,13 @@ public class Givre_Maitresse : MonoBehaviour
         //Projectile entre en collision avec un boss
         if (collider.gameObject.CompareTag("Boss"))
         {
-            Debug.Log("The Boss was hit");
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
+
+            //Damage Enemy
+            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+
+            //DestroyProjectile
             DisableProjectile();
         }
 

@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - projectile_Joueur: {instanceID: 0}
-  - AoE_Feu: {fileID: 2396551886631031283, guid: fc4ddc26e597cd54f9744e8e87210a0c, type: 3}
+  - AoE_Feu: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

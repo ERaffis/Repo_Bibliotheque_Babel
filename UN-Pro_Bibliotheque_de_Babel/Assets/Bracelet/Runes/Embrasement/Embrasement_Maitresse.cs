@@ -28,7 +28,12 @@ public class Embrasement_Maitresse : MonoBehaviour
         //Projectile entre en contact avec un Boss
         if (collider.gameObject.CompareTag("Boss"))
         {
-            Debug.Log("The Boss was hit");
+            Transform ennemyTransform = collider.gameObject.transform;
+            transform.parent = ennemyTransform;
+
+            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
+
             DisableProjectile();
         }
 

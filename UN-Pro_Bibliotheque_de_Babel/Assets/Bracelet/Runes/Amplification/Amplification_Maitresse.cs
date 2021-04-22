@@ -28,7 +28,10 @@ public class Amplification_Maitresse : MonoBehaviour
         //Projectile entre en collision avec un boss
         if (collider.gameObject.CompareTag("Boss"))
         {
-            Debug.Log("The Boss was hit");
+            //Damage Enemy
+            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+
+            //DestroyProjectile
             DisableProjectile();
         }
 
