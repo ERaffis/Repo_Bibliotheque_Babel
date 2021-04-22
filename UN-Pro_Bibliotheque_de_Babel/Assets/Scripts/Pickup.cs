@@ -43,9 +43,14 @@ public class Pickup : MonoBehaviour
             switch (gameObject.name)
             {
                 case "Rune_Embrasement" :
-                    Inventory.Instance.embrasementActive = true;
-                    Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
-
+                    if (!Inventory.Instance.embrasementActive)
+                    {
+                        Inventory.Instance.embrasementActive = true;
+                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                    } else
+                    {
+                        Inventory.Instance.runes[0].lvlRune++;
+                    }
                     foreach (var item in runes)
                     {
                         Destroy(item);
@@ -53,9 +58,15 @@ public class Pickup : MonoBehaviour
                     break;
 
                 case "Rune_Embrasement(Clone)":
-                    Inventory.Instance.embrasementActive = true;
-                    Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
-
+                    if (!Inventory.Instance.embrasementActive)
+                    {
+                        Inventory.Instance.embrasementActive = true;
+                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        Inventory.Instance.runes[0].lvlRune++;
+                    }
                     foreach (var item in runes)
                     {
                         Destroy(item);
@@ -63,9 +74,15 @@ public class Pickup : MonoBehaviour
                     break;
 
                 case "Rune_Givre":
-                    Inventory.Instance.givreActive = true;
-                    Inventory.Instance.rune2.GetComponent<Image>().color = Color.white;
-
+                    if (!Inventory.Instance.givreActive)
+                    {
+                        Inventory.Instance.givreActive = true;
+                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        Inventory.Instance.runes[1].lvlRune++;
+                    }
                     foreach (var item in runes)
                     {
                         Destroy(item);
@@ -73,9 +90,15 @@ public class Pickup : MonoBehaviour
                     break;
 
                 case "Rune_Givre(Clone)":
-                    Inventory.Instance.givreActive = true;
-                    Inventory.Instance.rune2.GetComponent<Image>().color = Color.white;
-
+                    if (!Inventory.Instance.givreActive)
+                    {
+                        Inventory.Instance.givreActive = true;
+                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        Inventory.Instance.runes[1].lvlRune++;
+                    }
                     foreach (var item in runes)
                     {
                         Destroy(item);
@@ -84,9 +107,15 @@ public class Pickup : MonoBehaviour
 
 
                 case "Rune_Amplification":
-                    Inventory.Instance.amplificationActive = true;
-                    Inventory.Instance.rune3.GetComponent<Image>().color = Color.white;
-
+                    if (!Inventory.Instance.amplificationActive)
+                    {
+                        Inventory.Instance.amplificationActive = true;
+                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        Inventory.Instance.runes[2].lvlRune++;
+                    }
                     foreach (var item in runes)
                     {
                         Destroy(item);
@@ -94,9 +123,15 @@ public class Pickup : MonoBehaviour
                     break;
 
                 case "Rune_Amplification(Clone)":
-                    Inventory.Instance.amplificationActive = true;
-                    Inventory.Instance.rune3.GetComponent<Image>().color = Color.white;
-
+                    if (!Inventory.Instance.amplificationActive)
+                    {
+                        Inventory.Instance.amplificationActive = true;
+                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        Inventory.Instance.runes[2].lvlRune++;
+                    }
                     foreach (var item in runes)
                     {
                         Destroy(item);

@@ -8,6 +8,6 @@ public class Amplification_Ordre : MonoBehaviour
 
     public void OnEnable()
     {
-        GetComponent<Rigidbody2D>().velocity *= 1.3f;
+        GetComponent<Rigidbody2D>().velocity *= 2f;
     }
 }

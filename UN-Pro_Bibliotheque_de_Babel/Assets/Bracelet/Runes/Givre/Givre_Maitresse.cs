@@ -7,46 +7,95 @@ public class Givre_Maitresse : MonoBehaviour
 
     public Projectile_Joueur projectile_Joueur;
 
+    public int lvlRune;
+
     void OnTriggerEnter2D(Collider2D collider)
     {
-        //Projectile entre en collision avec un ennemi
-        if (collider.gameObject.CompareTag("Ennemy" ))
+        if (lvlRune == 1)
         {
-            //Debuff & Stun Enemy
-            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
-            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
-            
-            //Damage Enemy
-            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+            //Projectile entre en collision avec un ennemi
+            if (collider.gameObject.CompareTag("Ennemy"))
+            {
+                //Debuff & Stun Enemy
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
 
-            //DestroyProjectile
-            DisableProjectile();
-            
-        }
-
-        if (collider.gameObject.CompareTag("Tour"))
-        {
-            //Damage Enemy
-            if (collider != null)
+                //Damage Enemy
                 collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
-            //DestroyProjectile
-            DisableProjectile();
+                //DestroyProjectile
+                DisableProjectile();
 
+            }
+
+            if (collider.gameObject.CompareTag("Tour"))
+            {
+                //Damage Enemy
+                if (collider != null)
+                    collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+
+                //DestroyProjectile
+                DisableProjectile();
+
+            }
+
+            //Projectile entre en collision avec un boss
+            if (collider.gameObject.CompareTag("Boss"))
+            {
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
+
+                //Damage Enemy
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+
+                //DestroyProjectile
+                DisableProjectile();
+            }
         }
 
-        //Projectile entre en collision avec un boss
-        if (collider.gameObject.CompareTag("Boss"))
+        if (lvlRune == 2 || lvlRune == 3)
         {
-            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
-            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
+            //Projectile entre en collision avec un ennemi
+            if (collider.gameObject.CompareTag("Ennemy"))
+            {
+                //Debuff & Stun Enemy
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
 
-            //Damage Enemy
-            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                //Damage Enemy
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage + 80);
 
-            //DestroyProjectile
-            DisableProjectile();
+                //DestroyProjectile
+                DisableProjectile();
+
+            }
+
+            if (collider.gameObject.CompareTag("Tour"))
+            {
+                //Damage Enemy
+                if (collider != null)
+                    collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage + 80);
+
+                //DestroyProjectile
+                DisableProjectile();
+
+            }
+
+            //Projectile entre en collision avec un boss
+            if (collider.gameObject.CompareTag("Boss"))
+            {
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().WeakenEnemy(projectile_Joueur.debuff, projectile_Joueur.debuffDuration));
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().StunEnnemy(projectile_Joueur.stuntDuration));
+
+                //Damage Enemy
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage + 80);
+
+                //DestroyProjectile
+                DisableProjectile();
+            }
         }
+
+
 
     }
 

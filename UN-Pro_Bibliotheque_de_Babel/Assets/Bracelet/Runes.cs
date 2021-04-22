@@ -10,6 +10,7 @@ public class Runes : ScriptableObject
     public string description;
     public Sprite sprite;
     public Color color;
+    public int lvlRune;
 
     [Header("Base Stats")]
     public int baseDamage;
@@ -54,6 +55,7 @@ public class Runes : ScriptableObject
         {
             case "Embrasement":
                 projectile.AddComponent<Embrasement_Maitresse>();
+                projectile.GetComponent<Embrasement_Maitresse>().lvlRune = lvlRune;
                 projectile.transform.GetChild(1).gameObject.SetActive(true);
                 projectile.GetComponent<Animator>().Play("Embrasement");
                 projectile.GetComponent<Embrasement_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
@@ -61,6 +63,8 @@ public class Runes : ScriptableObject
 
             case "Givre":
                 projectile.AddComponent<Givre_Maitresse>();
+                projectile.GetComponent<Givre_Maitresse>().lvlRune = lvlRune;
+
                 projectile.transform.GetChild(2).gameObject.SetActive(true);
                 projectile.GetComponent<Animator>().Play("Givre");
                 projectile.GetComponent<Givre_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
@@ -68,6 +72,8 @@ public class Runes : ScriptableObject
 
             case "Amplification":
                 projectile.AddComponent<Amplification_Maitresse>();
+                projectile.GetComponent<Amplification_Maitresse>().lvlRune = lvlRune;
+
                 projectile.transform.GetChild(3).gameObject.SetActive(true); 
                 projectile.GetComponent<Animator>().Play("Amplification");
                 projectile.GetComponent<Amplification_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
@@ -99,6 +105,7 @@ public class Runes : ScriptableObject
                 } else
                 {
                     projectile.AddComponent<Embrasement_Support>();
+                    projectile.GetComponent<Embrasement_Support>().lvlRune = lvlRune;
                     projectile.GetComponent<Embrasement_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                     projectile.GetComponent<Projectile_Joueur>().damage *= multDamage;
                     projectile.GetComponent<Projectile_Joueur>().dotDuration = dotDuration;
@@ -119,6 +126,8 @@ public class Runes : ScriptableObject
                 else
                 {
                     projectile.AddComponent<Givre_Support>();
+                    projectile.GetComponent<Givre_Support>().lvlRune = lvlRune;
+
                     projectile.GetComponent<Givre_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                     projectile.GetComponent<Projectile_Joueur>().damage *= multDamage;
                     projectile.GetComponent<Projectile_Joueur>().slowDuration = slowDuration;
@@ -140,6 +149,8 @@ public class Runes : ScriptableObject
                 else
                 {
                     projectile.AddComponent<Amplification_Support>();
+                    projectile.GetComponent<Amplification_Support>().lvlRune = lvlRune;
+
                     projectile.GetComponent<Amplification_Support>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                     projectile.GetComponent<Projectile_Joueur>().damage *= multDamage;
                     projectile.GetComponent<Projectile_Joueur>().SetKnockback(1.1f);
@@ -172,6 +183,8 @@ public class Runes : ScriptableObject
         {
             case "Embrasement":
                 projectile.AddComponent<Embrasement_Ordre>();
+                projectile.GetComponent<Embrasement_Ordre>().lvlRune = lvlRune;
+
                 projectile.GetComponent<Embrasement_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().damage *= orderMultDamage;
 
@@ -179,6 +192,7 @@ public class Runes : ScriptableObject
 
             case "Givre":
                 projectile.AddComponent<Givre_Ordre>();
+
                 projectile.GetComponent<Givre_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().damage *= orderMultDamage;
                 projectile.GetComponent<Projectile_Joueur>().slowDuration = slowDuration;
@@ -191,6 +205,7 @@ public class Runes : ScriptableObject
 
             case "Amplification":
                 projectile.AddComponent<Amplification_Ordre>();
+
                 projectile.GetComponent<Amplification_Ordre>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 projectile.GetComponent<Projectile_Joueur>().damage *= orderMultDamage;
 

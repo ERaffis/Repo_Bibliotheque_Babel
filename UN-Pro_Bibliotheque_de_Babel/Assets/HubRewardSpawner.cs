@@ -6,19 +6,28 @@ public class HubRewardSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
     [Header("Embrasement")]
-    public GameObject embrasementLVL1, embrasementLVL2, embrasementLVL3;
+    public GameObject embrasement;
 
     [Header("Givre")]
-    public GameObject givreLVL1, givreLVL2, givreLVL3;
+    public GameObject givre;
 
     [Header("Amplification")]
-    public GameObject amplificationLVL1, amplificationLVL2, amplificationLVL3;
+    public GameObject amplification;
 
     // Start is called before the first frame update
     void Start()
     {
-        Instantiate(embrasementLVL1, spawnPoints[0]);
-        Instantiate(givreLVL1, spawnPoints[1]);
-        Instantiate(amplificationLVL1, spawnPoints[2]);
+        if (Inventory.Instance.runes[0].lvlRune != 3)
+        {
+            Instantiate(embrasement, spawnPoints[0]);
+        }
+        if (Inventory.Instance.runes[1].lvlRune != 3)
+        {
+            Instantiate(givre, spawnPoints[1]);
+        }
+        if (Inventory.Instance.runes[2].lvlRune != 3)
+        {
+            Instantiate(amplification, spawnPoints[2]);
+        }
     }
 }

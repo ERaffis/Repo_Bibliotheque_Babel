@@ -5,35 +5,71 @@ using UnityEngine;
 public class Amplification_Maitresse : MonoBehaviour
 {
     public Projectile_Joueur projectile_Joueur;
-
+    public int lvlRune;
 
     public void OnEnable()
     {
         transform.localScale = transform.localScale * 2;
+        if (lvlRune == 2)
+        {
+            GetComponent<Rigidbody2D>().velocity *= 1.25f;
+        }
+
+        if (lvlRune == 3)
+        {
+            GetComponent<Rigidbody2D>().velocity *= 1.5f;
+        }
     }
 
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        //Projectile entre en collision avec un ennemi
-        if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
+        if (lvlRune == 1 || lvlRune == 2)
         {
-            //Damage Enemy
-            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+            //Projectile entre en collision avec un ennemi
+            if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
+            {
+                //Damage Enemy
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
-            //DestroyProjectile
-            DisableProjectile();
+                //DestroyProjectile
+                DisableProjectile();
+            }
+
+            //Projectile entre en collision avec un boss
+            if (collider.gameObject.CompareTag("Boss"))
+            {
+                //Damage Enemy
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+
+                //DestroyProjectile
+                DisableProjectile();
+            }
+        }
+        if (lvlRune == 3)
+        {
+            //Projectile entre en collision avec un ennemi
+            if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
+            {
+                //Damage Enemy
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage * 1.10f);
+
+                //DestroyProjectile
+                DisableProjectile();
+            }
+
+            //Projectile entre en collision avec un boss
+            if (collider.gameObject.CompareTag("Boss"))
+            {
+                //Damage Enemy
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage * 1.10f);
+
+                //DestroyProjectile
+                DisableProjectile();
+            }
         }
 
-        //Projectile entre en collision avec un boss
-        if (collider.gameObject.CompareTag("Boss"))
-        {
-            //Damage Enemy
-            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
 
-            //DestroyProjectile
-            DisableProjectile();
-        }
 
     }
 

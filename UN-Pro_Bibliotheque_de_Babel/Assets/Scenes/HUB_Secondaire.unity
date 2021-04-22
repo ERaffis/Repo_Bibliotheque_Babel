@@ -377,15 +377,9 @@ MonoBehaviour:
   - {fileID: 1078477669}
   - {fileID: 502798565}
   - {fileID: 943559350}
-  embrasementLVL1: {fileID: 4880486872907560814, guid: 4d755425ce18b964386a88ce03105501, type: 3}
-  embrasementLVL2: {fileID: 0}
-  embrasementLVL3: {fileID: 0}
-  givreLVL1: {fileID: 5503935727174500744, guid: 4942962520f45cd49a05e1881ecf540a, type: 3}
-  givreLVL2: {fileID: 0}
-  givreLVL3: {fileID: 0}
-  amplificationLVL1: {fileID: 521356023350719000, guid: 413b9c22a1445ec4db9bbb6cd3ef2bd6, type: 3}
-  amplificationLVL2: {fileID: 0}
-  amplificationLVL3: {fileID: 0}
+  embrasement: {fileID: 4880486872907560814, guid: 4d755425ce18b964386a88ce03105501, type: 3}
+  givre: {fileID: 5503935727174500744, guid: 4942962520f45cd49a05e1881ecf540a, type: 3}
+  amplification: {fileID: 521356023350719000, guid: 413b9c22a1445ec4db9bbb6cd3ef2bd6, type: 3}
 --- !u!4 &1490095556
 Transform:
   m_ObjectHideFlags: 0

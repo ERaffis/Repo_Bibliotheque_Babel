@@ -6,6 +6,7 @@ public class Embrasement_Ordre : MonoBehaviour
 {
     public Projectile_Joueur projectile_Joueur;
     public GameObject AoE_Feu;
+    public int lvlRune;
 
     private void OnTriggerEnter2D(Collider2D collider)
     {

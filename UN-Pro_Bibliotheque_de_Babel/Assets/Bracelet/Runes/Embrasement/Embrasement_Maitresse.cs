@@ -5,37 +5,103 @@ using UnityEngine;
 public class Embrasement_Maitresse : MonoBehaviour
 {
     public Projectile_Joueur projectile_Joueur;
+    public int lvlRune;
 
 
     void OnTriggerEnter2D(Collider2D collider)
     {
-        //Projectile entre en contact avec un ennemy
-        if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
+        if (lvlRune == 1)
         {
-            if (collider.gameObject.transform.childCount < 3)
+            //Projectile entre en contact avec un ennemy
+            if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
             {
+                if (collider.gameObject.transform.childCount < 3)
+                {
 
+                    Transform ennemyTransform = collider.gameObject.transform;
+                    transform.parent = ennemyTransform;
+
+                    collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                    collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
+
+                    DisableProjectile();
+                }
+            }
+
+            //Projectile entre en contact avec un Boss
+            if (collider.gameObject.CompareTag("Boss"))
+            {
                 Transform ennemyTransform = collider.gameObject.transform;
                 transform.parent = ennemyTransform;
 
                 collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
                 collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
-
                 DisableProjectile();
             }
         }
 
-        //Projectile entre en contact avec un Boss
-        if (collider.gameObject.CompareTag("Boss"))
+        if (lvlRune == 2)
         {
-            Transform ennemyTransform = collider.gameObject.transform;
-            transform.parent = ennemyTransform;
+            //Projectile entre en contact avec un ennemy
+            if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
+            {
+                if (collider.gameObject.transform.childCount < 3)
+                {
 
-            collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
-            collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
+                    Transform ennemyTransform = collider.gameObject.transform;
+                    transform.parent = ennemyTransform;
 
-            DisableProjectile();
+                    collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                    collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration * 2));
+
+                    DisableProjectile();
+                }
+            }
+
+            //Projectile entre en contact avec un Boss
+            if (collider.gameObject.CompareTag("Boss"))
+            {
+                Transform ennemyTransform = collider.gameObject.transform;
+                transform.parent = ennemyTransform;
+
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration * 2));
+                DisableProjectile();
+            }
         }
+
+        if (lvlRune == 3)
+        {
+            //Projectile entre en contact avec un ennemy
+            if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
+            {
+                if (collider.gameObject.transform.childCount < 3)
+                {
+
+                    Transform ennemyTransform = collider.gameObject.transform;
+                    transform.parent = ennemyTransform;
+
+                    collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                    collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration * 2));
+
+                    DisableProjectile();
+                }
+            }
+
+            //Projectile entre en contact avec un Boss
+            if (collider.gameObject.CompareTag("Boss"))
+            {
+                Transform ennemyTransform = collider.gameObject.transform;
+                transform.parent = ennemyTransform;
+
+                collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage);
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration * 2));
+                StartCoroutine(PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().BoostSpeed());
+                DisableProjectile();
+            }
+        }
+
+        
 
     }
 
