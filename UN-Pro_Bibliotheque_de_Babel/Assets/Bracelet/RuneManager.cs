@@ -61,42 +61,56 @@ public class RuneManager : MonoBehaviour
     {
         if (equippedBracelet != null)
         {
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 1)
+            if(equippedBracelet.name == "Mitrailleuse")
             {
-                if (equippedBracelet.activeRunes[0] != null)
+                if(PlayerScript.Instance.playerInputs.GetButton("Combo") && timeBetween >= equippedBracelet.castSpeed)
+                    if (equippedBracelet.activeRunes[0] != null)
+                    {
+                        equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        timeBetween = 0;
+                    }
+            }
+            else { 
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 1)
                 {
-                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
-                    timeBetween = 0;
+                    if (equippedBracelet.activeRunes[0] != null)
+                    {
+                        equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        timeBetween = 0;
+                    }
+                }
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 2)
+                {
+                    if (equippedBracelet.activeRunes[1] != null)
+                    {
+                        equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[1]);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        timeBetween = 0;
+                    }
+                }
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 3)
+                {
+                    if (equippedBracelet.activeRunes[2] != null)
+                    {
+                        equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[2]);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        timeBetween = 0;
+                    }
+                }
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 4)
+                {
+                    if (equippedBracelet.activeRunes[3] != null)
+                    {
+                        equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[3]);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        timeBetween = 0;
+                    }
                 }
             }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 2)
-            {
-                if (equippedBracelet.activeRunes[1] != null)
-                {
-                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[1]);
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
-                    timeBetween = 0;
-                }
-            }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 3)
-            {
-                if (equippedBracelet.activeRunes[2] != null)
-                {
-                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[2]);
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
-                    timeBetween = 0;
-                }
-            }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && timeBetween >= equippedBracelet.castSpeed && equippedBracelet.activeRunes.Length >= 4)
-            {
-                if (equippedBracelet.activeRunes[3] != null)
-                {
-                    equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[3]);
-                    SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
-                    timeBetween = 0;
-                }
-            }
+
+
         }
     }
 
@@ -104,47 +118,58 @@ public class RuneManager : MonoBehaviour
     {
         if (equippedBracelet != null)
         {
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && equippedBracelet.activeRunes.Length >= 1)
+            if (equippedBracelet.name == "Mitrailleuse")
             {
-                if (equippedBracelet.activeRunes[0] != null && !pressed0 && nmbPressed < equippedBracelet.nmbRune)
+                if (PlayerScript.Instance.playerInputs.GetButton("Combo") && timeBetween >= equippedBracelet.castSpeed)
+                    if (equippedBracelet.activeRunes[0] != null)
+                    {
+                        equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        timeBetween = 0;
+                    }
+            } else { 
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 1") && equippedBracelet.activeRunes.Length >= 1)
                 {
-                    pressed0 = true;
-                    orderRune.Add(equippedBracelet.activeRunes[0]);
-                    Debug.Log(orderRune);
-                    nmbPressed++;
+                    if (equippedBracelet.activeRunes[0] != null && !pressed0 && nmbPressed < equippedBracelet.nmbRune)
+                    {
+                        pressed0 = true;
+                        orderRune.Add(equippedBracelet.activeRunes[0]);
+                        Debug.Log(orderRune);
+                        nmbPressed++;
+                    }
                 }
-            }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && equippedBracelet.activeRunes.Length >= 2)
-            {
-                if (equippedBracelet.activeRunes[1] != null && !pressed1 && nmbPressed < equippedBracelet.nmbRune)
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && equippedBracelet.activeRunes.Length >= 2)
                 {
-                    pressed1 = true;
-                    orderRune.Add(equippedBracelet.activeRunes[1]);
-                    Debug.Log(orderRune);
+                    if (equippedBracelet.activeRunes[1] != null && !pressed1 && nmbPressed < equippedBracelet.nmbRune)
+                    {
+                        pressed1 = true;
+                        orderRune.Add(equippedBracelet.activeRunes[1]);
+                        Debug.Log(orderRune);
 
-                    nmbPressed++;
+                        nmbPressed++;
+                    }
                 }
-            }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && equippedBracelet.activeRunes.Length >= 3)
-            {
-                if (equippedBracelet.activeRunes[2] != null && !pressed2 && nmbPressed < equippedBracelet.nmbRune)
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && equippedBracelet.activeRunes.Length >= 3)
                 {
-                    pressed2 = true;
-                    orderRune.Add(equippedBracelet.activeRunes[2]);
-                    Debug.Log(orderRune);
+                    if (equippedBracelet.activeRunes[2] != null && !pressed2 && nmbPressed < equippedBracelet.nmbRune)
+                    {
+                        pressed2 = true;
+                        orderRune.Add(equippedBracelet.activeRunes[2]);
+                        Debug.Log(orderRune);
 
-                    nmbPressed++;
+                        nmbPressed++;
+                    }
                 }
-            }
-            if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && equippedBracelet.activeRunes.Length >= 4)
-            {
-                if (equippedBracelet.activeRunes[3] != null && !pressed3 && nmbPressed < equippedBracelet.nmbRune)
+                if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && equippedBracelet.activeRunes.Length >= 4)
                 {
-                    pressed3 = true;
-                    orderRune.Add(equippedBracelet.activeRunes[3]);
-                    Debug.Log(orderRune);
+                    if (equippedBracelet.activeRunes[3] != null && !pressed3 && nmbPressed < equippedBracelet.nmbRune)
+                    {
+                        pressed3 = true;
+                        orderRune.Add(equippedBracelet.activeRunes[3]);
+                        Debug.Log(orderRune);
 
-                    nmbPressed++;
+                        nmbPressed++;
+                    }
                 }
             }
         }
