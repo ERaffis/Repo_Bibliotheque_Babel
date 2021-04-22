@@ -189,6 +189,7 @@ MonoBehaviour:
   timebtwattacks: 2
   startTimeBtwAttacks: 5
   playerposition: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &1710174770924835685
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -60,7 +60,14 @@ public class Entities : MonoBehaviour
         {
             currentHealth -= dmg * weakness;
             DamagePopup.Create(GetPosition(), (int) dmg);
+            StartCoroutine(FlashRed());
         }
+    }
+    public IEnumerator FlashRed()
+    {
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        spriteRenderer.color = Color.white;
     }
 
     public void SetPlayerHealth(int dmg)

@@ -126,7 +126,7 @@ public class PlayerScript : Entities
     }
     public void PickedUpHeart()
     {
-        currentHealth += 8;
+        currentHealth += 10;
         if (currentHealth > maxHealth)
             currentHealth = maxHealth;
     }
