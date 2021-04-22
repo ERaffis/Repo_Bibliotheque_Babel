@@ -23,6 +23,23 @@ public class ManuscritMenuManage : MonoBehaviour
     private int unlocklevel2;
     private int unlocklevel3;
 
+    [Header("Prix des Upgrades")]
+    public int prix_Bracelet_1;
+    public int prix_Bracelet_2;
+    public int prix_Bracelet_3;
+    public int prix_Pv_120;
+    public int prix_Pv_140;
+    public int prix_Pv_160;
+    public int prix_Slow_20;
+    public int prix_Slow_40;
+    public int prix_Slow_80;
+    public int prix_Page_1;
+    public int prix_Page_2;
+    public int prix_Niveau_Rune;
+    public int prix_Lifesteal_1;
+    public int prix_Lifesteal_2;
+    public int prix_Lifesteal_3;
+
 
     void Start()
     {
@@ -79,132 +96,216 @@ public class ManuscritMenuManage : MonoBehaviour
         switch (buttonName)
         {
             case "Bracelet_1":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel2++;
-                alreadyPressedButtons.Add(buttonName);
-                arrayButtonLVL1[0].gameObject.GetComponent<Image>().color = new Color(0.5f,0.5f, 0.5f, 0.45f);
-                if (braceletGate1) Destroy(braceletGate1);
+                if (Inventory.Instance.nmbFragment >= prix_Bracelet_1)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Bracelet_1);
+
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel2++;
+                    alreadyPressedButtons.Add(buttonName);
+                    arrayButtonLVL1[0].gameObject.GetComponent<Image>().color = new Color(0.5f,0.5f, 0.5f, 0.45f);
+                    if (braceletGate1) Destroy(braceletGate1);
+                }
                 break;
 
             case "Bracelet_2":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel3++;
-                alreadyPressedButtons.Add(buttonName);
-                arrayButtonLVL2[0].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
-                if (braceletGate2) Destroy(braceletGate2);
+                if (Inventory.Instance.nmbFragment >= prix_Bracelet_2)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Bracelet_2);
+
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel3++;
+                    alreadyPressedButtons.Add(buttonName);
+                    arrayButtonLVL2[0].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                    if (braceletGate2) Destroy(braceletGate2);
+                }
+                
                 break;
 
             case "Bracelet_3":
-                StartCoroutine(SelectFirstButton());
-                alreadyPressedButtons.Add(buttonName);
-                arrayButtonLVL3[0].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
-                if (braceletGate3) Destroy(braceletGate3);
+                if (Inventory.Instance.nmbFragment >= prix_Bracelet_3)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Bracelet_3);
+
+                    StartCoroutine(SelectFirstButton());
+                    alreadyPressedButtons.Add(buttonName);
+                    arrayButtonLVL3[0].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                    if (braceletGate3) Destroy(braceletGate3);
+                }
+                
                 break;
 
             case "PV_120":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel2++;
-                arrayButtonLVL1[1].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
-
-                if (PlayerScript.Instance.maxHealth == 100)
+                if (Inventory.Instance.nmbFragment >= prix_Pv_120)
                 {
-                    PlayerScript.Instance.SetMaxHealth(120);
+                    Inventory.Instance.RemoveFragment(prix_Pv_120);
+
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel2++;
+                    arrayButtonLVL1[1].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+
+                    if (PlayerScript.Instance.maxHealth == 100)
+                    {
+                        PlayerScript.Instance.SetMaxHealth(120);
+                    }
+
+                    alreadyPressedButtons.Add(buttonName);
                 }
                 
-                alreadyPressedButtons.Add(buttonName);
                 break;
 
             case "PV_140":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel3++;
-                arrayButtonLVL2[1].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
-
-                if (PlayerScript.Instance.maxHealth == 120)
+                if (Inventory.Instance.nmbFragment >= prix_Pv_140)
                 {
-                    PlayerScript.Instance.SetMaxHealth(140);
+                    Inventory.Instance.RemoveFragment(prix_Pv_140);
+
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel3++;
+                    arrayButtonLVL2[1].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+
+                    if (PlayerScript.Instance.maxHealth == 120)
+                    {
+                        PlayerScript.Instance.SetMaxHealth(140);
+                    }
+
+                    alreadyPressedButtons.Add(buttonName);
                 }
 
-                alreadyPressedButtons.Add(buttonName);
+                
                 break;
 
             case "PV_160":
-                StartCoroutine(SelectFirstButton());
-                arrayButtonLVL3[1].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
-
-                if (PlayerScript.Instance.maxHealth == 140)
+                if (Inventory.Instance.nmbFragment >= prix_Pv_160)
                 {
-                    PlayerScript.Instance.SetMaxHealth(160);
+                    Inventory.Instance.RemoveFragment(prix_Pv_160);
+
+                    StartCoroutine(SelectFirstButton());
+                    arrayButtonLVL3[1].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+
+                    if (PlayerScript.Instance.maxHealth == 140)
+                    {
+                        PlayerScript.Instance.SetMaxHealth(160);
+                    }
+
+                    alreadyPressedButtons.Add(buttonName);
                 }
-                alreadyPressedButtons.Add(buttonName);
+
+                
                 break;
 
             case "Slow_20":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel2++;
-                arrayButtonLVL1[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Slow_20)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Slow_20);
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel2++;
+                    arrayButtonLVL1[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+
+                
                 break;
 
             case "Slow_40":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel3++;
-                arrayButtonLVL2[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Slow_40)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Slow_40);
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel3++;
+                    arrayButtonLVL2[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+                
                 break;
 
             case "Slow_80":
-                StartCoroutine(SelectFirstButton());
-                arrayButtonLVL3[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Slow_80)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Slow_80);
+                    StartCoroutine(SelectFirstButton());
+                    arrayButtonLVL3[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+                
                 break;
 
             case "Page_1":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel2++;
-                arrayButtonLVL1[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Page_1)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Page_1);
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel2++;
+                    arrayButtonLVL1[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+                
                 break;
 
             case "Page_2":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel3++;
-                arrayButtonLVL2[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Page_2)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Page_2);
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel3++;
+                    arrayButtonLVL2[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+                
                 break;
 
             case "Niveau_Rune":
-                StartCoroutine(SelectFirstButton());
-                arrayButtonLVL3[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Niveau_Rune)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Niveau_Rune);
+                    StartCoroutine(SelectFirstButton());
+                    arrayButtonLVL3[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+               
                 break;
 
             case "Lifesteal_1":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel2++;
-                arrayButtonLVL1[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Lifesteal_1)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Lifesteal_1);
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel2++;
+                    arrayButtonLVL1[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+                
                 break;
 
             case "Lifesteal_2":
-                StartCoroutine(SelectFirstButton());
-                unlocklevel3++;
-                arrayButtonLVL2[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Lifesteal_2)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Lifesteal_2);
+                    StartCoroutine(SelectFirstButton());
+                    unlocklevel3++;
+                    arrayButtonLVL2[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+                
                 break;
 
             case "Lifesteal_3":
-                StartCoroutine(SelectFirstButton());
-                arrayButtonLVL3[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
+                if (Inventory.Instance.nmbFragment >= prix_Lifesteal_3)
+                {
+                    Inventory.Instance.RemoveFragment(prix_Lifesteal_3);
+                    StartCoroutine(SelectFirstButton());
+                    arrayButtonLVL3[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
-                alreadyPressedButtons.Add(buttonName);
+                    alreadyPressedButtons.Add(buttonName);
+                }
+                
                 break;
 
             case "Already Pressed":

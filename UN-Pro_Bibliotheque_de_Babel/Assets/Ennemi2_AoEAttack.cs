@@ -25,7 +25,7 @@ public class Ennemi2_AoEAttack : MonoBehaviour
             if (timebtwattacks <= 0)
             {
                 timebtwattacks = startTimeBtwAttacks;
-                SpawnZones();
+                StartCoroutine(SpawnZone());
             }
             else
             {
@@ -36,6 +36,20 @@ public class Ennemi2_AoEAttack : MonoBehaviour
 
     public void SpawnZones()
     {
-        GameObject tmpObj = Instantiate(AoePrefab, new Vector2(playerposition.position.x, playerposition.position.y), Quaternion.identity);
+    }
+
+    private IEnumerator SpawnZone()
+    {
+        GetComponent<Ennemi2_Biome1>().ennemyCanMove = false;
+        GetComponent<Ennemi2_Biome1>().animator.SetBool("isCasting", true);
+        timebtwattacks = startTimeBtwAttacks;
+
+
+        yield return new WaitForSeconds(0.5f);
+
+        GetComponent<Ennemi2_Biome1>().animator.SetBool("isCasting", false);
+        GetComponent<Ennemi2_Biome1>().ennemyCanMove = true;
+        GameObject tmpObj = Instantiate(AoePrefab, new Vector2(playerposition.position.x + Random.Range(-0.5f,0.5f), playerposition.position.y + Random.Range(-0.5f, 0.5f)), Quaternion.identity);
+
     }
 }

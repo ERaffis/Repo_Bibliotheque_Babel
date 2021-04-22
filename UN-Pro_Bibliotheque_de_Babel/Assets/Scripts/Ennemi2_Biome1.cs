@@ -88,4 +88,6 @@ public class Ennemi2_Biome1 : Entities
         yield return new WaitForSeconds(1);
         ennemyCanMove = true;
     }
+
+    
 }

@@ -4175,6 +4175,21 @@ MonoBehaviour:
   braceletGate1: {fileID: 0}
   braceletGate2: {fileID: 0}
   braceletGate3: {fileID: 0}
+  prix_Bracelet_1: 1
+  prix_Bracelet_2: 2
+  prix_Bracelet_3: 3
+  prix_Pv_120: 1
+  prix_Pv_140: 2
+  prix_Pv_160: 3
+  prix_Slow_20: 1
+  prix_Slow_40: 2
+  prix_Slow_80: 3
+  prix_Page_1: 1
+  prix_Page_2: 2
+  prix_Niveau_Rune: 3
+  prix_Lifesteal_1: 1
+  prix_Lifesteal_2: 2
+  prix_Lifesteal_3: 3
 --- !u!1 &5889366330734443567
 GameObject:
   m_ObjectHideFlags: 0
