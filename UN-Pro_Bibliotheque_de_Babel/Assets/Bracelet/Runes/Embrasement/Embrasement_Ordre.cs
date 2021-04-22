@@ -17,10 +17,10 @@ public class Embrasement_Ordre : MonoBehaviour
                 Transform ennemyTransform = collider.gameObject.transform;
                 transform.parent = ennemyTransform;
 
-                Vector3 position = Instantiate(AoE_Feu, transform.position, Quaternion.identity).transform.position;
-                Instantiate(AoE_Feu, transform.position, Quaternion.identity);
+                //Vector3 position = Instantiate(AoE_Feu, transform.position, Quaternion.identity).transform.position;
+                //Instantiate(AoE_Feu, transform.position, Quaternion.identity);
 
-                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().AoEEffect(position, projectile_Joueur.dotDuration, projectile_Joueur.dotDamage));
+                //collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().AoEEffect(position, projectile_Joueur.dotDuration, projectile_Joueur.dotDamage));
             }
         }
 

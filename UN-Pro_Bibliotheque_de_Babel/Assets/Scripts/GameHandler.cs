@@ -27,6 +27,9 @@ public class GameHandler : MonoBehaviour
 
     public string biomeName;
 
+    [Header("Exit Gate")]
+    public Animator grilleAnimator;
+
     private void Awake()
     {
 
@@ -70,8 +73,6 @@ public class GameHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
-        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
         alreadySpawned = false;
     }
 
@@ -108,16 +109,12 @@ public class GameHandler : MonoBehaviour
 
     public void ChangeRuneDir(int i)
     {
-        activeInstDir.GetComponent<SpriteRenderer>().enabled = false;
         activeInstDir = instDir[i];
-        activeInstDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
     public void ChangeMoveDir(int i)
     {
-        activeMoveDir.GetComponent<SpriteRenderer>().enabled = false;
         activeMoveDir = moveDir[i];
-        activeMoveDir.GetComponent<SpriteRenderer>().enabled = true;
     }
 
 
@@ -126,6 +123,12 @@ public class GameHandler : MonoBehaviour
         if (nmbRemaining <= 0)
         {
             roomCleared = true;
+
+            if (GameObject.Find("GrilleSprite") != null)
+            {
+                grilleAnimator = GameObject.Find("GrilleSprite").GetComponent<Animator>();
+            }
+            
             if (!alreadySpawned)
             {
                 if (SceneManager.GetActiveScene().name != "HUB_Principal")
@@ -142,7 +145,9 @@ public class GameHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         ArrowPointer.Instance.shouldPoint = true;
-
+        grilleAnimator.Play("AppearAnimTop");
+        yield return new WaitForSeconds(1);
+        grilleAnimator.Play("Idle");
     }
 
 }
