@@ -57,7 +57,7 @@ public class Ennemi2_Biome1 : Entities
 
             if (ennemyCanMove)
             {
-                transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime), transform.position.y + (movementPerSecond.y * Time.deltaTime))            
+                transform.position = new Vector2(transform.position.x + (movementPerSecond.x * Time.deltaTime), transform.position.y + (movementPerSecond.y * Time.deltaTime));            
             }
 
 
