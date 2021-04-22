@@ -22,6 +22,9 @@ TagManager:
   - Boss
   - HalfCollider
   - Tour
+  - Embrasement
+  - Givre
+  - Amplification
   layers:
   - Default
   - TransparentFX

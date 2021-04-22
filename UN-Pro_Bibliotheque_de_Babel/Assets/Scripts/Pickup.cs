@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Pickup : MonoBehaviour
 {
+    [SerializeField] private GameObject[] runes;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player1"))
@@ -21,6 +23,42 @@ public class Pickup : MonoBehaviour
 
                 case "Hearth":
                     PlayerScript.Instance.PickedUpHeart();
+                    break;
+
+                case "Embrasement":
+                    Inventory.Instance.rune1.SetActive(true);
+                    Inventory.Instance.rune2.SetActive(false);
+                    Inventory.Instance.rune3.SetActive(false);
+                    Inventory.Instance.rune4.SetActive(false);
+
+                    foreach (var item in runes)
+                    {
+                        Destroy(item);
+                    }
+                    break;
+
+                case "Givre":
+                    Inventory.Instance.rune1.SetActive(false);
+                    Inventory.Instance.rune2.SetActive(true);
+                    Inventory.Instance.rune3.SetActive(false);
+                    Inventory.Instance.rune4.SetActive(false);
+
+                    foreach (var item in runes)
+                    {
+                        Destroy(item);
+                    }
+                    break;
+
+                case "Amplification":
+                    Inventory.Instance.rune1.SetActive(false);
+                    Inventory.Instance.rune2.SetActive(false);
+                    Inventory.Instance.rune3.SetActive(true);
+                    Inventory.Instance.rune4.SetActive(false);
+
+                    foreach (var item in runes)
+                    {
+                        Destroy(item);
+                    }
                     break;
 
                 default:

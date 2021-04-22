@@ -64,7 +64,10 @@ public class Inventory : MonoBehaviour
     {
         menuState = false;
         isChangingRune = false;
-
+        rune1.SetActive(false);
+        rune2.SetActive(false);
+        rune3.SetActive(false);
+        rune4.SetActive(false);
 
     }
 
