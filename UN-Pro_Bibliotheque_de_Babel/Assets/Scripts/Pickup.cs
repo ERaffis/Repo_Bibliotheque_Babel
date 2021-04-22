@@ -17,9 +17,9 @@ public class Pickup : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player1"))
+        if (collision.CompareTag("HalfCollider"))
         {
-            switch (gameObject.tag)
+            switch (gameObject.tag) 
             {
                 case "Page_Vierge":
                     Inventory.Instance.AddPageVierge(1);

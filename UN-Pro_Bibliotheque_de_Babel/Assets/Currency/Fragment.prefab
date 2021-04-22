@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3351786633361376276}
   - component: {fileID: 3351786633361376277}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Illumination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ GameObject:
   - component: {fileID: 3351786634240279272}
   - component: {fileID: 3351786634240279279}
   - component: {fileID: 8731772633354159323}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Fragment
   m_TagString: Fragment
   m_Icon: {fileID: 0}
@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147f4d5598eb9b6438b765c938c62377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runes: []
 --- !u!58 &3351786634240279279
 CircleCollider2D:
   m_ObjectHideFlags: 0

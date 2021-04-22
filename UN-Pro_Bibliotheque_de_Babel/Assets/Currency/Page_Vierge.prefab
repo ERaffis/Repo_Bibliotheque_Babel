@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2396551886631031282}
   - component: {fileID: 2396551886631031278}
   - component: {fileID: 4919306696576814985}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Page_Vierge
   m_TagString: Page_Vierge
   m_Icon: {fileID: 0}
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 147f4d5598eb9b6438b765c938c62377, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runes: []
 --- !u!58 &2396551886631031278
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,7 +144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2396551886715914697}
   - component: {fileID: 2396551886715914696}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Illumination
   m_TagString: Untagged
   m_Icon: {fileID: 0}

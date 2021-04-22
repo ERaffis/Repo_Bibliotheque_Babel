@@ -9,7 +9,7 @@ public class SpawnReward : MonoBehaviour
     public GameObject pageVierge;
     public GameObject fragment;
 
-    public GameObject heart;
+    public GameObject healthPot;
 
 
     private void Awake()
@@ -27,29 +27,39 @@ public class SpawnReward : MonoBehaviour
 
     public void SpawnItem(Vector2 pos, string tag = "")
     {
-        Vector3 spawnLocation = new Vector3(pos.x, pos.y, 0);
 
         if (tag == "Ennemy")
         {
-            if (Random.Range(0, 1) >= 0.85f)
+            if (Random.Range(0f, 1f) >= 0.75f)
             {
-                GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
-            }    
-            
+                GameObject newPage = Instantiate(pageVierge, pos, Quaternion.Euler(0, 0, 0));
+                newPage.transform.parent = null;
+            }
+
+            if (Random.Range(0f, 1f) >= 0.9f)
+            {
+                GameObject newPage = Instantiate(healthPot, pos, Quaternion.Euler(0, 0, 0));
+                newPage.transform.parent = null;
+
+            }
+
         }
         if (tag == "Boss_1")
         {
-            GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
 
-            /*for (int i = 0; i < (int)(Random.Range(2, 5)); i++)
+            for (int i = 0; i < (Random.Range(2, 5)); i++)
             {
-                Instantiate(heart, newPage.transform);
-            }*/
+                GameObject newPage = Instantiate(fragment, new Vector3(0, 6.5f), Quaternion.Euler(0, 0, 0));
+                newPage.transform.parent = null;
+
+            }
         }
 
         if (tag == "Room")
         {
-            GameObject newPage = Instantiate(pageVierge, spawnLocation, Quaternion.Euler(0, 0, 0));
+            GameObject newPage = Instantiate(pageVierge, new Vector3(0,6.5f), Quaternion.Euler(0, 0, 0));
+            newPage.transform.parent = null;
+
         }
     }
 }

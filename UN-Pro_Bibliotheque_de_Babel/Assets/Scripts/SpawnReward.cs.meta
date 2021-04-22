@@ -3,7 +3,10 @@ guid: 9a9897d893dfcb54b90f0c73decc66b7
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - pageVierge: {fileID: 2396551886631031283, guid: fc4ddc26e597cd54f9744e8e87210a0c, type: 3}
+  - fragment: {fileID: 3351786634240279278, guid: 91fc0bef06f3a5b428acbfbc79c51ef5, type: 3}
+  - healthPot: {fileID: 8891561999199561993, guid: 3f9c1bdf22ae75e41af24517034082a5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 521356023350719006}
   - component: {fileID: 521356023350719007}
   - component: {fileID: 521356023350719011}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rune_Amplification
   m_TagString: Rune
   m_Icon: {fileID: 0}

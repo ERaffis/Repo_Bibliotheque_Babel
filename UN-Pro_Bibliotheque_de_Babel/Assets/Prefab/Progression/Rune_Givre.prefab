@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5503935727174500746}
   - component: {fileID: 5503935727174500747}
   - component: {fileID: 5503935727174500855}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rune_Givre
   m_TagString: Rune
   m_Icon: {fileID: 0}

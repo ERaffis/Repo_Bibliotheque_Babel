@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4880486872907560808}
   - component: {fileID: 4880486872907560809}
   - component: {fileID: 4880486872907560805}
-  m_Layer: 0
+  m_Layer: 17
   m_Name: Rune_Embrasement
   m_TagString: Rune
   m_Icon: {fileID: 0}

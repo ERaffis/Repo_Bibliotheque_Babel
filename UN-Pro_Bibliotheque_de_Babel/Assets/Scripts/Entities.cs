@@ -95,7 +95,7 @@ public class Entities : MonoBehaviour
         if (currentHealth <= 0 && !this.gameObject.CompareTag("Player1") && !gameObject.CompareTag("Tour"))
         {
             GameHandler.Instance.nmbRemaining--;
-            SpawnReward.Instance.SpawnItem(this.gameObject.transform.position, this.gameObject.tag);
+            SpawnReward.Instance.SpawnItem(gameObject.transform.position, this.gameObject.tag);
             SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
             Destroy(this.gameObject);
         }
