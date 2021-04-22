@@ -22,9 +22,7 @@ TagManager:
   - Boss
   - HalfCollider
   - Tour
-  - Embrasement
-  - Givre
-  - Amplification
+  - Rune
   layers:
   - Default
   - TransparentFX

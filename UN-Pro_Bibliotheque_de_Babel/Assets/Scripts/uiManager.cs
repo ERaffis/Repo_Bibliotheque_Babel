@@ -15,7 +15,6 @@ public class uiManager : MonoBehaviour
     public TMP_Text health;
 
     [Header("Components")]
-    public GameObject _GameHandler;
     public Canvas mainUI;
     public TMP_Text roomInfo;
     public Image dashIcon;
@@ -41,12 +40,10 @@ public class uiManager : MonoBehaviour
         player1 = GameObject.FindGameObjectWithTag("Player1");
  
         mainUI = GameObject.FindGameObjectWithTag("MainUI").GetComponent<Canvas>();
-        _GameHandler = GameObject.FindGameObjectWithTag("GameHandler");
+
         runeManager = GameObject.FindGameObjectWithTag("RuneManager");
-        foreach (var item in uiRunes)
-        {
-            item.SetActive(false); 
-        }
+
+        ResetRunesUI();
     }
 
     private void OnEnable()
@@ -63,6 +60,7 @@ public class uiManager : MonoBehaviour
         if (arg0.name == "HUB_Principal")
         {
             SetRoomInfoHUB();
+            ResetRunesUI();
         }
         else
         {
@@ -89,6 +87,14 @@ public class uiManager : MonoBehaviour
     public void SetRoomInfoHUB()
     {
         roomInfo.text = "Hub Principal";
+    }
+
+    public void ResetRunesUI()
+    {
+        foreach (var item in uiRunes)
+        {
+            item.SetActive(false);
+        }
     }
 
     public void ChangeUiState()

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using Rewired;
+using UnityEngine.SceneManagement;
 
 
 public class Inventory : MonoBehaviour
@@ -42,6 +43,8 @@ public class Inventory : MonoBehaviour
     public Runes[] runes;
     public GameObject rune1, rune2, rune3, rune4;
 
+    public bool embrasementActive, givreActive, amplificationActive;
+
     [Header("Bracelet")]
     public Bracelet activeBracelet;
     public GameObject bracelet1, bracelet2, bracelet3, bracelet4, bracelet5;
@@ -64,11 +67,33 @@ public class Inventory : MonoBehaviour
     {
         menuState = false;
         isChangingRune = false;
-        rune1.SetActive(false);
-        rune2.SetActive(false);
-        rune3.SetActive(false);
-        rune4.SetActive(false);
+        embrasementActive = false;
+        givreActive = false;
+        amplificationActive = false;
+    }
 
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+    }
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        Debug.Log("Scene " + arg0.name + " loaded");
+        if (arg0.name == "HUB_Principal")
+        {
+            FullClearBracelet();
+            rune1.GetComponent<Image>().color = Color.grey;
+            embrasementActive = false;
+            rune2.GetComponent<Image>().color = Color.grey;
+            givreActive = false;
+            rune3.GetComponent<Image>().color = Color.grey;
+            amplificationActive = false;
+        }
     }
 
     // Update is called once per frame
@@ -155,85 +180,91 @@ public class Inventory : MonoBehaviour
             switch (name)
             {
                 case "Embrasement":
-
-                    bool nullFound = false;
-                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
-                    {
-                        if (activeBracelet.activeRunes[i] == null)
+                    if(embrasementActive)
+                    { 
+                        bool nullFound = false;
+                        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                         {
-                            nullFound = true;
-                            break;
+                            if (activeBracelet.activeRunes[i] == null)
+                            {
+                                nullFound = true;
+                                break;
+                            }
                         }
-                    }
-                    if (!nullFound) ClearBracelet();
+                        if (!nullFound) ClearBracelet();
 
-                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
-                    {
-                        if (activeBracelet.activeRunes[i] == runes[0])
-                            break;
-
-                        if (activeBracelet.activeRunes[i] == null)
+                        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                         {
-                            activeBracelet.activeRunes[i] = runes[0];
-                            equippedRunes[i].GetComponent<Image>().sprite = rune1.GetComponent<Image>().sprite;
-                            equippedRunes[i].GetComponent<Image>().color = rune1.GetComponent<Image>().color;
-                            break;
+                            if (activeBracelet.activeRunes[i] == runes[0])
+                                break;
+
+                            if (activeBracelet.activeRunes[i] == null)
+                            {
+                                activeBracelet.activeRunes[i] = runes[0];
+                                equippedRunes[i].GetComponent<Image>().sprite = rune1.GetComponent<Image>().sprite;
+                                equippedRunes[i].GetComponent<Image>().color = rune1.GetComponent<Image>().color;
+                                break;
+                            }
                         }
                     }
                     break;
 
                 case "Givre":
-
-                    bool nullFound1 = false;
-                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    if (givreActive)
                     {
-                        if (activeBracelet.activeRunes[i] == null)
+                        bool nullFound1 = false;
+                        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                         {
-                            nullFound1 = true;
-                            break;
+                            if (activeBracelet.activeRunes[i] == null)
+                            {
+                                nullFound1 = true;
+                                break;
+                            }
                         }
-                    }
-                    if (!nullFound1) ClearBracelet();
+                        if (!nullFound1) ClearBracelet();
 
-                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
-                    {
-                        if (activeBracelet.activeRunes[i] == runes[1])
-                            break;
-
-                        if (activeBracelet.activeRunes[i] == null)
+                        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                         {
-                            activeBracelet.activeRunes[i] = runes[1];
-                            equippedRunes[i].GetComponent<Image>().sprite = rune2.GetComponent<Image>().sprite;
-                            equippedRunes[i].GetComponent<Image>().color = rune2.GetComponent<Image>().color;
-                            break;
+                            if (activeBracelet.activeRunes[i] == runes[1])
+                                break;
+
+                            if (activeBracelet.activeRunes[i] == null)
+                            {
+                                activeBracelet.activeRunes[i] = runes[1];
+                                equippedRunes[i].GetComponent<Image>().sprite = rune2.GetComponent<Image>().sprite;
+                                equippedRunes[i].GetComponent<Image>().color = rune2.GetComponent<Image>().color;
+                                break;
+                            }
                         }
                     }
                     break;
 
                 case "Amplification":
-
-                    bool nullFound2 = false;
-                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+                    if (amplificationActive)
                     {
-                        if (activeBracelet.activeRunes[i] == null)
+                        bool nullFound2 = false;
+                        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                         {
-                            nullFound2 = true;
-                            break;
+                            if (activeBracelet.activeRunes[i] == null)
+                            {
+                                nullFound2 = true;
+                                break;
+                            }
                         }
-                    }
-                    if (!nullFound2) ClearBracelet();
+                        if (!nullFound2) ClearBracelet();
 
-                    for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
-                    {
-                        if (activeBracelet.activeRunes[i] == runes[2])
-                            break;
-
-                        if (activeBracelet.activeRunes[i] == null)
+                        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
                         {
-                            activeBracelet.activeRunes[i] = runes[2];
-                            equippedRunes[i].GetComponent<Image>().sprite = rune3.GetComponent<Image>().sprite;
-                            equippedRunes[i].GetComponent<Image>().color = rune3.GetComponent<Image>().color;
-                            break;
+                            if (activeBracelet.activeRunes[i] == runes[2])
+                                break;
+
+                            if (activeBracelet.activeRunes[i] == null)
+                            {
+                                activeBracelet.activeRunes[i] = runes[2];
+                                equippedRunes[i].GetComponent<Image>().sprite = rune3.GetComponent<Image>().sprite;
+                                equippedRunes[i].GetComponent<Image>().color = rune3.GetComponent<Image>().color;
+                                break;
+                            }
                         }
                     }
                     break;
@@ -310,23 +341,47 @@ public class Inventory : MonoBehaviour
 
     public void ClearBracelet()
     {
-        for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+        if(activeBracelet != null)
+        { 
+            for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
+            {
+                activeBracelet.activeRunes[i] = null;
+            }
+        
+
+            //Set the number of Runes available in the bracelet
+            
+                for (int i = 0; i < equippedRunes.Length; i++)
+                {
+                    equippedRunes[i].SetActive(false);
+                }
+                for (int i = 0; i < activeBracelet.nmbRune; i++)
+                {
+                    equippedRunes[i].SetActive(true);
+                    equippedRunes[i].GetComponent<Image>().sprite = runeOutline;
+                    equippedRunes[i].GetComponent<Image>().color = Color.white;
+                }
+            
+        }
+    }
+
+    public void FullClearBracelet()
+    {
+        foreach (var item in equippedRunes)
         {
-            activeBracelet.activeRunes[i] = null;
+            Debug.Log(item.name + " Inactive");
+            item.SetActive(false);
         }
 
-        //Set the number of Runes available in the bracelet
+        if (activeBracelet != null)
         {
-            for (int i = 0; i < equippedRunes.Length; i++)
+            for (int i = 0; i < activeBracelet.activeRunes.Length; i++)
             {
-                equippedRunes[i].SetActive(false);
+                activeBracelet.activeRunes[i] = null;
             }
-            for (int i = 0; i < activeBracelet.nmbRune; i++)
-            {
-                equippedRunes[i].SetActive(true);
-                equippedRunes[i].GetComponent<Image>().sprite = runeOutline;
-                equippedRunes[i].GetComponent<Image>().color = Color.white;
-            }
+            activeBracelet = null;
+
+            
         }
     }
     

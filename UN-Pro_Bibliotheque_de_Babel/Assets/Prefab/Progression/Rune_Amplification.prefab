@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 521356023350719011}
   m_Layer: 0
   m_Name: Rune_Amplification
-  m_TagString: Amplification
+  m_TagString: Rune
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521356023350719000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.75, y: 0.75, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -126,7 +126,7 @@ MonoBehaviour:
   runes:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 521356023350719000}
+  - {fileID: 0}
 --- !u!58 &521356023350719011
 CircleCollider2D:
   m_ObjectHideFlags: 0

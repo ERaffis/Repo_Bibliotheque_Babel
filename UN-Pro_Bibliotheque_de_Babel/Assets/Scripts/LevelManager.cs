@@ -204,7 +204,7 @@ public class LevelManager : MonoBehaviour
             return "HUB_Principal";
         }
 
-        if (roomCounter == 6)
+        if (roomCounter == 4)
         {
             roomCounter = 0;
             shouldBoss = true;
@@ -238,58 +238,75 @@ public class LevelManager : MonoBehaviour
                         if(!piece1)
                         {
                             Debug.Log("Load Piece 1");
-                            LoadPiece1();
+
+                            piece1 = true;
+                            RoomNumberManager.Instance.PlusRoomNumber();
+                            roomCounter++;
+                            return "Piece_1";
                         } else return CheckBooleans();
-                        break;
 
                     case 2:
                         if (!piece2)
                         {
                             Debug.Log("Load Piece 2");
-                            LoadPiece2();
+
+                            piece2 = true;
+                            RoomNumberManager.Instance.PlusRoomNumber();
+                            roomCounter++;
+                            return "Piece_2";
                         }
                         else return CheckBooleans();
-                        break;
 
                     case 3:
                         if (!piece3)
                         {
                             Debug.Log("Load Piece 3");
-                            LoadPiece3();
+
+                            piece3 = true;
+                            RoomNumberManager.Instance.PlusRoomNumber();
+                            roomCounter++;
+                            return "Piece_3";
                         }
                         else return CheckBooleans();
-                        break;
 
                     case 4:
                         if (!piece4)
                         {
                             Debug.Log("Load Piece 4");
-                            LoadPiece4();
+
+                            piece4 = true;
+                            RoomNumberManager.Instance.PlusRoomNumber();
+                            roomCounter++;
+                            return "Piece_4";
                         }
                         else return CheckBooleans();
-                        break;
 
                     case 5:
                         if (!piece5)
                         {
                             Debug.Log("Load Piece 5");
-                            LoadPiece5();
+
+                            piece5 = true;
+                            RoomNumberManager.Instance.PlusRoomNumber();
+                            roomCounter++;
+                            return "Piece_5";
                         }
                         else return CheckBooleans();
-                        break;
 
                     case 6:
                         if (!piece6)
                         {
                             Debug.Log("Load Piece 6");
-                            LoadPiece6();
+                            piece6 = true;
+                            RoomNumberManager.Instance.PlusRoomNumber();
+                            roomCounter++;
+                            return "Piece_6";
                         }
                         else return CheckBooleans();
-                        break;
 
                     default: 
                         return CheckBooleans();
-                        break;
+
                 }
             } 
         }
@@ -340,48 +357,4 @@ public class LevelManager : MonoBehaviour
             return "Piece_6";
     }
 
-    string LoadPiece1()
-    {
-        piece1 = true;
-        RoomNumberManager.Instance.PlusRoomNumber();
-        roomCounter++;
-        return "Piece_1";
-    }
-
-    string LoadPiece2()
-    {
-        piece2 = true;
-        RoomNumberManager.Instance.PlusRoomNumber();
-        roomCounter++;
-        return "Piece_2";
-    }
-
-    string LoadPiece3()
-    {
-        piece3 = true;
-        RoomNumberManager.Instance.PlusRoomNumber();
-        roomCounter++;
-        return "Piece_3";
-    }
-    string LoadPiece4()
-    {
-        piece4 = true;
-        RoomNumberManager.Instance.PlusRoomNumber();
-        roomCounter++;
-        return "Piece_4";
-    }
-    string LoadPiece5()
-    {
-        piece5 = true;
-        RoomNumberManager.Instance.PlusRoomNumber();
-        roomCounter++;
-        return "Piece_5";
-    }
-    string LoadPiece6()
-    {
-        piece6 = true;
-        RoomNumberManager.Instance.PlusRoomNumber();
-        roomCounter++;
-        return "Piece_6";
-    }
 }

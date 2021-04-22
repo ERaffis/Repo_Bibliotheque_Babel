@@ -145,9 +145,11 @@ public class GameHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         ArrowPointer.Instance.shouldPoint = true;
-        grilleAnimator.Play("AppearAnimTop");
+        if (GameObject.Find("GrilleSprite") != null)
+            grilleAnimator.Play("AppearAnimTop");
         yield return new WaitForSeconds(1);
-        grilleAnimator.Play("IdleOpen");
+        if (GameObject.Find("GrilleSprite") != null)
+            grilleAnimator.Play("IdleOpen");
     }
 
 }

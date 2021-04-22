@@ -27,10 +27,7 @@ public class SelectionBracelet : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        if (arg0.name == "HUB_Principal" && Inventory.Instance.activeBracelet != null)
-        {    
-            Inventory.Instance.ClearBracelet();
-        }
+       
     }
 
     private void OnDisable()
