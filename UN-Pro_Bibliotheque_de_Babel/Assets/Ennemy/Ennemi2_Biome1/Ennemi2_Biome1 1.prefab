@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3530227072964081390}
   - component: {fileID: -7615484754597554946}
   - component: {fileID: 1710174770924835685}
+  - component: {fileID: 142242237288768523}
   m_Layer: 6
   m_Name: Ennemi2_Biome1 1
   m_TagString: Ennemy
@@ -189,6 +190,7 @@ MonoBehaviour:
   timebtwattacks: 2
   startTimeBtwAttacks: 5
   playerposition: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &1710174770924835685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +218,26 @@ MonoBehaviour:
   - {x: -0.23789978, y: -0.29893327, z: 0}
   m_ShapePathHash: -43224951
   m_Mesh: {fileID: 0}
-  m_InstanceId: 32180
+  m_InstanceId: 38560
+--- !u!95 &142242237288768523
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530227072964081393}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae8f7a7e5de554c4c901968672909cfb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3530227073592526806
 PrefabInstance:
   m_ObjectHideFlags: 0
