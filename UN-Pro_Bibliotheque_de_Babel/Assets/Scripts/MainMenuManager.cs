@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
 
     private void Awake()
     {
-
+        SetMainButton();
     }
 
     public void NouvellePartie()

@@ -34,6 +34,7 @@ public class RuneManager : MonoBehaviour
         timeBetween += Time.deltaTime;
         CheckCombo();
         ShootRune();
+        CheckOrder();
     }
 
     private void ShootRune()
@@ -114,6 +115,31 @@ public class RuneManager : MonoBehaviour
 
 
         }
+    }
+
+    private void CheckOrder()
+    {
+        if (equippedBracelet)
+        {
+            foreach (var item in equippedBracelet.activeRunes)
+            {
+                if (item)
+                {
+                    if (item.order == nmbPressed + 1)
+                    {
+                        foreach (var item1 in uiManager.Instance.uiRunes)
+                        {
+                            if (item1.GetComponent<Image>().sprite.name == item.name && item1.GetComponent<Image>().color == Color.white)
+                            {
+                                item1.GetComponent<Image>().color = Color.green;
+                            }
+                        }
+                    }
+                }
+                
+            }
+        }
+        
     }
 
     private void ComboRune()
