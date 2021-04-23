@@ -77,7 +77,7 @@ public class Pickup : MonoBehaviour
                     if (!Inventory.Instance.givreActive)
                     {
                         Inventory.Instance.givreActive = true;
-                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                        Inventory.Instance.rune2.GetComponent<Image>().color = Color.white;
                     }
                     else
                     {
@@ -93,7 +93,7 @@ public class Pickup : MonoBehaviour
                     if (!Inventory.Instance.givreActive)
                     {
                         Inventory.Instance.givreActive = true;
-                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                        Inventory.Instance.rune2.GetComponent<Image>().color = Color.white;
                     }
                     else
                     {
@@ -110,7 +110,7 @@ public class Pickup : MonoBehaviour
                     if (!Inventory.Instance.amplificationActive)
                     {
                         Inventory.Instance.amplificationActive = true;
-                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                        Inventory.Instance.rune3.GetComponent<Image>().color = Color.white;
                     }
                     else
                     {
@@ -126,7 +126,7 @@ public class Pickup : MonoBehaviour
                     if (!Inventory.Instance.amplificationActive)
                     {
                         Inventory.Instance.amplificationActive = true;
-                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
+                        Inventory.Instance.rune3.GetComponent<Image>().color = Color.white;
                     }
                     else
                     {

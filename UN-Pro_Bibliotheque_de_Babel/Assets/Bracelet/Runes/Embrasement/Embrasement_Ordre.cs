@@ -10,21 +10,28 @@ public class Embrasement_Ordre : MonoBehaviour
 
     private void Start()
     {
-        AoE_Feu = projectile_Joueur.aoePrefab;
+        AoE_Feu = GetComponent<Projectile_Joueur>().aoePrefab;
+    }
+    private void OnEnable()
+    {
+        AoE_Feu = GetComponent<Projectile_Joueur>().aoePrefab;
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-       
+        AoE_Feu = GetComponent<Projectile_Joueur>().aoePrefab;
+
         if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
         {    
             GameObject aoe = Instantiate(AoE_Feu, collider.transform.position, Quaternion.identity);
+            aoe.GetComponent<EmbrasementAoEScript>().projectile_Joueur = projectile_Joueur;
             aoe.transform.parent = null;
         }
 
         if (collider.gameObject.CompareTag("Boss"))
         {
             GameObject aoe = Instantiate(AoE_Feu, collider.transform.position, Quaternion.identity);
+            aoe.GetComponent<EmbrasementAoEScript>().projectile_Joueur = projectile_Joueur;
             aoe.transform.parent = null;
         }
     } 

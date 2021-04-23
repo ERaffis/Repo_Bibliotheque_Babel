@@ -611,7 +611,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune1.aeoPrefab);
 
                 rune0.Maitresse(projectile4);
                 rune1.Support(2, projectile4);
@@ -657,7 +657,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune2.aeoPrefab);
 
                 rune0.Maitresse(projectile);
                 rune1.Support(2, projectile);
@@ -699,7 +699,7 @@ public class Bracelet : ScriptableObject
                         rune0.delaySecondAoe,
                         rune0.explosionForce,
                         rune0.nmbProjectileExplosion,
-                        rune0.aeoPrefab);
+                        rune1.aeoPrefab);
 
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
@@ -739,7 +739,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune1.aeoPrefab);
 
                 rune0.Maitresse(projectile2);
                 rune1.Support(2, projectile2);
@@ -775,7 +775,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune1.aeoPrefab);
 
                 projectile3.AddComponent<AimAssist>();
                 projectile3.GetComponent<AimAssist>().speed = baseSpeed * rune0.multSpeed * rune1.multSpeed * rune2.multSpeed;
@@ -815,7 +815,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune1.aeoPrefab);
 
                 rune0.Maitresse(projectile4);
                 rune1.Support(2, projectile4);
@@ -862,7 +862,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune2.aeoPrefab);
 
                 rune0.Maitresse(projectile);
                 rune1.Support(2, projectile);
@@ -905,7 +905,7 @@ public class Bracelet : ScriptableObject
                         rune0.delaySecondAoe,
                         rune0.explosionForce,
                         rune0.nmbProjectileExplosion,
-                        rune0.aeoPrefab);
+                        rune2.aeoPrefab);
 
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
@@ -946,7 +946,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune2.aeoPrefab);
 
                 rune0.Maitresse(projectile2);
                 rune1.Support(2, projectile2);
@@ -1023,7 +1023,7 @@ public class Bracelet : ScriptableObject
                     rune0.delaySecondAoe,
                     rune0.explosionForce,
                     rune0.nmbProjectileExplosion,
-                    rune0.aeoPrefab);
+                    rune2.aeoPrefab);
 
                 rune0.Maitresse(projectile4);
                 rune1.Support(2, projectile4);

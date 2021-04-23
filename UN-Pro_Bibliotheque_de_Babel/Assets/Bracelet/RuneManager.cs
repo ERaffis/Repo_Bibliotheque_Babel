@@ -136,6 +136,8 @@ public class RuneManager : MonoBehaviour
                         orderRune.Add(equippedBracelet.activeRunes[0]);
                         Debug.Log(orderRune);
                         nmbPressed++;
+                        timeBetween = 0;
+
                     }
                 }
                 if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && equippedBracelet.activeRunes.Length >= 2)
@@ -145,6 +147,7 @@ public class RuneManager : MonoBehaviour
                         pressed1 = true;
                         orderRune.Add(equippedBracelet.activeRunes[1]);
                         Debug.Log(orderRune);
+                        timeBetween = 0;
 
                         nmbPressed++;
                     }
@@ -156,6 +159,7 @@ public class RuneManager : MonoBehaviour
                         pressed2 = true;
                         orderRune.Add(equippedBracelet.activeRunes[2]);
                         Debug.Log(orderRune);
+                        timeBetween = 0;
 
                         nmbPressed++;
                     }
@@ -167,6 +171,7 @@ public class RuneManager : MonoBehaviour
                         pressed3 = true;
                         orderRune.Add(equippedBracelet.activeRunes[3]);
                         Debug.Log(orderRune);
+                        timeBetween = 0;
 
                         nmbPressed++;
                     }

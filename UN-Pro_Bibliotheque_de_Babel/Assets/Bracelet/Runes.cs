@@ -59,6 +59,7 @@ public class Runes : ScriptableObject
                 projectile.GetComponent<Embrasement_Maitresse>().lvlRune = lvlRune;
                 projectile.transform.GetChild(1).gameObject.SetActive(true);
                 projectile.GetComponent<Animator>().Play("Embrasement");
+                projectile.GetComponent<Projectile_Joueur>().aoePrefab = aeoPrefab;
                 projectile.GetComponent<Embrasement_Maitresse>().projectile_Joueur = projectile.GetComponent<Projectile_Joueur>();
                 break;
 
