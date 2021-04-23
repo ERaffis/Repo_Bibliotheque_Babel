@@ -242,7 +242,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000695f153a
+  m_ApplyToSortingLayers: af96d25500000000695f153a4be3d06c
   m_ShapePath:
   - {x: -0.007135129, y: -0.06475092, z: 0}
   - {x: 0.045199204, y: -0.06485542, z: 0}
@@ -252,7 +252,7 @@ MonoBehaviour:
   - {x: -0.015767235, y: -0.055715233, z: 0}
   m_ShapePathHash: 1902109731
   m_Mesh: {fileID: 0}
-  m_InstanceId: 60188
+  m_InstanceId: -133616
 --- !u!114 &3584525534892942515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 2
   radius: 0.5
-  height: 2
+  height: 0.5
   repathRate: 0.5
   canSearch: 1
   canMove: 1
@@ -310,12 +310,12 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
   rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 1.2
-  endReachedDistance: 0.2
+  slowdownDistance: 0.04
+  pickNextWaypointDist: 1.6
+  endReachedDistance: 0.01
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
+  whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &7370619112786971492
 MonoBehaviour:
@@ -340,8 +340,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1543306024538461003}
-  - component: {fileID: 172838802859267731}
-  m_Layer: 6
+  - component: {fileID: 6463300397186121852}
+  m_Layer: 18
   m_Name: NavCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,8 +362,8 @@ Transform:
   m_Father: {fileID: 1109663837958840121}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &172838802859267731
-BoxCollider2D:
+--- !u!70 &6463300397186121852
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -375,19 +375,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020763533, y: -0.03984351}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.05505949, y: 0.028693728}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0.022409027, y: -0.03993864}
+  m_Size: {x: 0.056388874, y: 0.029281346}
+  m_Direction: 1
 --- !u!1001 &1109663838585921906
 PrefabInstance:
   m_ObjectHideFlags: 0

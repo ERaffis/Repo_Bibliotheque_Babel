@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class RuneManager : MonoBehaviour
 {
@@ -133,9 +134,7 @@ public class RuneManager : MonoBehaviour
                 {
                     if (equippedBracelet.activeRunes[0] != null && !pressed0 && nmbPressed < equippedBracelet.nmbRune)
                     {
-                        if (uiManager.Instance.uiRunes.Length >= 1)
-                            if (uiManager.Instance.uiRunes[0] != null)
-                                uiManager.Instance.uiRunes[0].GetComponent<Image>().color = Color.gray;
+                        
 
                         pressed0 = true;
                         orderRune.Add(equippedBracelet.activeRunes[0]);
@@ -143,38 +142,58 @@ public class RuneManager : MonoBehaviour
                         nmbPressed++;
                         timeBetween = 0;
 
+                        if (uiManager.Instance.uiRunes.Length >= 1)
+                            if (uiManager.Instance.uiRunes[0] != null)
+                            {
+                                uiManager.Instance.uiRunes[0].GetComponent<Image>().color = Color.gray;
+                                uiManager.Instance.uiOrder[0].SetActive(true);
+
+                                uiManager.Instance.uiOrder[0].GetComponent<TMP_Text>().text = nmbPressed.ToString();
+                            }
+
                     }
                 }
                 if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 2") && equippedBracelet.activeRunes.Length >= 2)
                 {
                     if (equippedBracelet.activeRunes[1] != null && !pressed1 && nmbPressed < equippedBracelet.nmbRune)
                     {
-                        if (uiManager.Instance.uiRunes.Length >= 2)
-                            if (uiManager.Instance.uiRunes[1] != null)
-                                uiManager.Instance.uiRunes[1].GetComponent<Image>().color = Color.gray;
-
+                       
                         pressed1 = true;
                         orderRune.Add(equippedBracelet.activeRunes[1]);
                         Debug.Log(orderRune);
                         timeBetween = 0;
 
                         nmbPressed++;
+
+                        if (uiManager.Instance.uiRunes.Length >= 1)
+                            if (uiManager.Instance.uiRunes[1] != null)
+                            {
+                                uiManager.Instance.uiRunes[1].GetComponent<Image>().color = Color.gray;
+                                uiManager.Instance.uiOrder[1].SetActive(true);
+
+                                uiManager.Instance.uiOrder[1].GetComponent<TMP_Text>().text = nmbPressed.ToString();
+                            }
                     }
                 }
                 if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 3") && equippedBracelet.activeRunes.Length >= 3)
                 {
                     if (equippedBracelet.activeRunes[2] != null && !pressed2 && nmbPressed < equippedBracelet.nmbRune)
                     {
-                        if (uiManager.Instance.uiRunes.Length >= 3)
-                            if (uiManager.Instance.uiRunes[2] != null)
-                                uiManager.Instance.uiRunes[2].GetComponent<Image>().color = Color.gray;
-
+                        
                         pressed2 = true;
                         orderRune.Add(equippedBracelet.activeRunes[2]);
                         Debug.Log(orderRune);
                         timeBetween = 0;
 
                         nmbPressed++;
+
+                        if (uiManager.Instance.uiRunes.Length >= 1)
+                            if (uiManager.Instance.uiRunes[2] != null)
+                            {
+                                uiManager.Instance.uiRunes[2].GetComponent<Image>().color = Color.gray;
+                                uiManager.Instance.uiOrder[2].SetActive(true);
+                                uiManager.Instance.uiOrder[2].GetComponent<TMP_Text>().text = nmbPressed.ToString();
+                            }
                     }
                 }
                 if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && equippedBracelet.activeRunes.Length >= 4)
@@ -230,6 +249,10 @@ public class RuneManager : MonoBehaviour
         foreach (var item in uiManager.Instance.uiRunes)
         {
             item.GetComponent<Image>().color = Color.white;
+        }
+        foreach (var item in uiManager.Instance.uiOrder)
+        {
+            item.SetActive(false);
         }
 
         //Clear Stuff for combo

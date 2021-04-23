@@ -21,7 +21,7 @@ public class uiManager : MonoBehaviour
 
     public GameObject uiBracelt;
     public GameObject[] uiRunes;
-    
+    public GameObject[] uiOrder;
 
     [Header("Relations")]
     public GameObject runeManager;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Pickup : MonoBehaviour
@@ -51,10 +52,10 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[0].lvlRune++;
                     }
-                    foreach (var item in runes)
+                    /*foreach (var item in runes)
                     {
                         Destroy(item);
-                    }
+                    }*/
                     break;
 
                 case "Rune_Embrasement(Clone)":
@@ -67,10 +68,10 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[0].lvlRune++;
                     }
-                    foreach (var item in runes)
+                    /*foreach (var item in runes)
                     {
                         Destroy(item);
-                    }
+                    }*/
                     break;
 
                 case "Rune_Givre":
@@ -83,10 +84,10 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[1].lvlRune++;
                     }
-                    foreach (var item in runes)
+                    /*foreach (var item in runes)
                     {
                         Destroy(item);
-                    }
+                    }*/
                     break;
 
                 case "Rune_Givre(Clone)":
@@ -99,10 +100,10 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[1].lvlRune++;
                     }
-                    foreach (var item in runes)
+                    /*foreach (var item in runes)
                     {
                         Destroy(item);
-                    }
+                    }*/
                     break;
 
 
@@ -116,10 +117,10 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[2].lvlRune++;
                     }
-                    foreach (var item in runes)
+                    /*foreach (var item in runes)
                     {
                         Destroy(item);
-                    }
+                    }*/
                     break;
 
                 case "Rune_Amplification(Clone)":
@@ -132,16 +133,18 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[2].lvlRune++;
                     }
-                    foreach (var item in runes)
+                    /*foreach (var item in runes)
                     {
                         Destroy(item);
-                    }
+                    }*/
                     break;
 
 
                 default:
                     break;
             }
+
+            Destroy(gameObject);
         }
     }
 }
