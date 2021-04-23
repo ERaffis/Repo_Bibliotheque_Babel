@@ -120,11 +120,17 @@ public class GameHandler : MonoBehaviour
 
     public void CheckForRoomClear()
     {
-        if (SceneManager.GetActiveScene().name == "Hub_Principal" && SceneManager.GetActiveScene().name == "Hub_Secondaire")
+        if (SceneManager.GetActiveScene().name == "Hub_Principal" || SceneManager.GetActiveScene().name == "Hub_Secondaire")
         {
             roomCleared = true;
 
-        } else if (nmbRemaining <= 0)
+        }
+        else if (SceneManager.GetActiveScene().name == "Piece_Boss")
+        {
+            if (!GameObject.FindGameObjectWithTag("Boss"))
+                roomCleared = true;
+        }
+        else if (nmbRemaining <= 0)
         {
             roomCleared = true;
 
@@ -132,7 +138,7 @@ public class GameHandler : MonoBehaviour
             {
                 grilleAnimator = GameObject.Find("GrilleSprite").GetComponent<Animator>();
             }
-            
+
             if (!alreadySpawned)
             {
                 if (SceneManager.GetActiveScene().name != "HUB_Principal")
