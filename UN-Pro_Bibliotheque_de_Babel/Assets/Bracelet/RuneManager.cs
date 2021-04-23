@@ -137,11 +137,11 @@ public class RuneManager : MonoBehaviour
                         }
                     }
 
-                    if (item.order == nmbPressed)
+                    if (item.order != nmbPressed +1)
                     {
                         foreach (var item1 in uiManager.Instance.uiRunes)
                         {
-                            if (item1.GetComponent<Image>().sprite.name == item.name && item1.GetComponent<Image>().color == Color.white)
+                            if (item1.GetComponent<Image>().sprite.name == item.name)
                             {
                                 //Mettre ici effet desire pour quand rune ordre est desactive
                                 item1.GetComponent<Outline>().enabled = false;
