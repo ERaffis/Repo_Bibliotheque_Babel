@@ -20,7 +20,7 @@ MonoBehaviour:
   baseDamage: 50
   multDamage: 1.5
   baseKnockbak: 1.2
-  order: 1
+  order: 2
   orderMultDamage: 1.4
   dotDamage: 0
   dotDuration: 0

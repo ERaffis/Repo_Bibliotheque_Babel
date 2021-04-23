@@ -131,7 +131,20 @@ public class RuneManager : MonoBehaviour
                         {
                             if (item1.GetComponent<Image>().sprite.name == item.name && item1.GetComponent<Image>().color == Color.white)
                             {
-                                item1.GetComponent<Image>().color = Color.green;
+                                //Mettre ici effet desire pour quand rune ordre peut etre active
+                                item1.GetComponent<Outline>().enabled = true;
+                            }
+                        }
+                    }
+
+                    if (item.order == nmbPressed)
+                    {
+                        foreach (var item1 in uiManager.Instance.uiRunes)
+                        {
+                            if (item1.GetComponent<Image>().sprite.name == item.name && item1.GetComponent<Image>().color == Color.white)
+                            {
+                                //Mettre ici effet desire pour quand rune ordre est desactive
+                                item1.GetComponent<Outline>().enabled = false;
                             }
                         }
                     }
