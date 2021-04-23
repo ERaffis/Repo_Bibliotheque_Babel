@@ -16,11 +16,12 @@ public class EnnemyFollow : MonoBehaviour
 
     
     void Update()
-    {
+    {   /*
         if(gameObject.GetComponent<Entities>().isStuned == false)
         {
             if (gameObject.GetComponent<Entities>().canMove)
                 transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
+        */
     }
 }

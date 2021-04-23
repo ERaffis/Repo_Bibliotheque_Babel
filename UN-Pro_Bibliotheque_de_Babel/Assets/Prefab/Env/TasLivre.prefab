@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4489480015322279363}
   - component: {fileID: 4865496441380873036}
   - component: {fileID: 1454250743187486669}
-  m_Layer: 15
+  m_Layer: 9
   m_Name: TasLivre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
