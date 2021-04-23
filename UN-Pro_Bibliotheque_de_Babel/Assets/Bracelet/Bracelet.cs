@@ -7,9 +7,9 @@ using UnityEngine.Experimental.Rendering.Universal;
 public class Bracelet : ScriptableObject
 {
     [Header("Base Info")]
-
     public new string name;
     public string description;
+    public Sprite baseSprite;
 
     [Header("Projectile Info")]
     public int nmbProjectile;

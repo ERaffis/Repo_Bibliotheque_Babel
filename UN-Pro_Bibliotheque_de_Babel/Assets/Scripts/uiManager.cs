@@ -19,6 +19,7 @@ public class uiManager : MonoBehaviour
     public TMP_Text roomInfo;
     public Image dashIcon;
 
+    public GameObject uiBracelt;
     public GameObject[] uiRunes;
     
 
@@ -95,6 +96,8 @@ public class uiManager : MonoBehaviour
         {
             item.SetActive(false);
         }
+
+        uiBracelt.SetActive(false);
     }
 
     public void ChangeUiState()

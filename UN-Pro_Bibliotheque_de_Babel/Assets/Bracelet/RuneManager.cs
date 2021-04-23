@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class RuneManager : MonoBehaviour
 {
@@ -132,6 +133,10 @@ public class RuneManager : MonoBehaviour
                 {
                     if (equippedBracelet.activeRunes[0] != null && !pressed0 && nmbPressed < equippedBracelet.nmbRune)
                     {
+                        if (uiManager.Instance.uiRunes.Length >= 1)
+                            if (uiManager.Instance.uiRunes[0] != null)
+                                uiManager.Instance.uiRunes[0].GetComponent<Image>().color = Color.gray;
+
                         pressed0 = true;
                         orderRune.Add(equippedBracelet.activeRunes[0]);
                         Debug.Log(orderRune);
@@ -144,6 +149,10 @@ public class RuneManager : MonoBehaviour
                 {
                     if (equippedBracelet.activeRunes[1] != null && !pressed1 && nmbPressed < equippedBracelet.nmbRune)
                     {
+                        if (uiManager.Instance.uiRunes.Length >= 2)
+                            if (uiManager.Instance.uiRunes[1] != null)
+                                uiManager.Instance.uiRunes[1].GetComponent<Image>().color = Color.gray;
+
                         pressed1 = true;
                         orderRune.Add(equippedBracelet.activeRunes[1]);
                         Debug.Log(orderRune);
@@ -156,6 +165,10 @@ public class RuneManager : MonoBehaviour
                 {
                     if (equippedBracelet.activeRunes[2] != null && !pressed2 && nmbPressed < equippedBracelet.nmbRune)
                     {
+                        if (uiManager.Instance.uiRunes.Length >= 3)
+                            if (uiManager.Instance.uiRunes[2] != null)
+                                uiManager.Instance.uiRunes[2].GetComponent<Image>().color = Color.gray;
+
                         pressed2 = true;
                         orderRune.Add(equippedBracelet.activeRunes[2]);
                         Debug.Log(orderRune);
@@ -167,7 +180,11 @@ public class RuneManager : MonoBehaviour
                 if (PlayerScript.Instance.playerInputs.GetButtonDown("Rune 4") && equippedBracelet.activeRunes.Length >= 4)
                 {
                     if (equippedBracelet.activeRunes[3] != null && !pressed3 && nmbPressed < equippedBracelet.nmbRune)
-                    {
+                    {   
+                        if(uiManager.Instance.uiRunes.Length >= 4)
+                            if (uiManager.Instance.uiRunes[3] != null)
+                                uiManager.Instance.uiRunes[3].GetComponent<Image>().color = Color.gray;
+
                         pressed3 = true;
                         orderRune.Add(equippedBracelet.activeRunes[3]);
                         Debug.Log(orderRune);
@@ -209,6 +226,10 @@ public class RuneManager : MonoBehaviour
 
             default:
                 break;
+        }
+        foreach (var item in uiManager.Instance.uiRunes)
+        {
+            item.GetComponent<Image>().color = Color.white;
         }
 
         //Clear Stuff for combo

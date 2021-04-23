@@ -106,6 +106,7 @@ public class SelectionBracelet : MonoBehaviour
         {
             item.SetActive(false);
         }
+        uiManager.Instance.uiBracelt.SetActive(true);
         for (int i = 0; i < Inventory.Instance.activeBracelet.nmbRune; i++)
         {
             uiManager.Instance.uiRunes[i].SetActive(true);

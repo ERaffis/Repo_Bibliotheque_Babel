@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Tete Chercheuse
   description: 
+  baseSprite: {fileID: 21300000, guid: 8a5f9cc44e3b64540bcbe1da12a2ef63, type: 3}
   nmbProjectile: 1
   sizeProjectile: 1
   prefabProjectile: {fileID: 4963542174127619358, guid: 395ddd9b005999e44aa37064a86a44c5, type: 3}

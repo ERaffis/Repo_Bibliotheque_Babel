@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Mitrailleuse
   description: 
+  baseSprite: {fileID: 21300000, guid: fa61d7b58d1053041a41c62742b38f60, type: 3}
   nmbProjectile: 1
   sizeProjectile: 1
   prefabProjectile: {fileID: 4963542174127619358, guid: 395ddd9b005999e44aa37064a86a44c5, type: 3}
