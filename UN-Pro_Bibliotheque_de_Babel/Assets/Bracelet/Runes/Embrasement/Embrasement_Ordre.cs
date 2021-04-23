@@ -8,26 +8,24 @@ public class Embrasement_Ordre : MonoBehaviour
     public GameObject AoE_Feu;
     public int lvlRune;
 
+    private void Start()
+    {
+        AoE_Feu = projectile_Joueur.aoePrefab;
+    }
+
     private void OnTriggerEnter2D(Collider2D collider)
     {
        
         if (collider.gameObject.CompareTag("Ennemy") || collider.gameObject.CompareTag("Tour"))
         {    
-            if (collider.gameObject.transform.childCount < 3)
-            { 
-                Transform ennemyTransform = collider.gameObject.transform;
-                transform.parent = ennemyTransform;
-
-                //Vector3 position = Instantiate(AoE_Feu, transform.position, Quaternion.identity).transform.position;
-                //Instantiate(AoE_Feu, transform.position, Quaternion.identity);
-
-                //collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.gameObject.GetComponent<Entities>().AoEEffect(position, projectile_Joueur.dotDuration, projectile_Joueur.dotDamage));
-            }
+            GameObject aoe = Instantiate(AoE_Feu, collider.transform.position, Quaternion.identity);
+            aoe.transform.parent = null;
         }
 
         if (collider.gameObject.CompareTag("Boss"))
         {
-            
+            GameObject aoe = Instantiate(AoE_Feu, collider.transform.position, Quaternion.identity);
+            aoe.transform.parent = null;
         }
     } 
 }

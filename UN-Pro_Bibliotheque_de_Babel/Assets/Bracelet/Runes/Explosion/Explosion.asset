@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Explosion
   description: 
+  sprite: {fileID: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
+  lvlRune: 0
   baseDamage: 30
   multDamage: 0
   baseKnockbak: 0
@@ -24,6 +27,7 @@ MonoBehaviour:
   areaSize: 0
   areaDamage: 0
   areaDuration: 0
+  aeoPrefab: {fileID: 4083833805101855991, guid: 48dc79a2d744dbe4ba817dd0bacf758b, type: 3}
   stuntDuration: 0
   debuff: 0
   debuffDuration: 0

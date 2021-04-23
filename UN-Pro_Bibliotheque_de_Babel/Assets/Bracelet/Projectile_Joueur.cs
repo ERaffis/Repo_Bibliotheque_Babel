@@ -17,6 +17,7 @@ public class Projectile_Joueur : MonoBehaviour
     public int slowDuration;
     public float slowPower;
     public float aoeSize;
+    public GameObject aoePrefab;
     public int aoeDamage;
     public float secondEnemyDamage;
     public float secondAoeSize;
@@ -25,7 +26,7 @@ public class Projectile_Joueur : MonoBehaviour
     public float explosionForce;
     public int nmbProjectileExplosion;
 
-    public void SetValues(float damage, float knockback, int dotDamage, int dotDuration, float areaSize, int areaDamage, float areaDuration, int stuntDuration, float debuff, int debuffDuration, int slowDuration, float slowPower, float aoeSize, int aoeDamage, float secondEnemyDamage, float secondAoeSize, int secondAoeDamage, float delaySecondAoe, float explosionForce, int nmbProjectileExplosion)
+    public void SetValues(float damage, float knockback, int dotDamage, int dotDuration, float areaSize, int areaDamage, float areaDuration, int stuntDuration, float debuff, int debuffDuration, int slowDuration, float slowPower, float aoeSize, int aoeDamage, float secondEnemyDamage, float secondAoeSize, int secondAoeDamage, float delaySecondAoe, float explosionForce, int nmbProjectileExplosion, GameObject aoePrefab)
     {
         this.damage = damage;
         this.knockback = knockback;
@@ -47,6 +48,7 @@ public class Projectile_Joueur : MonoBehaviour
         this.delaySecondAoe = delaySecondAoe;
         this.explosionForce = explosionForce;
         this.nmbProjectileExplosion = nmbProjectileExplosion;
+        this.aoePrefab = aoePrefab;
 
         GetComponent<PointEffector2D>().forceMagnitude = this.knockback * 20;
     }

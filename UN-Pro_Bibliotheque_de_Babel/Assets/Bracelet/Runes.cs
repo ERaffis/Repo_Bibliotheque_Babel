@@ -27,6 +27,7 @@ public class Runes : ScriptableObject
     public float areaSize;
     public int areaDamage;
     public float areaDuration;
+    public GameObject aeoPrefab;
 
     [Header("Givre")]
     public int stuntDuration;
