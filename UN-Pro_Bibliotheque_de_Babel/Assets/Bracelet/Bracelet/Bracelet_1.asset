@@ -26,7 +26,6 @@ MonoBehaviour:
   angle: 0
   nmbRune: 3
   activeRunes:
-  - {fileID: 11400000, guid: 7ccf16dc7905c2441b13287d4c79af9c, type: 2}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

@@ -34,6 +34,10 @@ public class RuneManager : MonoBehaviour
         timeBetween += Time.deltaTime;
         CheckCombo();
         ShootRune();
+        
+    }
+    private void LateUpdate()
+    {
         CheckOrder();
     }
 
@@ -119,40 +123,48 @@ public class RuneManager : MonoBehaviour
 
     private void CheckOrder()
     {
-        if (equippedBracelet)
+        if(uiManager.Instance.mainUI.enabled == true)
         {
-            foreach (var item in equippedBracelet.activeRunes)
+            if (equippedBracelet)
             {
-                if (item)
+                foreach (var item in equippedBracelet.activeRunes)
                 {
-                    if (item.order == nmbPressed + 1)
+                    if (item)
                     {
-                        foreach (var item1 in uiManager.Instance.uiRunes)
+                        if (item.order == nmbPressed + 1)
                         {
-                            if (item1.GetComponent<Image>().sprite.name == item.name && item1.GetComponent<Image>().color == Color.white)
+                            foreach (var item1 in uiManager.Instance.uiRunes)
                             {
-                                //Mettre ici effet desire pour quand rune ordre peut etre active
-                                item1.GetComponent<Outline>().enabled = true;
+                                if (item1)
+                                {
+                                    if (item1.GetComponent<Image>().sprite.name == item.name && item1.GetComponent<Image>().color == Color.white)
+                                    {
+                                        //Mettre ici effet desire pour quand rune ordre peut etre active
+                                        item1.GetComponent<Outline>().enabled = true;
+                                    }
+                                }
                             }
                         }
-                    }
 
-                    if (item.order != nmbPressed +1)
-                    {
-                        foreach (var item1 in uiManager.Instance.uiRunes)
-                        {
-                            if (item1.GetComponent<Image>().sprite.name == item.name)
+                        if (item.order != nmbPressed + 1)
+                        {   
+                            
+                            foreach (var item1 in uiManager.Instance.uiRunes)
                             {
-                                //Mettre ici effet desire pour quand rune ordre est desactive
-                                item1.GetComponent<Outline>().enabled = false;
+                                if (item1.TryGetComponent(out Image b))
+                                {
+                                    if (item1.GetComponent<Image>().sprite.name == item.name)
+                                    {
+                                        //Mettre ici effet desire pour quand rune ordre est desactive
+                                        item1.GetComponent<Outline>().enabled = false;
+                                    }
+                                }
                             }
                         }
                     }
                 }
-                
             }
         }
-        
     }
 
     private void ComboRune()
