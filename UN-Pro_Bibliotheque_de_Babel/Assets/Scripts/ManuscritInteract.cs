@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class ManuscritInteract : MonoBehaviour
 {
@@ -53,6 +54,12 @@ public class ManuscritInteract : MonoBehaviour
         if (PlayerScript.Instance.playerInputs.GetButtonDown("Interact") && CanInteract)
         {
             OpenCloseMenu();
+
+            if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+            {
+                GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().fragment.SetActive(false);
+                GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().manuscritPopUp.SetActive(false);
+            }
         }
     }
 

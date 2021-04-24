@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpawnReward : MonoBehaviour
 {
@@ -32,13 +33,13 @@ public class SpawnReward : MonoBehaviour
         {
             if (Random.Range(0f, 1f) >= 0.75f)
             {
-                GameObject newPage = Instantiate(pageVierge, pos, Quaternion.Euler(0, 0, 0));
+                GameObject newPage = Instantiate(pageVierge, new Vector2(pos.x-0.5f,pos.y), Quaternion.Euler(0, 0, 0));
                 newPage.transform.parent = null;
             }
 
             if (Random.Range(0f, 1f) >= 0.9f)
             {
-                GameObject newPage = Instantiate(healthPot, pos, Quaternion.Euler(0, 0, 0));
+                GameObject newPage = Instantiate(healthPot, new Vector2(pos.x + 0.5f, pos.y), Quaternion.Euler(0, 0, 0));
                 newPage.transform.parent = null;
 
             }
@@ -49,17 +50,19 @@ public class SpawnReward : MonoBehaviour
 
             for (int i = 0; i < (Random.Range(2, 5)); i++)
             {
-                GameObject newPage = Instantiate(fragment, new Vector3(0, 6.5f), Quaternion.Euler(0, 0, 0));
-                newPage.transform.parent = null;
+                GameObject newfragment = Instantiate(fragment, new Vector3(-2 + i, 6.5f), Quaternion.Euler(0, 0, 0));
+                newfragment.transform.parent = null;
 
             }
         }
 
         if (tag == "Room")
         {
-            GameObject newPage = Instantiate(pageVierge, new Vector3(0,6.5f), Quaternion.Euler(0, 0, 0));
-            newPage.transform.parent = null;
-
+            if(SceneManager.GetActiveScene().name != "HUB_Didacticiel" || SceneManager.GetActiveScene().name != "HUB_Principal" || SceneManager.GetActiveScene().name != "HUB_Secondaire")
+            {
+                GameObject newfragment = Instantiate(fragment, new Vector3(0, 6.5f), Quaternion.Euler(0, 0, 0));
+                newfragment.transform.parent = null;
+            }
         }
     }
 }

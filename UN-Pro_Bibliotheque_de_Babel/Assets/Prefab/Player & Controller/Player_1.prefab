@@ -296,6 +296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboModifier: 0
   envModifier: 0
+  speedBoost: 0
   dashDistance: 0.6
   dashCooldown: 0.5
   canDash: 1
@@ -352,7 +353,7 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 
+  m_ApplyToSortingLayers: af96d25500000000695f153a4be3d06cb18cd39e
   m_ShapePath:
   - {x: -0.14944372, y: -0.26652157, z: 0}
   - {x: 0.17237, y: -0.2642684, z: 0}

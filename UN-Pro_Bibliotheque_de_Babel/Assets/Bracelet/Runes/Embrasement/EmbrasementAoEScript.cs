@@ -10,7 +10,12 @@ public class EmbrasementAoEScript : MonoBehaviour
 
     private void Start()
     {
-        dmg = 2;
+        dmg = 20;
+    }
+
+    private void Update()
+    {
+        Destroy(gameObject, 4f);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

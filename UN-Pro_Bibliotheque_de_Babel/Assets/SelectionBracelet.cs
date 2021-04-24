@@ -82,6 +82,15 @@ public class SelectionBracelet : MonoBehaviour
         {
             uiManager.Instance.uiRunes[i].SetActive(true);
         }
+
+        if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+        {
+            if(GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().i == 0)
+            {
+                GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().i++;
+                GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().openInventory.SetActive(true);
+            }
+        }
     }
 
     public void ActivateBracelet(string name)
@@ -120,6 +129,9 @@ public class SelectionBracelet : MonoBehaviour
         {
             isInRange = true;
             ps4Input.SetActive(true);
+
+            if(SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+                GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().y++;
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

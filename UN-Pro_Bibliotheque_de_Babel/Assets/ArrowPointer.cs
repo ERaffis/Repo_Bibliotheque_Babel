@@ -45,7 +45,6 @@ public class ArrowPointer : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        Debug.Log("PET");
         targetPosition = GameObject.Find("TriggerSortie").transform.position;
         _Camera = Camera.main;
         _Canvas = GetComponent<Canvas>();
@@ -81,12 +80,6 @@ public class ArrowPointer : MonoBehaviour
             else
             {
                 pointerRectTransform.gameObject.SetActive(false);
-
-                /*
-                Vector3 pointerWorldPosition = uiCamera.ScreenToWorldPoint(targetPositionScreenPoint);
-                pointerRectTransform.position = pointerWorldPosition;
-                pointerRectTransform.localPosition = new Vector3(pointerRectTransform.localPosition.x, pointerRectTransform.localPosition.y, 0f);
-                */
             }
         } else
         {

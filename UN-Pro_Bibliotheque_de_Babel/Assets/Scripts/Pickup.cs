@@ -30,6 +30,13 @@ public class Pickup : MonoBehaviour
                 case "Fragment":
                     Inventory.Instance.AddFragment(1);
                     Destroy(gameObject);
+                    if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+                    {
+                        GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().howToDash.SetActive(false);
+                        GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().fragment.SetActive(true);
+                        GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().manuscritPopUp.SetActive(true);
+                        GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().instantiateManuscrit = true;
+                    }
                     break;
 
                 case "Hearth":

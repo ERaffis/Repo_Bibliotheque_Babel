@@ -145,7 +145,7 @@ public class GameHandler : MonoBehaviour
                 {
                     SpawnReward.Instance.SpawnItem(new Vector2(0, 5.25f), "Room");
                     alreadySpawned = true;
-                    StartCoroutine(WaitToPoint());
+                    //StartCoroutine(WaitToPoint());
                 }
             }
         }

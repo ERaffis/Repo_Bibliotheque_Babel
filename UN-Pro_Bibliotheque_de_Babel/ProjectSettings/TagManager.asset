@@ -25,6 +25,7 @@ TagManager:
   - Rune
   - Confiner
   - TargetDummy
+  - Projectile_Ennemi
   layers:
   - Default
   - TransparentFX

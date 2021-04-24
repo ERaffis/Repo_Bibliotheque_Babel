@@ -88,12 +88,16 @@ public class Inventory : MonoBehaviour
         if (arg0.name == "HUB_Principal")
         {
             FullClearBracelet();
-            rune1.GetComponent<Image>().color = Color.grey;
+            runes[0].lvlRune = 1;
+            runes[1].lvlRune = 1;
+            runes[2].lvlRune = 1;
+            /*rune1.GetComponent<Image>().color = Color.grey;
             embrasementActive = false;
             rune2.GetComponent<Image>().color = Color.grey;
             givreActive = false;
             rune3.GetComponent<Image>().color = Color.grey;
             amplificationActive = false;
+            */
         }
     }
 

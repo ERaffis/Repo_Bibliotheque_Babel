@@ -304,7 +304,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(HitWall(new Vector3(lastVelocity.x, lastVelocity.y,0).normalized, dashDistance + 0.8f))
             {
-                dashCooldown = 2f;
+                dashCooldown = 0.75f;
                 Vector3 beforeDashPosition = transform.position;
                 Transform dashEffectTransform = Instantiate(pfDashEffect, beforeDashPosition, Quaternion.identity);
                 dashEffectTransform.eulerAngles = new Vector3(0, 0, 180 + UtilsClass.GetAngleFromVectorFloat(lastVelocity));

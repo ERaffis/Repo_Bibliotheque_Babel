@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TargetDummy : MonoBehaviour
 {
+    public SpriteRenderer sprite;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +33,21 @@ public class TargetDummy : MonoBehaviour
     public void TargetDamage(float dmg)
     {
         DamagePopup.Create(GetPosition(), (int)dmg);
+        StartCoroutine(FlashRed());
+
+        if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+            GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().a++;
     }
 
     public Vector3 GetPosition()
     {
         return transform.position + new Vector3(0,1.5f);
+    }
+
+    public IEnumerator FlashRed()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        sprite.color = Color.white;
     }
 }

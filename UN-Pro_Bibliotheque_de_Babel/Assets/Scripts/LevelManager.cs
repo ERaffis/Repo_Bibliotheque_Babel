@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     [Header("RoomBooleans")]
     private bool piece1, piece2, piece3, piece4, piece5, piece6;
-    private int roomCounter;
+    public int roomCounter;
 
     private void Awake()
     {
