@@ -133,9 +133,8 @@ public class Inventory : MonoBehaviour
         if (PlayerScript.Instance.playerInputs.GetButtonDown("UIMenu"))
         {
 
-            if (Time.timeScale == 1)
+            if (menuState == false)
             {
-                Time.timeScale = 0;
                 PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(false, "In Game");
                 PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(true, "In Menu");
 
@@ -143,18 +142,25 @@ public class Inventory : MonoBehaviour
                 StartCoroutine(SetSelectedButton(rune1));
 
             }
-            else 
+            else if (menuState == true)
             {
-                Time.timeScale = 1;
                 PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(true, "In Game");
                 PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(false, "In Menu");
                 uiManager.Instance.mainUI.enabled = true;
-
             }
 
             menuState = !menuState;
             inventoryCanvas.SetActive(menuState);
         }
+    }
+
+    public void CloseMenu()
+    {
+        PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(true, "In Game");
+        PlayerScript.Instance.playerInputs.controllers.maps.SetMapsEnabled(false, "In Menu");
+        uiManager.Instance.mainUI.enabled = true;
+        menuState = false;
+        inventoryCanvas.SetActive(false);
     }
 
     IEnumerator SetSelectedButton(GameObject button)
