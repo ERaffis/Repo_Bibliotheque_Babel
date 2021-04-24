@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FirstExposure.unity
     guid: ebe131640fd607342b61baa816448fd7
   - enabled: 1
+    path: Assets/Scenes/HUB_Didacticiel.unity
+    guid: 3f78dd1d8a53a724286a782ad4a13c57
+  - enabled: 1
     path: Assets/Scenes/HUB_Principal.unity
     guid: 9232cb01b425b32498d3666042185def
   - enabled: 1

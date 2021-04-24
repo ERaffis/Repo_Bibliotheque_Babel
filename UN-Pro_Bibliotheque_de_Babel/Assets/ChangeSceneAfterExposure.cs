@@ -14,7 +14,7 @@ public class ChangeSceneAfterExposure : MonoBehaviour
     }
     public void LoadHub()
     {
-        SceneManager.LoadScene("HUB_Principal");
+        SceneManager.LoadScene("HUB_Didacticiel");
     }
 
     IEnumerator SetSelectedButton(GameObject button)
