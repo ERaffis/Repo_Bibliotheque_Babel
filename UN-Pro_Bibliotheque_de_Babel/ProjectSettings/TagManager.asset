@@ -23,6 +23,8 @@ TagManager:
   - HalfCollider
   - Tour
   - Rune
+  - Confiner
+  - TargetDummy
   layers:
   - Default
   - TransparentFX

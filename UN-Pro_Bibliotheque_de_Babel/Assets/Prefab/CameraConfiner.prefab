@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3876801514864975782}
   - component: {fileID: 3876801514864975777}
   m_Layer: 0
-  m_Name: Confiner
-  m_TagString: Untagged
+  m_Name: CameraConfiner
+  m_TagString: Confiner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -56,7 +56,7 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 11.189912, y: 7.9053245}
-      - {x: -10.534331, y: 7.819622}
-      - {x: -10.667339, y: -8.11355}
-      - {x: 11.142353, y: -8.2806225}
+    - - {x: 17, y: 8}
+      - {x: -17, y: 8}
+      - {x: -17, y: -8}
+      - {x: 17, y: -8}

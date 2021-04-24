@@ -38,6 +38,14 @@ public class Embrasement_Maitresse : MonoBehaviour
                 collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
                 DisableProjectile();
             }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.GetComponent<TargetDummy>().TargetDamage(projectile_Joueur.damage);
+                collider.gameObject.GetComponent<TargetDummy>().StartCoroutine(collider.GetComponent<TargetDummy>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
+                DisableProjectile();
+            }
+
         }
 
         if (lvlRune == 2)
@@ -68,6 +76,14 @@ public class Embrasement_Maitresse : MonoBehaviour
                 collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration * 2));
                 DisableProjectile();
             }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.GetComponent<TargetDummy>().TargetDamage(projectile_Joueur.damage);
+                collider.gameObject.GetComponent<TargetDummy>().StartCoroutine(collider.GetComponent<TargetDummy>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration * 2));
+                DisableProjectile();
+            }
+
         }
 
         if (lvlRune == 3)
@@ -99,10 +115,14 @@ public class Embrasement_Maitresse : MonoBehaviour
                 StartCoroutine(PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().BoostSpeed());
                 DisableProjectile();
             }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.GetComponent<TargetDummy>().TargetDamage(projectile_Joueur.damage);
+                collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration * 2));
+                DisableProjectile();
+            }
         }
-
-        
-
     }
 
 

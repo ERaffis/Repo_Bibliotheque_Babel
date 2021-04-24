@@ -34,5 +34,6 @@ public class Embrasement_Ordre : MonoBehaviour
             aoe.GetComponent<EmbrasementAoEScript>().projectile_Joueur = projectile_Joueur;
             aoe.transform.parent = null;
         }
+
     } 
 }

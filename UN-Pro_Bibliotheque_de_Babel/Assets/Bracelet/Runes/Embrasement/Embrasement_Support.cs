@@ -33,6 +33,12 @@ public class Embrasement_Support : MonoBehaviour
                     collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
                 }
             }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.gameObject.GetComponent<TargetDummy>().StartCoroutine(collider.GetComponent<TargetDummy>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration));
+            }
+
         }
 
         if (lvlRune == 2)
@@ -55,6 +61,12 @@ public class Embrasement_Support : MonoBehaviour
                     collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration*2));
                 }
             }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.gameObject.GetComponent<TargetDummy>().StartCoroutine(collider.GetComponent<TargetDummy>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration*2));
+            }
+
         }
 
         if (lvlRune == 3)
@@ -78,6 +90,11 @@ public class Embrasement_Support : MonoBehaviour
                     collider.gameObject.GetComponent<Entities>().StartCoroutine(collider.GetComponent<Entities>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration*2));
                     StartCoroutine(PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().BoostSpeed());
                 }
+            }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.gameObject.GetComponent<TargetDummy>().StartCoroutine(collider.GetComponent<TargetDummy>().DamageoverTime(projectile_Joueur.dotDamage, projectile_Joueur.dotDuration*2));
             }
         }
 

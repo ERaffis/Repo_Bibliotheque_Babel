@@ -45,6 +45,12 @@ public class Amplification_Maitresse : MonoBehaviour
                 //DestroyProjectile
                 DisableProjectile();
             }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.GetComponent<TargetDummy>().TargetDamage(projectile_Joueur.damage);
+                DisableProjectile();
+            }
         }
         if (lvlRune == 3)
         {
@@ -65,6 +71,12 @@ public class Amplification_Maitresse : MonoBehaviour
                 collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage * 1.10f);
 
                 //DestroyProjectile
+                DisableProjectile();
+            }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.GetComponent<TargetDummy>().TargetDamage(projectile_Joueur.damage * 1.10f);
                 DisableProjectile();
             }
         }

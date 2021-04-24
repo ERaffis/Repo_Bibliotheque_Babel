@@ -51,6 +51,12 @@ public class Givre_Maitresse : MonoBehaviour
                 //DestroyProjectile
                 DisableProjectile();
             }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.GetComponent<TargetDummy>().TargetDamage(projectile_Joueur.damage);
+                DisableProjectile();
+            }
         }
 
         if (lvlRune == 2 || lvlRune == 3)
@@ -91,6 +97,12 @@ public class Givre_Maitresse : MonoBehaviour
                 collider.GetComponent<Entities>().SetHealth(projectile_Joueur.damage + 80);
 
                 //DestroyProjectile
+                DisableProjectile();
+            }
+
+            if (collider.gameObject.CompareTag("TargetDummy"))
+            {
+                collider.GetComponent<TargetDummy>().TargetDamage(projectile_Joueur.damage + 80);
                 DisableProjectile();
             }
         }
