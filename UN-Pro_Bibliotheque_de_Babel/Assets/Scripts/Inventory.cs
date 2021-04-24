@@ -47,8 +47,9 @@ public class Inventory : MonoBehaviour
 
     [Header("Bracelet")]
     public Bracelet activeBracelet;
-    public GameObject bracelet1, bracelet2, bracelet3, bracelet4, bracelet5;
     public Bracelet[] bracelets;
+    public GameObject uiInventory_bracelet;
+    public Sprite[] uiBraceletSprites;
 
     private void Awake()
     {
@@ -309,32 +310,28 @@ public class Inventory : MonoBehaviour
         switch (name)
         {
             case "Simple":
-                bracelet1.GetComponent<Image>().enabled = true;
-                bracelet1.GetComponent<Button>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().sprite = uiBraceletSprites[0];
                 break;
 
             case "3 Projectiles":
-                bracelet2.GetComponent<Image>().enabled = true;
-                bracelet2.GetComponent<Button>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().sprite = uiBraceletSprites[1];
                 break;
 
             case "Mitrailleuse":
-                bracelet3.GetComponent<Image>().enabled = true;
-                bracelet3.GetComponent<Button>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().sprite = uiBraceletSprites[2];
                 break;
 
             case "Tete Chercheuse":
-                bracelet4.GetComponent<Image>().enabled = true;
-                bracelet4.GetComponent<Button>().enabled = true;
-                break;
-
-            case "Vitesse Rapide":
-                bracelet5.GetComponent<Image>().enabled = true;
-                bracelet5.GetComponent<Button>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().enabled = true;
+                uiInventory_bracelet.GetComponent<Image>().sprite = uiBraceletSprites[3];
                 break;
 
             default:
-                //Debug.LogWarning("Eat My Booty Something went wrong");
+                uiInventory_bracelet.GetComponent<Image>().sprite = null;
+                uiInventory_bracelet.GetComponent<Image>().enabled = false;
                 break;
         }
     }

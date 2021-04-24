@@ -48,55 +48,26 @@ public class SelectionBracelet : MonoBehaviour
         {
             case "Simple":
                 Inventory.Instance.activeBracelet = bracelets[0];
+                Inventory.Instance.ActivateBracelet(name);
                 Inventory.Instance.ClearBracelet();
-                //Change active bracelet to white
-                /*foreach (var item in braceletPanneauImage)
-                {
-                    item.color = new Color(.25f,.25f,.25f);
-                }
-                braceletPanneauImage[0].color = Color.white;
-                */
-                
-
                 break;
 
             case "3 Projectiles":
                 Inventory.Instance.activeBracelet = bracelets[1];
+                Inventory.Instance.ActivateBracelet(name);
                 Inventory.Instance.ClearBracelet();
-
-                //Change active bracelet to white
-                /*foreach (var item in braceletPanneauImage)
-                {
-                    item.color = new Color(.25f, .25f, .25f);
-                }
-                braceletPanneauImage[1].color = Color.white;
-                */
                 break;
 
             case "Mitrailleuse":
                 Inventory.Instance.activeBracelet = bracelets[2];
+                Inventory.Instance.ActivateBracelet(name);
                 Inventory.Instance.ClearBracelet();
-
-                //Change active bracelet to white
-                /*foreach (var item in braceletPanneauImage)
-                {
-                    item.color = new Color(.25f, .25f, .25f);
-                }
-                braceletPanneauImage[2].color = Color.white;
-                */
                 break;
 
             case "Tete Chercheuse":
                 Inventory.Instance.activeBracelet = bracelets[3];
+                Inventory.Instance.ActivateBracelet(name);
                 Inventory.Instance.ClearBracelet();
-
-                //Change active bracelet to white
-                /*foreach (var item in braceletPanneauImage)
-                {
-                    item.color = new Color(.25f, .25f, .25f);
-                }
-                braceletPanneauImage[3].color = Color.white;
-                */
                 break;
            
             default:
