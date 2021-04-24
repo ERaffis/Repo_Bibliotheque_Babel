@@ -318,7 +318,7 @@ public class ManuscritMenuManage : MonoBehaviour
 
     public void Closemenu()
     {
-        this.gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 
     IEnumerator SelectFirstButton()

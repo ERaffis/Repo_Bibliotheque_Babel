@@ -120,10 +120,13 @@ public class GameHandler : MonoBehaviour
 
     public void CheckForRoomClear()
     {
-        if (SceneManager.GetActiveScene().name == "Hub_Principal" || SceneManager.GetActiveScene().name == "Hub_Secondaire")
+        if (GameObject.Find("GrilleSprite") != null)
+        {
+            grilleAnimator = GameObject.Find("GrilleSprite").GetComponent<Animator>();
+        }
+        if (SceneManager.GetActiveScene().name == "Hub_Principal" || SceneManager.GetActiveScene().name == "HUB_Secondaire" || SceneManager.GetActiveScene().name == "HUB_Didacticiel")
         {
             roomCleared = true;
-
         }
         else if (SceneManager.GetActiveScene().name == "Piece_Boss")
         {
@@ -134,18 +137,14 @@ public class GameHandler : MonoBehaviour
         {
             roomCleared = true;
 
-            if (GameObject.Find("GrilleSprite") != null)
-            {
-                grilleAnimator = GameObject.Find("GrilleSprite").GetComponent<Animator>();
-            }
-
             if (!alreadySpawned)
             {
-                if (SceneManager.GetActiveScene().name != "HUB_Principal")
+                if (SceneManager.GetActiveScene().name != "HUB_Principal" && SceneManager.GetActiveScene().name != "HUB_Secondaire" && SceneManager.GetActiveScene().name != "HUB_Didacticiel")
                 {
                     SpawnReward.Instance.SpawnItem(new Vector2(0, 5.25f), "Room");
                     alreadySpawned = true;
-                    //StartCoroutine(WaitToPoint());
+                    StartCoroutine(WaitToPoint());
+                    StartCoroutine(OpenGate());
                 }
             }
         }
@@ -155,6 +154,11 @@ public class GameHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         ArrowPointer.Instance.shouldPoint = true;
+        
+    }
+
+    public IEnumerator OpenGate()
+    {
         if (GameObject.Find("GrilleSprite") != null)
             grilleAnimator.Play("AppearAnimTop");
         yield return new WaitForSeconds(1);

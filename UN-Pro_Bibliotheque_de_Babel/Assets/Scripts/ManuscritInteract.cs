@@ -58,7 +58,9 @@ public class ManuscritInteract : MonoBehaviour
             if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
             {
                 GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().fragment.SetActive(false);
-                GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().manuscritPopUp.SetActive(false);
+                StartCoroutine(GameHandler.Instance.OpenGate());
+                ArrowPointer.Instance.targetPosition = GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().exitDir;
+                ArrowPointer.Instance.shouldPoint = true;
             }
         }
     }

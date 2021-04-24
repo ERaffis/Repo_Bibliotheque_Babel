@@ -36,6 +36,8 @@ public class Pickup : MonoBehaviour
                         GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().fragment.SetActive(true);
                         GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().manuscritPopUp.SetActive(true);
                         GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().instantiateManuscrit = true;
+                        ArrowPointer.Instance.targetPosition = GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().manuscritDir;
+                        ArrowPointer.Instance.shouldPoint = true;
                     }
                     break;
 

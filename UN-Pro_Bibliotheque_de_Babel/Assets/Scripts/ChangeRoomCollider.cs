@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChangeRoomCollider : MonoBehaviour
 {
@@ -16,9 +17,15 @@ public class ChangeRoomCollider : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player1")
+        if(collision.gameObject.tag == "HalfCollider")
         {
-            if(GameHandler.Instance.roomCleared)
+
+            if(SceneManager.GetActiveScene().name == "HUB_Principal" || SceneManager.GetActiveScene().name == "HUB_Secondaire" || SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+            {
+                LevelManager.Instance.FadeToLevel();
+                GameHandler.Instance.nmbRooms++;
+                collision.transform.position = new Vector2(0, -10);
+            } else if(GameHandler.Instance.roomCleared)
             {
                 LevelManager.Instance.FadeToLevel();
                 GameHandler.Instance.nmbRooms++;

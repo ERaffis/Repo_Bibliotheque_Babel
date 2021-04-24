@@ -35,7 +35,7 @@ public class TargetDummy : MonoBehaviour
         DamagePopup.Create(GetPosition(), (int)dmg);
         StartCoroutine(FlashRed());
 
-        if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+        if (SceneManager.GetActiveScene().name == "HUB_Didacticiel" && dmg > 20)
             GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().a++;
     }
 

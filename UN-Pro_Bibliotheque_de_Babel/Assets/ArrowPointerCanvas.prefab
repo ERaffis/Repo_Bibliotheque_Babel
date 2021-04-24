@@ -153,8 +153,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1630303055
+  m_SortingOrder: 32767
   m_TargetDisplay: 0
 --- !u!114 &4957815095265700118
 MonoBehaviour:
@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _Camera: {fileID: 0}
   targetPosition: {x: 50, y: 25, z: 0}
+  pointerRectTransform: {fileID: 0}
   shouldPoint: 0
 --- !u!1 &4957815096141296760
 GameObject:
