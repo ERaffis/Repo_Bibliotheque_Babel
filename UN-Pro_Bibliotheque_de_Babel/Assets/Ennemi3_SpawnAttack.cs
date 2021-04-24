@@ -15,6 +15,8 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
 
     public Animator animator;
     public bool isCasting;
+
+    public int maxTowerSpawned;
    
 
 
@@ -28,13 +30,15 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
         height = .75f * cellsize.y;
         animator = GetComponent<Animator>();
         isCasting = false;
+
+        maxTowerSpawned = 0;
         
     }
 
     
     void Update()
     {
-        if (timebtwattacks <= 0)
+        if (timebtwattacks <= 0 && maxTowerSpawned <= 3)
         {
             isCasting = true;
             timebtwattacks = startTimeBtwAttacks;
@@ -63,6 +67,7 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
 
     public IEnumerator SpawnZones()
     {
+        maxTowerSpawned++;
         yield return new WaitForSeconds(0.75f);
         float angleStep = 360f / zonequantity;
         float angle = Random.Range(0.0f, 360f);

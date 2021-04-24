@@ -25,6 +25,8 @@ public class TowerPrefab : Entities
     [Header("DeadSprite")]
     public GameObject afterSprite;
 
+    public Ennemi3_SpawnAttack ennemi3maxtower;
+
     public void Start()
     {
         timeBtwShots = startTimeBtwShots;
@@ -35,6 +37,7 @@ public class TowerPrefab : Entities
         anim = GetComponent<Animator>();
         anim.SetBool("isAlive", true);
         collider2d = GetComponent<CapsuleCollider2D>();
+        
     }
 
     
@@ -56,9 +59,11 @@ public class TowerPrefab : Entities
 
         if(currentHealth <= 0)
         {
+            
             isAlive = false;
             anim.SetBool("isAlive", false);
             StartCoroutine(DestroyComponents());
+            
         }
     }
 
@@ -92,6 +97,7 @@ public class TowerPrefab : Entities
 
    public IEnumerator DestroyComponents()
     {
+        ennemi3maxtower.maxTowerSpawned--;
         GameObject obj = Instantiate(afterSprite, transform);
         obj.transform.parent = null;
         yield return new WaitForEndOfFrame();
