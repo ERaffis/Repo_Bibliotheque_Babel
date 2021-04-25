@@ -83,7 +83,7 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
             float zoneYposition = Mathf.Cos((angle * Mathf.PI) / 180) * Random.Range(3.0f, height);
 
             GameObject tmpObj = Instantiate(Ennemi3TowerPrefab, new Vector2(zoneXposition, zoneYposition), Quaternion.identity);
-
+            tmpObj.GetComponent<TowerPrefab>().ennemi3maxtower = this;
             int colliders = Physics2D.OverlapCollider(tmpObj.GetComponent<Collider2D>(), new ContactFilter2D(), new List<Collider2D>());
             if (colliders != 0)
             {
