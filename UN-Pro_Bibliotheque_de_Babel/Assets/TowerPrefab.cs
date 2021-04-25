@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerPrefab : Entities
 {
     [Header("Projectile Settings")]
-    public int numberOfProjectiles =3;
+    public int numberOfProjectiles = 3;
     public float projectileSpeed;
     public GameObject BossProjectilePrefab;
 
@@ -22,12 +22,10 @@ public class TowerPrefab : Entities
     public Animator anim;
     public CapsuleCollider2D collider2d;
 
-    [Header("ParentGolem")]
-    public GameObject parentGolem;
-    public int placeInList;
-
     [Header("DeadSprite")]
     public GameObject afterSprite;
+
+    public Ennemi3_SpawnAttack ennemi3maxtower;
 
     public void Start()
     {
@@ -39,9 +37,10 @@ public class TowerPrefab : Entities
         anim = GetComponent<Animator>();
         anim.SetBool("isAlive", true);
         collider2d = GetComponent<CapsuleCollider2D>();
+
     }
 
-    
+
     public void Update()
     {
         if (timeBtwShots <= 0)
@@ -58,23 +57,23 @@ public class TowerPrefab : Entities
 
 
 
-        if(currentHealth <= 0)
+        if (currentHealth <= 0)
         {
+
             isAlive = false;
             anim.SetBool("isAlive", false);
-            if(parentGolem != null)
-                parentGolem.GetComponent<Ennemi3_SpawnAttack>().activeTowers.RemoveAt(placeInList);
             StartCoroutine(DestroyComponents());
+
         }
     }
 
 
     private void SpawnProjectiles(int _numberOfProjectiles)
     {
-       if(isAlive == true)
-        { 
-        float angleStep = 360f / _numberOfProjectiles;
-        float angle = 0f;
+        if (isAlive == true)
+        {
+            float angleStep = 360f / _numberOfProjectiles;
+            float angle = 0f;
 
             for (int i = 0; i <= _numberOfProjectiles - 1; i++)
             {
@@ -96,8 +95,9 @@ public class TowerPrefab : Entities
         }
     }
 
-   public IEnumerator DestroyComponents()
+    public IEnumerator DestroyComponents()
     {
+        ennemi3maxtower.maxTowerSpawned--;
         GameObject obj = Instantiate(afterSprite, transform);
         obj.transform.parent = null;
         yield return new WaitForEndOfFrame();

@@ -50,6 +50,9 @@ public class Inventory : MonoBehaviour
     public Bracelet[] bracelets;
     public GameObject uiInventory_bracelet;
     public Sprite[] uiBraceletSprites;
+    public bool unlockedBracelet2;
+    public bool unlockedBracelet3;
+    public bool unlockedBracelet4;
 
     [Header("Upgrades")]
     public bool upgradeRune;
@@ -407,8 +410,7 @@ public class Inventory : MonoBehaviour
                 activeBracelet.activeRunes[i] = null;
             }
             activeBracelet = null;
-
-            
+            uiInventory_bracelet.GetComponent<Image>().enabled = false;
         }
     }
     

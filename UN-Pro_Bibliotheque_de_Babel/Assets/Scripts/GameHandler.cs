@@ -67,6 +67,27 @@ public class GameHandler : MonoBehaviour
             nmbSpawned = 0;
             nmbRooms = 0;
             Inventory.Instance.activeBracelet = null;
+
+            if (Inventory.Instance.unlockedBracelet2)
+            {
+                Debug.Log("Test_B1");
+                GameObject.Find("MenuManuscrit").GetComponent<ManuscritMenuManage>().ButtonPressed("Bracelet_1");
+
+                if (Inventory.Instance.unlockedBracelet3)
+                {
+                    GameObject.Find("MenuManuscrit").GetComponent<ManuscritMenuManage>().ButtonPressed("Bracelet_2");
+
+                    if (Inventory.Instance.unlockedBracelet4)
+                    {
+                        GameObject.Find("MenuManuscrit").GetComponent<ManuscritMenuManage>().ButtonPressed("Bracelet_3");
+                    }
+                }
+            }
+        }
+
+        if(arg0.name == "Piece_Boss")
+        {
+            nmbRemaining = 1;
         }
     }
 
@@ -127,11 +148,6 @@ public class GameHandler : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Hub_Principal" || SceneManager.GetActiveScene().name == "HUB_Secondaire" || SceneManager.GetActiveScene().name == "HUB_Didacticiel")
         {
             roomCleared = true;
-        }
-        else if (SceneManager.GetActiveScene().name == "Piece_Boss")
-        {
-            if (!GameObject.FindGameObjectWithTag("Boss"))
-                roomCleared = true;
         }
         else if (nmbRemaining <= 0)
         {

@@ -180,6 +180,6 @@
   </object>
  </objectgroup>
  <objectgroup id="6" name="HoleTriger">
-  <object id="77" x="416" y="196.182" width="96" height="7.63636"/>
+  <object id="77" x="416" y="188" width="96" height="15.8184"/>
  </objectgroup>
 </map>

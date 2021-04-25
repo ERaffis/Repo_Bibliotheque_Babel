@@ -16,10 +16,8 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
     public Animator animator;
     public bool isCasting;
 
-    public List<GameObject> activeTowers;
+    public int maxTowerSpawned;
 
-
-   
 
 
     void Start()
@@ -32,25 +30,27 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
         height = .75f * cellsize.y;
         animator = GetComponent<Animator>();
         isCasting = false;
-        
+
+        maxTowerSpawned = 0;
+
     }
 
-    
+
     void Update()
     {
-        if (timebtwattacks <= 0)
+        if (timebtwattacks <= 0 && maxTowerSpawned <= 3)
         {
             isCasting = true;
             timebtwattacks = startTimeBtwAttacks;
             StartCoroutine(SpawnZones());
-            
+
 
         }
         else
         {
             timebtwattacks -= Time.deltaTime;
-            
-            
+
+
 
         }
 
@@ -58,7 +58,7 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
         {
             animator.SetBool("IsCasting", true);
         }
-        
+
         if (isCasting == false)
         {
             animator.SetBool("IsCasting", false);
@@ -67,6 +67,7 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
 
     public IEnumerator SpawnZones()
     {
+        maxTowerSpawned++;
         yield return new WaitForSeconds(0.75f);
         float angleStep = 360f / zonequantity;
         float angle = Random.Range(0.0f, 360f);
@@ -82,7 +83,8 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
             float zoneYposition = Mathf.Cos((angle * Mathf.PI) / 180) * Random.Range(3.0f, height);
 
             GameObject tmpObj = Instantiate(Ennemi3TowerPrefab, new Vector2(zoneXposition, zoneYposition), Quaternion.identity);
-            tmpObj.GetComponent<TowerPrefab>().parentGolem = this.gameObject;
+            tmpObj.GetComponent<TowerPrefab>().ennemi3maxtower = this;
+
             int colliders = Physics2D.OverlapCollider(tmpObj.GetComponent<Collider2D>(), new ContactFilter2D(), new List<Collider2D>());
             if (colliders != 0)
             {
@@ -90,18 +92,9 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
                 StartCoroutine(SpawnZones());
             }
 
-            if(activeTowers.Count > 3)
-            {
-                Destroy(tmpObj);
-            }
-            if (tmpObj != null)
-            {
-                activeTowers.Add(tmpObj);
-                tmpObj.GetComponent<TowerPrefab>().placeInList = activeTowers.Count - 1;
-            }
         }
 
-        
+
 
     }
 

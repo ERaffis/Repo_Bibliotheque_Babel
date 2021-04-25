@@ -63,14 +63,17 @@ TagManager:
   - name: GroundLayer
     uniqueID: 1439864495
     locked: 0
+  - name: WallLayer
+    uniqueID: 2455643705
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
-    uniqueID: 974479209
-    locked: 0
   - name: Ennemies
     uniqueID: 1825629003
+    locked: 0
+  - name: Player
+    uniqueID: 974479209
     locked: 0
   - name: Top
     uniqueID: 2664664241

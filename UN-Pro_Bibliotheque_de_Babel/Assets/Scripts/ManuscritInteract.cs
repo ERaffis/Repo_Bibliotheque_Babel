@@ -89,7 +89,7 @@ public class ManuscritInteract : MonoBehaviour
             mainUI.SetActive(true);
         }
 
-        ManuscritMenu.SetActive(isActive);
+        ManuscritMenu.GetComponent<Canvas>().enabled = isActive;
     }
 
     IEnumerator SelectFirstButton()

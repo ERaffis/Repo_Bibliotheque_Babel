@@ -38,7 +38,7 @@ public class RuneManager : MonoBehaviour
     }
     private void LateUpdate()
     {
-        CheckOrder();
+        StartCoroutine(CheckOrder());
     }
 
     private void ShootRune()

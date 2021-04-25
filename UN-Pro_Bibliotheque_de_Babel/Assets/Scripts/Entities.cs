@@ -78,6 +78,7 @@ public class Entities : MonoBehaviour
         {
             currentHealth -= dmg;
             GameObject bloodSplat = Instantiate(bloodParticles, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -0.15f), Quaternion.identity);
+            SoundManager.PlayHurtSound();
             bloodSplat.transform.parent = null;
         }
     }
@@ -94,25 +95,24 @@ public class Entities : MonoBehaviour
         if(healthBar!=null)
             healthBar.value = currentHealth;
 
-        if (currentHealth <= 0 && !this.gameObject.CompareTag("Player1") && !gameObject.CompareTag("Tour"))
+        if (currentHealth <= 0 && !gameObject.CompareTag("Player1") && !gameObject.CompareTag("Tour"))
         {
             if(PlayerScript.Instance.lifeStealLvl1)
             {
-                PlayerScript.Instance.PickedUpHeart();
+                PlayerScript.Instance.PickedUpHeart(1);
 
                 if(PlayerScript.Instance.lifeStealLvl2)
                 {
-                    PlayerScript.Instance.PickedUpHeart();
+                    PlayerScript.Instance.PickedUpHeart(2);
 
                     if (PlayerScript.Instance.lifeStealLvl3)
                     {
-                        PlayerScript.Instance.PickedUpHeart();
+                        PlayerScript.Instance.PickedUpHeart(5);
                     }
                 }
             }
-
             GameHandler.Instance.nmbRemaining--;
-            SpawnReward.Instance.SpawnItem(gameObject.transform.position, this.gameObject.tag);
+            SpawnReward.Instance.SpawnItem(gameObject.transform.position, gameObject.tag);
             SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
             Destroy(this.gameObject);
         }

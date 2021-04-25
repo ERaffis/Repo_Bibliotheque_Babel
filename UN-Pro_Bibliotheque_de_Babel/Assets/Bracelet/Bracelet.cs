@@ -71,7 +71,7 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
-                angle = -45f;
+                angle = -20f;
                 for (int i = 0; i < 3; i++)
                 {
                     var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
@@ -109,7 +109,7 @@ public class Bracelet : ScriptableObject
                         rune.aeoPrefab);
 
                     rune.Maitresse(projectile1);
-                    angle += 45f;
+                    angle += 20f;
                 }
                 break;
 
@@ -269,7 +269,7 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
-                angle = -45f;
+                angle = -20f;
                 for (int i = 0; i < 3; i++)
                 {
                     var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
@@ -306,7 +306,7 @@ public class Bracelet : ScriptableObject
                         rune0.aeoPrefab);
 
                     rune0.Maitresse(projectile1);
-                    angle += 45f;
+                    angle += 20f;
                 }
 
                 
@@ -465,7 +465,7 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
-                angle = -45f;
+                angle = -20f;
                 for (int i = 0; i < 3; i++)
                 {
                     var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
@@ -503,7 +503,7 @@ public class Bracelet : ScriptableObject
 
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
-                    angle += 45f;
+                    angle += 20f;
                 }
                
                 break;
@@ -665,7 +665,7 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
-                angle = -45f;
+                angle = -20f;
                 for (int i = 0; i < 3; i++)
                 {
                     var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
@@ -704,7 +704,7 @@ public class Bracelet : ScriptableObject
                     rune0.Maitresse(projectile1);
                     rune1.Support(2, projectile1);
                     rune2.Support(3, projectile1);
-                    angle += 45f;
+                    angle += 20f;
                 }
                 
                 break;
@@ -871,7 +871,7 @@ public class Bracelet : ScriptableObject
                 break;
 
             case "3 Projectiles":
-                angle = -45f;
+                angle = -20f;
                 for (int i = 0; i < 3; i++)
                 {
                     var shotRotation1 = GameHandler.Instance.activeInstDir.transform.rotation;
@@ -911,7 +911,7 @@ public class Bracelet : ScriptableObject
                     rune1.Support(2, projectile1);
                     rune2.Support(3, projectile1);
                     rune3.Support(4, projectile1);
-                    angle += 45f;
+                    angle += 20f;
                 }
                 
                 break;

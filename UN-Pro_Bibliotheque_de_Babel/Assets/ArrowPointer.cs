@@ -59,19 +59,31 @@ public class ArrowPointer : MonoBehaviour
 
         if (shouldPoint)
         {
-            float borderSize = 450f;
+            float borderSizeX;
+            float borderSizeY;
+
+            if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+            {
+                borderSizeX = 450f;
+                borderSizeY = 100f;
+            } else
+            {
+                borderSizeX = 100f;
+                borderSizeY = 100f;
+            }
+            
             Vector3 targetPositionScreenPoint = Camera.main.WorldToScreenPoint(targetPosition);
-            bool isOffScreen = targetPositionScreenPoint.x <= borderSize || targetPositionScreenPoint.x >= Screen.width - borderSize || targetPositionScreenPoint.y <= borderSize || targetPositionScreenPoint.y >= Screen.height - borderSize;
+            bool isOffScreen = targetPositionScreenPoint.x <= borderSizeX || targetPositionScreenPoint.x >= Screen.width - borderSizeX || targetPositionScreenPoint.y <= borderSizeY || targetPositionScreenPoint.y >= Screen.height - borderSizeY;
 
             if (isOffScreen)
             {
                 pointerRectTransform.gameObject.SetActive(true);
                 RotatePointerTowardsTargetPosition();
                 Vector3 cappedTargetScreenPostion = targetPositionScreenPoint;
-                if (cappedTargetScreenPostion.x <= borderSize) cappedTargetScreenPostion.x = borderSize;
-                if (cappedTargetScreenPostion.x >= Screen.width - borderSize) cappedTargetScreenPostion.x = Screen.width - borderSize;
-                if (cappedTargetScreenPostion.y <= borderSize) cappedTargetScreenPostion.y = borderSize;
-                if (cappedTargetScreenPostion.y >= Screen.height - borderSize) cappedTargetScreenPostion.y = Screen.height - borderSize;
+                if (cappedTargetScreenPostion.x <= borderSizeX) cappedTargetScreenPostion.x = borderSizeX;
+                if (cappedTargetScreenPostion.x >= Screen.width - borderSizeX) cappedTargetScreenPostion.x = Screen.width - borderSizeX;
+                if (cappedTargetScreenPostion.y <= borderSizeY) cappedTargetScreenPostion.y = borderSizeY;
+                if (cappedTargetScreenPostion.y >= Screen.height - borderSizeY) cappedTargetScreenPostion.y = Screen.height - borderSizeY;
 
                 Vector3 pointerWorldPosition = _Camera.ScreenToWorldPoint(cappedTargetScreenPostion);
                 pointerRectTransform.position = pointerWorldPosition;

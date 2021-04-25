@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ManuscritMenuManage : MonoBehaviour
 {
@@ -59,7 +60,33 @@ public class ManuscritMenuManage : MonoBehaviour
         }
     }
 
-    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+    }
+
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= SceneManager_sceneLoaded;
+
+    }
+
+
+    private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (arg0.name == "HUB_Principal")
+        {
+            StartCoroutine(CheckBraceletLate());
+        }
+    }
+
+    IEnumerator CheckBraceletLate()
+    {
+        yield return new WaitForSeconds(0.125f);
+        
+    }
+
     void Update()
     {
 
@@ -99,12 +126,17 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Bracelet_1)
                 {
                     Inventory.Instance.RemoveFragment(prix_Bracelet_1);
-
+                    Inventory.Instance.unlockedBracelet2 = true;
                     StartCoroutine(SelectFirstButton());
                     unlocklevel2++;
                     alreadyPressedButtons.Add(buttonName);
                     arrayButtonLVL1[0].gameObject.GetComponent<Image>().color = new Color(0.5f,0.5f, 0.5f, 0.45f);
                     if (braceletGate1) Destroy(braceletGate1);
+
+                    if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+                    {
+                        ArrowPointer.Instance.shouldPoint = true;
+                    }
                 }
                 break;
 
@@ -112,6 +144,7 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Bracelet_2)
                 {
                     Inventory.Instance.RemoveFragment(prix_Bracelet_2);
+                    Inventory.Instance.unlockedBracelet3 = true;
 
                     StartCoroutine(SelectFirstButton());
                     unlocklevel3++;
@@ -126,6 +159,7 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Bracelet_3)
                 {
                     Inventory.Instance.RemoveFragment(prix_Bracelet_3);
+                    Inventory.Instance.unlockedBracelet4 = true;
 
                     StartCoroutine(SelectFirstButton());
                     alreadyPressedButtons.Add(buttonName);
@@ -347,5 +381,14 @@ public class ManuscritMenuManage : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(returnButton);
+    }
+
+    public void ButtonSelected()
+    {
+        SoundManager.PlaySound(SoundManager.Sound.ButtonSelected);
+    }
+    public void ButtonPressed()
+    {
+        SoundManager.PlaySound(SoundManager.Sound.ButtonPressed);
     }
 }

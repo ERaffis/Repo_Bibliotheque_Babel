@@ -139,6 +139,13 @@ public class PlayerScript : Entities
             currentHealth = maxHealth;
     }
 
+    public void PickedUpHeart(int i)
+    {
+        currentHealth += i;
+        if (currentHealth > maxHealth)
+            currentHealth = maxHealth;
+    }
+
     private IEnumerator ResurectPlayer()
     {
         isImmune = true;

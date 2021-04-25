@@ -23,6 +23,7 @@ public class Didacticiel : MonoBehaviour
     public int w;
     public int a;
     public int b;
+    public int c;
 
     [Header("Bracelet")]
     public GameObject braceletTrigger;
@@ -36,6 +37,9 @@ public class Didacticiel : MonoBehaviour
     public GameObject pratiqueGolem;
     public GameObject ordreCombo;
     public GameObject fragment;
+
+    [Header("GolemBlocker")]
+    public GameObject golemBlocker;
 
     // Start is called before the first frame update
     void Start()
@@ -62,36 +66,41 @@ public class Didacticiel : MonoBehaviour
             if (w == 1)
             {
                 equipRune.SetActive(false);
+                ArrowPointer.Instance.targetPosition = golemDir;
+                ArrowPointer.Instance.shouldPoint = true;
+                Destroy(golemBlocker, 0.5f);
+                w++;
             }
             if (w == 0)
             {
-                ArrowPointer.Instance.targetPosition = golemDir;
-                ArrowPointer.Instance.shouldPoint = true;
+                
                 equipRune.SetActive(true);
                 w++;
             } 
         }
 
         
-        if(a == 5)
+        if(a == 2)
         {
             howToCombo.SetActive(false);
             pratiqueGolem.SetActive(true);
 
         }
 
-        if (a == 10)
+        if (a == 4)
         {
             pratiqueGolem.SetActive(false);
             ordreCombo.SetActive(true);
             a++;
         }
 
-        if (a == 15)
+        if (a >= 6)
         {
             ordreCombo.SetActive(false);
-            howToDash.SetActive(true);
+            if(c == 0)
+                howToDash.SetActive(true);
             a++;
+            c++;
         }
     }
 

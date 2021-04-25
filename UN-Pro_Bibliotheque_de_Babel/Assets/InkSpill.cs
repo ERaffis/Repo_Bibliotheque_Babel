@@ -15,7 +15,7 @@ public class InkSpill : MonoBehaviour
             case "HalfCollider" :
                 if(collision.transform.parent.TryGetComponent(out PlayerScript plScript) && !isFrozen)
                 {
-                    collision.transform.parent.GetComponent<PlayerMovement>().envModifier = 0.25f;
+                    collision.transform.parent.GetComponent<PlayerMovement>().envModifier = 0.6f;
                 }
                 break;
 

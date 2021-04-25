@@ -56,10 +56,34 @@ MonoBehaviour:
     audioClip: {fileID: 8300000, guid: 7b2ecc8e5a9513b4483608b96164a58c, type: 3}
   - sound: 5
     audioClip: {fileID: 8300000, guid: 0fe4b451443bae542941c58446ac066b, type: 3}
-  - sound: 8
+  - sound: 15
     audioClip: {fileID: 8300000, guid: 99f55d2ae6db8a940bcad11802f8eb14, type: 3}
   - sound: 3
     audioClip: {fileID: 8300000, guid: 85dacd61a2368754a9b508cbeda09b5a, type: 3}
+  - sound: 17
+    audioClip: {fileID: 8300000, guid: 178eb7414f4052b44985125b12b96c22, type: 3}
+  - sound: 16
+    audioClip: {fileID: 8300000, guid: 17d56a7926c29ee479e43549944f1fa7, type: 3}
+  - sound: 3
+    audioClip: {fileID: 8300000, guid: 85dacd61a2368754a9b508cbeda09b5a, type: 3}
+  - sound: 7
+    audioClip: {fileID: 8300000, guid: 2c3c5948768e78b4bbefbe2ee54db0d8, type: 3}
+  - sound: 8
+    audioClip: {fileID: 8300000, guid: 0889810749700d54999829c20ca3db43, type: 3}
+  - sound: 9
+    audioClip: {fileID: 8300000, guid: ff113a4634053e2448ce363fc279ff55, type: 3}
+  - sound: 10
+    audioClip: {fileID: 8300000, guid: cbcc446f71bec464aa8339ccfb1552b4, type: 3}
+  - sound: 11
+    audioClip: {fileID: 8300000, guid: cbd9561a0bb5ae445b6d72175dee2a1f, type: 3}
+  - sound: 12
+    audioClip: {fileID: 8300000, guid: f5d1e23ae72986447a5e555e8c89449f, type: 3}
+  - sound: 13
+    audioClip: {fileID: 8300000, guid: 9230ceeb660ba9f43aef0b531e9b861d, type: 3}
+  - sound: 14
+    audioClip: {fileID: 8300000, guid: 32b5a21c5fba91646adb2b0fe733d992, type: 3}
+  - sound: 18
+    audioClip: {fileID: 8300000, guid: 36ddbf7bd206f7846a0374bc95cfb3f4, type: 3}
 --- !u!82 &3760755681257133565
 AudioSource:
   m_ObjectHideFlags: 0

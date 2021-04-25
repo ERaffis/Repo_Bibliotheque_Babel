@@ -25,12 +25,15 @@ public class ChangeRoomCollider : MonoBehaviour
                 LevelManager.Instance.FadeToLevel();
                 GameHandler.Instance.nmbRooms++;
                 collision.transform.parent.position = new Vector2(0, -10);
+                ArrowPointer.Instance.shouldPoint = false;
             } else if(GameHandler.Instance.roomCleared)
             {
                 LevelManager.Instance.FadeToLevel();
                 GameHandler.Instance.nmbRooms++;
                 collision.transform.parent.position = new Vector2(0, -10);
-            } else
+                ArrowPointer.Instance.shouldPoint = false;
+            }
+            else
             {
                 Debug.LogWarning("Roomed Not Cleared");
             }

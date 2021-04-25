@@ -13,8 +13,18 @@ public static class SoundManager
         EnemyHit,
         EnemyDie,
         PlayerDie,
-        PlayerHit,
+        PlayerHit1,
+        PlayerHit2,
+        PlayerHit3,
+        PlayerHit4,
+        PlayerHit5,
+        PlayerHit6,
+        PlayerHit7,
+        PlayerHit8,
         ComboCharge,
+        ButtonSelected,
+        ButtonPressed,
+        ItemPickedUp,
     }
 
     private static Dictionary<Sound, float> soundTimerDictionnary;
@@ -46,6 +56,55 @@ public static class SoundManager
         if(CanPlaySound(sound))
         {
             if(oneShotGameObject == null)
+            {
+                oneShotGameObject = new GameObject("Sound");
+                oneShotAudioSource = oneShotGameObject.AddComponent<AudioSource>();
+            }
+
+            oneShotAudioSource.PlayOneShot(GetAudioClip(sound));
+        }
+    }
+
+    public static void PlayHurtSound()
+    {
+        Sound sound = Sound.PlayerHit1;
+        switch (Random.Range(0,7))
+        {
+            case 1: 
+                sound = Sound.PlayerHit1;
+                break;
+
+            case 2:
+                sound = Sound.PlayerHit2;
+                break;
+
+            case 3:
+                sound = Sound.PlayerHit3;
+                break;
+
+            case 4:
+                sound = Sound.PlayerHit4;
+                break;
+
+            case 5:
+                sound = Sound.PlayerHit5;
+                break;
+
+            case 6:
+                sound = Sound.PlayerHit6;
+                break;
+
+            case 7:
+                sound = Sound.PlayerHit7;
+                break;
+
+            default:
+                break;
+        }
+
+        if (CanPlaySound(sound))
+        {
+            if (oneShotGameObject == null)
             {
                 oneShotGameObject = new GameObject("Sound");
                 oneShotAudioSource = oneShotGameObject.AddComponent<AudioSource>();
