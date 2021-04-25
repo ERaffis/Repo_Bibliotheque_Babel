@@ -60,27 +60,23 @@ public class Pickup : MonoBehaviour
                     } else
                     {
                         Inventory.Instance.runes[0].lvlRune++;
+
                     }
-                    /*foreach (var item in runes)
-                    {
-                        Destroy(item);
-                    }*/
+                    Destroy(gameObject);
+
                     break;
 
                 case "Rune_Embrasement(Clone)":
-                    if (!Inventory.Instance.embrasementActive)
-                    {
-                        Inventory.Instance.embrasementActive = true;
-                        Inventory.Instance.rune1.GetComponent<Image>().color = Color.white;
-                    }
-                    else
+                    
+                    if(Inventory.Instance.nmbPageVierge > 5)
                     {
                         Inventory.Instance.runes[0].lvlRune++;
+
+                        Destroy(gameObject);
                     }
-                    /*foreach (var item in runes)
-                    {
-                        Destroy(item);
-                    }*/
+                            
+                    
+                    
                     break;
 
                 case "Rune_Givre":
@@ -93,26 +89,19 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[1].lvlRune++;
                     }
-                    /*foreach (var item in runes)
-                    {
-                        Destroy(item);
-                    }*/
+                    Destroy(gameObject);
+
                     break;
 
                 case "Rune_Givre(Clone)":
-                    if (!Inventory.Instance.givreActive)
+
+                    if (Inventory.Instance.nmbPageVierge > 5)
                     {
-                        Inventory.Instance.givreActive = true;
-                        Inventory.Instance.rune2.GetComponent<Image>().color = Color.white;
+                        Inventory.Instance.runes[2].lvlRune++;
+
+                        Destroy(gameObject);
                     }
-                    else
-                    {
-                        Inventory.Instance.runes[1].lvlRune++;
-                    }
-                    /*foreach (var item in runes)
-                    {
-                        Destroy(item);
-                    }*/
+
                     break;
 
 
@@ -126,26 +115,19 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[2].lvlRune++;
                     }
-                    /*foreach (var item in runes)
-                    {
-                        Destroy(item);
-                    }*/
+                    Destroy(gameObject);
+
                     break;
 
                 case "Rune_Amplification(Clone)":
-                    if (!Inventory.Instance.amplificationActive)
+
+                    if (Inventory.Instance.nmbPageVierge > 5)
                     {
-                        Inventory.Instance.amplificationActive = true;
-                        Inventory.Instance.rune3.GetComponent<Image>().color = Color.white;
+                        Inventory.Instance.runes[3].lvlRune++;
+
+                        Destroy(gameObject);
                     }
-                    else
-                    {
-                        Inventory.Instance.runes[2].lvlRune++;
-                    }
-                    /*foreach (var item in runes)
-                    {
-                        Destroy(item);
-                    }*/
+
                     break;
 
 
@@ -153,7 +135,6 @@ public class Pickup : MonoBehaviour
                     break;
             }
 
-            Destroy(gameObject);
         }
     }
 }

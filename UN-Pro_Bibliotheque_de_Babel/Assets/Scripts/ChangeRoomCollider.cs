@@ -26,6 +26,11 @@ public class ChangeRoomCollider : MonoBehaviour
                 GameHandler.Instance.nmbRooms++;
                 collision.transform.parent.position = new Vector2(0, -10);
                 ArrowPointer.Instance.shouldPoint = false;
+
+                if(SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+                {
+                    Destroy(ManuscritMenuManage.Instance.gameObject);
+                }
             } else if(GameHandler.Instance.roomCleared)
             {
                 LevelManager.Instance.FadeToLevel();

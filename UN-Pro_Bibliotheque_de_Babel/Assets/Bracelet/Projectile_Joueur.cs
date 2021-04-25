@@ -59,13 +59,6 @@ public class Projectile_Joueur : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.layer == 9)
-            StartCoroutine(ExplodeProjectile());
-    }
-
-
     IEnumerator ExplodeProjectile()
     {
 

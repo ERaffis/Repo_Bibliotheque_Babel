@@ -35,7 +35,7 @@ TagManager:
   - UI
   - Entities
   - Player
-  - 
+  - ProjectileRoom
   - Room
   - Post-Processing
   - NoCollision

@@ -66,7 +66,6 @@ public class GameHandler : MonoBehaviour
             nmbToSpawns = 0;
             nmbSpawned = 0;
             nmbRooms = 0;
-            Inventory.Instance.activeBracelet = null;
 
             if (Inventory.Instance.unlockedBracelet2)
             {

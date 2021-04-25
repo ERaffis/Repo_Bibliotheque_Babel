@@ -94,7 +94,7 @@ public class Inventory : MonoBehaviour
     {
         if (arg0.name == "HUB_Principal")
         {
-            FullClearBracelet();
+            //FullClearBracelet();
             if(!upgradeRune)
             {
                 runes[0].lvlRune = 1;
@@ -107,6 +107,7 @@ public class Inventory : MonoBehaviour
                 runes[2].lvlRune = 2;
             }
 
+            SetPageVierge(0);
             if(page1)
             {
                 SetPageVierge(1);

@@ -61,7 +61,7 @@ public class uiManager : MonoBehaviour
         if (arg0.name == "HUB_Principal")
         {
             SetRoomInfoHUB();
-            ResetRunesUI();
+            //ResetRunesUI();
         }
         else
         {

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7025032540066926106}
   - component: {fileID: 175957065178547288}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TrailMitraileuse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284082306955571378}
   - component: {fileID: 4360511917177491854}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Point Light 2D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -210,6 +210,66 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &691367629108285652
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1806319490775669063}
+  - component: {fileID: 535066899314053809}
+  - component: {fileID: 3628774320094940508}
+  m_Layer: 8
+  m_Name: ColliderWithRoom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1806319490775669063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691367629108285652}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3816281998203159484}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &535066899314053809
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691367629108285652}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.08171971
+--- !u!114 &3628774320094940508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 691367629108285652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 187f11162bde28f42b4715ad1171dedd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &977298064629127415
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +281,7 @@ GameObject:
   - component: {fileID: 1396421816786866910}
   - component: {fileID: 8568042655439543289}
   - component: {fileID: 977755028303147447}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Effect_Embrasement
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,7 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8365188948920878680}
   - component: {fileID: 6674463029719334931}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TrailTete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -461,7 +521,7 @@ GameObject:
   - component: {fileID: 7853653604737104512}
   - component: {fileID: 7354063296472587690}
   - component: {fileID: 2693319968790431813}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Effect_Givre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +622,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1654855863501494862}
   - component: {fileID: 8213609291868776212}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TrailSimple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -731,6 +791,7 @@ Transform:
   - {fileID: 3412841160986938253}
   - {fileID: 7025032540066926106}
   - {fileID: 8365188948920878680}
+  - {fileID: 1806319490775669063}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -833,7 +894,7 @@ PointEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 28407
+    m_Bits: 64
   m_ForceMagnitude: 0
   m_ForceVariation: 0
   m_DistanceScale: 1
@@ -887,7 +948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3412841160986938253}
   - component: {fileID: 7422158939597651441}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TrailTriple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1026,7 +1087,7 @@ GameObject:
   - component: {fileID: 8413648079573201229}
   - component: {fileID: 8046071427915829256}
   - component: {fileID: 4788951383175745408}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Effect_Amplification
   m_TagString: Untagged
   m_Icon: {fileID: 0}

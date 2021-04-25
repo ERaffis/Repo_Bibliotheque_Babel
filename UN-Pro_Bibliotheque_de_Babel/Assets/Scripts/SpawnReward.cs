@@ -60,14 +60,6 @@ public class SpawnReward : MonoBehaviour
             {
                 GameObject newfragment = Instantiate(fragment, new Vector3(-2 + i, 6.5f), Quaternion.Euler(0, 0, 0));
                 newfragment.transform.parent = null;
-
-                int colliders = Physics2D.OverlapCollider(newfragment.GetComponent<Collider2D>(), new ContactFilter2D(), new List<Collider2D>());
-
-                if (colliders != 0)
-                {
-                    SpawnItem(new Vector2(newfragment.transform.position.x + Random.Range(-1, 1), newfragment.transform.position.y + Random.Range(-1, 1)), "Boss");
-                    Destroy(newfragment);
-                }
             }
         }
 

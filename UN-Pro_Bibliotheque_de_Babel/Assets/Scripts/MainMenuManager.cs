@@ -16,7 +16,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void NouvellePartie()
     {
-        SceneManager.LoadScene("FirstExposure");
+        SceneManager.LoadScene("HUB_Didacticiel");
     }
 
     public void QuitterJeu()
@@ -41,5 +41,14 @@ public class MainMenuManager : MonoBehaviour
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
         EventSystem.current.SetSelectedGameObject(button);
+    }
+
+    public void ButtonSelected()
+    {
+        SoundManager.PlaySound(SoundManager.Sound.ButtonSelected);
+    }
+    public void ButtonPressed()
+    {
+        SoundManager.PlaySound(SoundManager.Sound.ButtonPressed);
     }
 }

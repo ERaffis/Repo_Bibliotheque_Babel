@@ -19,7 +19,7 @@ public class HubRewardSpawner : MonoBehaviour
     {
         if (Inventory.Instance.runes[0].lvlRune != 3)
         {
-            Instantiate(embrasement, spawnPoints[0]);
+            GameObject tmp1 = Instantiate(embrasement, spawnPoints[0]);
         }
         if (Inventory.Instance.runes[1].lvlRune != 3)
         {

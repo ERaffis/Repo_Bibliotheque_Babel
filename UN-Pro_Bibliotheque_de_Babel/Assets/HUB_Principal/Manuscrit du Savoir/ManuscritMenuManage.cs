@@ -7,11 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class ManuscritMenuManage : MonoBehaviour
 {
+    public static ManuscritMenuManage Instance { get; private set; }
+
     [Header("Buttons")]
     public Button[] arrayButtonLVL1, arrayButtonLVL2, arrayButtonLVL3;
 
     [Header("Bouton Retour")]
-    [SerializeField] private GameObject returnButton;
+    [SerializeField] public GameObject returnButton;
 
     [Header("Gate pour Bracelets")]
     [SerializeField] private GameObject braceletGate1, braceletGate2, braceletGate3;
@@ -41,6 +43,18 @@ public class ManuscritMenuManage : MonoBehaviour
     public int prix_Lifesteal_2;
     public int prix_Lifesteal_3;
 
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     void Start()
     {
@@ -77,7 +91,10 @@ public class ManuscritMenuManage : MonoBehaviour
     {
         if (arg0.name == "HUB_Principal")
         {
-            StartCoroutine(CheckBraceletLate());
+            Inventory.Instance.unlockedBracelet2 = true;
+            if (braceletGate1) Destroy(braceletGate1);
+            alreadyPressedButtons.Add(arrayButtonLVL1[0].name);
+            arrayButtonLVL1[0].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
         }
     }
 

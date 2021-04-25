@@ -15,14 +15,15 @@ public class ManuscritInteract : MonoBehaviour
     public bool isActive;
     public GameObject openFirstButton;
     public Animator animator;
+    private int a;
 
     private void Start()
     {
+        ManuscritMenu = GameObject.Find("MenuManuscrit");
         player = GameObject.FindGameObjectWithTag("Player1").GetComponent<PlayerScript>();
         mainUI  = GameObject.FindGameObjectWithTag("MainUI");
         CanInteract = false;
         isActive = false;
-
 
     }
 
@@ -55,10 +56,12 @@ public class ManuscritInteract : MonoBehaviour
         {
             OpenCloseMenu();
 
-            if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
+            if (SceneManager.GetActiveScene().name == "HUB_Didacticiel" && a == 0)
             {
+                a++;
                 GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().fragment.SetActive(false);
-                StartCoroutine(GameHandler.Instance.OpenGate());
+                if(GameObject.Find("Grille"))
+                    Destroy(GameObject.Find("Grille"));
                 ArrowPointer.Instance.targetPosition = GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().exitDir;
                 ArrowPointer.Instance.shouldPoint = true;
             }
@@ -96,7 +99,7 @@ public class ManuscritInteract : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         yield return new WaitForEndOfFrame();
-        EventSystem.current.SetSelectedGameObject(openFirstButton);
+        EventSystem.current.SetSelectedGameObject(ManuscritMenu.GetComponent<ManuscritMenuManage>().returnButton);
     }
 
     IEnumerator PlayCloseAnimation()
