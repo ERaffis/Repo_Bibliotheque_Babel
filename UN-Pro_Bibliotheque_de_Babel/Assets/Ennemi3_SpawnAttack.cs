@@ -15,6 +15,10 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
 
     public Animator animator;
     public bool isCasting;
+
+    public List<GameObject> activeTowers;
+
+
    
 
 
@@ -78,7 +82,7 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
             float zoneYposition = Mathf.Cos((angle * Mathf.PI) / 180) * Random.Range(3.0f, height);
 
             GameObject tmpObj = Instantiate(Ennemi3TowerPrefab, new Vector2(zoneXposition, zoneYposition), Quaternion.identity);
-
+            tmpObj.GetComponent<TowerPrefab>().parentGolem = this.gameObject;
             int colliders = Physics2D.OverlapCollider(tmpObj.GetComponent<Collider2D>(), new ContactFilter2D(), new List<Collider2D>());
             if (colliders != 0)
             {
@@ -86,6 +90,15 @@ public class Ennemi3_SpawnAttack : MonoBehaviour
                 StartCoroutine(SpawnZones());
             }
 
+            if(activeTowers.Count > 3)
+            {
+                Destroy(tmpObj);
+            }
+            if (tmpObj != null)
+            {
+                activeTowers.Add(tmpObj);
+                tmpObj.GetComponent<TowerPrefab>().placeInList = activeTowers.Count - 1;
+            }
         }
 
         

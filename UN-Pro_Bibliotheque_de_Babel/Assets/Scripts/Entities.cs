@@ -40,6 +40,8 @@ public class Entities : MonoBehaviour
 
     public GameObject bloodParticles;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -94,6 +96,21 @@ public class Entities : MonoBehaviour
 
         if (currentHealth <= 0 && !this.gameObject.CompareTag("Player1") && !gameObject.CompareTag("Tour"))
         {
+            if(PlayerScript.Instance.lifeStealLvl1)
+            {
+                PlayerScript.Instance.PickedUpHeart();
+
+                if(PlayerScript.Instance.lifeStealLvl2)
+                {
+                    PlayerScript.Instance.PickedUpHeart();
+
+                    if (PlayerScript.Instance.lifeStealLvl3)
+                    {
+                        PlayerScript.Instance.PickedUpHeart();
+                    }
+                }
+            }
+
             GameHandler.Instance.nmbRemaining--;
             SpawnReward.Instance.SpawnItem(gameObject.transform.position, this.gameObject.tag);
             SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);

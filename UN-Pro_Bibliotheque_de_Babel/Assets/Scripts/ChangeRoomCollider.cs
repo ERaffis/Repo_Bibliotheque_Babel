@@ -24,12 +24,12 @@ public class ChangeRoomCollider : MonoBehaviour
             {
                 LevelManager.Instance.FadeToLevel();
                 GameHandler.Instance.nmbRooms++;
-                collision.transform.position = new Vector2(0, -10);
+                collision.transform.parent.position = new Vector2(0, -10);
             } else if(GameHandler.Instance.roomCleared)
             {
                 LevelManager.Instance.FadeToLevel();
                 GameHandler.Instance.nmbRooms++;
-                collision.transform.position = new Vector2(0, -10);
+                collision.transform.parent.position = new Vector2(0, -10);
             } else
             {
                 Debug.LogWarning("Roomed Not Cleared");

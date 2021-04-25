@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
 
     public RuneManager runeManager;
 
+    [Header("ModifVitesseCombo")]
+    public bool pourcent20;
+    public bool pourcent40;
+    public bool pourcent80;
 
     private void Start() 
     {
@@ -83,6 +87,22 @@ public class PlayerMovement : MonoBehaviour
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         comboModifier = 1f;
+
+        if (pourcent20)
+        {
+            comboModifier = 0.8f;
+
+            if (pourcent40)
+            {
+                comboModifier = 0.6f;
+
+                if (pourcent80)
+                {
+                    comboModifier = 0.2f;
+                }
+            }
+
+        }
         envModifier = 1f;
         speedBoost = 1f;
     }

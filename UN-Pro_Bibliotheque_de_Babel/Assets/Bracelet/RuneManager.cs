@@ -121,8 +121,9 @@ public class RuneManager : MonoBehaviour
         }
     }
 
-    private void CheckOrder()
+    private IEnumerator CheckOrder()
     {
+        yield return new WaitForEndOfFrame();
         if(uiManager.Instance.mainUI.enabled == true)
         {
             if (equippedBracelet)

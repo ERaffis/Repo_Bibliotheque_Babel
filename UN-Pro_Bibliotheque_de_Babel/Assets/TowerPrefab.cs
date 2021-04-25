@@ -22,6 +22,10 @@ public class TowerPrefab : Entities
     public Animator anim;
     public CapsuleCollider2D collider2d;
 
+    [Header("ParentGolem")]
+    public GameObject parentGolem;
+    public int placeInList;
+
     [Header("DeadSprite")]
     public GameObject afterSprite;
 
@@ -58,6 +62,8 @@ public class TowerPrefab : Entities
         {
             isAlive = false;
             anim.SetBool("isAlive", false);
+            if(parentGolem != null)
+                parentGolem.GetComponent<Ennemi3_SpawnAttack>().activeTowers.RemoveAt(placeInList);
             StartCoroutine(DestroyComponents());
         }
     }

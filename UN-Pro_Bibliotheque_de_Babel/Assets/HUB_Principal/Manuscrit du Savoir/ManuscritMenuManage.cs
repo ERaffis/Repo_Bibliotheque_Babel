@@ -197,6 +197,8 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Slow_20)
                 {
                     Inventory.Instance.RemoveFragment(prix_Slow_20);
+                    PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().pourcent20 = true;
+                    PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().comboModifier = 0.8f;
                     StartCoroutine(SelectFirstButton());
                     unlocklevel2++;
                     arrayButtonLVL1[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
@@ -211,6 +213,8 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Slow_40)
                 {
                     Inventory.Instance.RemoveFragment(prix_Slow_40);
+                    PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().pourcent40 = true;
+                    PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().comboModifier = 0.6f;
                     StartCoroutine(SelectFirstButton());
                     unlocklevel3++;
                     arrayButtonLVL2[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
@@ -224,6 +228,8 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Slow_80)
                 {
                     Inventory.Instance.RemoveFragment(prix_Slow_80);
+                    PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().pourcent80 = true;
+                    PlayerScript.Instance.gameObject.GetComponent<PlayerMovement>().comboModifier = 0.2f;
                     StartCoroutine(SelectFirstButton());
                     arrayButtonLVL3[2].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
@@ -236,6 +242,9 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Page_1)
                 {
                     Inventory.Instance.RemoveFragment(prix_Page_1);
+                    Inventory.Instance.SetPageVierge(1);
+                    Inventory.Instance.page1 = true;
+
                     StartCoroutine(SelectFirstButton());
                     unlocklevel2++;
                     arrayButtonLVL1[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
@@ -249,6 +258,9 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Page_2)
                 {
                     Inventory.Instance.RemoveFragment(prix_Page_2);
+                    Inventory.Instance.SetPageVierge(2);
+                    Inventory.Instance.page2 = true;
+
                     StartCoroutine(SelectFirstButton());
                     unlocklevel3++;
                     arrayButtonLVL2[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
@@ -262,6 +274,10 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Niveau_Rune)
                 {
                     Inventory.Instance.RemoveFragment(prix_Niveau_Rune);
+                    Inventory.Instance.upgradeRune = true;
+                    Inventory.Instance.runes[0].lvlRune = 2;
+                    Inventory.Instance.runes[1].lvlRune = 2;
+                    Inventory.Instance.runes[2].lvlRune = 2;
                     StartCoroutine(SelectFirstButton());
                     arrayButtonLVL3[3].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 
@@ -274,6 +290,7 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Lifesteal_1)
                 {
                     Inventory.Instance.RemoveFragment(prix_Lifesteal_1);
+                    PlayerScript.Instance.lifeStealLvl1 = true;
                     StartCoroutine(SelectFirstButton());
                     unlocklevel2++;
                     arrayButtonLVL1[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
@@ -287,6 +304,8 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Lifesteal_2)
                 {
                     Inventory.Instance.RemoveFragment(prix_Lifesteal_2);
+                    PlayerScript.Instance.lifeStealLvl2 = true;
+
                     StartCoroutine(SelectFirstButton());
                     unlocklevel3++;
                     arrayButtonLVL2[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
@@ -300,6 +319,8 @@ public class ManuscritMenuManage : MonoBehaviour
                 if (Inventory.Instance.nmbFragment >= prix_Lifesteal_3)
                 {
                     Inventory.Instance.RemoveFragment(prix_Lifesteal_3);
+                    PlayerScript.Instance.lifeStealLvl3 = true;
+
                     StartCoroutine(SelectFirstButton());
                     arrayButtonLVL3[4].gameObject.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 0.45f);
 

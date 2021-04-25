@@ -16,6 +16,11 @@ public class PlayerScript : Entities
     [Header("Run Counter")]
     public int nmbRun;
 
+    [Header("PlayerLifesteal")]
+    public bool lifeStealLvl1;
+    public bool lifeStealLvl2;
+    public bool lifeStealLvl3;
+
     public bool resurectCharge;
     public bool isDead = false;
 
@@ -40,6 +45,9 @@ public class PlayerScript : Entities
 
         isImmune = false;
         resurectCharge = false;
+        lifeStealLvl1 = false;
+        lifeStealLvl2 = false;
+        lifeStealLvl3 = false;
     }
 
     // Update is called once per frame

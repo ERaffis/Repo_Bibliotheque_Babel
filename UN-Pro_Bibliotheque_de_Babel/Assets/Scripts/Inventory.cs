@@ -51,6 +51,11 @@ public class Inventory : MonoBehaviour
     public GameObject uiInventory_bracelet;
     public Sprite[] uiBraceletSprites;
 
+    [Header("Upgrades")]
+    public bool upgradeRune;
+    public bool page1;
+    public bool page2;
+
     private void Awake()
     {
         if (Instance == null)
@@ -84,20 +89,30 @@ public class Inventory : MonoBehaviour
 
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        Debug.Log("Scene " + arg0.name + " loaded");
         if (arg0.name == "HUB_Principal")
         {
             FullClearBracelet();
-            runes[0].lvlRune = 1;
-            runes[1].lvlRune = 1;
-            runes[2].lvlRune = 1;
-            /*rune1.GetComponent<Image>().color = Color.grey;
-            embrasementActive = false;
-            rune2.GetComponent<Image>().color = Color.grey;
-            givreActive = false;
-            rune3.GetComponent<Image>().color = Color.grey;
-            amplificationActive = false;
-            */
+            if(!upgradeRune)
+            {
+                runes[0].lvlRune = 1;
+                runes[1].lvlRune = 1;
+                runes[2].lvlRune = 1;
+            } else if(upgradeRune)
+            {
+                runes[0].lvlRune = 2;
+                runes[1].lvlRune = 2;
+                runes[2].lvlRune = 2;
+            }
+
+            if(page1)
+            {
+                SetPageVierge(1);
+
+                if(page2)
+                {
+                    SetPageVierge(2);
+                }    
+            }
         }
     }
 
@@ -107,6 +122,11 @@ public class Inventory : MonoBehaviour
         OpenCloseMenu();
     }
 
+    public void SetPageVierge(int i)
+    {
+        nmbPageVierge = i;
+        textPageVierge.SetText("x " + nmbPageVierge);
+    }    
     public void AddPageVierge(int i)
     {
         nmbPageVierge += i;
