@@ -59,7 +59,7 @@ public class ArrowPointer : MonoBehaviour
 
         if (shouldPoint)
         {
-            float borderSize = 250f;
+            float borderSize = 450f;
             Vector3 targetPositionScreenPoint = Camera.main.WorldToScreenPoint(targetPosition);
             bool isOffScreen = targetPositionScreenPoint.x <= borderSize || targetPositionScreenPoint.x >= Screen.width - borderSize || targetPositionScreenPoint.y <= borderSize || targetPositionScreenPoint.y >= Screen.height - borderSize;
 

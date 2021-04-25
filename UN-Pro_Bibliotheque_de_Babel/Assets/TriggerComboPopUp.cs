@@ -10,6 +10,8 @@ public class TriggerComboPopUp : MonoBehaviour
         {
             GameObject.Find("ScriptDidacticiel").GetComponent<Didacticiel>().howToCombo.SetActive(true);
             Destroy(gameObject);
+
+            ArrowPointer.Instance.shouldPoint = false;
         }
     }
 }

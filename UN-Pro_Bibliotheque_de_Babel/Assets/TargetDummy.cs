@@ -22,11 +22,16 @@ public class TargetDummy : MonoBehaviour
     public IEnumerator DamageoverTime(float dmg, float ticks)
     {
         yield return new WaitForSeconds(1f);
-        for (int i = 0; i <= ticks; i++)
+
+        if (transform.childCount < 3)
         {
-            TargetDamage(dmg);
-            yield return new WaitForSeconds(0.5f);
+            for (int i = 0; i <= ticks; i++)
+            {
+                TargetDamage(dmg);
+                yield return new WaitForSeconds(0.5f);
+            }
         }
+        
        
     }
 
