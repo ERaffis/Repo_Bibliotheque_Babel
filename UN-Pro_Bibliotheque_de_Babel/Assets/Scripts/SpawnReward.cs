@@ -40,8 +40,7 @@ public class SpawnReward : MonoBehaviour
 
                 if (colliders != 0)
                 {
-                    SpawnItem(new Vector2(newPage.transform.position.x + Random.Range(-1,1), newPage.transform.position.y + Random.Range(-1, 1)), "Ennemy");
-                    Destroy(newPage);
+                    newPage.transform.position = new Vector2(0, 5.5f);
                 }
             }
 

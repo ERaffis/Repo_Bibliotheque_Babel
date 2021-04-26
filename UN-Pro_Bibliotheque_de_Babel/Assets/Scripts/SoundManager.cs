@@ -29,6 +29,7 @@ public static class SoundManager
         ItemPickedUp,
         JingleWin,
         OpenGate,
+        PlayerDash,
     }
 
     private static Dictionary<Sound, float> soundTimerDictionnary;

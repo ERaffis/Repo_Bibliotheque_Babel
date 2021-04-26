@@ -354,6 +354,7 @@ GameObject:
   - component: {fileID: 5884685802230221819}
   - component: {fileID: 6900714018265005904}
   - component: {fileID: 3590135218726044008}
+  - component: {fileID: 1803877021491580925}
   m_Layer: 6
   m_Name: Ennemi3_biome1
   m_TagString: Ennemy
@@ -541,3 +542,29 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1803877021491580925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5884685802230221822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000695f153a39265e92af96d2554be3d06c
+  m_ShapePath:
+  - {x: 0.1282934, y: -0.16207632, z: 0}
+  - {x: 0.15365778, y: -0.12200406, z: 0}
+  - {x: -0.15765893, y: -0.11766335, z: 0}
+  - {x: -0.123566255, y: -0.16304839, z: 0}
+  m_ShapePathHash: 1099569900
+  m_Mesh: {fileID: 0}
+  m_InstanceId: 47160

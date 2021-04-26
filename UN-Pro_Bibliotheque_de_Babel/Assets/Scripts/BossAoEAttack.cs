@@ -23,7 +23,7 @@ public class BossAoEAttack : MonoBehaviour
     {
         startTimeBtwAttacks = 10f;
         timebtwattacks = startTimeBtwAttacks;
-        zonequantity = 5;
+        zonequantity = 10;
         cellsize = grid.GetComponent<Grid>().cellSize;
         width =  .65f * cellsize.x;
         height = .75f * cellsize.y;

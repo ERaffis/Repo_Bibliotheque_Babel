@@ -325,6 +325,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(HitWall(new Vector3(lastVelocity.x, lastVelocity.y,0).normalized, dashDistance + 0.8f))
             {
+                SoundManager.PlaySound(SoundManager.Sound.PlayerDash, transform.position);
                 dashCooldown = 0.75f;
                 Vector3 beforeDashPosition = transform.position;
                 Transform dashEffectTransform = Instantiate(pfDashEffect, beforeDashPosition, Quaternion.identity);

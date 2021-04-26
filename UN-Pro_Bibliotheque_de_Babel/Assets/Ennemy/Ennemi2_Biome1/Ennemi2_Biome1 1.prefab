@@ -264,17 +264,15 @@ MonoBehaviour:
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
   m_SelfShadows: 0
-  m_ApplyToSortingLayers: 00000000695f153a
+  m_ApplyToSortingLayers: 00000000695f153a39265e92af96d2554be3d06c
   m_ShapePath:
-  - {x: -0.20151043, y: -0.35152808, z: 0}
-  - {x: 0.17876697, y: -0.3492537, z: 0}
-  - {x: 0.22061098, y: -0.29793864, z: 0}
-  - {x: 0.19696164, y: -0.21250838, z: 0}
-  - {x: -0.2001419, y: -0.21151364, z: 0}
-  - {x: -0.23789978, y: -0.29893327, z: 0}
-  m_ShapePathHash: -43224951
+  - {x: 0.070397, y: -0.14636159, z: 0}
+  - {x: 0.056888103, y: -0.08726621, z: 0}
+  - {x: -0.061716318, y: -0.09615898, z: 0}
+  - {x: -0.07145949, y: -0.14485238, z: 0}
+  m_ShapePathHash: -1556084128
   m_Mesh: {fileID: 0}
-  m_InstanceId: 95088
+  m_InstanceId: 42780
 --- !u!95 &142242237288768523
 Animator:
   serializedVersion: 3
