@@ -157,6 +157,7 @@ public class GameHandler : MonoBehaviour
                 if (SceneManager.GetActiveScene().name != "HUB_Principal" && SceneManager.GetActiveScene().name != "HUB_Secondaire" && SceneManager.GetActiveScene().name != "HUB_Didacticiel")
                 {
                     SpawnReward.Instance.SpawnItem(new Vector2(0, 5.25f), "Room");
+                    SoundManager.PlaySound(SoundManager.Sound.OpenGate);
                     alreadySpawned = true;
                     StartCoroutine(WaitToPoint());
                     StartCoroutine(OpenGate());

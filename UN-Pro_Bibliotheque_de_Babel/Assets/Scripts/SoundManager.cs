@@ -9,7 +9,9 @@ public static class SoundManager
         TypeWriter,
         TypeWriterEnd,
         PlayerMove,
-        PlayerAttack,
+        PlayerAttackSmall,
+        PlayerAttackMedium,
+        PlayerAttackBig,
         EnemyHit,
         EnemyDie,
         PlayerDie,
@@ -25,6 +27,8 @@ public static class SoundManager
         ButtonSelected,
         ButtonPressed,
         ItemPickedUp,
+        JingleWin,
+        OpenGate,
     }
 
     private static Dictionary<Sound, float> soundTimerDictionnary;
@@ -102,7 +106,7 @@ public static class SoundManager
                 break;
         }
 
-        if (CanPlaySound(sound))
+           if (CanPlaySound(sound))
         {
             if (oneShotGameObject == null)
             {
@@ -114,7 +118,27 @@ public static class SoundManager
         }
     }
 
-    private static bool CanPlaySound(Sound sound)
+    public static void PlayWalkSound()
+    {
+        Sound sound = Sound.PlayerMove;
+
+        if (CanPlaySound(sound))
+        {
+            if (oneShotGameObject == null)
+            {
+                oneShotGameObject = new GameObject("Sound");
+                oneShotAudioSource = oneShotGameObject.AddComponent<AudioSource>();
+            }
+
+            for (int i = 0; i < 5; i++)
+            {
+                oneShotAudioSource.PlayOneShot(GetAudioClip(sound));
+            }
+        }
+    }
+
+
+        private static bool CanPlaySound(Sound sound)
     {
         switch (sound)
         {

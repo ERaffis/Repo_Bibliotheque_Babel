@@ -16,7 +16,6 @@ public class TargetDummy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     public IEnumerator DamageoverTime(float dmg, float ticks)

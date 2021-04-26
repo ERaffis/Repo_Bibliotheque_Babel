@@ -113,8 +113,14 @@ public class Entities : MonoBehaviour
             }
             GameHandler.Instance.nmbRemaining--;
             SpawnReward.Instance.SpawnItem(gameObject.transform.position, gameObject.tag);
-            SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
-            Destroy(this.gameObject);
+            if (gameObject.CompareTag("Boss"))
+            {
+                SoundManager.PlaySound(SoundManager.Sound.JingleWin, transform.position);
+            } else
+            {
+                SoundManager.PlaySound(SoundManager.Sound.EnemyDie, transform.position);
+            }
+            Destroy(gameObject);
         }
     }
 

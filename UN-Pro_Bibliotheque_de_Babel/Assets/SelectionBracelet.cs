@@ -44,6 +44,8 @@ public class SelectionBracelet : MonoBehaviour
     }
     public void SelectBracelet(string name)
     {
+        SoundManager.PlaySound(SoundManager.Sound.ButtonPressed);
+
         switch (name)
         {
             case "Simple":

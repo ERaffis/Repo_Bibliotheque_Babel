@@ -20,16 +20,19 @@ public class Pickup : MonoBehaviour
     {
         if (collision.CompareTag("HalfCollider"))
         {
-            SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
             switch (gameObject.tag) 
             {
                 case "Page_Vierge":
                     Inventory.Instance.AddPageVierge(1);
+                    SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
                     Destroy(gameObject);
                     break;
 
                 case "Fragment":
                     Inventory.Instance.AddFragment(1);
+                    SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
                     Destroy(gameObject);
                     if (SceneManager.GetActiveScene().name == "HUB_Didacticiel")
                     {
@@ -43,6 +46,8 @@ public class Pickup : MonoBehaviour
 
                 case "Hearth":
                     PlayerScript.Instance.PickedUpHeart();
+                    SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
                     Destroy(gameObject);
                     break;
 
@@ -62,6 +67,8 @@ public class Pickup : MonoBehaviour
                         Inventory.Instance.runes[0].lvlRune++;
 
                     }
+                    SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
                     Destroy(gameObject);
 
                     break;
@@ -71,6 +78,8 @@ public class Pickup : MonoBehaviour
                     if(Inventory.Instance.nmbPageVierge > 5)
                     {
                         Inventory.Instance.runes[0].lvlRune++;
+                        SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
 
                         Destroy(gameObject);
                     }
@@ -89,6 +98,8 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[1].lvlRune++;
                     }
+                    SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
                     Destroy(gameObject);
 
                     break;
@@ -98,6 +109,8 @@ public class Pickup : MonoBehaviour
                     if (Inventory.Instance.nmbPageVierge > 5)
                     {
                         Inventory.Instance.runes[2].lvlRune++;
+                        SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
 
                         Destroy(gameObject);
                     }
@@ -115,6 +128,8 @@ public class Pickup : MonoBehaviour
                     {
                         Inventory.Instance.runes[2].lvlRune++;
                     }
+                    SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
                     Destroy(gameObject);
 
                     break;
@@ -124,6 +139,8 @@ public class Pickup : MonoBehaviour
                     if (Inventory.Instance.nmbPageVierge > 5)
                     {
                         Inventory.Instance.runes[3].lvlRune++;
+                        SoundManager.PlaySound(SoundManager.Sound.ItemPickedUp, transform.position);
+
 
                         Destroy(gameObject);
                     }

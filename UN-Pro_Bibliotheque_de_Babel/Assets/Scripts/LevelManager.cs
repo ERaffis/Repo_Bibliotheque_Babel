@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public bool shouldBoss;
     public bool shouldHub;
     public float shouldExterior;
+    public bool shouldHubPrincipal;
     string roomName;
 
     [Header("RoomBooleans")]
@@ -225,6 +226,7 @@ public class LevelManager : MonoBehaviour
                 piece6 = false;
 
                 shouldBoss = false;
+                shouldHubPrincipal = true;
                 shouldExterior += 0.2f;
                 return "Piece_Boss";
             }

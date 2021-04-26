@@ -74,7 +74,7 @@ public class RuneManager : MonoBehaviour
                     if (equippedBracelet.activeRunes[0] != null)
                     {
                         equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
-                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                         timeBetween = 0;
                     }
             }
@@ -84,7 +84,7 @@ public class RuneManager : MonoBehaviour
                     if (equippedBracelet.activeRunes[0] != null)
                     {
                         equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
-                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                         timeBetween = 0;
                     }
                 }
@@ -93,7 +93,7 @@ public class RuneManager : MonoBehaviour
                     if (equippedBracelet.activeRunes[1] != null)
                     {
                         equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[1]);
-                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                         timeBetween = 0;
                     }
                 }
@@ -102,7 +102,7 @@ public class RuneManager : MonoBehaviour
                     if (equippedBracelet.activeRunes[2] != null)
                     {
                         equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[2]);
-                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                         timeBetween = 0;
                     }
                 }
@@ -111,7 +111,7 @@ public class RuneManager : MonoBehaviour
                     if (equippedBracelet.activeRunes[3] != null)
                     {
                         equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[3]);
-                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                         timeBetween = 0;
                     }
                 }
@@ -178,7 +178,7 @@ public class RuneManager : MonoBehaviour
                     if (equippedBracelet.activeRunes[0] != null)
                     {
                         equippedBracelet.ProjectileSolo(equippedBracelet.name, equippedBracelet.activeRunes[0]);
-                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                        SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                         timeBetween = 0;
                     }
             } else { 
@@ -277,22 +277,22 @@ public class RuneManager : MonoBehaviour
         {
             case 1:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0]);
-                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                 break;
 
             case 2:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0], orderRune[1]);
-                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttackMedium);
                 break;
 
             case 3:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0], orderRune[1], orderRune[2]);
-                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttackBig);
                 break;
 
             case 4:
                 equippedBracelet.ProjectileCombo(equippedBracelet.name, orderRune[0], orderRune[1], orderRune[2], orderRune[3]);
-                SoundManager.PlaySound(SoundManager.Sound.PlayerAttack);
+                SoundManager.PlaySound(SoundManager.Sound.PlayerAttackSmall);
                 break;
 
             default:

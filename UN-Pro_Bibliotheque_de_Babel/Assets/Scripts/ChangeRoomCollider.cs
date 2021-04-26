@@ -35,7 +35,7 @@ public class ChangeRoomCollider : MonoBehaviour
             {
                 LevelManager.Instance.FadeToLevel();
                 GameHandler.Instance.nmbRooms++;
-                collision.transform.parent.position = new Vector2(0, -10);
+                collision.transform.parent.position = new Vector2(0, -13);
                 ArrowPointer.Instance.shouldPoint = false;
             }
             else
